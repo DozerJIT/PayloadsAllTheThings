@@ -1,0 +1,874 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>文件上传漏洞 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../文件包含/README.md" />
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../SUMMARY.html">
+            
+                <a href="../SUMMARY.html">
+            
+                    
+                    目录
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <span>
+            
+                    
+                    注入漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../命令注入/">
+            
+                <a href="../命令注入/">
+            
+                    
+                    命令注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../SQL注入/">
+            
+                <a href="../SQL注入/">
+            
+                    
+                    SQL注入
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.2.1" data-path="../SQL注入/MYSQL.md">
+            
+                <span>
+            
+                    
+                    MYSQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.2" data-path="../SQL注入/MSSQL.html">
+            
+                <a href="../SQL注入/MSSQL.html">
+            
+                    
+                    MSSQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.3" data-path="../SQL注入/PostgreSQL.html">
+            
+                <a href="../SQL注入/PostgreSQL.html">
+            
+                    
+                    PostgreSQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.4" data-path="../SQL注入/SQLite.html">
+            
+                <a href="../SQL注入/SQLite.html">
+            
+                    
+                    SQLite
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../CRLF注入/">
+            
+                <a href="../CRLF注入/">
+            
+                    
+                    CRLF注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../LDAP注入/">
+            
+                <a href="../LDAP注入/">
+            
+                    
+                    LDAP注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../NOSQL注入/">
+            
+                <a href="../NOSQL注入/">
+            
+                    
+                    NOSQL注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../XPATH注入/">
+            
+                <a href="../XPATH注入/">
+            
+                    
+                    XPATH注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../SAML注入/">
+            
+                <a href="../SAML注入/">
+            
+                    
+                    SAML注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="../[XML实体注入漏洞-XXE">
+            
+                <span>
+            
+                    
+                    XML实体注入漏洞-XXE
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="../模板注入-SSTI/">
+            
+                <a href="../模板注入-SSTI/">
+            
+                    
+                    模板注入-SSTI
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <span>
+            
+                    
+                    前端安全
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../跨站脚本攻击-XSS/">
+            
+                <a href="../跨站脚本攻击-XSS/">
+            
+                    
+                    跨站脚本攻击-XSS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="../跨站请求伪造-CSRF/">
+            
+                <a href="../跨站请求伪造-CSRF/">
+            
+                    
+                    跨站请求伪造-CSRF
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="../CORS配置错误/">
+            
+                <a href="../CORS配置错误/">
+            
+                    
+                    CORS配置错误
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4" data-path="../Web缓存泄露/">
+            
+                <a href="../Web缓存泄露/">
+            
+                    
+                    Web缓存泄露
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <span>
+            
+                    
+                    权限控制
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../不安全的代码管理/">
+            
+                <a href="../不安全的代码管理/">
+            
+                    
+                    不安全的代码管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="../不安全的对象引用/">
+            
+                <a href="../不安全的对象引用/">
+            
+                    
+                    不安全的对象引用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="../不安全的管理接口/">
+            
+                <a href="../不安全的管理接口/">
+            
+                    
+                    不安全的管理接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" >
+            
+                <span>
+            
+                    
+                    文件相关漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="2.4.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    文件上传漏洞
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="../文件包含/README.md">
+            
+                <span>
+            
+                    
+                    文件包含
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" >
+            
+                <span>
+            
+                    
+                    认证方式漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../JWT安全问题/">
+            
+                <a href="../JWT安全问题/">
+            
+                    
+                    JWT安全问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../OAuth认证/">
+            
+                <a href="../OAuth认证/">
+            
+                    
+                    OAuth认证
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" >
+            
+                <span>
+            
+                    
+                    其他漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../任意url跳转/">
+            
+                <a href="../任意url跳转/">
+            
+                    
+                    任意url跳转
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../目录遍历/">
+            
+                <a href="../目录遍历/">
+            
+                    
+                    目录遍历
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="../服务端请求伪造-SSRF/">
+            
+                <a href="../服务端请求伪造-SSRF/">
+            
+                    
+                    服务端请求伪造-SSRF
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <span>
+            
+                    
+                    代码审计
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../PHP弱类型/">
+            
+                <a href="../PHP弱类型/">
+            
+                    
+                    PHP弱类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" >
+            
+                <span>
+            
+                    
+                    内网渗透
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../内网技巧/内网技巧.html">
+            
+                <a href="../内网技巧/内网技巧.html">
+            
+                    
+                    内网技巧
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >文件上传漏洞</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="upload">Upload</h1>
+<p>Uploaded files may pose a significant risk if not handled correctly. A remote attacker could send a multipart/form-data POST request with a specially-crafted filename or mime type and execute arbitrary code.</p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li><a href="#tools">Tools</a></li>
+<li><a href="#exploits">Exploits</a><ul>
+<li><a href="#php-extension">PHP Extension</a></li>
+<li><a href="#other-extensions">Other extensions</a></li>
+<li><a href="#upload-tricks">Upload tricks</a></li>
+<li><a href="#picture-upload-with-lfi">Picture upload with LFI</a></li>
+<li><a href="#configuration-files">Configuration Files</a></li>
+<li><a href="#cve---image-tragik">CVE - Image Tragik</a></li>
+</ul>
+</li>
+<li><a href="#references">References</a></li>
+</ul>
+<h2 id="tools">Tools</h2>
+<ul>
+<li><a href="https://github.com/almandin/fuxploider" target="_blank">Fuxploider</a></li>
+</ul>
+<h2 id="exploits">Exploits</h2>
+<h3 id="php-extension">PHP Extension</h3>
+<pre><code class="lang-powershell">.php
+.php3
+.php4
+.php5
+.php7
+
+Less known extensions
+.pht
+.phar
+.phpt
+.pgif
+.phtml
+.phtm
+
+Double extensions
+.jpeg.php
+.jpg.php
+.png.php
+</code></pre>
+<h3 id="other-extensions">Other extensions</h3>
+<pre><code class="lang-powershell">asp : .asp, .aspx
+perl: .pl, .pm, .cgi, .lib
+jsp : .jsp, .jspx, .jsw, .jsv, .jspf
+Coldfusion: .cfm, .cfml, .cfc, .dbm
+</code></pre>
+<h3 id="upload-tricks">Upload tricks</h3>
+<ul>
+<li>Null byte (eg: shell.php%00.gif, shell.php%00.png), works well against <code>pathinfo()</code></li>
+<li>Mime type, change <code>Content-Type : application/x-php</code> or <code>Content-Type : application/octet-stream</code> to <code>Content-Type : image/gif</code></li>
+</ul>
+<h3 id="picture-upload-with-lfi">Picture upload with LFI</h3>
+<p>Valid pictures hosting PHP code. Upload the picture and use a local file inclusion to execute the code. The shell can be called with the following command : <code>curl &apos;http://localhost/test.php?0=system&apos; --data &quot;1=&apos;ls&apos;&quot;</code>.</p>
+<ul>
+<li>Picture Metadata, hide the payload inside a comment tag in the metadata.</li>
+<li>Picture Resize, hide the payload within the compression algorithm in order to bypass a resize. Also defeating <code>getimagesize()</code> and <code>imagecreatefromgif()</code>.</li>
+</ul>
+<h3 id="configuration-files">Configuration Files</h3>
+<ul>
+<li>.htaccess</li>
+<li>web.config</li>
+<li>httpd.conf</li>
+<li>__init__.py</li>
+</ul>
+<h3 id="cve---image-tragik">CVE - Image Tragik</h3>
+<pre><code class="lang-powershell">HTTP Request
+Reverse Shell
+Touch command
+</code></pre>
+<h2 id="references">References</h2>
+<ul>
+<li>Bulletproof Jpegs Generator - Damien &quot;virtualabs&quot; Cauquil</li>
+<li><a href="https://secgeek.net/bookfresh-vulnerability/" target="_blank">BookFresh Tricky File Upload Bypass to RCE, NOV 29, 2014 - AHMED ABOUL-ELA</a></li>
+<li><a href="https://www.idontplaydarts.com/2012/06/encoding-web-shells-in-png-idat-chunks/" target="_blank">Encoding Web Shells in PNG IDAT chunks, 04-06-2012, phil</a></li>
+<li><a href="https://phil242.wordpress.com/2014/02/23/la-png-qui-se-prenait-pour-du-php/" target="_blank">La PNG qui se prenait pour du PHP, 23 f&#xE9;vrier 2014</a></li>
+<li><a href="https://www.exploit-db.com/docs/english/45074-file-upload-restrictions-bypass.pdf" target="_blank">File Upload restrictions bypass - Haboob Team</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="../文件包含/README.md" class="navigation navigation-next navigation-unique" aria-label="Next page: 文件包含">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"文件上传漏洞","level":"2.4.1","depth":2,"next":{"title":"文件包含","level":"2.4.2","depth":2,"path":"文件包含/README.md","ref":"文件包含/README.md","articles":[]},"previous":{"title":"文件相关漏洞","level":"2.4","depth":1,"ref":"","articles":[{"title":"文件上传漏洞","level":"2.4.1","depth":2,"path":"文件上传漏洞/README.md","ref":"文件上传漏洞/README.md","articles":[]},{"title":"文件包含","level":"2.4.2","depth":2,"path":"文件包含/README.md","ref":"文件包含/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"文件上传漏洞/README.md","mtime":"2019-09-15T21:20:16.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-16T07:03:19.203Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

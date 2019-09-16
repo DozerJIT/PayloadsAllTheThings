@@ -1,0 +1,874 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>PHP弱类型 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../SUMMARY.html">
+            
+                <a href="../SUMMARY.html">
+            
+                    
+                    目录
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <span>
+            
+                    
+                    注入漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../命令注入/">
+            
+                <a href="../命令注入/">
+            
+                    
+                    命令注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../SQL注入/">
+            
+                <a href="../SQL注入/">
+            
+                    
+                    SQL注入
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.2.1" data-path="../SQL注入/MYSQL.md">
+            
+                <span>
+            
+                    
+                    MYSQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.2" data-path="../SQL注入/MSSQL.html">
+            
+                <a href="../SQL注入/MSSQL.html">
+            
+                    
+                    MSSQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.3" data-path="../SQL注入/PostgreSQL.html">
+            
+                <a href="../SQL注入/PostgreSQL.html">
+            
+                    
+                    PostgreSQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.4" data-path="../SQL注入/SQLite.html">
+            
+                <a href="../SQL注入/SQLite.html">
+            
+                    
+                    SQLite
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../CRLF注入/">
+            
+                <a href="../CRLF注入/">
+            
+                    
+                    CRLF注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../LDAP注入/">
+            
+                <a href="../LDAP注入/">
+            
+                    
+                    LDAP注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../NOSQL注入/">
+            
+                <a href="../NOSQL注入/">
+            
+                    
+                    NOSQL注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../XPATH注入/">
+            
+                <a href="../XPATH注入/">
+            
+                    
+                    XPATH注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../SAML注入/">
+            
+                <a href="../SAML注入/">
+            
+                    
+                    SAML注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="../[XML实体注入漏洞-XXE">
+            
+                <span>
+            
+                    
+                    XML实体注入漏洞-XXE
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="../模板注入-SSTI/">
+            
+                <a href="../模板注入-SSTI/">
+            
+                    
+                    模板注入-SSTI
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <span>
+            
+                    
+                    前端安全
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../跨站脚本攻击-XSS/">
+            
+                <a href="../跨站脚本攻击-XSS/">
+            
+                    
+                    跨站脚本攻击-XSS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="../跨站请求伪造-CSRF/">
+            
+                <a href="../跨站请求伪造-CSRF/">
+            
+                    
+                    跨站请求伪造-CSRF
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="../CORS配置错误/">
+            
+                <a href="../CORS配置错误/">
+            
+                    
+                    CORS配置错误
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4" data-path="../Web缓存泄露/">
+            
+                <a href="../Web缓存泄露/">
+            
+                    
+                    Web缓存泄露
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <span>
+            
+                    
+                    权限控制
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../不安全的代码管理/">
+            
+                <a href="../不安全的代码管理/">
+            
+                    
+                    不安全的代码管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="../不安全的对象引用/">
+            
+                <a href="../不安全的对象引用/">
+            
+                    
+                    不安全的对象引用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="../不安全的管理接口/">
+            
+                <a href="../不安全的管理接口/">
+            
+                    
+                    不安全的管理接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" >
+            
+                <span>
+            
+                    
+                    文件相关漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="../文件上传漏洞/">
+            
+                <a href="../文件上传漏洞/">
+            
+                    
+                    文件上传漏洞
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="../文件包含/README.md">
+            
+                <span>
+            
+                    
+                    文件包含
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" >
+            
+                <span>
+            
+                    
+                    认证方式漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../JWT安全问题/">
+            
+                <a href="../JWT安全问题/">
+            
+                    
+                    JWT安全问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../OAuth认证/">
+            
+                <a href="../OAuth认证/">
+            
+                    
+                    OAuth认证
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" >
+            
+                <span>
+            
+                    
+                    其他漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../任意url跳转/">
+            
+                <a href="../任意url跳转/">
+            
+                    
+                    任意url跳转
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../目录遍历/">
+            
+                <a href="../目录遍历/">
+            
+                    
+                    目录遍历
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="../服务端请求伪造-SSRF/">
+            
+                <a href="../服务端请求伪造-SSRF/">
+            
+                    
+                    服务端请求伪造-SSRF
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <span>
+            
+                    
+                    代码审计
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="4.1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    PHP弱类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" >
+            
+                <span>
+            
+                    
+                    内网渗透
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../内网技巧/内网技巧.html">
+            
+                <a href="../内网技巧/内网技巧.html">
+            
+                    
+                    内网技巧
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >PHP弱类型</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="php-juggling-type-and-magic-hashes">PHP Juggling type and magic hashes</h1>
+<p>PHP provides two ways to compare two variables:</p>
+<ul>
+<li>Loose comparison using <code>== or !=</code> : both variables have &quot;the same value&quot;.</li>
+<li>Strict comparison using <code>=== or !==</code> : both variables have &quot;the same type and the same value&quot;.</li>
+</ul>
+<h2 id="type-juggling">Type Juggling</h2>
+<h3 id="true-statements">True statements</h3>
+<pre><code class="lang-php">var_dump(<span class="hljs-string">&apos;0010e2&apos;</span>   == <span class="hljs-string">&apos;1e3&apos;</span>);           <span class="hljs-comment"># true</span>
+var_dump(<span class="hljs-string">&apos;0xABCdef&apos;</span> == <span class="hljs-string">&apos; 0xABCdef&apos;</span>);     <span class="hljs-comment"># true PHP 5.0 / false PHP 7.0</span>
+var_dump(<span class="hljs-string">&apos;0xABCdef&apos;</span> == <span class="hljs-string">&apos;     0xABCdef&apos;</span>); <span class="hljs-comment"># true PHP 5.0 / false PHP 7.0</span>
+var_dump(<span class="hljs-string">&apos;0x01&apos;</span>     == <span class="hljs-number">1</span>)                <span class="hljs-comment"># true PHP 5.0 / false PHP 7.0</span>
+var_dump(<span class="hljs-string">&apos;0x1234Ab&apos;</span> == <span class="hljs-string">&apos;1193131&apos;</span>);
+</code></pre>
+<pre><code class="lang-php"><span class="hljs-string">&apos;123&apos;</span>  == <span class="hljs-number">123</span>
+<span class="hljs-string">&apos;123a&apos;</span> == <span class="hljs-number">123</span>
+<span class="hljs-string">&apos;abc&apos;</span>  == <span class="hljs-number">0</span>
+</code></pre>
+<pre><code class="lang-php"><span class="hljs-string">&apos;&apos;</span> == <span class="hljs-number">0</span> == <span class="hljs-keyword">false</span> == <span class="hljs-keyword">NULL</span>
+<span class="hljs-string">&apos;&apos;</span> == <span class="hljs-number">0</span>       <span class="hljs-comment"># true</span>
+<span class="hljs-number">0</span>  == <span class="hljs-keyword">false</span>   <span class="hljs-comment"># true</span>
+<span class="hljs-keyword">false</span> == <span class="hljs-keyword">NULL</span> <span class="hljs-comment"># true</span>
+<span class="hljs-keyword">NULL</span> == <span class="hljs-string">&apos;&apos;</span>    <span class="hljs-comment"># true</span>
+</code></pre>
+<h3 id="null-statements">NULL statements</h3>
+<pre><code class="lang-php">var_dump(sha1([])); <span class="hljs-comment"># NULL</span>
+var_dump(md5([]));  <span class="hljs-comment"># NULL</span>
+</code></pre>
+<h2 id="magic-hashes---exploit">Magic Hashes - Exploit</h2>
+<p>If the hash computed starts with &quot;0e&quot; (or &quot;0..0e&quot;) only followed by numbers, PHP will treat the hash as a float.</p>
+<table>
+<thead>
+<tr>
+<th>Hash</th>
+<th>&#x201C;Magic&#x201D; Number / String</th>
+<th style="text-align:center">Magic Hash</th>
+<th style="text-align:right">Found By</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MD5</td>
+<td>240610708</td>
+<td style="text-align:center">0e462097431906509019562988736854</td>
+<td style="text-align:right"><a href="https://twitter.com/spazef0rze/status/439352552443084800" target="_blank">@spazef0rze</a></td>
+</tr>
+<tr>
+<td>SHA1</td>
+<td>10932435112</td>
+<td style="text-align:center">0e07766915004133176347055865026311692244</td>
+<td style="text-align:right">Independently found by Michael A. Cleverly &amp; Michele Spagnuolo &amp; Rogdham</td>
+</tr>
+<tr>
+<td>SHA-224</td>
+<td>10885164793773</td>
+<td style="text-align:center">0e281250946775200129471613219196999537878926740638594636</td>
+<td style="text-align:right"><a href="https://twitter.com/TihanyiNorbert/status/1138075224010833921" target="_blank">@TihanyiNorbert</a></td>
+</tr>
+<tr>
+<td>SHA-256</td>
+<td>34250003024812</td>
+<td style="text-align:center">0e46289032038065916139621039085883773413820991920706299695051332</td>
+<td style="text-align:right"><a href="https://twitter.com/TihanyiNorbert/status/1148586399207178241" target="_blank">@TihanyiNorbert</a></td>
+</tr>
+<tr>
+<td>SHA-256</td>
+<td>TyNOQHUS</td>
+<td style="text-align:center">0e66298694359207596086558843543959518835691168370379069085300385</td>
+<td style="text-align:right"><a href="https://twitter.com/Chick3nman512/status/1150137800324526083" target="_blank">@Chick3nman512</a></td>
+</tr>
+</tbody>
+</table>
+<pre><code class="lang-php"><span class="hljs-meta">&lt;?php</span>
+var_dump(md5(<span class="hljs-string">&apos;240610708&apos;</span>) == md5(<span class="hljs-string">&apos;QNKCDZO&apos;</span>)); <span class="hljs-comment"># bool(true)</span>
+var_dump(md5(<span class="hljs-string">&apos;aabg7XSs&apos;</span>)  == md5(<span class="hljs-string">&apos;aabC9RqS&apos;</span>));
+var_dump(sha1(<span class="hljs-string">&apos;aaroZmOk&apos;</span>) == sha1(<span class="hljs-string">&apos;aaK1STfY&apos;</span>));
+var_dump(sha1(<span class="hljs-string">&apos;aaO8zKZF&apos;</span>) == sha1(<span class="hljs-string">&apos;aa3OFF9m&apos;</span>));
+<span class="hljs-meta">?&gt;</span>
+</code></pre>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="http://turbochaos.blogspot.com/2013/08/exploiting-exotic-bugs-php-type-juggling.html" target="_blank">Writing Exploits For Exotic Bug Classes: PHP Type Juggling By Tyler Borland</a></li>
+<li><a href="https://www.whitehatsec.com/blog/magic-hashes/" target="_blank">Magic Hashes - WhieHatSec</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"PHP弱类型","level":"4.1.1","depth":2,"next":{"title":"内网渗透","level":"4.2","depth":1,"ref":"","articles":[{"title":"内网技巧","level":"4.2.1","depth":2,"path":"内网技巧/内网技巧.md","ref":"内网技巧/内网技巧.md","articles":[]}]},"previous":{"title":"代码审计","level":"4.1","depth":1,"ref":"","articles":[{"title":"PHP弱类型","level":"4.1.1","depth":2,"path":"PHP弱类型/README.md","ref":"PHP弱类型/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"PHP弱类型/README.md","mtime":"2019-09-15T21:19:02.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-16T07:03:19.203Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

