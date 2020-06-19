@@ -1,0 +1,1344 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>python基础-查询api · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="../php基础-留言板/README.md" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../SUMMARY.html">
+            
+                <a href="../SUMMARY.html">
+            
+                    
+                    目录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    web基础知识
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../http协议/">
+            
+                <a href="../http协议/">
+            
+                    
+                    http协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../常见中间件/README.md">
+            
+                <span>
+            
+                    
+                    常见的中间件，数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../使用docker搭建环境/">
+            
+                <a href="../使用docker搭建环境/">
+            
+                    
+                    使用docker搭建环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../使用v2ray,shadowsock及tor/">
+            
+                <a href="../使用v2ray,shadowsock及tor/">
+            
+                    
+                    搭建梯子
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../php基础-留言板/README.md">
+            
+                <span>
+            
+                    
+                    php基础-留言板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.3.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    python基础-查询api
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    前端安全
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../跨站脚本攻击-XSS/">
+            
+                <a href="../跨站脚本攻击-XSS/">
+            
+                    
+                    跨站脚本攻击-XSS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../跨站请求伪造-CSRF/">
+            
+                <a href="../跨站请求伪造-CSRF/">
+            
+                    
+                    跨站请求伪造-CSRF
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../CORS配置错误/">
+            
+                <a href="../CORS配置错误/">
+            
+                    
+                    CORS配置错误
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../Web缓存泄露/">
+            
+                <a href="../Web缓存泄露/">
+            
+                    
+                    Web缓存泄露
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    注入漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../命令注入/">
+            
+                <a href="../命令注入/">
+            
+                    
+                    命令注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" >
+            
+                <span>
+            
+                    
+                    SQL注入
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.2.1" data-path="../SQL注入/">
+            
+                <a href="../SQL注入/">
+            
+                    
+                    MYSQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.2" data-path="../SQL注入/MSSQL.html">
+            
+                <a href="../SQL注入/MSSQL.html">
+            
+                    
+                    MSSQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.3" data-path="../SQL注入/PostgreSQL.html">
+            
+                <a href="../SQL注入/PostgreSQL.html">
+            
+                    
+                    PostgreSQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.4" data-path="../SQL注入/SQLite.html">
+            
+                <a href="../SQL注入/SQLite.html">
+            
+                    
+                    SQLite
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../CRLF注入/">
+            
+                <a href="../CRLF注入/">
+            
+                    
+                    CRLF注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../LDAP注入/">
+            
+                <a href="../LDAP注入/">
+            
+                    
+                    LDAP注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../NoSQL注入/">
+            
+                <a href="../NoSQL注入/">
+            
+                    
+                    NoSQL注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../XPATH注入/">
+            
+                <a href="../XPATH注入/">
+            
+                    
+                    XPATH注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../SAML注入/">
+            
+                <a href="../SAML注入/">
+            
+                    
+                    SAML注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../XML实体注入漏洞-XXE/">
+            
+                <a href="../XML实体注入漏洞-XXE/">
+            
+                    
+                    XML实体注入漏洞-XXE
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../模板注入-SSTI/">
+            
+                <a href="../模板注入-SSTI/">
+            
+                    
+                    模板注入-SSTI
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    权限控制
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../不安全的代码管理/">
+            
+                <a href="../不安全的代码管理/">
+            
+                    
+                    不安全的代码管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../不安全的对象引用/">
+            
+                <a href="../不安全的对象引用/">
+            
+                    
+                    不安全的对象引用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../不安全的管理接口/">
+            
+                <a href="../不安全的管理接口/">
+            
+                    
+                    不安全的管理接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    文件相关漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../文件上传漏洞/">
+            
+                <a href="../文件上传漏洞/">
+            
+                    
+                    文件上传漏洞
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../文件包含/README.md">
+            
+                <span>
+            
+                    
+                    文件包含
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <span>
+            
+                    
+                    认证方式漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../JWT安全问题/">
+            
+                <a href="../JWT安全问题/">
+            
+                    
+                    JWT安全问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../OAuth认证/">
+            
+                <a href="../OAuth认证/">
+            
+                    
+                    OAuth认证
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <span>
+            
+                    
+                    其他漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../任意url跳转/">
+            
+                <a href="../任意url跳转/">
+            
+                    
+                    任意url跳转
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="../目录遍历/">
+            
+                <a href="../目录遍历/">
+            
+                    
+                    目录遍历
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="../服务端请求伪造-SSRF/">
+            
+                <a href="../服务端请求伪造-SSRF/">
+            
+                    
+                    服务端请求伪造-SSRF
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" >
+            
+                <span>
+            
+                    
+                    代码审计
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../PHP弱类型/">
+            
+                <a href="../PHP弱类型/">
+            
+                    
+                    PHP弱类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" >
+            
+                <span>
+            
+                    
+                    内网渗透
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" >
+            
+                <span>
+            
+                    
+                    代理转发
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" >
+            
+                <span>
+            
+                    
+                    内网扫描
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" >
+            
+                <span>
+            
+                    
+                    红队知识
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" data-path="../内网技巧/域结构.html">
+            
+                <a href="../内网技巧/域结构.html">
+            
+                    
+                    域结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.2" data-path="../内网技巧/hash.html">
+            
+                <a href="../内网技巧/hash.html">
+            
+                    
+                    windows hash
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.3" data-path="../内网技巧/c2工具.html">
+            
+                <a href="../内网技巧/c2工具.html">
+            
+                    
+                    c2工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.4" data-path="../内网技巧/初始访问.html">
+            
+                <a href="../内网技巧/初始访问.html">
+            
+                    
+                    初始访问
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.5" data-path="../内网技巧/域信息搜集.html">
+            
+                <a href="../内网技巧/域信息搜集.html">
+            
+                    
+                    信息搜集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.6" >
+            
+                <span>
+            
+                    
+                    代码执行
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.7" >
+            
+                <span>
+            
+                    
+                    权限提升
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.7.1" data-path="../内网技巧/本地提权.html">
+            
+                <a href="../内网技巧/本地提权.html">
+            
+                    
+                    本地提权
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.7.2" data-path="../内网技巧/域提权.html">
+            
+                <a href="../内网技巧/域提权.html">
+            
+                    
+                    域提权
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.8" data-path="../内网技巧/凭据获取.html">
+            
+                <a href="../内网技巧/凭据获取.html">
+            
+                    
+                    凭据获取
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.9" data-path="../内网技巧/横向移动.html">
+            
+                <a href="../内网技巧/横向移动.html">
+            
+                    
+                    横向移动
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.10" >
+            
+                <span>
+            
+                    
+                    痕迹清理
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.11" data-path="../内网技巧/权限维持.html">
+            
+                <a href="../内网技巧/权限维持.html">
+            
+                    
+                    权限维持
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.12" data-path="../内网技巧/无凭证情况.html">
+            
+                <a href="../内网技巧/无凭证情况.html">
+            
+                    
+                    无域凭证的情况
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.13" >
+            
+                <span>
+            
+                    
+                    多域
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >python基础-查询api</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="python&#x57FA;&#x7840;-&#x67E5;&#x8BE2;api">Python&#x57FA;&#x7840;-&#x67E5;&#x8BE2;api</h1>
+<blockquote>
+<p>Python&#x5728;Web&#x5B89;&#x5168;&#x4E2D;&#x8D77;&#x5230;&#x4E86;&#x5F88;&#x597D;&#x7684;&#x8F85;&#x52A9;&#x4F5C;&#x7528;&#xFF0C;python&#x539F;&#x672C;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x53EF;&#x4EE5;&#x5F00;&#x53D1;Web app&#x7684;&#x8BED;&#x8A00;&#xFF0C;&#x5728;&#x5BF9;&#x4E8E;&#x4E00;&#x4E9B;&#x6BD4;&#x8F83;&#x590D;&#x6742;&#x7684;&#x60C5;&#x51B5;&#x53EF;&#x4EE5;&#x7528;python&#x8FDB;&#x884C;&#x8F85;&#x52A9;&#x64CD;&#x4F5C;&#x3002;</p>
+</blockquote>
+<h2 id="&#x76EE;&#x5F55;">&#x76EE;&#x5F55;</h2>
+<ul>
+<li><a href="#&#x8BED;&#x8A00;&#x57FA;&#x7840;">&#x8BED;&#x8A00;&#x57FA;&#x7840;</a></li>
+<li><a href="#requests&#x5E93;">requests&#x5E93;</a><ul>
+<li><a href="#&#x8BF7;&#x6C42;&#x793A;&#x4F8B;">&#x8BF7;&#x6C42;&#x793A;&#x4F8B;</a></li>
+<li><a href="#&#x8BF7;&#x6C42;&#x65B9;&#x5F0F;">&#x8BF7;&#x6C42;&#x65B9;&#x5F0F;</a></li>
+<li><a href="#&#x54CD;&#x5E94;&#x7684;&#x5185;&#x5BB9;">&#x54CD;&#x5E94;&#x7684;&#x5185;&#x5BB9;</a></li>
+<li><a href="#POST&#x53D1;&#x9001;json&#x8BF7;&#x6C42;">POST&#x53D1;&#x9001;json&#x8BF7;&#x6C42;</a></li>
+<li><a href="#&#x5B9A;&#x5236;&#x8BF7;&#x6C42;&#x5934;&#x548C;cookie&#x4FE1;&#x606F;">&#x5B9A;&#x5236;&#x8BF7;&#x6C42;&#x5934;&#x548C;cookie&#x4FE1;&#x606F;</a></li>
+<li><a href="#&#x54CD;&#x5E94;">&#x54CD;&#x5E94;</a></li>
+<li><a href="#&#x8BBE;&#x7F6E;&#x8BF7;&#x6C42;&#x65F6;&#x95F4;">&#x8BBE;&#x7F6E;&#x8BF7;&#x6C42;&#x65F6;&#x95F4;</a></li>
+<li><a href="#&#x4F1A;&#x8BDD;&#x5BF9;&#x8C61;">&#x4F1A;&#x8BDD;&#x5BF9;&#x8C61;</a></li>
+<li><a href="#&#x8BBE;&#x7F6E;&#x8BF7;&#x6C42;&#x4EE3;&#x7406;">&#x8BBE;&#x7F6E;&#x8BF7;&#x6C42;&#x4EE3;&#x7406;</a></li>
+</ul>
+</li>
+<li><a href="#urllib&#x5E93;">urllib&#x5E93;</a></li>
+<li><a href="#bs4&#x5E93;">bs4&#x5E93;</a></li>
+<li><a href="#ip-api.com&#x722C;&#x866B;">ip-api.com&#x722C;&#x866B;</a></li>
+<li><a href="#bgp.he.net&#x722C;&#x866B;">bgp.he.net&#x722C;&#x866B;</a></li>
+<li><a href="#&#x53C2;&#x8003;">&#x53C2;&#x8003;</a></li>
+</ul>
+<h2 id="&#x8BED;&#x8A00;&#x57FA;&#x7840;">&#x8BED;&#x8A00;&#x57FA;&#x7840;</h2>
+<p>&#x8BF7;&#x79FB;&#x6B65;&#x5ED6;&#x96EA;&#x5CF0;Python&#x6559;&#x7A0B;&#xFF1A;<a href="https://www.liaoxuefeng.com/wiki/1016959663602400" target="_blank">https://www.liaoxuefeng.com/wiki/1016959663602400</a></p>
+<h2 id="requests&#x5E93;">requests&#x5E93;</h2>
+<p>requests&#x5E93;&#x662F;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;Apache2 &#x8BB8;&#x53EF;&#x7684;HTTP&#x5E93;&#xFF0C;&#x57FA;&#x672C;&#x652F;&#x6301;HTTP&#x6240;&#x6709;&#x8BF7;&#x6C42;&#x65B9;&#x5F0F;</p>
+<h3 id="&#x8BF7;&#x6C42;&#x793A;&#x4F8B;">&#x8BF7;&#x6C42;&#x793A;&#x4F8B;</h3>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> requests
+
+req = requests.get(<span class="hljs-string">&apos;&lt;URL&gt;&apos;</span>)    <span class="hljs-comment">#&#x4E0D;&#x5E26;&#x53C2;&#x6570;&#x7684;GET&#x8BF7;&#x6C42;</span>
+req2 = requests.get(url=<span class="hljs-string">&apos;&lt;URL&gt;&apos;</span>,params={<span class="hljs-string">&apos;p1&apos;</span>:<span class="hljs-string">&apos;v1&apos;</span>})    <span class="hljs-comment">#&#x5E26;&#x53C2;&#x6570;&#x7684;GET&#x8BF7;&#x6C42;</span>
+</code></pre>
+<h3 id="&#x8BF7;&#x6C42;&#x65B9;&#x5F0F;">&#x8BF7;&#x6C42;&#x65B9;&#x5F0F;</h3>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> requests
+
+requests.get(<span class="hljs-string">&apos;&lt;URL&gt;&apos;</span>)
+requests.post(<span class="hljs-string">&apos;&lt;URL&gt;&apos;</span>)
+requests.put(<span class="hljs-string">&apos;&lt;URL&gt;&apos;</span>)
+requests.delete(<span class="hljs-string">&apos;&lt;URL&gt;&apos;</span>)
+requests.head(<span class="hljs-string">&apos;&lt;URL&gt;&apos;</span>)
+requests.options(<span class="hljs-string">&apos;&lt;URL&gt;&apos;</span>)
+</code></pre>
+<h3 id="&#x54CD;&#x5E94;&#x7684;&#x5185;&#x5BB9;">&#x54CD;&#x5E94;&#x7684;&#x5185;&#x5BB9;</h3>
+<pre><code class="lang-python">r.url    <span class="hljs-comment">#&#x663E;&#x793A;&#x5F53;&#x524D;&#x8BF7;&#x6C42;&#x7684;url(&#x542B;&#x53C2;&#x6570;)</span>
+r.encoding    <span class="hljs-comment">#&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x7684;&#x7F16;&#x7801;</span>
+r.encoding = <span class="hljs-string">&apos;utf-8&apos;</span>    <span class="hljs-comment">#&#x8BBE;&#x7F6E;&#x7F16;&#x7801;</span>
+r.content    <span class="hljs-comment">#&#x4EE5;&#x5B57;&#x8282;&#x5F62;&#x5F0F;&#x8FD4;&#x56DE;&#xFF0C;&#x5B57;&#x8282;&#x5F62;&#x5F0F;&#x7684;&#x54CD;&#x5E94;&#x4F53;&#xFF0C;&#x4F1A;&#x81EA;&#x52A8;&#x4E3A;&#x4F60;&#x89E3;&#x7801;gzip&#x548C;deflate&#x538B;&#x7F29;</span>
+r.headers    <span class="hljs-comment">#&#x4EE5;&#x5B57;&#x5178;&#x5BF9;&#x8C61;&#x5B58;&#x50A8;&#x670D;&#x52A1;&#x5668;&#x54CD;&#x5E94;&#x5934;&#xFF0C;&#x5B57;&#x5178;&#x952E;&#x4E0D;&#x533A;&#x5206;&#x5927;&#x5C0F;&#x5199;&#xFF0C;&#x82E5;&#x952E;&#x4E0D;&#x5B58;&#x5728;&#x5219;&#x8FD4;&#x56DE;None</span>
+r.status_code    <span class="hljs-comment">#&#x54CD;&#x5E94;&#x72B6;&#x6001;&#x7801;</span>
+r.raw    <span class="hljs-comment">#&#x8FD4;&#x56DE;&#x539F;&#x59CB;&#x54CD;&#x5E94;&#x4F53;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;urllib&#x7684;response&#x5BF9;&#x8C61;&#xFF0C;&#x4F7F;&#x7528;r.raw.read()</span>
+r.ok    <span class="hljs-comment">#bool&#x503C;&#x4EE3;&#x8868;&#x662F;&#x5426;&#x767B;&#x9646;&#x6210;&#x529F;</span>
+r.json()    <span class="hljs-comment">#&#x4EE5;json&#x5F62;&#x5F0F;&#x8FD4;&#x56DE;&#xFF0C;&#x5F97;&#x5148;&#x786E;&#x4FDD;&#x5185;&#x5BB9;&#x4E3A;json&#x683C;&#x5F0F;&#x4E0D;&#x7136;&#x4F1A;&#x62A5;&#x9519;</span>
+r.raise_for_status()    <span class="hljs-comment">#&#x5931;&#x8D25;&#x8BF7;&#x6C42;(&#x975E;200&#x54CD;&#x5E94;)&#x629B;&#x51FA;&#x5F02;&#x5E38;</span>
+</code></pre>
+<h3 id="post&#x53D1;&#x9001;json&#x8BF7;&#x6C42;">POST&#x53D1;&#x9001;json&#x8BF7;&#x6C42;</h3>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> requests
+<span class="hljs-keyword">import</span> json
+
+r=requests.post(<span class="hljs-string">&apos;&lt;URL&gt;&apos;</span>,data=json.dumps({<span class="hljs-string">&quot;some&quot;</span>:<span class="hljs-string">&quot;value&quot;</span>}))
+print(r.json())
+</code></pre>
+<h3 id="&#x5B9A;&#x5236;&#x8BF7;&#x6C42;&#x5934;&#x548C;cookie&#x4FE1;&#x606F;">&#x5B9A;&#x5236;&#x8BF7;&#x6C42;&#x5934;&#x548C;cookie&#x4FE1;&#x606F;</h3>
+<pre><code class="lang-python">header = {&apos;user-agent&apos;: &apos;my-app/0.0.1&apos;&apos;}
+cookie = {&apos;key&apos;:&apos;value&apos;}
+r = requests.get/post(&apos;your url&apos;,headers=header,cookies=cookie) 
+data = {&apos;some&apos;: &apos;data&apos;}
+headers = {&apos;content-type&apos;: &apos;application/json&apos;,
+           &apos;User-Agent&apos;: &apos;Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:22.0) Gecko/20100101 Firefox/22.0&apos;}
+
+r = requests.post(&apos;https://api.github.com/some/endpoint&apos;, data=data, headers=headers)
+print(r.text)
+</code></pre>
+<h3 id="&#x54CD;&#x5E94;">&#x54CD;&#x5E94;</h3>
+<pre><code class="lang-python">r.headers                                  <span class="hljs-comment">#&#x8FD4;&#x56DE;&#x5B57;&#x5178;&#x7C7B;&#x578B;,&#x5934;&#x4FE1;&#x606F;</span>
+r.requests.headers                         <span class="hljs-comment">#&#x8FD4;&#x56DE;&#x53D1;&#x9001;&#x5230;&#x670D;&#x52A1;&#x5668;&#x7684;&#x5934;&#x4FE1;&#x606F;</span>
+r.cookies                                  <span class="hljs-comment">#&#x8FD4;&#x56DE;cookie</span>
+r.history                                  <span class="hljs-comment">#&#x8FD4;&#x56DE;&#x91CD;&#x5B9A;&#x5411;&#x4FE1;&#x606F;,&#x5F53;&#x7136;&#x53EF;&#x4EE5;&#x5728;&#x8BF7;&#x6C42;&#x662F;&#x52A0;&#x4E0A;allow_redirects = false &#x963B;&#x6B62;&#x91CD;&#x5B9A;&#x5411;</span>
+</code></pre>
+<h3 id="&#x8BBE;&#x7F6E;&#x8BF7;&#x6C42;&#x65F6;&#x95F4;">&#x8BBE;&#x7F6E;&#x8BF7;&#x6C42;&#x65F6;&#x95F4;</h3>
+<pre><code class="lang-python">r = requests.get(<span class="hljs-string">&apos;&lt;URL&gt;&apos;</span>,timeout=<span class="hljs-number">1</span>)
+</code></pre>
+<h3 id="&#x4F1A;&#x8BDD;&#x5BF9;&#x8C61;">&#x4F1A;&#x8BDD;&#x5BF9;&#x8C61;</h3>
+<pre><code class="lang-python">session=requests.Session()
+session.auth(<span class="hljs-string">&apos;username&apos;</span>,<span class="hljs-string">&apos;password&apos;</span>)
+session.headers = {<span class="hljs-string">&apos;key&apos;</span>,<span class="hljs-string">&apos;value&apos;</span>}
+r=session.get(<span class="hljs-string">&apos;&lt;URL&gt;&apos;</span>)
+</code></pre>
+<h3 id="&#x8BBE;&#x7F6E;&#x8BF7;&#x6C42;&#x4EE3;&#x7406;">&#x8BBE;&#x7F6E;&#x8BF7;&#x6C42;&#x4EE3;&#x7406;</h3>
+<pre><code class="lang-python">proxies = {<span class="hljs-string">&apos;http&apos;</span>:<span class="hljs-string">&apos;ip1&apos;</span>,<span class="hljs-string">&apos;https&apos;</span>:<span class="hljs-string">&apos;ip2&apos;</span> }
+requests.get(<span class="hljs-string">&apos;url&apos;</span>,proxies=proxies)
+</code></pre>
+<p>&#x672C;&#x90E8;&#x5206;&#x53C2;&#x8003;&#xFF1A;<a href="https://www.cnblogs.com/lanyinhao/p/9634742.html" target="_blank">https://www.cnblogs.com/lanyinhao/p/9634742.html</a></p>
+<h2 id="urllib&#x5E93;">urllib&#x5E93;</h2>
+<p>&#x8FD9;&#x90E8;&#x5206;&#x53C2;&#x8003;&#xFF1A;<a href="https://www.cnblogs.com/zhangxinqi/p/9170312.html" target="_blank">https://www.cnblogs.com/zhangxinqi/p/9170312.html</a></p>
+<p>&#x8FD9;&#x4E2A;&#x5E93;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;HTTP&#x5E93;&#xFF0C;&#x7528;&#x6CD5;&#x4E0E;requests&#x5E93;&#x7C7B;&#x4F3C;&#xFF0C;&#x5C31;&#x4E0D;&#x5728;&#x8D58;&#x8FF0;&#x3002;</p>
+<h2 id="bs4&#x5E93;">bs4&#x5E93;</h2>
+<p>&#x8FD9;&#x90E8;&#x5206;&#x53C2;&#x8003;&#xFF1A;<a href="https://www.cnblogs.com/zhangxinqi/p/9218395.html" target="_blank">https://www.cnblogs.com/zhangxinqi/p/9218395.html</a></p>
+<h2 id="ip-apicom&#x722C;&#x866B;">ip-api.com&#x722C;&#x866B;</h2>
+<p>ip-api WEB API:<a href="http://ip-api.com/json/\" target="_blank">http://ip-api.com/json/\</a><url\>?lang=zh-CN</url\></p>
+<p>&#x8FD9;&#x4E2A;&#x53EA;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x7684;requests&#x5E93;&#x5C31;&#x80FD;&#x89E3;&#x51B3;&#x95EE;&#x9898;</p>
+<pre><code class="lang-python"><span class="hljs-comment">#!/usr/bin/python3 </span>
+<span class="hljs-keyword">import</span> requests
+<span class="hljs-keyword">import</span> json
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">api</span><span class="hljs-params">(ip)</span>:</span>
+    js=requests.get(<span class="hljs-string">&quot;http://ip-api.com/json/&quot;</span>+ip+<span class="hljs-string">&quot;?lang=zh-CN&quot;</span>)
+    js.encoding=<span class="hljs-string">&apos;utf-8&apos;</span>
+    dic=js.json()
+    print(json.dumps(js.json(),indent=<span class="hljs-number">3</span>,ensure_ascii=<span class="hljs-keyword">False</span>))
+    <span class="hljs-keyword">return</span> dic
+
+api(<span class="hljs-string">&quot;xxx.xxx.xxx.xxx&quot;</span>)
+</code></pre>
+<h2 id="bgphenet&#x722C;&#x866B;">bgp.he.net&#x722C;&#x866B;</h2>
+<p>&#x8FD9;&#x4E2A;&#x5E76;&#x4E0D;&#x50CF;&#x662F;ip-api.com&#x90A3;&#x6837;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;json&#xFF0C;&#x7ED3;&#x679C;&#x662F;&#x76F4;&#x63A5;&#x7531;&#x524D;&#x7AEF;&#x89E3;&#x6790;&#x5C55;&#x793A;&#x51FA;&#x6765;&#xFF0C;&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x5206;&#x6790;&#x9700;&#x6C42;&#x5E94;&#x8BE5;&#x53EF;&#x4EE5;&#x77E5;&#x9053;&#xFF0C;&#x5C31;&#x662F;&#x8BF7;&#x6C42;&#x7F51;&#x9875;&#x5F97;&#x5230;HTML&#xFF0C;&#x7136;&#x540E;&#x89E3;&#x6790;HTML&#x4ECE;&#x4E2D;&#x628A;&#x6211;&#x4EEC;&#x8981;&#x7528;&#x5230;&#x7684;&#x6570;&#x636E;&#x7ED9;&#x6263;&#x51FA;&#x6765;&#xFF0C;&#x8FD9;&#x4E2A;&#x5E94;&#x8BE5;&#x5C31;&#x662F;&#x8981;&#x5B9E;&#x73B0;&#x7684;&#x529F;&#x80FD;&#x3002;</p>
+<p><a href="https://bgp.he.net/ip/" target="_blank">https://bgp.he.net/ip/</a><ip></ip></p>
+<p><a href="https://bgp.he.net/net/" target="_blank">https://bgp.he.net/net/</a><net></net></p>
+<p>&#x6240;&#x4EE5;&#x6211;&#x4EEC;&#x5C3D;&#x53EF;&#x80FD;&#x7684;&#x662F;&#x5C06;&#x5BF9;&#x5E94;&#x7684;&#x6587;&#x672C;&#x63D0;&#x53D6;&#x51FA;&#x6765;&#x5C31;&#x53EF;&#x4EE5;</p>
+<p>&#x5199;&#x7684;&#x7B80;&#x6613;&#x7248;&#x672C;&#x4EE3;&#x7801;&#xFF0C;&#x6570;&#x636E;&#x672A;&#x8FDB;&#x884C;&#x6392;&#x5E8F;&#x6574;&#x7406;&#x7684;&#x7248;&#x672C;&#xFF1A;</p>
+<pre><code class="lang-python"><span class="hljs-comment">#!/usr/bin/python3 </span>
+<span class="hljs-keyword">import</span> re
+<span class="hljs-keyword">import</span> requests
+<span class="hljs-keyword">from</span> bs4 <span class="hljs-keyword">import</span> BeautifulSoup
+<span class="hljs-keyword">import</span> urllib.request <span class="hljs-keyword">as</span> urq
+<span class="hljs-comment">#headers = {&apos;User-Agent&apos;:&apos;Mozilla/5.0 3578.98 Safari/537.36&apos;}</span>
+url=<span class="hljs-string">&quot;https://bgp.he.net&quot;</span>
+headers={
+    <span class="hljs-string">&quot;Accept&quot;</span>: <span class="hljs-string">&quot;text/javascript, text/html, application/xml, text/xml, */*&quot;</span>,
+    <span class="hljs-string">&quot;Accept-Encoding&quot;</span>: <span class="hljs-string">&quot;gzip, deflate, br&quot;</span>,
+    <span class="hljs-string">&quot;Accept-Language&quot;</span>: <span class="hljs-string">&quot;zh-HK,zh;q=0.9,es;q=0.8,es-ES;q=0.7,zh-TW;q=0.6,zh-CN;q=0.5&quot;</span>,
+    <span class="hljs-string">&quot;Connection&quot;</span>: <span class="hljs-string">&quot;keep-alive&quot;</span>,
+    <span class="hljs-string">&quot;Cookie&quot;</span>: <span class="hljs-string">&quot;__utmc=83743493; __utmz=83743493.1583470913.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); c=BAgiFDE4MC4xMjUuMTg4LjIzNw%3D%3D--ddd22112e0bac2f0b2d57743ceba49bd0b15b890; _bgp_session=BAh7BzoPc2Vzc2lvbl9pZEkiJTNhNDI0MzE4YzhjOWYyNmQ4NDViNGI2MmZjMzlkMTI1BjoGRUY6EF9jc3JmX3Rva2VuSSIxWVd1SWJ3T001cSttK2NBeDdVWUczekt2WTVyNWNoeVhGVFJYakdaa0tycz0GOwZG--feddfe06b6e24b98127c61f697d0fd0bb08760e4; __utma=83743493.1539647084.1583470913.1583470913.1583474517.2; __utmb=83743493.8.10.1583474517&quot;</span>,
+    <span class="hljs-string">&quot;Host&quot;</span>: <span class="hljs-string">&quot;bgp.he.net&quot;</span>,
+    <span class="hljs-string">&quot;Origin&quot;</span>: <span class="hljs-string">&quot;https://bgp.he.net&quot;</span>,
+    <span class="hljs-string">&quot;Referer&quot;</span>: <span class="hljs-string">&quot;&quot;</span>,
+    <span class="hljs-string">&quot;Sec-Fetch-Dest&quot;</span>: <span class="hljs-string">&quot;empty&quot;</span>,
+    <span class="hljs-string">&quot;Sec-Fetch-Mode&quot;</span>: <span class="hljs-string">&quot;cors&quot;</span>,
+    <span class="hljs-string">&quot;Sec-Fetch-Site&quot;</span>: <span class="hljs-string">&quot;same-origin&quot;</span>,
+    <span class="hljs-string">&quot;User-Agent&quot;</span>: <span class="hljs-string">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.132 Safari/537.36&quot;</span>,
+    <span class="hljs-string">&quot;X-Requested-With&quot;</span>: <span class="hljs-string">&quot;XMLHttpRequest&quot;</span>
+}
+href=[]
+strs=[]
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">prints</span><span class="hljs-params">(lab)</span>:</span>
+    strss=<span class="hljs-string">&quot;&quot;</span>
+    <span class="hljs-keyword">try</span>:
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> lab.children:
+            <span class="hljs-keyword">if</span> i.name==<span class="hljs-string">&quot;a&quot;</span> <span class="hljs-keyword">and</span> str(i[<span class="hljs-string">&apos;href&apos;</span>])[<span class="hljs-number">0</span>:<span class="hljs-number">4</span>]==<span class="hljs-string">&apos;/net&apos;</span>:
+                href.append(url+str(i[<span class="hljs-string">&apos;href&apos;</span>]))
+            prints(i)
+    <span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
+        <span class="hljs-keyword">if</span> lab==<span class="hljs-string">&quot;\n&quot;</span>:
+            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+        <span class="hljs-keyword">if</span> lab.name==<span class="hljs-string">&quot;a&quot;</span>:
+            print(lab)
+        strs.append(str(lab))
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">spiderip</span><span class="hljs-params">(ip)</span>:</span>
+    <span class="hljs-keyword">global</span> url
+    <span class="hljs-keyword">global</span> headers
+    html=<span class="hljs-string">&quot;&quot;</span>
+    urls=url+<span class="hljs-string">&apos;/ip/&apos;</span>+ip
+    headers[<span class="hljs-string">&quot;Referer&quot;</span>]=urls
+    <span class="hljs-keyword">try</span>:
+        r=requests.get(urls,headers=headers)
+        html=r.text
+    <span class="hljs-keyword">except</span>:
+        <span class="hljs-keyword">return</span> {}
+    soup=BeautifulSoup(html,<span class="hljs-string">&quot;lxml&quot;</span>)
+    ipinfo=soup.find(<span class="hljs-string">&apos;div&apos;</span>,id=<span class="hljs-string">&quot;ipinfo&quot;</span>)
+    tr=ipinfo.find_all(<span class="hljs-string">&apos;tr&apos;</span>)
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> tr:
+        prints(i)
+    whois=soup.find(<span class="hljs-string">&apos;div&apos;</span>,id=<span class="hljs-string">&quot;whois&quot;</span>)
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> whois:
+        prints(i)
+    dns=soup.find(<span class="hljs-string">&apos;div&apos;</span>,id=<span class="hljs-string">&quot;dns&quot;</span>)
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> dns:
+        prints(i)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">spidernet</span><span class="hljs-params">(urls)</span>:</span>
+    <span class="hljs-keyword">global</span> headers
+    headers[<span class="hljs-string">&quot;Referer&quot;</span>]=urls
+    html=<span class="hljs-string">&quot;&quot;</span>
+    <span class="hljs-keyword">try</span>:
+        r=requests.get(url=urls,headers=headers)
+        html=r.text
+        <span class="hljs-comment">#print(html)</span>
+    <span class="hljs-keyword">except</span>:
+        <span class="hljs-keyword">return</span> {}
+    soup=BeautifulSoup(html,<span class="hljs-string">&quot;lxml&quot;</span>)
+    netinfo=soup.find(<span class="hljs-string">&apos;div&apos;</span>,id=<span class="hljs-string">&quot;netinfo&quot;</span>)
+    <span class="hljs-comment">#print(netinfo)</span>
+    tr=netinfo.find_all(<span class="hljs-string">&apos;tr&apos;</span>)
+    print(tr)
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> tr:
+        prints(i)
+    whois=soup.find(<span class="hljs-string">&apos;div&apos;</span>,id=<span class="hljs-string">&quot;whois&quot;</span>)
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> whois:
+        prints(i)
+    dns=soup.find(<span class="hljs-string">&apos;div&apos;</span>,id=<span class="hljs-string">&quot;dns&quot;</span>)
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> dns:
+        prints(i)
+
+
+
+<span class="hljs-keyword">if</span> __name__==<span class="hljs-string">&quot;__main__&quot;</span>:
+    spiderip(<span class="hljs-string">&quot;120.77.176.157&quot;</span>)
+    print(href)
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> href:
+        spidernet(i)
+    f=open(<span class="hljs-string">&quot;./www.txt&quot;</span>,<span class="hljs-string">&quot;ab&quot;</span>)
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> strs:
+        k=i.replace(<span class="hljs-string">&quot;,&quot;</span>,<span class="hljs-string">&quot;&quot;</span>)
+        f.write(bytes(k,<span class="hljs-string">&apos;UTF-8&apos;</span>))
+        f.write(bytes(<span class="hljs-string">&quot;\n&quot;</span>,<span class="hljs-string">&apos;UTF-8&apos;</span>))
+</code></pre>
+<h2 id="&#x53C2;&#x8003;">&#x53C2;&#x8003;</h2>
+<p><a href="https://www.liaoxuefeng.com/wiki/1016959663602400&#xFF0C;&#x5ED6;&#x96EA;&#x5CF0;" target="_blank">https://www.liaoxuefeng.com/wiki/1016959663602400&#xFF0C;&#x5ED6;&#x96EA;&#x5CF0;</a></p>
+<p><a href="https://www.cnblogs.com/lanyinhao/p/9634742.html" target="_blank">https://www.cnblogs.com/lanyinhao/p/9634742.html</a></p>
+<p><a href="https://www.cnblogs.com/zhangxinqi/p/9170312.html" target="_blank">https://www.cnblogs.com/zhangxinqi/p/9170312.html</a></p>
+<p><a href="https://www.cnblogs.com/zhangxinqi/p/9218395.html" target="_blank">https://www.cnblogs.com/zhangxinqi/p/9218395.html</a></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../php基础-留言板/README.md" class="navigation navigation-prev navigation-unique" aria-label="Previous page: php基础-留言板">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"python基础-查询api","level":"1.3.6","depth":2,"next":{"title":"前端安全","level":"1.4","depth":1,"ref":"","articles":[{"title":"跨站脚本攻击-XSS","level":"1.4.1","depth":2,"path":"跨站脚本攻击-XSS/README.md","ref":"跨站脚本攻击-XSS/README.md","articles":[]},{"title":"跨站请求伪造-CSRF","level":"1.4.2","depth":2,"path":"跨站请求伪造-CSRF/README.md","ref":"跨站请求伪造-CSRF/README.md","articles":[]},{"title":"CORS配置错误","level":"1.4.3","depth":2,"path":"CORS配置错误/README.md","ref":"CORS配置错误/README.md","articles":[]},{"title":"Web缓存泄露","level":"1.4.4","depth":2,"path":"Web缓存泄露/README.md","ref":"Web缓存泄露/README.md","articles":[]}]},"previous":{"title":"php基础-留言板","level":"1.3.5","depth":2,"path":"php基础-留言板/README.md","ref":"php基础-留言板/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"python基础-查询api/README.md","mtime":"2020-03-07T10:02:33.859Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-07T13:33:06.131Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

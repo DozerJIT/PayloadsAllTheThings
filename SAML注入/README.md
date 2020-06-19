@@ -1,17 +1,17 @@
-# SAML Injection
+# SAML 注入
 
-> Security Assertion Markup Language (SAML) is an open standard that allows security credentials to be shared by multiple computers across a network. When using SAML-based Single Sign-On (SSO), three distinct parties are involved. There is a user (the so-called principal), an IDentity Provider (IDP), and a cloud application Service Provider (SP).  - centrify
+> 安全声明标记语言 (SAML) 是一个开放标准，允许安全凭证有网络上多台计算机进行共享。使用基于SAML的单一登陆时(SSO)，涉及到三个部分，一个用户(所谓的委托人)，一个IDentity Provider(IDP)和一个云应用程序服务提供商(SP) -- centrify
 
-## Summary
+## 概要
 
 * [Tools](#tools)
 * [Authentication Bypass](#authentication-bypass)
-  * [Invalid Signature](#invalid-signature)
-  * [Signature Stripping](#signature-stripping)
-  * [XML Signature Wrapping Attacks](#xml-signature-wrapping-attacks)
-  * [XML Comment Handling](#xml-comment-handling)
-  * [XML External Entity](#xml-external-entity)
-  * [Extensible Stylesheet Language Transformation](#extensible-stylesheet-language-transformation)
+	* [Invalid Signature](#invalid-signature)
+	* [Signature Stripping](#signature-stripping)
+	* [XML Signature Wrapping Attacks](#xml-signature-wrapping-attacks)
+	* [XML Comment Handling](#xml-comment-handling)
+	* [XML External Entity](#xml-external-entity)
+	* [Extensible Stylesheet Language Transformation](#extensible-stylesheet-language-transformation)
 
 ## Tools
 
@@ -20,19 +20,19 @@
 
 ## Authentication Bypass
 
-A SAML Response should contain the `<samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"`.
+SAML响应应该包含`<samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"`.
 
 ### Invalid Signature
 
-Signatures which are not signed by a real CA are prone to cloning. Ensure the signature is signed by a real CA. If the certificate is self-signed, you may be able to clone the certificate or create your own self-signed certificate to replace it.
+未经真实CA签名的签名容易被克隆。请确保签名是由真实的CA签名的。如果证书是自签名的，则可以克隆该证书或创建自己的自签名证书来替换它。
 
 ### Signature Stripping
 
 > [...]accepting unsigned SAML assertions is accepting a username without checking the password - @ilektrojohn
 
-The goal is to forge a well formed SAML Assertion without signing it. For some default configurations if the signature section is omitted from a SAML response, then no signature verification is performed.
+目标是在不签名的情况下创建一个格式良好的SAML断言。对于某些默认配置，如果在SAML响应中省略签名部分，则不执行签名验证。
 
-Example of SAML assertion where `NameID=admin` without signature.
+SAML断言的示例，其中“NameID=admin”没有签名.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -65,23 +65,23 @@ Example of SAML assertion where `NameID=admin` without signature.
 
 ### XML Signature Wrapping Attacks
 
-XML Signature Wrapping (XSW) attack, some implementations check for a valid signature and match it to a valid assertion, but do not check for multiple assertions, multiple signatures, or behave differently depending on the order of assertions.
+XML签名包装（XSW）攻击，有些实现检查有效签名并将其与有效断言匹配，但不检查多个断言、多个签名，或根据断言的顺序采取不同的行为。
 
-- XSW1 – Applies to SAML Response messages. Add a cloned unsigned copy of the Response after the existing signature.
-- XSW2 – Applies to SAML Response messages. Add a cloned unsigned copy of the Response before the existing signature.
-- XSW3 – Applies to SAML Assertion messages. Add a cloned unsigned copy of the Assertion before the existing Assertion.
-- XSW4 – Applies to SAML Assertion messages. Add a cloned unsigned copy of the Assertion after the existing Assertion.
-- XSW5 – Applies to SAML Assertion messages. Change a value in the signed copy of the Assertion and adds a copy of the original Assertion with the signature removed at the end of the SAML message.
-- XSW6 – Applies to SAML Assertion messages. Change a value in the signed copy of the Assertion and adds a copy of the original Assertion with the signature removed after the original signature.
-- XSW7 – Applies to SAML Assertion messages. Add an “Extensions” block with a cloned unsigned assertion.
-- XSW8 – Applies to SAML Assertion messages. Add an “Object” block containing a copy of the original assertion with the signature removed.
+- XSW1–适用于SAML响应消息。在现有签名之后添加响应的克隆未签名副本。
+- XSW2–适用于SAML响应消息。在现有签名之前添加响应的克隆未签名副本。
+- XSW3–适用于SAML断言消息。在现有断言之前添加断言的克隆未签名副本。
+- XSW4–适用于SAML响应消息。在现有签名之后添加响应的克隆未签名副本。
+- XSW5–适用于SAML断言消息。更改断言的签名副本中的值，并添加原始断言的副本，在SAML消息的末尾删除签名。
+- XSW6–适用于SAML断言消息。更改断言的签名副本中的值，并添加原始断言的副本，在原始签名之后删除签名。
+- XSW7–适用于SAML断言消息。添加带有克隆的无符号断言的“扩展”块。
+- XSW8–适用于SAML断言消息。添加一个“Object”块，其中包含删除签名的原始断言的副本。
 
 
-In the following example, these terms are used.
+在下面的示例中，将使用这些术语。
 
-- FA: Forged Assertion
-- LA: Legitimate Assertion
-- LAS: Signature of the Legitimate Assertion
+- FA：伪造的断言
+- LA:   合法主张
+- LAS:   合法主张的签名
 
 ```xml
 <SAMLResponse>
@@ -98,12 +98,12 @@ In the following example, these terms are used.
 </SAMLResponse>
 ```
 
-In the Github Enterprise vulnerability, this request would verify and create a sessions for `Attacker` instead of `Legitimate User`, even if `FA` is not signed.
+在Github企业漏洞中，此请求将验证并为“攻击者”而不是“合法用户”创建会话，即使“FA”未签名。
 
 
 ### XML Comment Handling
 
-A threat actor who already has authenticated access into a SSO system can authenticate as another user without that individual’s SSO password. This [vulnerability](https://www.bleepstatic.com/images/news/u/986406/attacks/Vulnerabilities/SAML-flaw.png) has multiple CVE in the following libraries and products.
+已经对SSO系统的访问进行了身份验证的威胁参与者可以作为另一个用户进行身份验证，而无需该用户的SSO密码。此[漏洞]（https://www.bleepstatic.com/images/news/u/986406/attacks/Vulnerabilities/SAML-flucture.png）在以下库和产品中具有多个CVE。
 
 - OneLogin - python-saml - CVE-2017-11427
 - OneLogin - ruby-saml - CVE-2017-11428
@@ -112,7 +112,7 @@ A threat actor who already has authenticated access into a SSO system can authen
 - Shibboleth - CVE-2018-0489
 - Duo Network Gateway - CVE-2018-7340
 
-Researchers have noticed that if an attacker inserts a comment inside the username field in such a way that it breaks the username, the attacker might gain access to a legitimate user's account.
+研究人员已经注意到，如果攻击者在用户名字段中插入注释，从而破坏用户名，则攻击者可能获得对合法用户帐户的访问权限。
 
 ```xml
 <SAMLResponse>
@@ -121,15 +121,17 @@ Researchers have noticed that if an attacker inserts a comment inside the userna
         <Subject>
             <NameID>user@user.com<!--XMLCOMMENT-->.evil.com</NameID>
 ```
-Where `user@user.com` is the first part of the username, and `.evil.com` is the second.
+
+其中“user@user.com”是用户名的第一部分，“evil.com”是第二部分。
 
 ### XML External Entity
 
-An alternative exploitation would use `XML entities` to bypass the signature verification, since the content will not change, except during XML parsing.
+另一种利用此漏洞的方法是使用“XML entities”绕过签名验证，因为除了在XML解析期间，内容不会更改。
 
 In the following example:
-- `&s;` will resolve to the string `"s"`
-- `&f1;` will resolve to the string `"f1"`
+
+- `&s;`将解析为字符串`"s"`
+- `&f1;` 将解析为字符串 `"f1"`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -154,12 +156,12 @@ In the following example:
 </saml2p:Response>
 ```
 
-The SAML response is accepted by the service provider. Due to the vulnerability, the service provider application reports "taf" as the value of the "uid" attribute.
+服务提供者接受SAML响应。由于该漏洞，服务提供程序应用程序将“taf”报告为“uid”属性的值。
 
 
 ### Extensible Stylesheet Language Transformation
 
-An XSLT can be carried out by using the `transform` element.
+可以使用“transform”元素执行XSLT。
 
 ![http://sso-attacks.org/images/4/49/XSLT1.jpg](http://sso-attacks.org/images/4/49/XSLT1.jpg)    
 Picture from [http://sso-attacks.org/XSLT_Attack](http://sso-attacks.org/XSLT_Attack)    

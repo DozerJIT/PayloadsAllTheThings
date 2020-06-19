@@ -1,10 +1,10 @@
-# XPATH injection
+# XPATH 注入
 
-XPath Injection is an attack technique used to exploit applications that construct XPath (XML Path Language) queries from user-supplied input to query or navigate XML documents.
+> XPath注入是一种攻击方式利用那些可以解析用户提供的XPath(XML Path语言)查询来查看或者浏览XML文档（运行）。
 
 ## Exploitation
 
-Similar to SQL : `"string(//user[name/text()='" +vuln_var1+ "' and password/text()=’" +vuln_var1+ "']/account/text())"`
+和SQL比较类似 : `"string(//user[name/text()='" +vuln_var1+ "' and password/text()=’" +vuln_var1+ "']/account/text())"`
 
 ```sql
 ' or '1'='1
@@ -37,3 +37,4 @@ substring(//user[userid=5]/username,2,1)=codepoints-to-string(INT_ORD_CHAR_HERE)
 
 * [OWASP XPATH Injection](https://www.owasp.org/index.php/Testing_for_XPath_Injection_(OTG-INPVAL-010))
 * [XPATH Blind Explorer](http://code.google.com/p/xpath-blind-explorer/)
+

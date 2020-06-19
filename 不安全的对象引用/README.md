@@ -1,8 +1,8 @@
-# Insecure Direct Object References
+# 不安全的对象引用
 
-> Insecure Direct Object References occur when an application provides direct access to objects based on user-supplied input. As a result of this vulnerability attackers can bypass authorization and access resources in the system directly, for example database records or files.  - OWASP
+> 当应用程序基于用户提供的输入开放对于对象的直接访问时，会发生不安全的直接对象引用。由于这个漏洞，攻击者可以绕过授权并且直接访问系统中的资源，比如数据库的记录或者文件 - OWASP
 
-## Summary
+## 摘要
 
 * [Tools](#tools)
 * [Exploit](#exploit)
@@ -19,25 +19,25 @@
 
 ![https://lh5.googleusercontent.com/VmLyyGH7dGxUOl60h97Lr57F7dcnDD8DmUMCZTD28BKivVI51BLPIqL0RmcxMPsmgXgvAqY8WcQ-Jyv5FhRiCBueX9Wj0HSCBhE-_SvrDdA6_wvDmtMSizlRsHNvTJHuy36LG47lstLpTqLK](https://raw.githubusercontent.com/swisskyrepo/PayloadsAllTheThings/master/Insecure%20Direct%20Object%20References/Images/idor.png)
 
-The value of a parameter is used directly to retrieve a database record.
+参数的值直接用于检索数据库记录
 
 ```powershell
 http://foo.bar/somepage?invoice=12345
 ```
 
-The value of a parameter is used directly to perform an operation in the system
+参数的值直接用于在系统中执行操作
 
 ```powershell
 http://foo.bar/changepassword?user=someuser
 ```
 
-The value of a parameter is used directly to retrieve a file system resource
+参数的值直接用于检索文件系统资源
 
 ```powershell
 http://foo.bar/showImage?img=img00011
 ```
 
-The value of a parameter is used directly to access application functionality
+参数的值直接用于访问应用程序功能
 
 ```powershell
 http://foo.bar/accessPage?menuitem=12

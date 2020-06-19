@@ -1,0 +1,29 @@
+{
+    "title" : "Dozer Web手册",
+    "author" : "Dozer",
+    "description" : "旨在为网络安全专业学生或者CTF-Web方向选手提供一个比较系统的参考文档",
+    "language" : "zh-hans",
+    "plugins": [
+            "github", 
+            "expandable-chapters-small",
+            "splitter",
+            "-lunr", 
+            "-search", 
+            "search-pro",
+            "copy-code-button",
+            "back-to-top-button",
+            "tbfed-pagefooter",
+            "pageview-count",
+            "popup"
+    ],
+    "pluginsConfig": {
+            "github": {
+                "url": "http://git.dozerjit.club:8086/Edgaraaa/PayloadsAllTheThings"
+            },
+            "tbfed-pagefooter": {
+                "copyright":"@Dozer security community",
+                "modify_label": "Last Modified On：",
+                "modify_format": "YYYY-MM-DD HH:mm:ss"
+            }
+    }
+}

