@@ -16,7 +16,7 @@
 
 * swisskyrepo以及他在GitHub上提供的项目
 * 这里感谢花费时间进行翻译的林最，李可馨，李昱辰同学
-* 感谢[@katherine](http://katherinehu.info/)，[@youki992](https://www.cnblogs.com/echoDetected/)，[@lalala](https://st12138.github.io/)对Wiki内容进行补充，以及@程栋斌对于Wiki中出现的错误进行指出。
+* 感谢[@katherine](http://katherinehu.info/)，[@youki992](https://www.cnblogs.com/echoDetected/)，[@lalala](https://st12138.github.io/)，[@KyPianistC](https://www.cnblogs.com/Ky1226/p/14198581.html)对Wiki内容进行补充，以及@程栋斌对于Wiki中出现的错误进行指出。
 
 # (/≧▽≦)/pull request
 
